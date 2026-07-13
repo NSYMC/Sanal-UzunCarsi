@@ -1,9 +1,9 @@
-# Sanal-UzunCarsi: Sanal Gerçeklik ve E-Ticaret Simülasyonu
+# Sanal-UzunCarsi: 3D Gezinti ve E-Ticaret Uygulaması
 
-Bu proje, Kahramanmaraş'ın tarihi dokularından biri olan **Uzun Çarşı**'yı dijital dünyaya taşımayı amaçlayan yenilikçi bir staj projesidir. Proje kapsamında kullanıcılar, sanal ortamda çarşıyı gezebilecek, esnafın dükkanlarına yaklaşarak vitrinlerdeki ürünleri üç boyutlu olarak inceleyebilecek ve fiyatlarını anlık olarak görebileceklerdir.
+Bu çalışma, bir staj görevi kapsamında Kahramanmaraş Uzun Çarşı'nın dijital ortamda modellenmesini ve web üzerinden gezilebilir hale getirilmesini amaçlamaktadır. Projede, kullanıcıların çarşıyı sanal olarak gezmesi ve dükkanlardaki ürünlerin fiyatlarını görüntüleyebileceği bir sistem geliştirilmektedir.
 
-## Projenin Amacı ve Vizyonu
-Geleneksel alışveriş kültürünü modern teknolojilerle birleştirmeyi hedefleyen bu simülasyon, tarihi ticaret merkezlerini e-ticaret ekosistemine entegre eden bir öncü prototiptir. Sistem, 3D topografya modellemesi ve web tabanlı VR teknolojilerini kullanarak kullanıcılara gerçekçi bir deneyim sunar. 
+## Projenin Amacı
+Sistem, gerçek coğrafi verilerin işlenmesi ve web tabanlı 3D teknolojileri (Babylon.js) kullanılarak oluşturulmaktadır. Temel görev, tarihi çarşı alanını modelleyerek e-ticaret verilerinin 3D ortamda gösterilmesini sağlayacak bir altyapı kurmaktır.
 
 ### Temel Hedefler:
 - Tarihi çarşının gerçek coğrafi koordinatlara (37.5846 Enlem, 36.9272 Boylam) sadık kalınarak 1:1 ölçekte modellenmesi.
