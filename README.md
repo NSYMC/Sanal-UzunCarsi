@@ -13,8 +13,11 @@ Geleneksel alışveriş kültürünü modern teknolojilerle birleştirmeyi hedef
 ## Ekran Görüntüleri ve İlerleme
 *(Not: Blender üzerinden çekilen gerçek dünya (topografya ve uydu) verilerinin 3D modellenmiş render görüntüleri buraya eklenecektir. Bu modeller Babylon.js ortamına aktarılarak web üzerinden gezilebilir hale getirilecektir.)*
 
-![Blender Arazi Modeli](./public/screenshot1.png)
-*(Örnek Görsel Yeri)*
+![Kahramanmaraş Uzun Çarşı ve Dağlar (Açılı Görünüm)](./public/screenshot1.png)
+*Blender: Gerçek Topografya ve Ultra-Çözünürlük Uydu İşlemesi (Açılı Görünüm)*
+
+![Kahramanmaraş Geniş Alan (Tepe Görünüm)](./public/screenshot2.png)
+*Blender: 27 Kilometrelik Alanın Tamamının Tepeden Görünümü*
 
 ## Mimari ve Kullanılan Teknolojiler
 
