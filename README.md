@@ -10,6 +10,12 @@ Geleneksel alışveriş kültürünü modern teknolojilerle birleştirmeyi hedef
 - WebGL ve Babylon.js altyapısı kullanılarak tarayıcı üzerinden yüksek performanslı 3D gezinti imkanı sağlanması.
 - Dükkanların sanal vitrinleriyle etkileşime girerek dinamik e-ticaret verilerinin (ürün, stok, fiyat) kullanıcıya sunulması.
 
+## Ekran Görüntüleri ve İlerleme
+*(Not: Blender üzerinden çekilen gerçek dünya (topografya ve uydu) verilerinin 3D modellenmiş render görüntüleri buraya eklenecektir. Bu modeller Babylon.js ortamına aktarılarak web üzerinden gezilebilir hale getirilecektir.)*
+
+![Blender Arazi Modeli](./public/screenshot1.png)
+*(Örnek Görsel Yeri)*
+
 ## Mimari ve Kullanılan Teknolojiler
 
 Proje üç ana katmandan oluşmaktadır:
