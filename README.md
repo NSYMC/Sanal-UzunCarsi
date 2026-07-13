@@ -1,4 +1,4 @@
-# Kahramanmaraş Uzun Çarşı: Sanal Gerçeklik ve E-Ticaret Simülasyonu
+# Sanal-UzunCarsi: Sanal Gerçeklik ve E-Ticaret Simülasyonu
 
 Bu proje, Kahramanmaraş'ın tarihi dokularından biri olan **Uzun Çarşı**'yı dijital dünyaya taşımayı amaçlayan yenilikçi bir staj projesidir. Proje kapsamında kullanıcılar, sanal ortamda çarşıyı gezebilecek, esnafın dükkanlarına yaklaşarak vitrinlerdeki ürünleri üç boyutlu olarak inceleyebilecek ve fiyatlarını anlık olarak görebileceklerdir.
 
