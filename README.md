@@ -13,11 +13,8 @@ Sistem, gerçek coğrafi verilerin işlenmesi ve web tabanlı 3D teknolojileri (
 ## Ekran Görüntüleri ve İlerleme
 *(Not: Blender üzerinden çekilen gerçek dünya (topografya ve uydu) verilerinin 3D modellenmiş render görüntüleri buraya eklenecektir. Bu modeller Babylon.js ortamına aktarılarak web üzerinden gezilebilir hale getirilecektir.)*
 
-![Kahramanmaraş Uzun Çarşı ve Dağlar (Açılı Görünüm)](./public/screenshot1.png)
-*Blender: Gerçek Topografya ve Ultra-Çözünürlük Uydu İşlemesi (Açılı Görünüm)*
-
-![Kahramanmaraş Geniş Alan (Tepe Görünüm)](./public/screenshot2.png)
-*Blender: 27 Kilometrelik Alanın Tamamının Tepeden Görünümü*
+![Kahramanmaraş Uzun Çarşı ve Dağlar (Tepe Görünümü)](./public/screenshot_topdown_3d.png)
+*Blender: 27 Kilometrelik Alanın Tamamının 3 Boyutlu Topografyası (Tepe Görünümü)*
 
 ## Mimari ve Kullanılan Teknolojiler
 
