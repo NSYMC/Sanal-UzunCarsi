@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+__pycache__/
+*.pyc
+
+# Massive generated assets (Github limit 100MB)
+public/texture.jpg
+public/heightmap.png
+terrain.blend
+terrain.blend1
+*.glb
