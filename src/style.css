@@ -5,6 +5,7 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
 }
 
 #renderCanvas {
@@ -12,4 +13,156 @@ html, body {
   height: 100%;
   touch-action: none;
   outline: none;
+  display: block;
+}
+
+#crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  transition: opacity 0.3s ease;
+}
+
+#uiOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(0,0,0,0);
+  transition: background-color 0.5s ease;
+}
+
+#uiOverlay.active {
+  pointer-events: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+#uiOverlay.active + #crosshair {
+  opacity: 0; /* Hide crosshair when UI is open */
+}
+
+#sideMenu {
+  width: 400px;
+  height: 100%;
+  background: rgba(20, 20, 22, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255,255,255,0.1);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  color: white;
+}
+
+#uiOverlay.active #sideMenu {
+  transform: translateX(0);
+}
+
+#closeBtn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 30px;
+  transition: color 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+#closeBtn:hover {
+  color: #fff;
+}
+
+.product-image-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+#productBrand {
+  font-size: 14px;
+  font-weight: 600;
+  color: #a8b0c3;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 8px 0;
+}
+
+#productName {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+#productDesc {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.price-label {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+#productPrice {
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+}
+
+#buyBtn {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  margin-top: auto;
+}
+
+#buyBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.6);
+}
+
+.hidden {
+  display: none !important;
 }

@@ -5,9 +5,35 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sanal Uzun Çarşı</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- Babylon.js Canvas -->
     <canvas id="renderCanvas"></canvas>
+
+    <!-- Crosshair for precise clicking in VR/FPV -->
+    <div id="crosshair"></div>
+
+    <!-- UI Overlay: Hidden by default -->
+    <div id="uiOverlay" class="hidden">
+      <!-- Right Side Menu -->
+      <div id="sideMenu">
+        <button id="closeBtn">✕ Kapat</button>
+        <div class="product-image-placeholder"></div>
+        <h2 id="productBrand">Marka Adı</h2>
+        <h1 id="productName">Ürün Adı</h1>
+        <p id="productDesc">Bu ürün hakkında kısa ve etkili bir açıklama metni burada yer alacak.</p>
+        <div class="price-container">
+          <span class="price-label">Fiyat</span>
+          <span id="productPrice">₺0.00</span>
+        </div>
+        <button id="buyBtn">Sepete Ekle</button>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
