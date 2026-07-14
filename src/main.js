@@ -1,8 +1,8 @@
 import './style.css';
 import { 
-    Engine, Scene, Vector3, HemisphericLight, MeshBuilder, UniversalCamera, 
-    StandardMaterial, Color3, ActionManager, ExecuteCodeAction, Animation, 
-    CubicEase, EasingFunction
+    Engine, Scene, Vector3, HemisphericLight, DirectionalLight, MeshBuilder, UniversalCamera, 
+    PBRMaterial, Color3, ActionManager, ExecuteCodeAction, Animation, 
+    CubicEase, EasingFunction, ShadowGenerator, DefaultRenderingPipeline, DepthOfFieldEffectBlurLevel
 } from '@babylonjs/core';
 
 const canvas = document.getElementById('renderCanvas');
@@ -20,9 +20,12 @@ let originalPosition = null;
 let originalRotation = null;
 let camera = null;
 let scene = null;
+let shadowGenerator = null;
+let pipeline = null;
 
 const createScene = () => {
     scene = new Scene(engine);
+    scene.clearColor = new Color3(0.05, 0.05, 0.06);
     
     camera = new UniversalCamera('vrCamera', new Vector3(0, 1.7, -4), scene);
     camera.setTarget(new Vector3(0, 1.7, 0));
@@ -36,9 +39,34 @@ const createScene = () => {
     camera.inertia = 0.8;
     camera.minZ = 0.1;
 
-    const light = new HemisphericLight('envLight', new Vector3(0.5, 1, 0.2), scene);
-    light.intensity = 0.9;
-    light.groundColor = new Color3(0.2, 0.2, 0.2);
+    const ambientLight = new HemisphericLight('ambientLight', new Vector3(0, 1, 0), scene);
+    ambientLight.intensity = 0.3; 
+    ambientLight.groundColor = new Color3(0.1, 0.1, 0.1);
+
+    const dirLight = new DirectionalLight("dirLight", new Vector3(-1, -2, -1), scene);
+    dirLight.position = new Vector3(5, 10, 5);
+    dirLight.intensity = 1.5;
+    
+    shadowGenerator = new ShadowGenerator(1024, dirLight);
+    shadowGenerator.useBlurExponentialShadowMap = true;
+    shadowGenerator.blurKernel = 16;
+
+    pipeline = new DefaultRenderingPipeline("defaultPipeline", true, scene, [camera]);
+    pipeline.samples = 2; 
+    pipeline.fxaaEnabled = true; 
+    
+    pipeline.bloomEnabled = true;
+    pipeline.bloomThreshold = 0.6;
+    pipeline.bloomWeight = 0.8;
+    
+    pipeline.imageProcessingEnabled = true;
+    pipeline.imageProcessing.toneMappingEnabled = true;
+    pipeline.imageProcessing.toneMappingType = 1; 
+    
+    pipeline.depthOfFieldEnabled = false; 
+    pipeline.depthOfField.focusDistance = 1000; 
+    pipeline.depthOfField.focalLength = 50; 
+    pipeline.depthOfField.fStop = 1.4;
 
     buildStore(scene);
 
@@ -50,33 +78,46 @@ const createScene = () => {
 };
 
 const buildStore = (scene) => {
-    const ground = MeshBuilder.CreateGround('storeFloor', { width: 10, height: 10 }, scene);
-    const groundMat = new StandardMaterial('floorMat', scene);
-    groundMat.diffuseColor = new Color3(0.12, 0.12, 0.15);
-    groundMat.specularColor = new Color3(0.05, 0.05, 0.05);
+    const ground = MeshBuilder.CreateGround('storeFloor', { width: 15, height: 15 }, scene);
+    const groundMat = new PBRMaterial('floorMat', scene);
+    groundMat.albedoColor = new Color3(0.08, 0.08, 0.1);
+    groundMat.metallic = 0.2;
+    groundMat.roughness = 0.6;
     ground.material = groundMat;
+    ground.receiveShadows = true;
 
-    const wallMat = new StandardMaterial('wallMat', scene);
-    wallMat.diffuseColor = new Color3(0.85, 0.85, 0.88);
+    const wallMat = new PBRMaterial('wallMat', scene);
+    wallMat.albedoColor = new Color3(0.2, 0.2, 0.22);
+    wallMat.metallic = 0.0;
+    wallMat.roughness = 0.9;
 
-    const backWall = MeshBuilder.CreateBox('backWall', { width: 10, height: 4, depth: 0.2 }, scene);
-    backWall.position = new Vector3(0, 2, 5);
+    const backWall = MeshBuilder.CreateBox('backWall', { width: 15, height: 5, depth: 0.2 }, scene);
+    backWall.position = new Vector3(0, 2.5, 5);
     backWall.material = wallMat;
+    backWall.receiveShadows = true;
 
-    const leftWall = MeshBuilder.CreateBox('leftWall', { width: 0.2, height: 4, depth: 10 }, scene);
-    leftWall.position = new Vector3(-5, 2, 0);
+    const leftWall = MeshBuilder.CreateBox('leftWall', { width: 0.2, height: 5, depth: 15 }, scene);
+    leftWall.position = new Vector3(-5, 2.5, 0);
     leftWall.material = wallMat;
+    leftWall.receiveShadows = true;
 
-    const rightWall = MeshBuilder.CreateBox('rightWall', { width: 0.2, height: 4, depth: 10 }, scene);
-    rightWall.position = new Vector3(5, 2, 0);
+    const rightWall = MeshBuilder.CreateBox('rightWall', { width: 0.2, height: 5, depth: 15 }, scene);
+    rightWall.position = new Vector3(5, 2.5, 0);
     rightWall.material = wallMat;
+    rightWall.receiveShadows = true;
     
     const createPedestal = (x, z) => {
         const ped = MeshBuilder.CreateCylinder('ped', { diameter: 0.6, height: 1 }, scene);
         ped.position = new Vector3(x, 0.5, z);
-        const pedMat = new StandardMaterial('pedMat', scene);
-        pedMat.diffuseColor = new Color3(0.25, 0.25, 0.25);
+        
+        const pedMat = new PBRMaterial('pedMat', scene);
+        pedMat.albedoColor = new Color3(0.1, 0.1, 0.12);
+        pedMat.metallic = 0.8; 
+        pedMat.roughness = 0.3;
         ped.material = pedMat;
+        
+        shadowGenerator.getShadowMap().renderList.push(ped);
+        ped.receiveShadows = true;
     };
     
     createPedestal(-1.5, 1.5);
@@ -88,18 +129,23 @@ const createProduct = (scene, id, brand, name, desc, price, position, color) => 
     const mesh = MeshBuilder.CreateBox(id, { width: 0.5, height: 0.7, depth: 0.1 }, scene);
     mesh.position = position.clone();
     
-    const mat = new StandardMaterial(id + "_mat", scene);
-    mat.diffuseColor = color;
-    mat.specularColor = new Color3(0.1, 0.1, 0.1);
+    const mat = new PBRMaterial(id + "_mat", scene);
+    mat.albedoColor = color;
+    mat.metallic = 0.1; 
+    mat.roughness = 0.7; 
     mesh.material = mat;
+    
+    shadowGenerator.getShadowMap().renderList.push(mesh);
     
     mesh.metadata = { brand, name, desc, price };
     
     mesh.actionManager = new ActionManager(scene);
     
     mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOverTrigger, () => {
-        if(!activeProduct) document.getElementById('renderCanvas').style.cursor = 'pointer';
-        mat.emissiveColor = new Color3(0.2, 0.2, 0.2);
+        if(!activeProduct) {
+            document.getElementById('renderCanvas').style.cursor = 'pointer';
+            mat.emissiveColor = color.scale(0.8); 
+        }
     }));
     
     mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOutTrigger, () => {
@@ -114,34 +160,28 @@ const createProduct = (scene, id, brand, name, desc, price, position, color) => 
     }));
 };
 
-const animateMesh = (mesh, targetPos, targetRot, onEnd) => {
+const animateValue = (target, property, startValue, endValue, onEnd) => {
     const frameRate = 60;
     const duration = 1.0; 
     
-    const posAnim = new Animation("posAnim", "position", frameRate, Animation.ANIMATIONTYPE_VECTOR3, Animation.ANIMATIONLOOPMODE_CONSTANT);
-    const posKeys = [
-        { frame: 0, value: mesh.position },
-        { frame: frameRate * duration, value: targetPos }
+    const anim = new Animation("anim", property, frameRate, 
+        typeof startValue === "number" ? Animation.ANIMATIONTYPE_FLOAT : Animation.ANIMATIONTYPE_VECTOR3, 
+        Animation.ANIMATIONLOOPMODE_CONSTANT);
+        
+    const keys = [
+        { frame: 0, value: startValue },
+        { frame: frameRate * duration, value: endValue }
     ];
-    posAnim.setKeys(posKeys);
-    
-    const rotAnim = new Animation("rotAnim", "rotation", frameRate, Animation.ANIMATIONTYPE_VECTOR3, Animation.ANIMATIONLOOPMODE_CONSTANT);
-    const rotKeys = [
-        { frame: 0, value: mesh.rotation },
-        { frame: frameRate * duration, value: targetRot }
-    ];
-    rotAnim.setKeys(rotKeys);
+    anim.setKeys(keys);
     
     const easingFunction = new CubicEase();
     easingFunction.setEasingMode(EasingFunction.EASINGMODE_EASEINOUT);
-    posAnim.setEasingFunction(easingFunction);
-    rotAnim.setEasingFunction(easingFunction);
+    anim.setEasingFunction(easingFunction);
     
-    mesh.animations = [];
-    mesh.animations.push(posAnim);
-    mesh.animations.push(rotAnim);
+    target.animations = target.animations || [];
+    target.animations.push(anim);
     
-    scene.beginAnimation(mesh, 0, frameRate * duration, false, 1.0, onEnd);
+    scene.beginAnimation(target, 0, frameRate * duration, false, 1.0, onEnd);
 };
 
 let idleRotationObserver = null;
@@ -152,15 +192,14 @@ const openProductView = (mesh) => {
     originalRotation = mesh.rotation.clone();
     
     camera.detachControl();
-    
     document.getElementById('renderCanvas').style.cursor = 'default';
     
     const cameraForward = camera.getDirection(Vector3.Forward());
     const cameraRight = camera.getDirection(Vector3.Right());
     
-    const targetPos = camera.position.add(cameraForward.scale(1.2));
+    const targetPos = camera.position.add(cameraForward.scale(1.0)); 
     targetPos.subtractInPlace(cameraRight.scale(0.35)); 
-    targetPos.y -= 0.1;
+    targetPos.y -= 0.05;
     
     const targetRot = new Vector3(0, camera.rotation.y, 0);
     
@@ -169,7 +208,11 @@ const openProductView = (mesh) => {
     productDesc.innerText = mesh.metadata.desc;
     productPrice.innerText = mesh.metadata.price;
     
-    animateMesh(mesh, targetPos, targetRot, () => {
+    pipeline.depthOfFieldEnabled = true;
+    
+    mesh.animations = []; 
+    animateValue(mesh, "position", mesh.position, targetPos);
+    animateValue(mesh, "rotation", mesh.rotation, targetRot, () => {
         uiOverlay.classList.remove('hidden');
         void uiOverlay.offsetWidth;
         uiOverlay.classList.add('active');
@@ -193,8 +236,13 @@ const closeProductView = () => {
             idleRotationObserver = null;
         }
         
-        animateMesh(activeProduct, originalPosition, originalRotation, () => {
+        pipeline.depthOfFieldEnabled = false;
+        
+        activeProduct.animations = [];
+        animateValue(activeProduct, "position", activeProduct.position, originalPosition);
+        animateValue(activeProduct, "rotation", activeProduct.rotation, originalRotation, () => {
             activeProduct.rotation.y = 0; 
+            activeProduct.material.emissiveColor = new Color3(0,0,0);
             activeProduct = null;
             camera.attachControl(canvas, true);
         });
