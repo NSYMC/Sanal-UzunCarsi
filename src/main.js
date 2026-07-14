@@ -70,15 +70,15 @@ const createScene = () => {
 
     buildStore(scene);
 
-    createProduct(scene, "id_1", "Maraş İpliği", "Klasik Kesim T-Shirt", "100% Pamuklu, Kahramanmaraş üretimi yüksek kaliteli kumaş.", "₺450.00", new Vector3(-1.5, 1.35, 1.5), new Color3(0.8, 0.2, 0.2));
-    createProduct(scene, "id_2", "Uzun Çarşı Butik", "Oversize Sokak T-Shirt", "Bol kesim, rahat ve modern sokak modası tasarımı.", "₺550.00", new Vector3(0, 1.35, 1.5), new Color3(0.2, 0.5, 0.8));
-    createProduct(scene, "id_3", "Yöresel Dokuma", "Nakışlı Özel Gömlek", "Yöresel motiflerle el işlemesi özel tasarım gömlek.", "₺850.00", new Vector3(1.5, 1.35, 1.5), new Color3(0.9, 0.8, 0.2));
+    createProduct(scene, "id_1", "Maraş İpliği", "Klasik Kesim T-Shirt", "100% Pamuklu, Kahramanmaraş üretimi yüksek kaliteli kumaş.", "₺450.00", new Vector3(-1.8, 1.45, 1.5), new Color3(0.8, 0.2, 0.2));
+    createProduct(scene, "id_2", "Uzun Çarşı Butik", "Oversize Sokak T-Shirt", "Bol kesim, rahat ve modern sokak modası tasarımı.", "₺550.00", new Vector3(0, 1.45, 1.5), new Color3(0.2, 0.5, 0.8));
+    createProduct(scene, "id_3", "Yöresel Dokuma", "Nakışlı Özel Gömlek", "Yöresel motiflerle el işlemesi özel tasarım gömlek.", "₺850.00", new Vector3(1.8, 1.45, 1.5), new Color3(0.9, 0.8, 0.2));
 
     return scene;
 };
 
 const buildStore = (scene) => {
-    // Premium Floor
+    // Zemin
     const ground = MeshBuilder.CreateGround('storeFloor', { width: 15, height: 15 }, scene);
     const groundMat = new PBRMaterial('floorMat', scene);
     groundMat.albedoColor = new Color3(0.05, 0.05, 0.06);
@@ -87,7 +87,7 @@ const buildStore = (scene) => {
     ground.material = groundMat;
     ground.receiveShadows = true;
 
-    // Dark elegant walls
+    // Koyu duvarlar
     const wallMat = new PBRMaterial('wallMat', scene);
     wallMat.albedoColor = new Color3(0.15, 0.15, 0.18);
     wallMat.metallic = 0.1;
@@ -108,7 +108,7 @@ const buildStore = (scene) => {
     rightWall.material = wallMat;
     rightWall.receiveShadows = true;
     
-    // Architectural Columns
+    // Kolonlar
     const colMat = new PBRMaterial('colMat', scene);
     colMat.albedoColor = new Color3(0.08, 0.08, 0.1);
     colMat.metallic = 0.6;
@@ -127,7 +127,7 @@ const buildStore = (scene) => {
     createColumn(-4.8, -4.8);
     createColumn(4.8, -4.8);
     
-    // Ceiling Beams (Pergola style)
+    // Tavan izgarasi
     const beamMat = new PBRMaterial('beamMat', scene);
     beamMat.albedoColor = new Color3(0.05, 0.05, 0.05);
     beamMat.metallic = 0.1;
@@ -140,7 +140,7 @@ const buildStore = (scene) => {
         shadowGenerator.getShadowMap().renderList.push(beam);
     }
     
-    // Central Display Platform (Rug/Stage)
+    // Orta halili platform
     const stage = MeshBuilder.CreateCylinder('stage', { diameter: 7, height: 0.1 }, scene);
     stage.position = new Vector3(0, 0.05, 1.5);
     const stageMat = new PBRMaterial('stageMat', scene);
@@ -150,14 +150,14 @@ const buildStore = (scene) => {
     stage.material = stageMat;
     stage.receiveShadows = true;
     
-    // Premium Pedestals
+    // Stantlar
     const createPedestal = (x, z) => {
         const ped = MeshBuilder.CreateCylinder('ped', { diameter: 0.5, height: 1.1 }, scene);
         ped.position = new Vector3(x, 0.55, z);
         
         const pedMat = new PBRMaterial('pedMat', scene);
         pedMat.albedoColor = new Color3(0.05, 0.05, 0.05);
-        pedMat.metallic = 0.9; // Highly reflective metallic pedestals
+        pedMat.metallic = 0.9; 
         pedMat.roughness = 0.2;
         ped.material = pedMat;
         
