@@ -16,10 +16,10 @@ Sistem, gerçek coğrafi verilerin işlenmesi ve web tabanlı 3D teknolojileri (
 ![Kahramanmaraş Uzun Çarşı ve Dağlar (Açılı Görünüm)](./public/screenshot_angled.png)
 *Blender: Gerçek Topografya ve Ultra-Çözünürlük Uydu İşlemesi (Açılı Görünüm)*
 
-![Sanal Mağaza İçi (Babylon.js)](./public/store_screenshot1.png)
+![Sanal Mağaza İçi (Babylon.js)](./public/store_screenshot1.png?v=2)
 *Babylon.js: Sanal Mağaza İçi (Ürün Prototipleri)*
 
-![Sanal Mağaza Ürün İnceleme (UI)](./public/store_screenshot2.png)
+![Sanal Mağaza Ürün İnceleme (UI)](./public/store_screenshot2.png?v=2)
 *Babylon.js: 3D Ürün Etkileşimi ve Glassmorphism Arayüzü*
 
 ## Mimari ve Kullanılan Teknolojiler
