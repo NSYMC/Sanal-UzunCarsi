@@ -1,56 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sanal Uzun Çarşı</title>
-    <!-- Google Fonts for premium typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Uzun Çarşı | Sanal Mağaza</title>
   </head>
   <body>
-    <!-- Babylon.js Canvas -->
     <canvas id="renderCanvas"></canvas>
-
-    <!-- Crosshair for precise clicking in VR/FPV -->
-    <div id="crosshair"></div>
-
-    <!-- UI Overlay: Hidden by default -->
+    
+    <!-- UI Overlay for Product Inspection -->
     <div id="uiOverlay" class="hidden">
       <!-- Right Side Menu -->
       <div id="sideMenu">
-        <button id="closeBtn">✕ Kapat</button>
+        <button id="closeBtn" class="icon-btn">✕ Kapat</button>
         <div class="product-image-placeholder"></div>
         <h2 id="productBrand">Marka Adı</h2>
         <h1 id="productName">Ürün Adı</h1>
         <p id="productDesc">Bu ürün hakkında kısa ve etkili bir açıklama metni burada yer alacak.</p>
-        <div class="price-container">
-          <span class="price-label">Fiyat</span>
-          <span id="productPrice">₺0.00</span>
-        </div>
+        <h3 id="productPrice">₺0.00</h3>
         <button id="buyBtn">Sepete Ekle</button>
       </div>
     </div>
     
+    <div id="crosshair"></div>
+    
     <!-- Builder Mode UI -->
-    <button id="addBtn" class="fab-btn">➕ Yeni Ürün Ekle</button>
-    <div id="buildModeHint" class="hidden">Zeminde bir yere tıklayarak ürünü yerleştirin. Çıkmak için ESC.</div>
+    <button id="addBtn" class="fab-btn">Yeni Ürün Ekle</button>
+    <div id="buildModeHint" class="hidden">Yerleştirmek için zemine tıklayın. Çıkmak için ESC.</div>
 
     <div id="addFormOverlay" class="hidden glass-panel">
         <div class="form-container">
-            <h2>Yeni Ürün Oluştur</h2>
-            <input type="text" id="newBrand" placeholder="Marka (Örn: Uzun Çarşı)" />
+            <h2>Ürün Ekle</h2>
+            <input type="text" id="newBrand" placeholder="Marka (Örn: Yöresel)" />
             <input type="text" id="newName" placeholder="Ürün Adı" />
             <textarea id="newDesc" placeholder="Ürün Açıklaması"></textarea>
             <input type="text" id="newPrice" placeholder="Fiyat (Örn: ₺500)" />
             <div class="color-picker">
-                <label>Ürün Rengi:</label>
-                <input type="color" id="newColor" value="#ff4444" />
+                <label>Renk:</label>
+                <input type="color" id="newColor" value="#8c5a3c" />
             </div>
             <div class="form-actions">
-                <button id="saveProductBtn" class="primary-btn">Kaydet ve Yerleştir</button>
+                <button id="saveProductBtn" class="primary-btn">Yerleştir</button>
                 <button id="cancelProductBtn" class="secondary-btn">İptal</button>
             </div>
         </div>
