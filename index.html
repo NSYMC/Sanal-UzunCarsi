@@ -33,7 +33,29 @@
         <button id="buyBtn">Sepete Ekle</button>
       </div>
     </div>
+    
+    <!-- Builder Mode UI -->
+    <button id="addBtn" class="fab-btn">➕ Yeni Ürün Ekle</button>
+    <div id="buildModeHint" class="hidden">Zeminde bir yere tıklayarak ürünü yerleştirin. Çıkmak için ESC.</div>
 
+    <div id="addFormOverlay" class="hidden glass-panel">
+        <div class="form-container">
+            <h2>Yeni Ürün Oluştur</h2>
+            <input type="text" id="newBrand" placeholder="Marka (Örn: Uzun Çarşı)" />
+            <input type="text" id="newName" placeholder="Ürün Adı" />
+            <textarea id="newDesc" placeholder="Ürün Açıklaması"></textarea>
+            <input type="text" id="newPrice" placeholder="Fiyat (Örn: ₺500)" />
+            <div class="color-picker">
+                <label>Ürün Rengi:</label>
+                <input type="color" id="newColor" value="#ff4444" />
+            </div>
+            <div class="form-actions">
+                <button id="saveProductBtn" class="primary-btn">Kaydet ve Yerleştir</button>
+                <button id="cancelProductBtn" class="secondary-btn">İptal</button>
+            </div>
+        </div>
+    </div>
+    
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
