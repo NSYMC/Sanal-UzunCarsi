@@ -36,26 +36,50 @@ let scene = null;
 let shadowGenerator = null;
 let pipeline = null;
 
-// Builder State
+// Builder State & Persistence
 let isBuildMode = false;
 let ghostProduct = null;
 let ghostPedestal = null;
 let placedPosition = null;
 let productIdCounter = 4;
+let customProducts = [];
+
+// Load saved data
+const savedData = localStorage.getItem('uzunCarsi_products');
+if (savedData) {
+    try {
+        customProducts = JSON.parse(savedData);
+        // Find highest ID to avoid collisions
+        productIdCounter += customProducts.length;
+    } catch(e) {
+        console.error("Local storage veri okuma hatasi", e);
+    }
+}
 
 const createScene = () => {
     scene = new Scene(engine);
     scene.clearColor = new Color3(0.05, 0.05, 0.06);
     
+    // Physics & Collisions
+    scene.collisionsEnabled = true;
+    scene.gravity = new Vector3(0, -0.9, 0); // Babylon units are meters, scaled for nice fall speed
+    
+    // Camera
     camera = new UniversalCamera('vrCamera', new Vector3(0, 1.7, -4), scene);
     camera.setTarget(new Vector3(0, 1.7, 0));
     camera.attachControl(canvas, true);
+    
+    // Camera Physics
+    camera.applyGravity = true;
+    camera.checkCollisions = true;
+    // Ellipsoid represents human body size. Radius of 1.7 ensures camera (eye) sits at 1.7m above ground.
+    camera.ellipsoid = new Vector3(0.5, 1.7, 0.5); 
     
     camera.keysUp.push(87);
     camera.keysDown.push(83);
     camera.keysLeft.push(65);
     camera.keysRight.push(68);
-    camera.speed = 0.12;
+    camera.speed = 0.15;
     camera.inertia = 0.8;
     camera.minZ = 0.1;
 
@@ -90,9 +114,21 @@ const createScene = () => {
 
     buildStore(scene);
 
-    createProduct(scene, "id_1", "Maraş İpliği", "Klasik Kesim T-Shirt", "100% Pamuklu, Kahramanmaraş üretimi yüksek kaliteli kumaş.", "₺450.00", new Vector3(-1.8, 1.45, 1.5), new Color3(0.8, 0.2, 0.2));
-    createProduct(scene, "id_2", "Uzun Çarşı Butik", "Oversize Sokak T-Shirt", "Bol kesim, rahat ve modern sokak modası tasarımı.", "₺550.00", new Vector3(0, 1.45, 1.5), new Color3(0.2, 0.5, 0.8));
-    createProduct(scene, "id_3", "Yöresel Dokuma", "Nakışlı Özel Gömlek", "Yöresel motiflerle el işlemesi özel tasarım gömlek.", "₺850.00", new Vector3(1.8, 1.45, 1.5), new Color3(0.9, 0.8, 0.2));
+    // Default Products
+    createProduct(scene, "id_1", "Maraş İpliği", "Klasik Kesim T-Shirt", "100% Pamuklu, Kahramanmaraş üretimi yüksek kaliteli kumaş.", "₺450.00", new Vector3(-1.8, 1.45, 1.5), new Color3(0.8, 0.2, 0.2), true);
+    createProduct(scene, "id_2", "Uzun Çarşı Butik", "Oversize Sokak T-Shirt", "Bol kesim, rahat ve modern sokak modası tasarımı.", "₺550.00", new Vector3(0, 1.45, 1.5), new Color3(0.2, 0.5, 0.8), true);
+    createProduct(scene, "id_3", "Yöresel Dokuma", "Nakışlı Özel Gömlek", "Yöresel motiflerle el işlemesi özel tasarım gömlek.", "₺850.00", new Vector3(1.8, 1.45, 1.5), new Color3(0.9, 0.8, 0.2), true);
+
+    // Load custom saved products
+    let tempId = 4;
+    customProducts.forEach(prod => {
+        const r = parseInt(prod.color.substring(1,3), 16) / 255;
+        const g = parseInt(prod.color.substring(3,5), 16) / 255;
+        const b = parseInt(prod.color.substring(5,7), 16) / 255;
+        
+        createProduct(scene, "id_" + tempId, prod.brand, prod.name, prod.desc, prod.price, new Vector3(prod.x, 1.45, prod.z), new Color3(r, g, b), true);
+        tempId++;
+    });
 
     // Pointer events for Builder Mode
     scene.onPointerObservable.add((pointerInfo) => {
@@ -112,7 +148,7 @@ const createScene = () => {
                 }
                 break;
             case PointerEventTypes.POINTERDOWN:
-                if (pointerInfo.event.button !== 0) return; // Left click only
+                if (pointerInfo.event.button !== 0) return; 
                 if (ghostProduct && ghostPedestal && addFormOverlay.classList.contains('hidden')) {
                     const pickResult = scene.pick(scene.pointerX, scene.pointerY, (mesh) => mesh.name === 'storeFloor');
                     if (pickResult.hit) {
@@ -142,6 +178,7 @@ const buildStore = (scene) => {
     groundMat.roughness = 0.4;
     ground.material = groundMat;
     ground.receiveShadows = true;
+    ground.checkCollisions = true; // Walk on floor
 
     // Koyu duvarlar
     const wallMat = new PBRMaterial('wallMat', scene);
@@ -153,16 +190,19 @@ const buildStore = (scene) => {
     backWall.position = new Vector3(0, 2.5, 5.25);
     backWall.material = wallMat;
     backWall.receiveShadows = true;
+    backWall.checkCollisions = true; // Bump into walls
 
     const leftWall = MeshBuilder.CreateBox('leftWall', { width: 0.5, height: 5, depth: 15 }, scene);
     leftWall.position = new Vector3(-5.25, 2.5, 0);
     leftWall.material = wallMat;
     leftWall.receiveShadows = true;
+    leftWall.checkCollisions = true;
 
     const rightWall = MeshBuilder.CreateBox('rightWall', { width: 0.5, height: 5, depth: 15 }, scene);
     rightWall.position = new Vector3(5.25, 2.5, 0);
     rightWall.material = wallMat;
     rightWall.receiveShadows = true;
+    rightWall.checkCollisions = true;
     
     // Kolonlar
     const colMat = new PBRMaterial('colMat', scene);
@@ -176,6 +216,7 @@ const buildStore = (scene) => {
         col.material = colMat;
         shadowGenerator.getShadowMap().renderList.push(col);
         col.receiveShadows = true;
+        col.checkCollisions = true; // Bump into columns
     };
     
     createColumn(-4.8, 4.8);
@@ -205,30 +246,30 @@ const buildStore = (scene) => {
     stageMat.roughness = 0.8;
     stage.material = stageMat;
     stage.receiveShadows = true;
-    
-    // Stantlar
-    const createPedestal = (x, z) => {
-        const ped = MeshBuilder.CreateCylinder('ped', { diameter: 0.5, height: 1.1 }, scene);
-        ped.position = new Vector3(x, 0.55, z);
-        
-        const pedMat = new PBRMaterial('pedMat', scene);
-        pedMat.albedoColor = new Color3(0.05, 0.05, 0.05);
-        pedMat.metallic = 0.9; 
-        pedMat.roughness = 0.2;
-        ped.material = pedMat;
-        
-        shadowGenerator.getShadowMap().renderList.push(ped);
-        ped.receiveShadows = true;
-    };
-    
-    createPedestal(-1.8, 1.5);
-    createPedestal(0, 1.5);
-    createPedestal(1.8, 1.5);
 };
 
-const createProduct = (scene, id, brand, name, desc, price, position, color) => {
+// Extracted to be used for both default and custom products
+const createPedestalForProduct = (scene, pX, pZ, idSuffix) => {
+    const ped = MeshBuilder.CreateCylinder('ped_' + idSuffix, { diameter: 0.5, height: 1.1 }, scene);
+    ped.position = new Vector3(pX, 0.55, pZ);
+    const pedMat = new PBRMaterial('pedMat_' + idSuffix, scene);
+    pedMat.albedoColor = new Color3(0.05, 0.05, 0.05);
+    pedMat.metallic = 0.9; 
+    pedMat.roughness = 0.2;
+    ped.material = pedMat;
+    shadowGenerator.getShadowMap().renderList.push(ped);
+    ped.receiveShadows = true;
+    ped.checkCollisions = true; // Stop walking through pedestals
+};
+
+const createProduct = (scene, id, brand, name, desc, price, position, color, makePedestal = false) => {
+    if (makePedestal) {
+        createPedestalForProduct(scene, position.x, position.z, id);
+    }
+
     const mesh = MeshBuilder.CreateBox(id, { width: 0.5, height: 0.7, depth: 0.1 }, scene);
     mesh.position = position.clone();
+    mesh.checkCollisions = true;
     
     const mat = new PBRMaterial(id + "_mat", scene);
     mat.albedoColor = color;
@@ -272,7 +313,7 @@ addBtn.addEventListener('click', () => {
 
 const enterBuildMode = () => {
     isBuildMode = true;
-    addBtn.innerText = "❌ İptal Et";
+    addBtn.innerText = "İptal Et";
     buildModeHint.classList.remove('hidden');
     
     ghostPedestal = MeshBuilder.CreateCylinder('ghostPed', { diameter: 0.5, height: 1.1 }, scene);
@@ -294,7 +335,7 @@ const enterBuildMode = () => {
 
 const cancelBuildMode = () => {
     isBuildMode = false;
-    addBtn.innerText = "➕ Yeni Ürün Ekle";
+    addBtn.innerText = "Yeni Ürün Ekle";
     buildModeHint.classList.add('hidden');
     addFormOverlay.classList.add('hidden');
     
@@ -316,16 +357,16 @@ const openProductForm = () => {
     newNameInput.value = "";
     newDescInput.value = "";
     newPriceInput.value = "";
-    newColorInput.value = "#4444ff";
+    newColorInput.value = "#8c5a3c";
 };
 
 saveProductBtn.addEventListener('click', () => {
     if (!placedPosition) return;
     
-    const hex = newColorInput.value.replace('#', '');
-    const r = parseInt(hex.substring(0,2), 16) / 255;
-    const g = parseInt(hex.substring(2,4), 16) / 255;
-    const b = parseInt(hex.substring(4,6), 16) / 255;
+    const hexColor = newColorInput.value;
+    const r = parseInt(hexColor.substring(1,3), 16) / 255;
+    const g = parseInt(hexColor.substring(3,5), 16) / 255;
+    const b = parseInt(hexColor.substring(5,7), 16) / 255;
     const color = new Color3(r, g, b);
     
     const brand = newBrandInput.value || "Yeni Marka";
@@ -336,20 +377,21 @@ saveProductBtn.addEventListener('click', () => {
     const pX = placedPosition.x;
     const pZ = placedPosition.z;
     
-    const ped = MeshBuilder.CreateCylinder('ped_' + productIdCounter, { diameter: 0.5, height: 1.1 }, scene);
-    ped.position = new Vector3(pX, 0.55, pZ);
-    const pedMat = new PBRMaterial('pedMat_' + productIdCounter, scene);
-    pedMat.albedoColor = new Color3(0.05, 0.05, 0.05);
-    pedMat.metallic = 0.9; 
-    pedMat.roughness = 0.2;
-    ped.material = pedMat;
-    shadowGenerator.getShadowMap().renderList.push(ped);
-    ped.receiveShadows = true;
+    // Save to persistent storage
+    customProducts.push({
+        brand: brand,
+        name: name,
+        desc: desc,
+        price: price,
+        color: hexColor,
+        x: pX,
+        z: pZ
+    });
+    localStorage.setItem('uzunCarsi_products', JSON.stringify(customProducts));
     
-    createProduct(scene, "id_" + productIdCounter, brand, name, desc, price, new Vector3(pX, 1.45, pZ), color);
+    createProduct(scene, "id_" + productIdCounter, brand, name, desc, price, new Vector3(pX, 1.45, pZ), color, true);
     
     productIdCounter++;
-    
     cancelBuildMode();
 });
 
