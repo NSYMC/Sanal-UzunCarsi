@@ -2,9 +2,9 @@ import './style.css';
 import { 
     Engine, Scene, Vector3, HemisphericLight, DirectionalLight, MeshBuilder, UniversalCamera, 
     PBRMaterial, Color3, ActionManager, ExecuteCodeAction, Animation, 
-    CubicEase, EasingFunction, ShadowGenerator, DefaultRenderingPipeline, DepthOfFieldEffectBlurLevel,
-    PointerEventTypes
+    CubicEase, EasingFunction, ShadowGenerator, DefaultRenderingPipeline, SceneLoader, PointerEventTypes
 } from '@babylonjs/core';
+import '@babylonjs/loaders/glTF';
 
 const canvas = document.getElementById('renderCanvas');
 const engine = new Engine(canvas, true);
@@ -16,7 +16,6 @@ const productName = document.getElementById('productName');
 const productDesc = document.getElementById('productDesc');
 const productPrice = document.getElementById('productPrice');
 
-// Builder UI Elements
 const addBtn = document.getElementById('addBtn');
 const buildModeHint = document.getElementById('buildModeHint');
 const addFormOverlay = document.getElementById('addFormOverlay');
@@ -27,6 +26,7 @@ const newNameInput = document.getElementById('newName');
 const newDescInput = document.getElementById('newDesc');
 const newPriceInput = document.getElementById('newPrice');
 const newColorInput = document.getElementById('newColor');
+const modelUploadInput = document.getElementById('modelUpload');
 
 let activeProduct = null;
 let originalPosition = null;
@@ -36,43 +36,62 @@ let scene = null;
 let shadowGenerator = null;
 let pipeline = null;
 
-// Builder State & Persistence
 let isBuildMode = false;
 let ghostProduct = null;
 let ghostPedestal = null;
 let placedPosition = null;
 let productIdCounter = 4;
-let customProducts = [];
 
-// Load saved data
-const savedData = localStorage.getItem('uzunCarsi_products');
-if (savedData) {
-    try {
-        customProducts = JSON.parse(savedData);
-        // Find highest ID to avoid collisions
-        productIdCounter += customProducts.length;
-    } catch(e) {
-        console.error("Local storage veri okuma hatasi", e);
-    }
-}
+// --- IndexedDB Setup ---
+const DB_NAME = "UzunCarsiDB";
+const STORE_NAME = "products";
 
-const createScene = () => {
+const initDB = () => {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, 1);
+        request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME, { keyPath: "id" });
+            }
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+};
+
+const saveProductToDB = async (productData) => {
+    const db = await initDB();
+    const tx = db.transaction(STORE_NAME, "readwrite");
+    tx.objectStore(STORE_NAME).put(productData);
+    return new Promise((resolve) => {
+        tx.oncomplete = () => resolve();
+    });
+};
+
+const loadProductsFromDB = async () => {
+    const db = await initDB();
+    const tx = db.transaction(STORE_NAME, "readonly");
+    const store = tx.objectStore(STORE_NAME);
+    const request = store.getAll();
+    return new Promise((resolve) => {
+        request.onsuccess = () => resolve(request.result);
+    });
+};
+
+const createScene = async () => {
     scene = new Scene(engine);
     scene.clearColor = new Color3(0.05, 0.05, 0.06);
     
-    // Physics & Collisions
     scene.collisionsEnabled = true;
-    scene.gravity = new Vector3(0, -0.9, 0); // Babylon units are meters, scaled for nice fall speed
+    scene.gravity = new Vector3(0, -0.9, 0); 
     
-    // Camera
     camera = new UniversalCamera('vrCamera', new Vector3(0, 1.7, -4), scene);
     camera.setTarget(new Vector3(0, 1.7, 0));
     camera.attachControl(canvas, true);
     
-    // Camera Physics
     camera.applyGravity = true;
     camera.checkCollisions = true;
-    // Ellipsoid represents human body size. Radius of 1.7 ensures camera (eye) sits at 1.7m above ground.
     camera.ellipsoid = new Vector3(0.5, 1.7, 0.5); 
     
     camera.keysUp.push(87);
@@ -98,37 +117,46 @@ const createScene = () => {
     pipeline = new DefaultRenderingPipeline("defaultPipeline", true, scene, [camera]);
     pipeline.samples = 2; 
     pipeline.fxaaEnabled = true; 
-    
     pipeline.bloomEnabled = true;
     pipeline.bloomThreshold = 0.6;
     pipeline.bloomWeight = 0.8;
-    
     pipeline.imageProcessingEnabled = true;
     pipeline.imageProcessing.toneMappingEnabled = true;
     pipeline.imageProcessing.toneMappingType = 1; 
-    
     pipeline.depthOfFieldEnabled = false; 
-    pipeline.depthOfField.focusDistance = 1000; 
-    pipeline.depthOfField.focalLength = 50; 
-    pipeline.depthOfField.fStop = 1.4;
 
     buildStore(scene);
 
     // Default Products
-    createProduct(scene, "id_1", "Maraş İpliği", "Klasik Kesim T-Shirt", "100% Pamuklu, Kahramanmaraş üretimi yüksek kaliteli kumaş.", "₺450.00", new Vector3(-1.8, 1.45, 1.5), new Color3(0.8, 0.2, 0.2), true);
-    createProduct(scene, "id_2", "Uzun Çarşı Butik", "Oversize Sokak T-Shirt", "Bol kesim, rahat ve modern sokak modası tasarımı.", "₺550.00", new Vector3(0, 1.45, 1.5), new Color3(0.2, 0.5, 0.8), true);
-    createProduct(scene, "id_3", "Yöresel Dokuma", "Nakışlı Özel Gömlek", "Yöresel motiflerle el işlemesi özel tasarım gömlek.", "₺850.00", new Vector3(1.8, 1.45, 1.5), new Color3(0.9, 0.8, 0.2), true);
+    createProduct(scene, "id_1", "Maraş İpliği", "Klasik Kesim T-Shirt", "100% Pamuklu.", "₺450", new Vector3(-1.8, 1.45, 1.5), new Color3(0.8, 0.2, 0.2), true);
+    createProduct(scene, "id_2", "Uzun Çarşı Butik", "Sokak T-Shirt", "Bol kesim.", "₺550", new Vector3(0, 1.45, 1.5), new Color3(0.2, 0.5, 0.8), true);
+    createProduct(scene, "id_3", "Yöresel Dokuma", "Özel Gömlek", "El işlemesi.", "₺850", new Vector3(1.8, 1.45, 1.5), new Color3(0.9, 0.8, 0.2), true);
 
-    // Load custom saved products
-    let tempId = 4;
-    customProducts.forEach(prod => {
-        const r = parseInt(prod.color.substring(1,3), 16) / 255;
-        const g = parseInt(prod.color.substring(3,5), 16) / 255;
-        const b = parseInt(prod.color.substring(5,7), 16) / 255;
-        
-        createProduct(scene, "id_" + tempId, prod.brand, prod.name, prod.desc, prod.price, new Vector3(prod.x, 1.45, prod.z), new Color3(r, g, b), true);
-        tempId++;
-    });
+    // Load custom saved products from IndexedDB
+    try {
+        const customProducts = await loadProductsFromDB();
+        if (customProducts && customProducts.length > 0) {
+            let maxId = 3;
+            for (const prod of customProducts) {
+                const numericId = parseInt(prod.id.replace('id_', ''));
+                if (numericId > maxId) maxId = numericId;
+                
+                const pos = new Vector3(prod.x, prod.y || 1.45, prod.z);
+                
+                if (prod.modelDataUrl) {
+                    await createExternalProduct(scene, prod.id, prod.brand, prod.name, prod.desc, prod.price, pos, prod.modelDataUrl, true);
+                } else {
+                    const r = parseInt(prod.color.substring(1,3), 16) / 255;
+                    const g = parseInt(prod.color.substring(3,5), 16) / 255;
+                    const b = parseInt(prod.color.substring(5,7), 16) / 255;
+                    createProduct(scene, prod.id, prod.brand, prod.name, prod.desc, prod.price, pos, new Color3(r, g, b), true);
+                }
+            }
+            productIdCounter = maxId + 1;
+        }
+    } catch(e) {
+        console.error("Failed to load products from DB:", e);
+    }
 
     // Pointer events for Builder Mode
     scene.onPointerObservable.add((pointerInfo) => {
@@ -170,7 +198,6 @@ const createScene = () => {
 };
 
 const buildStore = (scene) => {
-    // Zemin
     const ground = MeshBuilder.CreateGround('storeFloor', { width: 15, height: 15 }, scene);
     const groundMat = new PBRMaterial('floorMat', scene);
     groundMat.albedoColor = new Color3(0.05, 0.05, 0.06);
@@ -178,9 +205,8 @@ const buildStore = (scene) => {
     groundMat.roughness = 0.4;
     ground.material = groundMat;
     ground.receiveShadows = true;
-    ground.checkCollisions = true; // Walk on floor
+    ground.checkCollisions = true;
 
-    // Koyu duvarlar
     const wallMat = new PBRMaterial('wallMat', scene);
     wallMat.albedoColor = new Color3(0.15, 0.15, 0.18);
     wallMat.metallic = 0.1;
@@ -190,7 +216,7 @@ const buildStore = (scene) => {
     backWall.position = new Vector3(0, 2.5, 5.25);
     backWall.material = wallMat;
     backWall.receiveShadows = true;
-    backWall.checkCollisions = true; // Bump into walls
+    backWall.checkCollisions = true;
 
     const leftWall = MeshBuilder.CreateBox('leftWall', { width: 0.5, height: 5, depth: 15 }, scene);
     leftWall.position = new Vector3(-5.25, 2.5, 0);
@@ -204,7 +230,6 @@ const buildStore = (scene) => {
     rightWall.receiveShadows = true;
     rightWall.checkCollisions = true;
     
-    // Kolonlar
     const colMat = new PBRMaterial('colMat', scene);
     colMat.albedoColor = new Color3(0.08, 0.08, 0.1);
     colMat.metallic = 0.6;
@@ -216,7 +241,7 @@ const buildStore = (scene) => {
         col.material = colMat;
         shadowGenerator.getShadowMap().renderList.push(col);
         col.receiveShadows = true;
-        col.checkCollisions = true; // Bump into columns
+        col.checkCollisions = true;
     };
     
     createColumn(-4.8, 4.8);
@@ -224,7 +249,6 @@ const buildStore = (scene) => {
     createColumn(-4.8, -4.8);
     createColumn(4.8, -4.8);
     
-    // Tavan izgarasi
     const beamMat = new PBRMaterial('beamMat', scene);
     beamMat.albedoColor = new Color3(0.05, 0.05, 0.05);
     beamMat.metallic = 0.1;
@@ -237,7 +261,6 @@ const buildStore = (scene) => {
         shadowGenerator.getShadowMap().renderList.push(beam);
     }
     
-    // Orta halili platform
     const stage = MeshBuilder.CreateCylinder('stage', { diameter: 7, height: 0.1 }, scene);
     stage.position = new Vector3(0, 0.05, 1.5);
     const stageMat = new PBRMaterial('stageMat', scene);
@@ -248,7 +271,6 @@ const buildStore = (scene) => {
     stage.receiveShadows = true;
 };
 
-// Extracted to be used for both default and custom products
 const createPedestalForProduct = (scene, pX, pZ, idSuffix) => {
     const ped = MeshBuilder.CreateCylinder('ped_' + idSuffix, { diameter: 0.5, height: 1.1 }, scene);
     ped.position = new Vector3(pX, 0.55, pZ);
@@ -259,14 +281,40 @@ const createPedestalForProduct = (scene, pX, pZ, idSuffix) => {
     ped.material = pedMat;
     shadowGenerator.getShadowMap().renderList.push(ped);
     ped.receiveShadows = true;
-    ped.checkCollisions = true; // Stop walking through pedestals
+    ped.checkCollisions = true;
+};
+
+const registerInteractions = (mesh, color, metadata) => {
+    mesh.metadata = metadata;
+    mesh.actionManager = new ActionManager(scene);
+    
+    mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOverTrigger, () => {
+        if(!activeProduct && !isBuildMode) {
+            document.getElementById('renderCanvas').style.cursor = 'pointer';
+            if (mesh.material && mesh.material.emissiveColor) {
+                mesh.material.emissiveColor = color ? color.scale(0.8) : new Color3(0.2, 0.2, 0.2); 
+            }
+        }
+    }));
+    
+    mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOutTrigger, () => {
+        document.getElementById('renderCanvas').style.cursor = 'default';
+        if (mesh.material && mesh.material.emissiveColor) {
+            mesh.material.emissiveColor = new Color3(0, 0, 0);
+        }
+    }));
+    
+    mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, () => {
+        if(activeProduct === null && !isBuildMode) {
+            openProductView(mesh);
+        }
+    }));
 };
 
 const createProduct = (scene, id, brand, name, desc, price, position, color, makePedestal = false) => {
     if (makePedestal) {
         createPedestalForProduct(scene, position.x, position.z, id);
     }
-
     const mesh = MeshBuilder.CreateBox(id, { width: 0.5, height: 0.7, depth: 0.1 }, scene);
     mesh.position = position.clone();
     mesh.checkCollisions = true;
@@ -278,28 +326,46 @@ const createProduct = (scene, id, brand, name, desc, price, position, color, mak
     mesh.material = mat;
     
     shadowGenerator.getShadowMap().renderList.push(mesh);
-    
-    mesh.metadata = { brand, name, desc, price };
-    
-    mesh.actionManager = new ActionManager(scene);
-    
-    mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOverTrigger, () => {
-        if(!activeProduct && !isBuildMode) {
-            document.getElementById('renderCanvas').style.cursor = 'pointer';
-            mat.emissiveColor = color.scale(0.8); 
-        }
-    }));
-    
-    mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOutTrigger, () => {
-        document.getElementById('renderCanvas').style.cursor = 'default';
-        mat.emissiveColor = new Color3(0, 0, 0);
-    }));
-    
-    mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, () => {
-        if(activeProduct === null && !isBuildMode) {
-            openProductView(mesh);
-        }
-    }));
+    registerInteractions(mesh, color, { brand, name, desc, price });
+};
+
+const createExternalProduct = async (scene, id, brand, name, desc, price, position, dataUrl, makePedestal = false) => {
+    if (makePedestal) {
+        createPedestalForProduct(scene, position.x, position.z, id);
+    }
+
+    try {
+        const result = await SceneLoader.ImportMeshAsync("", dataUrl, "", scene, undefined, ".glb");
+        const rootNode = result.meshes[0];
+        rootNode.position = position.clone();
+        
+        // Scale down to fit the pedestal if needed (arbitrary scaling, ideally models are 1 unit)
+        rootNode.scaling = new Vector3(0.5, 0.5, 0.5);
+        
+        // Setup interactions for all submeshes
+        result.meshes.forEach(m => {
+            if (m.name !== rootNode.name) {
+                shadowGenerator.getShadowMap().renderList.push(m);
+                m.receiveShadows = true;
+                // Add collision to children if they have geometry
+                if (m.geometry) m.checkCollisions = true;
+            }
+        });
+
+        // Use rootNode or an invisible bounding box for interaction
+        const boundingBox = MeshBuilder.CreateBox(id, { width: 0.6, height: 0.8, depth: 0.6 }, scene);
+        boundingBox.position = position.clone();
+        boundingBox.position.y += 0.2; // center it roughly
+        boundingBox.isVisible = false;
+        boundingBox.isPickable = true;
+        
+        rootNode.setParent(boundingBox);
+        rootNode.position = new Vector3(0, -0.4, 0); // local offset
+        
+        registerInteractions(boundingBox, new Color3(0.5, 0.5, 0.5), { brand, name, desc, price });
+    } catch (e) {
+        console.error("Error loading external model", e);
+    }
 };
 
 // --- Builder Mode Logic ---
@@ -358,9 +424,10 @@ const openProductForm = () => {
     newDescInput.value = "";
     newPriceInput.value = "";
     newColorInput.value = "#8c5a3c";
+    modelUploadInput.value = "";
 };
 
-saveProductBtn.addEventListener('click', () => {
+saveProductBtn.addEventListener('click', async () => {
     if (!placedPosition) return;
     
     const hexColor = newColorInput.value;
@@ -376,20 +443,39 @@ saveProductBtn.addEventListener('click', () => {
     
     const pX = placedPosition.x;
     const pZ = placedPosition.z;
+    const id = "id_" + productIdCounter;
     
-    // Save to persistent storage
-    customProducts.push({
+    // Check if external model is provided
+    let dataUrl = null;
+    if (modelUploadInput.files && modelUploadInput.files.length > 0) {
+        const file = modelUploadInput.files[0];
+        dataUrl = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => resolve(e.target.result);
+            reader.readAsDataURL(file);
+        });
+    }
+
+    const productData = {
+        id: id,
         brand: brand,
         name: name,
         desc: desc,
         price: price,
         color: hexColor,
         x: pX,
-        z: pZ
-    });
-    localStorage.setItem('uzunCarsi_products', JSON.stringify(customProducts));
+        y: 1.45,
+        z: pZ,
+        modelDataUrl: dataUrl
+    };
     
-    createProduct(scene, "id_" + productIdCounter, brand, name, desc, price, new Vector3(pX, 1.45, pZ), color, true);
+    await saveProductToDB(productData);
+    
+    if (dataUrl) {
+        await createExternalProduct(scene, id, brand, name, desc, price, new Vector3(pX, 1.45, pZ), dataUrl, true);
+    } else {
+        createProduct(scene, id, brand, name, desc, price, new Vector3(pX, 1.45, pZ), color, true);
+    }
     
     productIdCounter++;
     cancelBuildMode();
@@ -435,7 +521,7 @@ const openProductView = (mesh) => {
     const cameraForward = camera.getDirection(Vector3.Forward());
     const cameraRight = camera.getDirection(Vector3.Right());
     
-    const targetPos = camera.position.add(cameraForward.scale(1.0)); 
+    const targetPos = camera.position.add(cameraForward.scale(1.2)); 
     targetPos.subtractInPlace(cameraRight.scale(0.35)); 
     targetPos.y -= 0.05;
     
@@ -480,7 +566,13 @@ const closeProductView = () => {
         animateValue(activeProduct, "position", activeProduct.position, originalPosition);
         animateValue(activeProduct, "rotation", activeProduct.rotation, originalRotation, () => {
             activeProduct.rotation.y = 0; 
-            activeProduct.material.emissiveColor = new Color3(0,0,0);
+            
+            // Only reset emissive for standard products (boxes with color), not external models 
+            // since external models are wrapped in invisible bounding boxes
+            if (activeProduct.material && activeProduct.material.emissiveColor) {
+                activeProduct.material.emissiveColor = new Color3(0,0,0);
+            }
+            
             activeProduct = null;
             camera.attachControl(canvas, true);
         });
@@ -489,10 +581,10 @@ const closeProductView = () => {
 
 closeBtn.addEventListener('click', closeProductView);
 
-createScene();
-
-engine.runRenderLoop(() => {
-    if(scene) scene.render();
+createScene().then(() => {
+    engine.runRenderLoop(() => {
+        if(scene) scene.render();
+    });
 });
 
 window.addEventListener('resize', () => {
