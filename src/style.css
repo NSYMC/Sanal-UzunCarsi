@@ -5,10 +5,12 @@
   --text-secondary: #a89f91;
   --accent-color: #b28c66;
   --accent-hover: #c49f7a;
-  
+
+
   font-family: 'Inter', sans-serif;
   color: var(--text-primary);
 }
+
 
 body {
   margin: 0;
@@ -17,12 +19,14 @@ body {
   background-color: #0d0c0e;
 }
 
+
 #renderCanvas {
   width: 100vw;
   height: 100vh;
   touch-action: none;
   outline: none;
 }
+
 
 #crosshair {
   position: absolute;
@@ -37,11 +41,13 @@ body {
   z-index: 10;
 }
 
+
 .hidden {
   opacity: 0 !important;
   pointer-events: none !important;
   visibility: hidden;
 }
+
 
 #uiOverlay {
   position: absolute;
@@ -55,11 +61,12 @@ body {
   transition: background-color 0.4s ease;
 }
 
+
 #uiOverlay.active {
   pointer-events: auto;
 }
 
-/* Right Side Menu for Products */
+
 #sideMenu {
   position: absolute;
   right: 0;
@@ -77,9 +84,11 @@ body {
   flex-direction: column;
 }
 
+
 #uiOverlay.active #sideMenu {
   transform: translateX(0);
 }
+
 
 .icon-btn {
   background: none;
@@ -96,9 +105,11 @@ body {
   text-transform: uppercase;
 }
 
+
 .icon-btn:hover {
   color: var(--text-primary);
 }
+
 
 #productBrand {
   font-family: 'Cinzel', serif;
@@ -109,12 +120,14 @@ body {
   margin: 0;
 }
 
+
 #productName {
   font-size: 28px;
   font-weight: 400;
   margin: 10px 0 20px 0;
   color: var(--text-primary);
 }
+
 
 #productDesc {
   font-size: 15px;
@@ -124,12 +137,14 @@ body {
   font-weight: 300;
 }
 
+
 #productPrice {
   font-size: 24px;
   font-weight: 400;
   margin: 30px 0 15px 0;
   font-family: 'Cinzel', serif;
 }
+
 
 #buyBtn {
   width: 100%;
@@ -144,11 +159,12 @@ body {
   letter-spacing: 1px;
 }
 
+
 #buyBtn:hover {
   background-color: var(--accent-hover);
 }
 
-/* Builder Mode UI */
+
 .fab-btn {
   position: absolute;
   bottom: 40px;
@@ -167,10 +183,12 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+
 .fab-btn:hover {
   background: #2a2522;
   border-color: var(--accent-color);
 }
+
 
 #buildModeHint {
   position: absolute;
@@ -187,6 +205,7 @@ body {
   border: 1px solid var(--border-color);
 }
 
+
 .glass-panel {
   position: absolute;
   top: 50%;
@@ -201,11 +220,13 @@ body {
   box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 
+
 .form-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+
 
 .form-container h2 {
   font-family: 'Cinzel', serif;
@@ -215,6 +236,7 @@ body {
   font-weight: 500;
   text-align: center;
 }
+
 
 .form-container input[type="text"], .form-container textarea {
   width: 100%;
@@ -229,14 +251,17 @@ body {
   transition: border-color 0.2s;
 }
 
+
 .form-container textarea {
   resize: vertical;
   min-height: 80px;
 }
 
+
 .form-container input:focus, .form-container textarea:focus {
   border-color: var(--accent-color);
 }
+
 
 .file-upload {
   display: flex;
@@ -245,6 +270,7 @@ body {
   font-size: 13px;
   color: var(--text-secondary);
 }
+
 
 .file-upload input[type="file"] {
   font-family: 'Inter', sans-serif;
@@ -256,6 +282,7 @@ body {
   cursor: pointer;
 }
 
+
 .color-picker {
   display: flex;
   align-items: center;
@@ -263,6 +290,7 @@ body {
   font-size: 13px;
   color: var(--text-secondary);
 }
+
 
 .color-picker input[type="color"] {
   border: 1px solid var(--border-color);
@@ -273,11 +301,13 @@ body {
   cursor: pointer;
 }
 
+
 .form-actions {
   display: flex;
   gap: 10px;
   margin-top: 15px;
 }
+
 
 .primary-btn, .secondary-btn {
   flex: 1;
@@ -292,20 +322,24 @@ body {
   text-transform: uppercase;
 }
 
+
 .primary-btn {
   background: var(--accent-color);
   color: #1a1715;
 }
 
+
 .primary-btn:hover {
   background: var(--accent-hover);
 }
+
 
 .secondary-btn {
   background: rgba(0,0,0,0.3);
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
 }
+
 
 .secondary-btn:hover {
   background: rgba(0,0,0,0.5);

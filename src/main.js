@@ -6,8 +6,10 @@ import {
 } from '@babylonjs/core';
 import '@babylonjs/loaders/glTF';
 
+
 const canvas = document.getElementById('renderCanvas');
 const engine = new Engine(canvas, true);
+
 
 const uiOverlay = document.getElementById('uiOverlay');
 const closeBtn = document.getElementById('closeBtn');
@@ -15,6 +17,7 @@ const productBrand = document.getElementById('productBrand');
 const productName = document.getElementById('productName');
 const productDesc = document.getElementById('productDesc');
 const productPrice = document.getElementById('productPrice');
+
 
 const addBtn = document.getElementById('addBtn');
 const buildModeHint = document.getElementById('buildModeHint');
@@ -28,6 +31,7 @@ const newPriceInput = document.getElementById('newPrice');
 const newColorInput = document.getElementById('newColor');
 const modelUploadInput = document.getElementById('modelUpload');
 
+
 let activeProduct = null;
 let originalPosition = null;
 let originalRotation = null;
@@ -36,15 +40,17 @@ let scene = null;
 let shadowGenerator = null;
 let pipeline = null;
 
+
 let isBuildMode = false;
 let ghostProduct = null;
 let ghostPedestal = null;
 let placedPosition = null;
 let productIdCounter = 4;
 
-// --- IndexedDB Setup ---
+
 const DB_NAME = "UzunCarsiDB";
 const STORE_NAME = "products";
+
 
 const initDB = () => {
     return new Promise((resolve, reject) => {
@@ -60,6 +66,7 @@ const initDB = () => {
     });
 };
 
+
 const saveProductToDB = async (productData) => {
     const db = await initDB();
     const tx = db.transaction(STORE_NAME, "readwrite");
@@ -68,6 +75,7 @@ const saveProductToDB = async (productData) => {
         tx.oncomplete = () => resolve();
     });
 };
+
 
 const loadProductsFromDB = async () => {
     const db = await initDB();
@@ -79,21 +87,26 @@ const loadProductsFromDB = async () => {
     });
 };
 
+
 const createScene = async () => {
     scene = new Scene(engine);
     scene.clearColor = new Color3(0.05, 0.05, 0.06);
-    
+
+
     scene.collisionsEnabled = true;
     scene.gravity = new Vector3(0, -0.9, 0); 
-    
+
+
     camera = new UniversalCamera('vrCamera', new Vector3(0, 1.7, -4), scene);
     camera.setTarget(new Vector3(0, 1.7, 0));
     camera.attachControl(canvas, true);
-    
+
+
     camera.applyGravity = true;
     camera.checkCollisions = true;
     camera.ellipsoid = new Vector3(0.5, 1.7, 0.5); 
-    
+
+
     camera.keysUp.push(87);
     camera.keysDown.push(83);
     camera.keysLeft.push(65);
@@ -102,17 +115,21 @@ const createScene = async () => {
     camera.inertia = 0.8;
     camera.minZ = 0.1;
 
+
     const ambientLight = new HemisphericLight('ambientLight', new Vector3(0, 1, 0), scene);
     ambientLight.intensity = 0.3; 
     ambientLight.groundColor = new Color3(0.1, 0.1, 0.1);
 
+
     const dirLight = new DirectionalLight("dirLight", new Vector3(-1, -2, -1), scene);
     dirLight.position = new Vector3(5, 10, 5);
     dirLight.intensity = 1.5;
-    
+
+
     shadowGenerator = new ShadowGenerator(1024, dirLight);
     shadowGenerator.useBlurExponentialShadowMap = true;
     shadowGenerator.blurKernel = 16;
+
 
     pipeline = new DefaultRenderingPipeline("defaultPipeline", true, scene, [camera]);
     pipeline.samples = 2; 
@@ -125,14 +142,15 @@ const createScene = async () => {
     pipeline.imageProcessing.toneMappingType = 1; 
     pipeline.depthOfFieldEnabled = false; 
 
+
     buildStore(scene);
 
-    // Default Products
+
     createProduct(scene, "id_1", "Maraş İpliği", "Klasik Kesim T-Shirt", "100% Pamuklu.", "₺450", new Vector3(-1.8, 1.45, 1.5), new Color3(0.8, 0.2, 0.2), true);
     createProduct(scene, "id_2", "Uzun Çarşı Butik", "Sokak T-Shirt", "Bol kesim.", "₺550", new Vector3(0, 1.45, 1.5), new Color3(0.2, 0.5, 0.8), true);
     createProduct(scene, "id_3", "Yöresel Dokuma", "Özel Gömlek", "El işlemesi.", "₺850", new Vector3(1.8, 1.45, 1.5), new Color3(0.9, 0.8, 0.2), true);
 
-    // Load custom saved products from IndexedDB
+
     try {
         const customProducts = await loadProductsFromDB();
         if (customProducts && customProducts.length > 0) {
@@ -140,9 +158,11 @@ const createScene = async () => {
             for (const prod of customProducts) {
                 const numericId = parseInt(prod.id.replace('id_', ''));
                 if (numericId > maxId) maxId = numericId;
-                
+
+
                 const pos = new Vector3(prod.x, prod.y || 1.45, prod.z);
-                
+
+
                 if (prod.modelDataUrl) {
                     await createExternalProduct(scene, prod.id, prod.brand, prod.name, prod.desc, prod.price, pos, prod.modelDataUrl, true);
                 } else {
@@ -158,9 +178,10 @@ const createScene = async () => {
         console.error("Failed to load products from DB:", e);
     }
 
-    // Pointer events for Builder Mode
+
     scene.onPointerObservable.add((pointerInfo) => {
         if (!isBuildMode) return;
+
 
         switch (pointerInfo.type) {
             case PointerEventTypes.POINTERMOVE:
@@ -169,7 +190,8 @@ const createScene = async () => {
                     if (pickResult.hit) {
                         ghostPedestal.position = pickResult.pickedPoint.clone();
                         ghostPedestal.position.y = 0.55;
-                        
+
+
                         ghostProduct.position = pickResult.pickedPoint.clone();
                         ghostProduct.position.y = 1.45;
                     }
@@ -188,14 +210,17 @@ const createScene = async () => {
         }
     });
 
+
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && isBuildMode) {
             cancelBuildMode();
         }
     });
 
+
     return scene;
 };
+
 
 const buildStore = (scene) => {
     const ground = MeshBuilder.CreateGround('storeFloor', { width: 15, height: 15 }, scene);
@@ -207,10 +232,12 @@ const buildStore = (scene) => {
     ground.receiveShadows = true;
     ground.checkCollisions = true;
 
+
     const wallMat = new PBRMaterial('wallMat', scene);
     wallMat.albedoColor = new Color3(0.15, 0.15, 0.18);
     wallMat.metallic = 0.1;
     wallMat.roughness = 0.8;
+
 
     const backWall = MeshBuilder.CreateBox('backWall', { width: 15, height: 5, depth: 0.5 }, scene);
     backWall.position = new Vector3(0, 2.5, 5.25);
@@ -218,23 +245,27 @@ const buildStore = (scene) => {
     backWall.receiveShadows = true;
     backWall.checkCollisions = true;
 
+
     const leftWall = MeshBuilder.CreateBox('leftWall', { width: 0.5, height: 5, depth: 15 }, scene);
     leftWall.position = new Vector3(-5.25, 2.5, 0);
     leftWall.material = wallMat;
     leftWall.receiveShadows = true;
     leftWall.checkCollisions = true;
 
+
     const rightWall = MeshBuilder.CreateBox('rightWall', { width: 0.5, height: 5, depth: 15 }, scene);
     rightWall.position = new Vector3(5.25, 2.5, 0);
     rightWall.material = wallMat;
     rightWall.receiveShadows = true;
     rightWall.checkCollisions = true;
-    
+
+
     const colMat = new PBRMaterial('colMat', scene);
     colMat.albedoColor = new Color3(0.08, 0.08, 0.1);
     colMat.metallic = 0.6;
     colMat.roughness = 0.3;
-    
+
+
     const createColumn = (x, z) => {
         const col = MeshBuilder.CreateBox('col', { width: 0.4, height: 5, depth: 0.4 }, scene);
         col.position = new Vector3(x, 2.5, z);
@@ -243,24 +274,28 @@ const buildStore = (scene) => {
         col.receiveShadows = true;
         col.checkCollisions = true;
     };
-    
+
+
     createColumn(-4.8, 4.8);
     createColumn(4.8, 4.8);
     createColumn(-4.8, -4.8);
     createColumn(4.8, -4.8);
-    
+
+
     const beamMat = new PBRMaterial('beamMat', scene);
     beamMat.albedoColor = new Color3(0.05, 0.05, 0.05);
     beamMat.metallic = 0.1;
     beamMat.roughness = 0.9;
-    
+
+
     for(let i = -4; i <= 4; i += 2) {
         const beam = MeshBuilder.CreateBox('beam', { width: 15, height: 0.2, depth: 0.4 }, scene);
         beam.position = new Vector3(0, 4.9, i);
         beam.material = beamMat;
         shadowGenerator.getShadowMap().renderList.push(beam);
     }
-    
+
+
     const stage = MeshBuilder.CreateCylinder('stage', { diameter: 7, height: 0.1 }, scene);
     stage.position = new Vector3(0, 0.05, 1.5);
     const stageMat = new PBRMaterial('stageMat', scene);
@@ -270,6 +305,7 @@ const buildStore = (scene) => {
     stage.material = stageMat;
     stage.receiveShadows = true;
 };
+
 
 const createPedestalForProduct = (scene, pX, pZ, idSuffix) => {
     const ped = MeshBuilder.CreateCylinder('ped_' + idSuffix, { diameter: 0.5, height: 1.1 }, scene);
@@ -284,10 +320,12 @@ const createPedestalForProduct = (scene, pX, pZ, idSuffix) => {
     ped.checkCollisions = true;
 };
 
+
 const registerInteractions = (mesh, color, metadata) => {
     mesh.metadata = metadata;
     mesh.actionManager = new ActionManager(scene);
-    
+
+
     mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOverTrigger, () => {
         if(!activeProduct && !isBuildMode) {
             document.getElementById('renderCanvas').style.cursor = 'pointer';
@@ -296,20 +334,23 @@ const registerInteractions = (mesh, color, metadata) => {
             }
         }
     }));
-    
+
+
     mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOutTrigger, () => {
         document.getElementById('renderCanvas').style.cursor = 'default';
         if (mesh.material && mesh.material.emissiveColor) {
             mesh.material.emissiveColor = new Color3(0, 0, 0);
         }
     }));
-    
+
+
     mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, () => {
         if(activeProduct === null && !isBuildMode) {
             openProductView(mesh);
         }
     }));
 };
+
 
 const createProduct = (scene, id, brand, name, desc, price, position, color, makePedestal = false) => {
     if (makePedestal) {
@@ -318,57 +359,64 @@ const createProduct = (scene, id, brand, name, desc, price, position, color, mak
     const mesh = MeshBuilder.CreateBox(id, { width: 0.5, height: 0.7, depth: 0.1 }, scene);
     mesh.position = position.clone();
     mesh.checkCollisions = true;
-    
+
+
     const mat = new PBRMaterial(id + "_mat", scene);
     mat.albedoColor = color;
     mat.metallic = 0.1; 
     mat.roughness = 0.7; 
     mesh.material = mat;
-    
+
+
     shadowGenerator.getShadowMap().renderList.push(mesh);
     registerInteractions(mesh, color, { brand, name, desc, price });
 };
+
 
 const createExternalProduct = async (scene, id, brand, name, desc, price, position, dataUrl, makePedestal = false) => {
     if (makePedestal) {
         createPedestalForProduct(scene, position.x, position.z, id);
     }
 
+
     try {
         const result = await SceneLoader.ImportMeshAsync("", dataUrl, "", scene, undefined, ".glb");
         const rootNode = result.meshes[0];
         rootNode.position = position.clone();
-        
-        // Scale down to fit the pedestal if needed (arbitrary scaling, ideally models are 1 unit)
+
+
         rootNode.scaling = new Vector3(0.5, 0.5, 0.5);
-        
-        // Setup interactions for all submeshes
+
+
         result.meshes.forEach(m => {
             if (m.name !== rootNode.name) {
                 shadowGenerator.getShadowMap().renderList.push(m);
                 m.receiveShadows = true;
-                // Add collision to children if they have geometry
+
+
                 if (m.geometry) m.checkCollisions = true;
             }
         });
 
-        // Use rootNode or an invisible bounding box for interaction
+
         const boundingBox = MeshBuilder.CreateBox(id, { width: 0.6, height: 0.8, depth: 0.6 }, scene);
         boundingBox.position = position.clone();
-        boundingBox.position.y += 0.2; // center it roughly
+        boundingBox.position.y += 0.2; 
         boundingBox.isVisible = false;
         boundingBox.isPickable = true;
-        
+
+
         rootNode.setParent(boundingBox);
-        rootNode.position = new Vector3(0, -0.4, 0); // local offset
-        
+        rootNode.position = new Vector3(0, -0.4, 0); 
+
+
         registerInteractions(boundingBox, new Color3(0.5, 0.5, 0.5), { brand, name, desc, price });
     } catch (e) {
         console.error("Error loading external model", e);
     }
 };
 
-// --- Builder Mode Logic ---
+
 addBtn.addEventListener('click', () => {
     if (isBuildMode) {
         cancelBuildMode();
@@ -377,48 +425,58 @@ addBtn.addEventListener('click', () => {
     }
 });
 
+
 const enterBuildMode = () => {
     isBuildMode = true;
     addBtn.innerText = "İptal Et";
     buildModeHint.classList.remove('hidden');
-    
+
+
     ghostPedestal = MeshBuilder.CreateCylinder('ghostPed', { diameter: 0.5, height: 1.1 }, scene);
     ghostProduct = MeshBuilder.CreateBox('ghostProd', { width: 0.5, height: 0.7, depth: 0.1 }, scene);
-    
+
+
     const ghostMat = new PBRMaterial('ghostMat', scene);
     ghostMat.albedoColor = new Color3(0.2, 0.8, 0.2);
     ghostMat.alpha = 0.6;
     ghostMat.metallic = 0.1;
     ghostMat.roughness = 0.5;
     ghostMat.emissiveColor = new Color3(0.1, 0.4, 0.1);
-    
+
+
     ghostPedestal.material = ghostMat;
     ghostProduct.material = ghostMat;
-    
+
+
     ghostPedestal.isPickable = false;
     ghostProduct.isPickable = false;
 };
+
 
 const cancelBuildMode = () => {
     isBuildMode = false;
     addBtn.innerText = "Yeni Ürün Ekle";
     buildModeHint.classList.add('hidden');
     addFormOverlay.classList.add('hidden');
-    
+
+
     if (ghostPedestal) ghostPedestal.dispose();
     if (ghostProduct) ghostProduct.dispose();
     ghostPedestal = null;
     ghostProduct = null;
     placedPosition = null;
-    
+
+
     camera.attachControl(canvas, true);
 };
+
 
 const openProductForm = () => {
     camera.detachControl();
     buildModeHint.classList.add('hidden');
     addFormOverlay.classList.remove('hidden');
-    
+
+
     newBrandInput.value = "";
     newNameInput.value = "";
     newDescInput.value = "";
@@ -427,25 +485,29 @@ const openProductForm = () => {
     modelUploadInput.value = "";
 };
 
+
 saveProductBtn.addEventListener('click', async () => {
     if (!placedPosition) return;
-    
+
+
     const hexColor = newColorInput.value;
     const r = parseInt(hexColor.substring(1,3), 16) / 255;
     const g = parseInt(hexColor.substring(3,5), 16) / 255;
     const b = parseInt(hexColor.substring(5,7), 16) / 255;
     const color = new Color3(r, g, b);
-    
+
+
     const brand = newBrandInput.value || "Yeni Marka";
     const name = newNameInput.value || "Yeni Ürün";
     const desc = newDescInput.value || "Açıklama yok.";
     const price = newPriceInput.value || "₺0";
-    
+
+
     const pX = placedPosition.x;
     const pZ = placedPosition.z;
     const id = "id_" + productIdCounter;
-    
-    // Check if external model is provided
+
+
     let dataUrl = null;
     if (modelUploadInput.files && modelUploadInput.files.length > 0) {
         const file = modelUploadInput.files[0];
@@ -455,6 +517,7 @@ saveProductBtn.addEventListener('click', async () => {
             reader.readAsDataURL(file);
         });
     }
+
 
     const productData = {
         id: id,
@@ -468,124 +531,152 @@ saveProductBtn.addEventListener('click', async () => {
         z: pZ,
         modelDataUrl: dataUrl
     };
-    
+
+
     await saveProductToDB(productData);
-    
+
+
     if (dataUrl) {
         await createExternalProduct(scene, id, brand, name, desc, price, new Vector3(pX, 1.45, pZ), dataUrl, true);
     } else {
         createProduct(scene, id, brand, name, desc, price, new Vector3(pX, 1.45, pZ), color, true);
     }
-    
+
+
     productIdCounter++;
     cancelBuildMode();
 });
 
+
 cancelProductBtn.addEventListener('click', cancelBuildMode);
 
-// --- Product Inspection Logic ---
+
 const animateValue = (target, property, startValue, endValue, onEnd) => {
     const frameRate = 60;
     const duration = 1.0; 
-    
+
+
     const anim = new Animation("anim", property, frameRate, 
         typeof startValue === "number" ? Animation.ANIMATIONTYPE_FLOAT : Animation.ANIMATIONTYPE_VECTOR3, 
         Animation.ANIMATIONLOOPMODE_CONSTANT);
-        
+
+
     const keys = [
         { frame: 0, value: startValue },
         { frame: frameRate * duration, value: endValue }
     ];
     anim.setKeys(keys);
-    
+
+
     const easingFunction = new CubicEase();
     easingFunction.setEasingMode(EasingFunction.EASINGMODE_EASEINOUT);
     anim.setEasingFunction(easingFunction);
-    
+
+
     target.animations = target.animations || [];
     target.animations.push(anim);
-    
+
+
     scene.beginAnimation(target, 0, frameRate * duration, false, 1.0, onEnd);
 };
 
+
 let idleRotationObserver = null;
+
 
 const openProductView = (mesh) => {
     activeProduct = mesh;
     originalPosition = mesh.position.clone();
     originalRotation = mesh.rotation.clone();
-    
+
+
     camera.detachControl();
     document.getElementById('renderCanvas').style.cursor = 'default';
-    
+
+
     const cameraForward = camera.getDirection(Vector3.Forward());
     const cameraRight = camera.getDirection(Vector3.Right());
-    
+
+
     const targetPos = camera.position.add(cameraForward.scale(1.2)); 
     targetPos.subtractInPlace(cameraRight.scale(0.35)); 
     targetPos.y -= 0.05;
-    
+
+
     const targetRot = new Vector3(0, camera.rotation.y, 0);
-    
+
+
     productBrand.innerText = mesh.metadata.brand;
     productName.innerText = mesh.metadata.name;
     productDesc.innerText = mesh.metadata.desc;
     productPrice.innerText = mesh.metadata.price;
-    
+
+
     pipeline.depthOfFieldEnabled = true;
-    
+
+
     mesh.animations = []; 
     animateValue(mesh, "position", mesh.position, targetPos);
     animateValue(mesh, "rotation", mesh.rotation, targetRot, () => {
         uiOverlay.classList.remove('hidden');
         void uiOverlay.offsetWidth;
         uiOverlay.classList.add('active');
-        
+
+
         idleRotationObserver = scene.onBeforeRenderObservable.add(() => {
             if(activeProduct) activeProduct.rotation.y += 0.01;
         });
     });
 };
 
+
 const closeProductView = () => {
     if (!activeProduct) return;
-    
+
+
     uiOverlay.classList.remove('active');
-    
+
+
     setTimeout(() => {
         uiOverlay.classList.add('hidden');
-        
+
+
         if(idleRotationObserver) {
             scene.onBeforeRenderObservable.remove(idleRotationObserver);
             idleRotationObserver = null;
         }
-        
+
+
         pipeline.depthOfFieldEnabled = false;
-        
+
+
         activeProduct.animations = [];
         animateValue(activeProduct, "position", activeProduct.position, originalPosition);
         animateValue(activeProduct, "rotation", activeProduct.rotation, originalRotation, () => {
             activeProduct.rotation.y = 0; 
-            
-            // Only reset emissive for standard products (boxes with color), not external models 
-            // since external models are wrapped in invisible bounding boxes
+
+
             if (activeProduct.material && activeProduct.material.emissiveColor) {
                 activeProduct.material.emissiveColor = new Color3(0,0,0);
             }
-            
+
+
             activeProduct = null;
             camera.attachControl(canvas, true);
         });
     }, 500); 
 };
 
+
 closeBtn.addEventListener('click', closeProductView);
+
 
 createScene().then(() => {
     engine.runRenderLoop(() => {
         if(scene) scene.render();
     });
 });
+
 
 window.addEventListener('resize', () => {
     engine.resize();
