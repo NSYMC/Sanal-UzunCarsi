@@ -2,7 +2,8 @@ import './style.css';
 import { 
     Engine, Scene, Vector3, HemisphericLight, DirectionalLight, MeshBuilder, UniversalCamera, 
     PBRMaterial, Color3, ActionManager, ExecuteCodeAction, Animation, 
-    CubicEase, EasingFunction, ShadowGenerator, DefaultRenderingPipeline, SceneLoader, PointerEventTypes
+    CubicEase, EasingFunction, ShadowGenerator, DefaultRenderingPipeline, SceneLoader, PointerEventTypes,
+    CubeTexture, SSAO2RenderingPipeline
 } from '@babylonjs/core';
 import '@babylonjs/loaders/glTF';
 
@@ -95,8 +96,11 @@ const createScene = async () => {
 
     scene.collisionsEnabled = true;
     scene.gravity = new Vector3(0, -0.9, 0); 
-
-
+    
+    // Yansimalar (IBL) icin HDRI
+    const envTexture = CubeTexture.CreateFromPrefilteredData("https://playground.babylonjs.com/textures/environment.env", scene);
+    scene.environmentTexture = envTexture;
+    
     camera = new UniversalCamera('vrCamera', new Vector3(0, 1.7, -4), scene);
     camera.setTarget(new Vector3(0, 1.7, 0));
     camera.attachControl(canvas, true);
@@ -116,31 +120,38 @@ const createScene = async () => {
     camera.minZ = 0.1;
 
 
+    // Gun Batimi Igi
     const ambientLight = new HemisphericLight('ambientLight', new Vector3(0, 1, 0), scene);
-    ambientLight.intensity = 0.3; 
-    ambientLight.groundColor = new Color3(0.1, 0.1, 0.1);
+    ambientLight.intensity = 0.2; 
+    ambientLight.groundColor = new Color3(0.05, 0.05, 0.05);
 
-
-    const dirLight = new DirectionalLight("dirLight", new Vector3(-1, -2, -1), scene);
-    dirLight.position = new Vector3(5, 10, 5);
-    dirLight.intensity = 1.5;
-
-
+    const dirLight = new DirectionalLight("dirLight", new Vector3(-1, -0.5, -1), scene);
+    dirLight.position = new Vector3(20, 10, 20);
+    dirLight.intensity = 2.0;
+    dirLight.diffuse = new Color3(1.0, 0.6, 0.3); // Sicak turuncu gun batimi
+    
     shadowGenerator = new ShadowGenerator(1024, dirLight);
     shadowGenerator.useBlurExponentialShadowMap = true;
-    shadowGenerator.blurKernel = 16;
-
+    shadowGenerator.blurKernel = 32; // Daha yumusak golgeler
 
     pipeline = new DefaultRenderingPipeline("defaultPipeline", true, scene, [camera]);
-    pipeline.samples = 2; 
+    pipeline.samples = 4; // Daha yuksek anti-aliasing
     pipeline.fxaaEnabled = true; 
     pipeline.bloomEnabled = true;
-    pipeline.bloomThreshold = 0.6;
-    pipeline.bloomWeight = 0.8;
+    pipeline.bloomThreshold = 0.7;
+    pipeline.bloomWeight = 0.5;
     pipeline.imageProcessingEnabled = true;
     pipeline.imageProcessing.toneMappingEnabled = true;
     pipeline.imageProcessing.toneMappingType = 1; 
+    pipeline.imageProcessing.exposure = 1.2;
+    pipeline.imageProcessing.contrast = 1.1;
     pipeline.depthOfFieldEnabled = false; 
+
+    // SSAO: Bina koseleri icin mikro golgeler
+    const ssao = new SSAO2RenderingPipeline("ssao", scene, 0.75, [camera]);
+    ssao.radius = 2.0;
+    ssao.totalStrength = 1.2;
+    ssao.base = 0.5;
 
 
     buildStore(scene);
