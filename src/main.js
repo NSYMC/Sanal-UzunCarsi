@@ -22,19 +22,15 @@ const productPrice = document.getElementById('productPrice');
 const editorToggleBtn = document.getElementById('editorToggleBtn');
 const editorControls = document.getElementById('editorControls');
 const buildModeHint = document.getElementById('buildModeHint');
-const addDecoBtn = document.getElementById('addDecoBtn');
-const addCounterBtn = document.getElementById('addCounterBtn');
-const addRackBtn = document.getElementById('addRackBtn');
+const addProductBtn = document.getElementById('addProductBtn');
 const paintModeBtn = document.getElementById('paintModeBtn');
 
 // Assign UI
 const assignFormOverlay = document.getElementById('assignFormOverlay');
-const productListEl = document.getElementById('productList');
 const newBrandInput = document.getElementById('newBrand');
 const newNameInput = document.getElementById('newName');
 const newPriceInput = document.getElementById('newPrice');
 const newDescInput = document.getElementById('newDesc');
-const addToListBtn = document.getElementById('addToListBtn');
 const saveBoxBtn = document.getElementById('saveBoxBtn');
 const cancelBoxBtn = document.getElementById('cancelBoxBtn');
 const deleteBoxBtn = document.getElementById('deleteBoxBtn');
@@ -50,13 +46,12 @@ const resetColorBtn = document.getElementById('resetColorBtn');
 // State
 let isEditorMode = false;
 let isPaintMode = false;
-let currentPlacementType = null; // 'deco', 'counter', 'rack'
+let currentPlacementType = null; 
 let ghostMesh = null;
 let activeProduct = null;
-let activeBoxId = null; 
+let activeEntityId = null; 
 let activeColorMesh = null;
 let originalColorHex = null;
-let tempProductList = [];
 let camera = null;
 let scene = null;
 let shadowGenerator = null;
@@ -68,10 +63,9 @@ let entityIdCounter = 1;
 
 // Entities Array for memory
 let entities = []; 
-// Contains: { id, type, x, y, z, rotY, modelUrl, products: [] }
 
 // --- IndexedDB Setup ---
-const DB_NAME = "UzunCarsiDB_v2";
+const DB_NAME = "UzunCarsiDB_v3";
 const STORE_NAME = "entities";
 const COLOR_STORE = "sceneColors";
 
@@ -271,11 +265,11 @@ const createScene = async () => {
                     cancelPlacement();
                 }
             } 
-            // Clicking an existing box in Editor Mode (Left Click)
+            // Clicking an existing product in Editor Mode (Left Click)
             else if (isEditorMode && !ghostMesh) {
                 const pickResult = scene.pick(scene.pointerX, scene.pointerY);
                 if (pickResult.hit && pickResult.pickedMesh) {
-                    if (pickResult.pickedMesh.metadata && pickResult.pickedMesh.metadata.isBox) {
+                    if (pickResult.pickedMesh.metadata && pickResult.pickedMesh.metadata.isProduct) {
                         openAssignForm(pickResult.pickedMesh.metadata.entityId);
                     }
                 }
@@ -313,172 +307,98 @@ const createScene = async () => {
 
 // --- Entity Instantiation & Layout Algorithms ---
 const instantiateEntity = async (ent) => {
-    if (ent.type === 'deco') {
+    if (ent.type === 'product') {
+        const rootBox = MeshBuilder.CreateBox(ent.id, { width: 0.6, height: 0.8, depth: 0.6 }, scene);
+        rootBox.position = new Vector3(ent.x, ent.y + 0.4, ent.z);
+        rootBox.visibility = 0;
+        rootBox.isPickable = true;
+        
         try {
             const result = await SceneLoader.ImportMeshAsync("", "/products/", "valiz.glb", scene);
-            const root = result.meshes[0];
-            root.position = new Vector3(ent.x, ent.y, ent.z);
-            root.scaling = new Vector3(0.5, 0.5, 0.5);
-            root.metadata = { isBox: true, entityId: ent.id };
-            
+            const prodModel = result.meshes[0];
+            prodModel.setParent(rootBox);
+            prodModel.position = Vector3.Zero();
+            prodModel.scaling = new Vector3(0.8, 0.8, 0.8);
             result.meshes.forEach(m => {
-                if (m.name !== root.name) {
-                    shadowGenerator.getShadowMap().renderList.push(m);
-                    m.receiveShadows = true;
-                    m.isPickable = false; // pick root instead
-                }
+                m.isPickable = false;
+                shadowGenerator.getShadowMap().renderList.push(m);
             });
-            
-            const bb = MeshBuilder.CreateBox(ent.id, {width: 0.6, height: 0.8, depth: 0.6}, scene);
-            bb.position = new Vector3(ent.x, ent.y + 0.4, ent.z);
-            bb.isVisible = false;
-            bb.isPickable = true;
-            bb.metadata = { isBox: true, entityId: ent.id };
-            root.setParent(bb);
-
         } catch (e) {
-            console.warn("Valiz modeli bulunamadi, placeholder kutu konuluyor.");
-            const box = MeshBuilder.CreateBox(ent.id, {width: 0.6, height: 0.8, depth: 0.6}, scene);
-            box.position = new Vector3(ent.x, ent.y + 0.4, ent.z);
-            box.metadata = { isBox: true, entityId: ent.id };
+            console.warn("Valiz modeli bulunamadi.");
+            const fallback = MeshBuilder.CreateBox(ent.id + "_fallback", { width: 0.6, height: 0.8, depth: 0.6 }, scene);
+            fallback.setParent(rootBox);
+            fallback.position = Vector3.Zero();
+            const mat = new PBRMaterial(ent.id + "_mat", scene);
+            mat.albedoColor = new Color3(Math.random(), Math.random(), Math.random());
+            fallback.material = mat;
         }
-    } 
-    else if (ent.type === 'counter' || ent.type === 'rack') {
-        // Create base structure as a transparent zone container
-        const boxRoot = MeshBuilder.CreateBox(ent.id, { width: 2, height: 1, depth: 1 }, scene);
-        boxRoot.position = new Vector3(ent.x, ent.y + 0.5, ent.z);
-        boxRoot.metadata = { isBox: true, entityId: ent.id };
         
-        const mat = new PBRMaterial("mat_" + ent.id, scene);
-        mat.albedoColor = new Color3(0, 1, 0.5); // Green-cyan boundary
-        mat.alpha = 0.3;
-        mat.unlit = true;
+        rootBox.metadata = { 
+            isProduct: true,
+            entityId: ent.id,
+            brand: ent.brand, 
+            name: ent.name, 
+            desc: ent.desc, 
+            price: ent.price 
+        };
         
-        boxRoot.material = mat;
-        boxRoot.visibility = isEditorMode ? 1 : 0; // Hide outside editor mode
+        rootBox.actionManager = new ActionManager(scene);
         
-        // Layout algorithm
-        if (ent.products && ent.products.length > 0) {
-            if (ent.type === 'counter') {
-                // Grid layout on top of counter
-                // 3 columns, 2 rows max on a 2x1 counter
-                let xStart = -0.7;
-                let zStart = 0.25;
-                ent.products.forEach((prod, index) => {
-                    const col = index % 3;
-                    const row = Math.floor(index / 3);
-                    const pX = xStart + col * 0.7;
-                    const pZ = zStart - row * 0.5;
-                    
-                    createInteractiveProduct(scene, ent.id + "_p_" + index, prod, new Vector3(pX, 0.75, pZ), boxRoot);
-                });
-            } else {
-                // Rack layout (Line)
-                // Linear spacing
-                let xStart = -0.8;
-                ent.products.forEach((prod, index) => {
-                    const pX = xStart + index * 0.4;
-                    createInteractiveProduct(scene, ent.id + "_p_" + index, prod, new Vector3(pX, 0.7, 0), boxRoot);
+        rootBox.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOverTrigger, () => {
+            if(!activeProduct && !isEditorMode) {
+                document.getElementById('renderCanvas').style.cursor = 'pointer';
+                rootBox.getChildMeshes().forEach(child => {
+                    if(child.material) {
+                        if(!child.material.emissiveColor) child.material.emissiveColor = new Color3(0,0,0);
+                        child.material.emissiveColor = new Color3(0.2, 0.2, 0.2); 
+                    }
                 });
             }
-        }
-    }
-};
-
-const createInteractiveProduct = async (scene, id, prodInfo, localPosition, parentMesh) => {
-    const rootBox = MeshBuilder.CreateBox(id, { width: 0.3, height: 0.4, depth: 0.3 }, scene);
-    rootBox.setParent(parentMesh);
-    rootBox.position = localPosition.clone();
-    rootBox.visibility = 0;
-    rootBox.isPickable = true;
-    
-    try {
-        const result = await SceneLoader.ImportMeshAsync("", "/products/", "valiz.glb", scene);
-        const prodModel = result.meshes[0];
-        prodModel.setParent(rootBox);
-        prodModel.position = Vector3.Zero();
-        prodModel.scaling = new Vector3(0.5, 0.5, 0.5);
-        result.meshes.forEach(m => {
-            m.isPickable = false;
-            shadowGenerator.getShadowMap().renderList.push(m);
-        });
-    } catch (e) {
-        console.warn("Valiz modeli bulunamadi.");
-        const fallback = MeshBuilder.CreateBox(id + "_fallback", { width: 0.3, height: 0.4, depth: 0.1 }, scene);
-        fallback.setParent(rootBox);
-        fallback.position = Vector3.Zero();
-        const mat = new PBRMaterial(id + "_mat", scene);
-        mat.albedoColor = new Color3(Math.random(), Math.random(), Math.random());
-        fallback.material = mat;
-    }
-    
-    rootBox.metadata = { 
-        isProduct: true,
-        brand: prodInfo.brand, 
-        name: prodInfo.name, 
-        desc: prodInfo.desc, 
-        price: prodInfo.price 
-    };
-    
-    rootBox.actionManager = new ActionManager(scene);
-    
-    rootBox.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOverTrigger, () => {
-        if(!activeProduct && !isEditorMode) {
-            document.getElementById('renderCanvas').style.cursor = 'pointer';
+        }));
+        
+        rootBox.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOutTrigger, () => {
+            document.getElementById('renderCanvas').style.cursor = 'default';
             rootBox.getChildMeshes().forEach(child => {
-                if(child.material) {
-                    if(!child.material.emissiveColor) child.material.emissiveColor = new Color3(0,0,0);
-                    child.material.emissiveColor = new Color3(0.2, 0.2, 0.2); 
+                if(child.material && child.material.emissiveColor) {
+                    child.material.emissiveColor = new Color3(0, 0, 0); 
                 }
             });
-        }
-    }));
-    
-    rootBox.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOutTrigger, () => {
-        document.getElementById('renderCanvas').style.cursor = 'default';
-        rootBox.getChildMeshes().forEach(child => {
-            if(child.material && child.material.emissiveColor) {
-                child.material.emissiveColor = new Color3(0, 0, 0); 
+        }));
+        
+        rootBox.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, () => {
+            if(!activeProduct && !isEditorMode) {
+                openProductView(rootBox);
             }
-        });
-    }));
-    
-    rootBox.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, () => {
-        if(!activeProduct && !isEditorMode) {
-            openProductView(rootBox);
-        }
-    }));
+        }));
+    }
 };
 
-const createNewEntity = async (type, position) => {
-    const ent = {
-        id: "ent_" + entityIdCounter++,
+// (Removed createInteractiveProduct since instantiateEntity handles it now)
+
+// --- Entities & Logic ---
+const createNewEntity = (type, position) => {
+    const newEntity = {
+        id: "ent_" + Date.now(),
         type: type,
         x: position.x,
         y: position.y,
         z: position.z,
         rotY: 0,
-        products: []
+        brand: "Marka",
+        name: "Ürün Adı",
+        desc: "Açıklama",
+        price: "0 TL"
     };
-    
-    entities.push(ent);
-    await saveEntityToDB(ent);
-    await instantiateEntity(ent);
+    entities.push(newEntity);
+    saveEntityToDB(newEntity).then(() => {
+        instantiateEntity(newEntity);
+        openAssignForm(newEntity.id);
+    });
 };
 
 // --- Editor Mode UI ---
 editorToggleBtn.addEventListener('click', () => {
     isEditorMode = !isEditorMode;
-    
-    // Toggle visibility of box zones
-    scene.meshes.forEach(m => {
-        if (m.metadata && m.metadata.isBox && m.name.startsWith("ent_")) {
-            const ent = entities.find(e => e.id === m.metadata.entityId);
-            if (ent && (ent.type === 'counter' || ent.type === 'rack')) {
-                m.visibility = isEditorMode ? 1 : 0;
-            }
-        }
-    });
 
     if (isEditorMode) {
         editorToggleBtn.innerText = "Editörden Çık";
@@ -542,12 +462,14 @@ addRackBtn.addEventListener('click', () => startPlacement('rack'));
 
 // --- Assign Products UI ---
 const openAssignForm = (entityId) => {
-    activeBoxId = entityId;
+    activeEntityId = entityId;
     const ent = entities.find(e => e.id === entityId);
     if (!ent) return;
     
-    tempProductList = [...(ent.products || [])];
-    renderProductList();
+    newBrandInput.value = ent.brand || "";
+    newNameInput.value = ent.name || "";
+    newPriceInput.value = ent.price || "";
+    newDescInput.value = ent.desc || "";
     
     assignFormOverlay.classList.remove('hidden');
     camera.detachControl();
@@ -555,68 +477,42 @@ const openAssignForm = (entityId) => {
 
 const closeAssignForm = () => {
     assignFormOverlay.classList.add('hidden');
-    activeBoxId = null;
+    activeEntityId = null;
     camera.attachControl(canvas, true);
 };
 
-const renderProductList = () => {
-    productListEl.innerHTML = "";
-    tempProductList.forEach((prod, index) => {
-        const item = document.createElement('div');
-        item.className = 'product-list-item';
-        item.innerHTML = `
-            <div><strong>${prod.brand}</strong> - ${prod.name} (${prod.price})</div>
-            <button class="remove-btn" data-index="${index}">✖</button>
-        `;
-        productListEl.appendChild(item);
-    });
-    
-    document.querySelectorAll('.remove-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const idx = parseInt(e.target.getAttribute('data-index'));
-            tempProductList.splice(idx, 1);
-            renderProductList();
-        });
-    });
-};
-
-addToListBtn.addEventListener('click', () => {
-    tempProductList.push({
-        brand: newBrandInput.value || "Marka",
-        name: newNameInput.value || "Ürün",
-        price: newPriceInput.value || "₺0",
-        desc: newDescInput.value || "Açıklama"
-    });
-    newBrandInput.value = "";
-    newNameInput.value = "";
-    newPriceInput.value = "";
-    newDescInput.value = "";
-    renderProductList();
-});
-
 saveBoxBtn.addEventListener('click', async () => {
-    const entIndex = entities.findIndex(e => e.id === activeBoxId);
-    if (entIndex > -1) {
-        entities[entIndex].products = [...tempProductList];
-        await saveEntityToDB(entities[entIndex]);
+    if (!activeEntityId) return;
+    
+    const ent = entities.find(e => e.id === activeEntityId);
+    if (ent) {
+        ent.brand = newBrandInput.value;
+        ent.name = newNameInput.value;
+        ent.price = newPriceInput.value;
+        ent.desc = newDescInput.value;
         
-        // Quick visual refresh: remove old mesh, instantiate new
-        const oldMesh = scene.getMeshByName(activeBoxId);
-        if (oldMesh) oldMesh.dispose(false, true); // dispose children too
+        await saveEntityToDB(ent);
         
-        await instantiateEntity(entities[entIndex]);
+        const oldMesh = scene.getMeshByName(ent.id);
+        if(oldMesh) {
+            oldMesh.metadata.brand = ent.brand;
+            oldMesh.metadata.name = ent.name;
+            oldMesh.metadata.price = ent.price;
+            oldMesh.metadata.desc = ent.desc;
+        }
     }
+    
     closeAssignForm();
 });
 
 cancelBoxBtn.addEventListener('click', closeAssignForm);
 
 deleteBoxBtn.addEventListener('click', async () => {
-    if (activeBoxId) {
-        await deleteEntityFromDB(activeBoxId);
-        entities = entities.filter(e => e.id !== activeBoxId);
-        const oldMesh = scene.getMeshByName(activeBoxId);
-        if (oldMesh) oldMesh.dispose(false, true);
+    if (activeEntityId) {
+        await deleteEntityFromDB(activeEntityId);
+        entities = entities.filter(e => e.id !== activeEntityId);
+        const mesh = scene.getMeshByName(activeEntityId);
+        if (mesh) mesh.dispose();
     }
     closeAssignForm();
 });

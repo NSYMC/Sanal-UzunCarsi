@@ -27,10 +27,9 @@
 
     <div id="crosshair"></div>
 
+    <!-- Editor Controls -->
     <div id="editorControls" class="hidden glass-panel">
-        <button id="addDecoBtn">Objeler</button>
-        <button id="addCounterBtn">Tezgahlar</button>
-        <button id="addRackBtn">Askılıklar</button>
+        <button id="addProductBtn">Ürün / Obje Ekle</button>
         <hr style="border: 1px solid var(--border-color); width: 100%; margin: 5px 0;">
         <button id="paintModeBtn" style="color: #64ffda;">Boya (Renk Değiştir)</button>
     </div>
@@ -41,31 +40,21 @@
 
     <!-- Product Box Assignment UI -->
     <div id="assignFormOverlay" class="hidden glass-panel">
-        <div class="form-container" style="width: 400px; max-height: 80vh; overflow-y: auto;">
-            <h2 id="assignFormTitle">Tezgah Düzenle</h2>
-            <div id="productList">
-                <!-- Assigned products will be listed here -->
-            </div>
+        <div class="form-container">
+            <h2>Ürün Bilgilerini Gir</h2>
             
-            <hr style="border: 1px solid var(--border-color); margin: 15px 0;">
-            
-            <h3>Yeni Ürün Ekle</h3>
-            <input type="text" id="newBrand" placeholder="Marka" />
-            <input type="text" id="newName" placeholder="Ürün Adı" />
-            <input type="text" id="newPrice" placeholder="Fiyat" />
-            <textarea id="newDesc" placeholder="Açıklama"></textarea>
+            <input type="text" id="newBrand" placeholder="Marka (Örn: Nike)" />
+            <input type="text" id="newName" placeholder="Ürün Adı (Örn: Siyah T-Shirt)" />
+            <input type="text" id="newPrice" placeholder="Fiyat (Örn: 299 TL)" />
+            <textarea id="newDesc" placeholder="Ürün Açıklaması..."></textarea>
             
             <div class="form-actions" style="margin-top: 10px;">
-                <button id="addToListBtn" class="primary-btn">Ekle</button>
+                <button id="saveBoxBtn" class="primary-btn">Kaydet</button>
+                <button id="cancelBoxBtn" class="secondary-btn">İptal</button>
             </div>
             
-            <hr style="border: 1px solid var(--border-color); margin: 15px 0;">
-            
-            <div class="form-actions">
-                <button id="saveBoxBtn" class="primary-btn">Kaydet ve Diz</button>
-                <button id="cancelBoxBtn" class="secondary-btn">Kapat</button>
-                <button id="deleteBoxBtn" class="danger-btn" style="background: rgba(220, 50, 50, 0.4);">Kutuyu Sil</button>
-            </div>
+            <hr style="border-color: var(--border-color); width: 100%; margin: 5px 0;">
+            <button id="deleteBoxBtn" class="danger-btn">Bu Objeyi Sil</button>
         </div>
     </div>
 
