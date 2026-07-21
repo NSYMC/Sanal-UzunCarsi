@@ -1,4 +1,4 @@
-# Sanal Uzunçarşı 3D Deneyimi
+# Sanal Uzunçarşı 3D
 
 Sanal Uzunçarşı, Babylon.js kullanılarak geliştirilmiş, tarayıcı tabanlı, fotogerçekçi ve interaktif bir 3D e-ticaret/gezinme simülasyonudur.
 
