@@ -38,12 +38,22 @@ const saveBoxBtn = document.getElementById('saveBoxBtn');
 const cancelBoxBtn = document.getElementById('cancelBoxBtn');
 const deleteBoxBtn = document.getElementById('deleteBoxBtn');
 
+// Color Editor UI
+const colorEditorOverlay = document.getElementById('colorEditorOverlay');
+const colorEditorTargetName = document.getElementById('colorEditorTargetName');
+const meshColorInput = document.getElementById('meshColorInput');
+const saveColorBtn = document.getElementById('saveColorBtn');
+const cancelColorBtn = document.getElementById('cancelColorBtn');
+const resetColorBtn = document.getElementById('resetColorBtn');
+
 // State
 let isEditorMode = false;
 let currentPlacementType = null; // 'deco', 'counter', 'rack'
 let ghostMesh = null;
 let activeProduct = null;
 let activeBoxId = null; 
+let activeColorMesh = null;
+let originalColorHex = null;
 let tempProductList = [];
 let camera = null;
 let scene = null;
@@ -61,14 +71,18 @@ let entities = [];
 // --- IndexedDB Setup ---
 const DB_NAME = "UzunCarsiDB_v2";
 const STORE_NAME = "entities";
+const COLOR_STORE = "sceneColors";
 
 const initDB = () => {
     return new Promise((resolve, reject) => {
-        const request = indexedDB.open(DB_NAME, 2);
+        const request = indexedDB.open(DB_NAME, 3);
         request.onupgradeneeded = (event) => {
             const db = event.target.result;
             if (!db.objectStoreNames.contains(STORE_NAME)) {
                 db.createObjectStore(STORE_NAME, { keyPath: "id" });
+            }
+            if (!db.objectStoreNames.contains(COLOR_STORE)) {
+                db.createObjectStore(COLOR_STORE, { keyPath: "meshId" });
             }
         };
         request.onsuccess = () => resolve(request.result);
@@ -98,6 +112,25 @@ const loadEntitiesFromDB = async () => {
     const db = await initDB();
     const tx = db.transaction(STORE_NAME, "readonly");
     const store = tx.objectStore(STORE_NAME);
+    const request = store.getAll();
+    return new Promise((resolve) => {
+        request.onsuccess = () => resolve(request.result);
+    });
+};
+
+const saveColorToDB = async (meshId, hexColor) => {
+    const db = await initDB();
+    const tx = db.transaction(COLOR_STORE, "readwrite");
+    tx.objectStore(COLOR_STORE).put({ meshId, hexColor });
+    return new Promise((resolve) => {
+        tx.oncomplete = () => resolve();
+    });
+};
+
+const loadColorsFromDB = async () => {
+    const db = await initDB();
+    const tx = db.transaction(COLOR_STORE, "readonly");
+    const store = tx.objectStore(COLOR_STORE);
     const request = store.getAll();
     return new Promise((resolve) => {
         request.onsuccess = () => resolve(request.result);
@@ -167,9 +200,20 @@ const createScene = async () => {
     engine.displayLoadingUI();
     try {
         await SceneLoader.AppendAsync("/models/", "binaaktıf2.glb", scene);
+        const savedColors = await loadColorsFromDB();
+        
         scene.meshes.forEach(mesh => {
             mesh.checkCollisions = true;
             mesh.receiveShadows = true;
+            
+            if (savedColors) {
+                const colorData = savedColors.find(c => c.meshId === mesh.name);
+                if (colorData && mesh.material) {
+                    if (mesh.material.albedoColor) {
+                        mesh.material.albedoColor = Color3.FromHexString(colorData.hexColor);
+                    }
+                }
+            }
         });
     } catch (err) {
         console.error("Ana sahne yuklenirken hata:", err);
@@ -214,14 +258,33 @@ const createScene = async () => {
                     cancelPlacement();
                 }
             } 
-            // Clicking an existing box in Editor Mode
+            // Clicking an existing box in Editor Mode (Left Click)
             else if (isEditorMode && !ghostMesh) {
                 const pickResult = scene.pick(scene.pointerX, scene.pointerY);
-                if (pickResult.hit && pickResult.pickedMesh && pickResult.pickedMesh.metadata && pickResult.pickedMesh.metadata.isBox) {
-                    openAssignForm(pickResult.pickedMesh.metadata.entityId);
+                if (pickResult.hit && pickResult.pickedMesh) {
+                    if (pickResult.pickedMesh.metadata && pickResult.pickedMesh.metadata.isBox) {
+                        openAssignForm(pickResult.pickedMesh.metadata.entityId);
+                    }
                 }
             }
         }
+        else if (pointerInfo.type === PointerEventTypes.POINTERDOWN && pointerInfo.event.button === 2) {
+            // Right click for Color Picker in Editor Mode
+            if (isEditorMode && !ghostMesh) {
+                const pickResult = scene.pick(scene.pointerX, scene.pointerY);
+                if (pickResult.hit && pickResult.pickedMesh) {
+                    // Ignore UI or ghost meshes
+                    if (pickResult.pickedMesh.name !== 'ghost') {
+                        openColorEditor(pickResult.pickedMesh);
+                    }
+                }
+            }
+        }
+    });
+
+    // Disable context menu so right click works smoothly
+    window.addEventListener('contextmenu', (e) => {
+        if (isEditorMode) e.preventDefault();
     });
 
     window.addEventListener('keydown', (e) => {
@@ -568,6 +631,55 @@ const closeProductView = () => {
 };
 
 closeBtn.addEventListener('click', closeProductView);
+
+// --- Color Editor Logic ---
+const openColorEditor = (mesh) => {
+    if (!mesh.material || !mesh.material.albedoColor) return;
+    
+    activeColorMesh = mesh;
+    originalColorHex = mesh.material.albedoColor.toHexString();
+    
+    colorEditorTargetName.innerText = "Hedef: " + mesh.name;
+    meshColorInput.value = originalColorHex;
+    
+    colorEditorOverlay.classList.remove('hidden');
+    camera.detachControl();
+};
+
+const closeColorEditor = () => {
+    colorEditorOverlay.classList.add('hidden');
+    activeColorMesh = null;
+    camera.attachControl(canvas, true);
+};
+
+meshColorInput.addEventListener('input', (e) => {
+    if (activeColorMesh && activeColorMesh.material) {
+        activeColorMesh.material.albedoColor = Color3.FromHexString(e.target.value);
+    }
+});
+
+saveColorBtn.addEventListener('click', async () => {
+    if (activeColorMesh) {
+        const hex = meshColorInput.value;
+        await saveColorToDB(activeColorMesh.name, hex);
+    }
+    closeColorEditor();
+});
+
+cancelColorBtn.addEventListener('click', () => {
+    if (activeColorMesh && activeColorMesh.material && originalColorHex) {
+        activeColorMesh.material.albedoColor = Color3.FromHexString(originalColorHex);
+    }
+    closeColorEditor();
+});
+
+resetColorBtn.addEventListener('click', async () => {
+    if (activeColorMesh && activeColorMesh.material) {
+        activeColorMesh.material.albedoColor = new Color3(1, 1, 1);
+        await saveColorToDB(activeColorMesh.name, "#ffffff"); // Default white/base
+    }
+    closeColorEditor();
+});
 
 createScene().then(() => {
     engine.runRenderLoop(() => { if(scene) scene.render(); });
