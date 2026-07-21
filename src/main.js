@@ -3,7 +3,7 @@ import {
     Engine, Scene, Vector3, HemisphericLight, DirectionalLight, MeshBuilder, UniversalCamera, 
     PBRMaterial, Color3, ActionManager, ExecuteCodeAction, Animation, 
     CubicEase, EasingFunction, ShadowGenerator, DefaultRenderingPipeline, SceneLoader, PointerEventTypes,
-    CubeTexture, SSAO2RenderingPipeline, GizmoManager
+    CubeTexture, SSAO2RenderingPipeline, GizmoManager, VolumetricLightScatteringPostProcess, Texture
 } from '@babylonjs/core';
 import '@babylonjs/loaders/glTF';
 
@@ -168,8 +168,8 @@ const createScene = async () => {
 
     const dirLight = new DirectionalLight("dirLight", new Vector3(-1, -0.5, -1), scene);
     dirLight.position = new Vector3(20, 10, 20);
-    dirLight.intensity = 1.7; 
-    dirLight.diffuse = new Color3(1.0, 0.6, 0.3); 
+    dirLight.intensity = 2.0; 
+    dirLight.diffuse = new Color3(1.0, 0.95, 0.85); // Warm sun color
     
     shadowGenerator = new ShadowGenerator(1024, dirLight);
     shadowGenerator.useBlurExponentialShadowMap = true;
@@ -179,20 +179,34 @@ const createScene = async () => {
     pipeline.samples = 1; 
     pipeline.fxaaEnabled = true; 
     pipeline.bloomEnabled = true;
-    pipeline.bloomThreshold = 0.95; 
-    pipeline.bloomWeight = 0.15; 
+    pipeline.bloomThreshold = 0.9; 
+    pipeline.bloomWeight = 0.2; 
     pipeline.imageProcessingEnabled = true;
     pipeline.imageProcessing.toneMappingEnabled = true;
-    pipeline.imageProcessing.toneMappingType = 1; 
-    pipeline.imageProcessing.exposure = 0.8; 
-    pipeline.imageProcessing.contrast = 1.1;
+    pipeline.imageProcessing.toneMappingType = 2; // ACES_TONEMAPPING (Cinematic photorealism)
+    pipeline.imageProcessing.exposure = 1.0; 
+    pipeline.imageProcessing.contrast = 1.2;
     pipeline.depthOfFieldEnabled = false; 
 
     // Remove SSAO for massive FPS boost on heavy scenes
     // const ssao = new SSAO2RenderingPipeline("ssao", scene, 0.75, [camera]);
     
-    // Add IBL (HDRI Environment) for PBR materials
-    scene.createDefaultEnvironment({ createSkybox: false, createGround: false });
+    // Add IBL (HDRI Environment) for PBR materials with a beautiful Skybox
+    scene.createDefaultEnvironment({ 
+        createSkybox: true, 
+        skyboxSize: 1000, 
+        skyboxColor: new Color3(0.5, 0.7, 1.0), 
+        createGround: false 
+    });
+
+    // Light Tricks (God Rays) - Low density to keep FPS high
+    const godrays = new VolumetricLightScatteringPostProcess('godrays', 1.0, camera, null, 100, Texture.BILINEAR_SAMPLINGMODE, engine, false);
+    godrays.mesh.material.diffuseColor = new Color3(1, 0.9, 0.8);
+    godrays.mesh.position = new Vector3(50, 50, 50);
+    godrays.exposure = 0.2;
+    godrays.decay = 0.96815;
+    godrays.weight = 0.5;
+    godrays.density = 0.5;
 
     // GizmoManager Init
     gizmoManager = new GizmoManager(scene);
@@ -235,6 +249,37 @@ const createScene = async () => {
     // Load Entities
     try {
         entities = await loadEntitiesFromDB();
+        
+        // --- TEZGAH SEEDING LOGIC ---
+        if (!entities || entities.length === 0) {
+            const tezgah = scene.meshes.find(m => m.name.toLowerCase().includes("tezgah"));
+            if (tezgah) {
+                const minMax = tezgah.getHierarchyBoundingVectors();
+                const topY = minMax.max.y;
+                const centerX = (minMax.max.x + minMax.min.x) / 2;
+                const centerZ = (minMax.max.z + minMax.min.z) / 2;
+                
+                const colors = ["Kırmızı", "Mavi", "Yeşil", "Sarı"];
+                for (let i = 0; i < 4; i++) {
+                    const id = "ent_tshirt_" + i;
+                    const ent = {
+                        id: id,
+                        type: 'product',
+                        x: centerX - 1.5 + i * 1.0,
+                        y: topY,
+                        z: centerZ,
+                        rotY: 0,
+                        brand: "Marka " + i,
+                        name: colors[i] + " T-Shirt",
+                        desc: "Yazlık Kumaş",
+                        price: "299 TL"
+                    };
+                    entities.push(ent);
+                    saveEntityToDB(ent);
+                }
+            }
+        }
+
         if (entities && entities.length > 0) {
             let maxId = 0;
             for (const ent of entities) {
@@ -361,26 +406,48 @@ const instantiateEntity = async (ent) => {
         rootBox.visibility = 0;
         rootBox.isPickable = true;
         
-        try {
-            const result = await SceneLoader.ImportMeshAsync("", "/products/", "valiz.glb", scene);
-            const prodModel = result.meshes[0];
-            prodModel.setParent(rootBox);
-            prodModel.position = Vector3.Zero();
-            prodModel.scaling = new Vector3(0.8, 0.8, 0.8);
-            result.meshes.forEach(m => {
-                m.isPickable = false;
-                shadowGenerator.getShadowMap().renderList.push(m);
-            });
-        } catch (e) {
-            console.warn("Valiz modeli bulunamadi.");
-            const fallback = MeshBuilder.CreateBox(ent.id + "_fallback", { width: 0.6, height: 0.8, depth: 0.6 }, scene);
-            fallback.setParent(rootBox);
-            fallback.position = Vector3.Zero();
+        rootBox.metadata = { isProduct: true, entityId: ent.id };
+        
+        if (ent.name.includes("T-Shirt")) {
+            // T-Shirt Placeholders (Colorful Boxes)
+            const box = MeshBuilder.CreateBox(ent.id + "_box", { width: 0.5, height: 0.1, depth: 0.4 }, scene);
+            box.setParent(rootBox);
+            box.position = Vector3.Zero();
             const mat = new PBRMaterial(ent.id + "_mat", scene);
-            mat.albedoColor = new Color3(Math.random(), Math.random(), Math.random());
-            fallback.material = mat;
+            // Random vibrant color based on name
+            if (ent.name.includes("Kırmızı")) mat.albedoColor = new Color3(0.9, 0.1, 0.1);
+            else if (ent.name.includes("Mavi")) mat.albedoColor = new Color3(0.1, 0.3, 0.9);
+            else if (ent.name.includes("Yeşil")) mat.albedoColor = new Color3(0.1, 0.8, 0.2);
+            else if (ent.name.includes("Sarı")) mat.albedoColor = new Color3(0.9, 0.8, 0.1);
+            else mat.albedoColor = new Color3(Math.random(), Math.random(), Math.random());
+            mat.metallic = 0.1;
+            mat.roughness = 0.8;
+            box.material = mat;
+            box.isPickable = false;
+            shadowGenerator.getShadowMap().renderList.push(box);
+        } else {
+            try {
+                const result = await SceneLoader.ImportMeshAsync("", "/products/", "valiz.glb", scene);
+                const prodModel = result.meshes[0];
+                prodModel.setParent(rootBox);
+                prodModel.position = Vector3.Zero();
+                prodModel.scaling = new Vector3(0.8, 0.8, 0.8);
+                result.meshes.forEach(m => {
+                    m.isPickable = false;
+                    shadowGenerator.getShadowMap().renderList.push(m);
+                });
+            } catch (e) {
+                console.warn("Valiz modeli bulunamadi.");
+                const fallback = MeshBuilder.CreateBox(ent.id + "_fallback", { width: 0.6, height: 0.8, depth: 0.6 }, scene);
+                fallback.setParent(rootBox);
+                fallback.position = Vector3.Zero();
+                const mat = new PBRMaterial(ent.id + "_mat", scene);
+                mat.albedoColor = new Color3(Math.random(), Math.random(), Math.random());
+                fallback.material = mat;
+            }
         }
         
+        rootBox.actionManager = new ActionManager(scene);
         rootBox.metadata = { 
             isProduct: true,
             entityId: ent.id,
