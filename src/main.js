@@ -456,9 +456,7 @@ const cancelPlacement = () => {
     }
 };
 
-addDecoBtn.addEventListener('click', () => startPlacement('deco'));
-addCounterBtn.addEventListener('click', () => startPlacement('counter'));
-addRackBtn.addEventListener('click', () => startPlacement('rack'));
+addProductBtn.addEventListener('click', () => startPlacement('product'));
 
 // --- Assign Products UI ---
 const openAssignForm = (entityId) => {
