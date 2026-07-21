@@ -173,10 +173,10 @@ const createScene = async () => {
     
     shadowGenerator = new ShadowGenerator(1024, dirLight);
     shadowGenerator.useBlurExponentialShadowMap = true;
-    shadowGenerator.blurKernel = 32; 
+    shadowGenerator.blurKernel = 16; 
 
     pipeline = new DefaultRenderingPipeline("defaultPipeline", true, scene, [camera]);
-    pipeline.samples = 4; 
+    pipeline.samples = 1; 
     pipeline.fxaaEnabled = true; 
     pipeline.bloomEnabled = true;
     pipeline.bloomThreshold = 0.95; 
@@ -188,10 +188,11 @@ const createScene = async () => {
     pipeline.imageProcessing.contrast = 1.1;
     pipeline.depthOfFieldEnabled = false; 
 
-    const ssao = new SSAO2RenderingPipeline("ssao", scene, 0.75, [camera]);
-    ssao.radius = 2.0;
-    ssao.totalStrength = 1.2;
-    ssao.base = 0.5;
+    // Remove SSAO for massive FPS boost on heavy scenes
+    // const ssao = new SSAO2RenderingPipeline("ssao", scene, 0.75, [camera]);
+    
+    // Add IBL (HDRI Environment) for PBR materials
+    scene.createDefaultEnvironment({ createSkybox: false, createGround: false });
 
     // GizmoManager Init
     gizmoManager = new GizmoManager(scene);
@@ -210,6 +211,12 @@ const createScene = async () => {
         scene.meshes.forEach(mesh => {
             mesh.checkCollisions = true;
             mesh.receiveShadows = true;
+            
+            // FREEZE STATIC MESHES FOR MASSIVE FPS GAIN
+            if (mesh.name !== "ghost" && mesh.name !== "skyBox" && !mesh.name.startsWith("ent_")) {
+                mesh.doNotSyncBoundingInfo = true;
+                mesh.freezeWorldMatrix();
+            }
             
             if (savedColors) {
                 const colorData = savedColors.find(c => c.meshId === mesh.name);
