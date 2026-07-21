@@ -3,7 +3,7 @@ import {
     Engine, Scene, Vector3, HemisphericLight, DirectionalLight, MeshBuilder, UniversalCamera, 
     PBRMaterial, Color3, ActionManager, ExecuteCodeAction, Animation, 
     CubicEase, EasingFunction, ShadowGenerator, DefaultRenderingPipeline, SceneLoader, PointerEventTypes,
-    CubeTexture, SSAO2RenderingPipeline
+    CubeTexture, SSAO2RenderingPipeline, GizmoManager
 } from '@babylonjs/core';
 import '@babylonjs/loaders/glTF';
 
@@ -56,6 +56,7 @@ let camera = null;
 let scene = null;
 let shadowGenerator = null;
 let pipeline = null;
+let gizmoManager = null;
 
 let originalPosition = null;
 let originalRotation = null;
@@ -192,6 +193,14 @@ const createScene = async () => {
     ssao.totalStrength = 1.2;
     ssao.base = 0.5;
 
+    // GizmoManager Init
+    gizmoManager = new GizmoManager(scene);
+    gizmoManager.positionGizmoEnabled = true;
+    gizmoManager.rotationGizmoEnabled = true;
+    gizmoManager.scaleGizmoEnabled = false;
+    gizmoManager.usePointerToAttach = false;
+    gizmoManager.clearGizmoOnEmptyPointerEvent = false;
+
     // Load Main Scene
     engine.displayLoadingUI();
     try {
@@ -269,9 +278,36 @@ const createScene = async () => {
             else if (isEditorMode && !ghostMesh) {
                 const pickResult = scene.pick(scene.pointerX, scene.pointerY);
                 if (pickResult.hit && pickResult.pickedMesh) {
-                    if (pickResult.pickedMesh.metadata && pickResult.pickedMesh.metadata.isProduct) {
-                        openAssignForm(pickResult.pickedMesh.metadata.entityId);
+                    if (pickResult.pickedMesh.name.toLowerCase().includes("gizmo")) {
+                        return; // Let GizmoManager handle this
                     }
+                    if (pickResult.pickedMesh.metadata && pickResult.pickedMesh.metadata.isProduct) {
+                        gizmoManager.attachToMesh(pickResult.pickedMesh);
+                        openAssignForm(pickResult.pickedMesh.metadata.entityId);
+                    } else {
+                        gizmoManager.attachToMesh(null);
+                        closeAssignForm();
+                    }
+                } else {
+                    gizmoManager.attachToMesh(null);
+                    closeAssignForm();
+                }
+            }
+        }
+        else if (pointerInfo.type === PointerEventTypes.POINTERUP) {
+            if (isEditorMode && gizmoManager && gizmoManager.attachedMesh) {
+                const mesh = gizmoManager.attachedMesh;
+                const ent = entities.find(e => e.id === mesh.metadata.entityId);
+                if (ent) {
+                    ent.x = mesh.position.x;
+                    ent.y = mesh.position.y - 0.4; // offset from rootBox
+                    ent.z = mesh.position.z;
+                    if (mesh.rotationQuaternion) {
+                        ent.rotY = mesh.rotationQuaternion.toEulerAngles().y;
+                    } else {
+                        ent.rotY = mesh.rotation.y;
+                    }
+                    saveEntityToDB(ent);
                 }
             }
         }
@@ -310,6 +346,9 @@ const instantiateEntity = async (ent) => {
     if (ent.type === 'product') {
         const rootBox = MeshBuilder.CreateBox(ent.id, { width: 0.6, height: 0.8, depth: 0.6 }, scene);
         rootBox.position = new Vector3(ent.x, ent.y + 0.4, ent.z);
+        if (ent.rotY) {
+            rootBox.rotation = new Vector3(0, ent.rotY, 0);
+        }
         rootBox.visibility = 0;
         rootBox.isPickable = true;
         
@@ -409,6 +448,7 @@ editorToggleBtn.addEventListener('click', () => {
         editorToggleBtn.style.background = "";
         editorControls.classList.add('hidden');
         cancelPlacement();
+        if (gizmoManager) gizmoManager.attachToMesh(null);
         
         if (isPaintMode) {
             isPaintMode = false;
