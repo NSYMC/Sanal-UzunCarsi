@@ -27,27 +27,42 @@
 
     <div id="crosshair"></div>
 
-    <button id="addBtn" class="fab-btn">Yeni Ürün Ekle</button>
+    <div id="editorControls" class="hidden glass-panel">
+        <button id="addDecoBtn">Objeler</button>
+        <button id="addCounterBtn">Tezgahlar</button>
+        <button id="addRackBtn">Askılıklar</button>
+    </div>
+
+    <button id="editorToggleBtn" class="fab-btn">Editör Modu</button>
+    
     <div id="buildModeHint" class="hidden">Yerleştirmek için zemine tıklayın. Çıkmak için ESC.</div>
 
-    <div id="addFormOverlay" class="hidden glass-panel">
-        <div class="form-container">
-            <h2>Ürün Ekle</h2>
-            <input type="text" id="newBrand" placeholder="Marka (Örn: Yöresel)" />
+    <!-- Product Box Assignment UI -->
+    <div id="assignFormOverlay" class="hidden glass-panel">
+        <div class="form-container" style="width: 400px; max-height: 80vh; overflow-y: auto;">
+            <h2 id="assignFormTitle">Tezgah Düzenle</h2>
+            <div id="productList">
+                <!-- Assigned products will be listed here -->
+            </div>
+            
+            <hr style="border: 1px solid var(--border-color); margin: 15px 0;">
+            
+            <h3>Yeni Ürün Ekle</h3>
+            <input type="text" id="newBrand" placeholder="Marka" />
             <input type="text" id="newName" placeholder="Ürün Adı" />
-            <textarea id="newDesc" placeholder="Ürün Açıklaması"></textarea>
-            <input type="text" id="newPrice" placeholder="Fiyat (Örn: ₺500)" />
-            <div class="file-upload">
-                <label>3D Model (.glb, .gltf) - Opsiyonel:</label>
-                <input type="file" id="modelUpload" accept=".glb,.gltf" />
+            <input type="text" id="newPrice" placeholder="Fiyat" />
+            <textarea id="newDesc" placeholder="Açıklama"></textarea>
+            
+            <div class="form-actions" style="margin-top: 10px;">
+                <button id="addToListBtn" class="primary-btn">Ekle</button>
             </div>
-            <div class="color-picker">
-                <label>Renk:</label>
-                <input type="color" id="newColor" value="#8c5a3c" />
-            </div>
+            
+            <hr style="border: 1px solid var(--border-color); margin: 15px 0;">
+            
             <div class="form-actions">
-                <button id="saveProductBtn" class="primary-btn">Yerleştir</button>
-                <button id="cancelProductBtn" class="secondary-btn">İptal</button>
+                <button id="saveBoxBtn" class="primary-btn">Kaydet ve Diz</button>
+                <button id="cancelBoxBtn" class="secondary-btn">Kapat</button>
+                <button id="deleteBoxBtn" class="danger-btn" style="background: rgba(220, 50, 50, 0.4);">Kutuyu Sil</button>
             </div>
         </div>
     </div>
