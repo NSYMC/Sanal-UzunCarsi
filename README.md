@@ -1,18 +1,17 @@
-# Sanal Uzunçarşı 3D
+# Uzunçarşı 3D Simülasyonu
 
-Sanal Uzunçarşı, Babylon.js kullanılarak geliştirilmiş, tarayıcı tabanlı, fotogerçekçi ve interaktif bir 3D e-ticaret/gezinme simülasyonudur.
+Babylon.js tabanlı, tarayıcı üzerinden çalışan 3D ürün yerleştirme ve görselleştirme projesidir.
 
-Bu projede devasa "Uzunçarşı" modelinin içerisinde özgürce dolaşabilir, ürünleri (Örn: valizler, t-shirtler vb.) tezgahların üzerinde inceleyebilir ve kendi ürünlerinizi Editör modunu kullanarak sahneye yerleştirebilirsiniz.
+## Teknik Altyapı ve Özellikler
 
-## Özellikler
+- **Render Motoru:** Babylon.js (WebGL/WebGPU destekli).
+- **Post-Processing:** ACES Tone Mapping, aktif IBL (Image Based Lighting) ve lokalleştirilmiş Point Light gölgelendirmesi (Shadow Map 1024px).
+- **Veri Yönetimi:** IndexedDB (v3) kullanılarak tarayıcı tarafında asenkron nesne kaydı (Entity ID, Position, Rotation, Color).
+- **Performans Optimizasyonu:** Yaklaşık 240MB'lık statik alan modeli (`binaaktıf2.glb`) için `freezeWorldMatrix` ve `doNotSyncBoundingInfo` metodları uygulanarak 60 FPS hedeflenmiştir.
+- **Editör Modu:** Çalışma zamanında (Runtime) sahneye obje ekleme (Instancing), `GizmoManager` üzerinden XYZ pozisyon/rotasyon manipülasyonu.
 
-- **Fotogerçekçi Grafikler:** ACES Tone Mapping, IBL (Çevresel Işık) ve özel iç mekan ışıklandırmaları (Point Lights).
-- **Editör Modu:** Sahneye ürün (Valiz, Kutu vb.) ekleme, XYZ eksenlerinde serbest taşıma ve döndürme (Gizmo).
-- **Tıklanabilir Ürünler:** Ürünlerin üzerine tıklandığında açılan ürün bilgi kartları.
-- **Yüksek Performans:** 240MB'lık devasa sahnelere rağmen objelerin dondurulması (Mesh Freezing) sayesinde akıcı 60 FPS deneyimi.
-
-## Motordan Görüntüler
-![Sanal Uzunçarşı Motordan Görüntü](dukkan.png)
+## Ekran Görüntüleri
+![Motordan Görüntü](dukkan.png)
 
 ## Nasıl Çalıştırılır?
 
