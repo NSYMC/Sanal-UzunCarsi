@@ -3,7 +3,7 @@ import {
     Engine, Scene, Vector3, HemisphericLight, DirectionalLight, MeshBuilder, UniversalCamera, 
     PBRMaterial, Color3, ActionManager, ExecuteCodeAction, Animation, 
     CubicEase, EasingFunction, ShadowGenerator, DefaultRenderingPipeline, SceneLoader, PointerEventTypes,
-    CubeTexture, SSAO2RenderingPipeline, GizmoManager, VolumetricLightScatteringPostProcess, Texture
+    CubeTexture, SSAO2RenderingPipeline, GizmoManager, VolumetricLightScatteringPostProcess, Texture, PointLight
 } from '@babylonjs/core';
 import '@babylonjs/loaders/glTF';
 
@@ -162,18 +162,16 @@ const createScene = async () => {
     camera.minZ = 0.1;
 
     // Lighting
-    const ambientLight = new HemisphericLight('ambientLight', new Vector3(0, 1, 0), scene);
-    ambientLight.intensity = 0.2; 
-    ambientLight.groundColor = new Color3(0.05, 0.05, 0.05);
+    const ambientLight = new HemisphericLight("ambient", new Vector3(0, 1, 0), scene);
+    ambientLight.intensity = 0.6; // Brighter indoor ambient
+    ambientLight.groundColor = new Color3(0.2, 0.2, 0.2);
 
     const dirLight = new DirectionalLight("dirLight", new Vector3(-1, -0.5, -1), scene);
     dirLight.position = new Vector3(20, 10, 20);
     dirLight.intensity = 2.0; 
     dirLight.diffuse = new Color3(1.0, 0.95, 0.85); // Warm sun color
     
-    shadowGenerator = new ShadowGenerator(1024, dirLight);
-    shadowGenerator.useBlurExponentialShadowMap = true;
-    shadowGenerator.blurKernel = 16; 
+    // Shadow generator will be created dynamically for the local PointLight
 
     pipeline = new DefaultRenderingPipeline("defaultPipeline", true, scene, [camera]);
     pipeline.samples = 1; 
@@ -241,6 +239,30 @@ const createScene = async () => {
                 }
             }
         });
+        
+        // --- INDOOR LOCAL LIGHTING & SHADOWS ---
+        const tezgah = scene.meshes.find(m => m.name.toLowerCase().includes("tezgah"));
+        if (tezgah) {
+            const minMax = tezgah.getHierarchyBoundingVectors();
+            const topY = minMax.max.y;
+            const centerX = (minMax.max.x + minMax.min.x) / 2;
+            const centerZ = (minMax.max.z + minMax.min.z) / 2;
+            
+            // Dramatic PointLight above the tezgah
+            const localLight = new PointLight("tezgahLight", new Vector3(centerX, topY + 3.0, centerZ), scene);
+            localLight.intensity = 4.0;
+            localLight.diffuse = new Color3(1.0, 0.9, 0.8);
+            
+            // Bind shadows to this local light for perfect indoor shadows
+            shadowGenerator = new ShadowGenerator(1024, localLight);
+            shadowGenerator.useBlurExponentialShadowMap = true;
+            shadowGenerator.blurKernel = 16;
+        } else {
+            // Fallback
+            shadowGenerator = new ShadowGenerator(1024, dirLight);
+            shadowGenerator.useBlurExponentialShadowMap = true;
+        }
+        
     } catch (err) {
         console.error("Ana sahne yuklenirken hata:", err);
     }
