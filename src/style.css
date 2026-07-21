@@ -395,3 +395,21 @@ body {
   cursor: pointer;
   font-size: 16px;
 }
+
+#assignFormOverlay, #colorEditorOverlay {
+  left: 30px;
+  top: 30px;
+  transform: none;
+}
+
+#assignFormOverlay .form-container, #colorEditorOverlay .form-container {
+  max-height: 85vh;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+
+/* Fix product list items overflowing */
+.product-list-item {
+  white-space: normal;
+  word-break: break-all;
+}

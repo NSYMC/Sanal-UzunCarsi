@@ -25,6 +25,7 @@ const buildModeHint = document.getElementById('buildModeHint');
 const addDecoBtn = document.getElementById('addDecoBtn');
 const addCounterBtn = document.getElementById('addCounterBtn');
 const addRackBtn = document.getElementById('addRackBtn');
+const paintModeBtn = document.getElementById('paintModeBtn');
 
 // Assign UI
 const assignFormOverlay = document.getElementById('assignFormOverlay');
@@ -48,6 +49,7 @@ const resetColorBtn = document.getElementById('resetColorBtn');
 
 // State
 let isEditorMode = false;
+let isPaintMode = false;
 let currentPlacementType = null; // 'deco', 'counter', 'rack'
 let ghostMesh = null;
 let activeProduct = null;
@@ -250,6 +252,17 @@ const createScene = async () => {
         else if (pointerInfo.type === PointerEventTypes.POINTERDOWN) {
             if (pointerInfo.event.button !== 0) return; 
 
+            // Paint mode click
+            if (isEditorMode && isPaintMode) {
+                const pickResult = scene.pick(scene.pointerX, scene.pointerY);
+                if (pickResult.hit && pickResult.pickedMesh) {
+                    if (pickResult.pickedMesh.name !== 'ghost') {
+                        openColorEditor(pickResult.pickedMesh);
+                    }
+                }
+                return;
+            }
+
             // Placing a new item
             if (isEditorMode && ghostMesh) {
                 const pickResult = scene.pick(scene.pointerX, scene.pointerY, (mesh) => mesh.checkCollisions && mesh.name !== 'ghost');
@@ -269,7 +282,7 @@ const createScene = async () => {
             }
         }
         else if (pointerInfo.type === PointerEventTypes.POINTERDOWN && pointerInfo.event.button === 2) {
-            // Right click for Color Picker in Editor Mode
+            // Right click for Color Picker in Editor Mode (Backup)
             if (isEditorMode && !ghostMesh) {
                 const pickResult = scene.pick(scene.pointerX, scene.pointerY);
                 if (pickResult.hit && pickResult.pickedMesh) {
@@ -331,18 +344,18 @@ const instantiateEntity = async (ent) => {
         }
     } 
     else if (ent.type === 'counter' || ent.type === 'rack') {
-        // Create base structure
+        // Create base structure as a transparent zone container
         const boxRoot = MeshBuilder.CreateBox(ent.id, { width: 2, height: 1, depth: 1 }, scene);
         boxRoot.position = new Vector3(ent.x, ent.y + 0.5, ent.z);
         boxRoot.metadata = { isBox: true, entityId: ent.id };
         
         const mat = new PBRMaterial("mat_" + ent.id, scene);
-        mat.albedoColor = ent.type === 'counter' ? new Color3(0.4, 0.3, 0.2) : new Color3(0.2, 0.2, 0.2);
-        mat.metallic = 0.1;
-        mat.roughness = 0.7;
+        mat.albedoColor = new Color3(0, 1, 0.5); // Green-cyan boundary
+        mat.alpha = 0.3;
+        mat.unlit = true;
+        
         boxRoot.material = mat;
-        boxRoot.receiveShadows = true;
-        shadowGenerator.getShadowMap().renderList.push(boxRoot);
+        boxRoot.visibility = isEditorMode ? 1 : 0; // Hide outside editor mode
         
         // Layout algorithm
         if (ent.products && ent.products.length > 0) {
@@ -432,6 +445,17 @@ const createNewEntity = async (type, position) => {
 // --- Editor Mode UI ---
 editorToggleBtn.addEventListener('click', () => {
     isEditorMode = !isEditorMode;
+    
+    // Toggle visibility of box zones
+    scene.meshes.forEach(m => {
+        if (m.metadata && m.metadata.isBox && m.name.startsWith("ent_")) {
+            const ent = entities.find(e => e.id === m.metadata.entityId);
+            if (ent && (ent.type === 'counter' || ent.type === 'rack')) {
+                m.visibility = isEditorMode ? 1 : 0;
+            }
+        }
+    });
+
     if (isEditorMode) {
         editorToggleBtn.innerText = "Editörden Çık";
         editorToggleBtn.style.background = "#ff5555";
@@ -441,6 +465,24 @@ editorToggleBtn.addEventListener('click', () => {
         editorToggleBtn.style.background = "";
         editorControls.classList.add('hidden');
         cancelPlacement();
+        
+        if (isPaintMode) {
+            isPaintMode = false;
+            paintModeBtn.style.background = "";
+            paintModeBtn.innerText = "Boya (Renk Değiştir)";
+        }
+    }
+});
+
+paintModeBtn.addEventListener('click', () => {
+    isPaintMode = !isPaintMode;
+    if (isPaintMode) {
+        paintModeBtn.style.background = "#ff5555";
+        paintModeBtn.innerText = "Boya Modu (Aktif)";
+        cancelPlacement(); // clear ghost if any
+    } else {
+        paintModeBtn.style.background = "";
+        paintModeBtn.innerText = "Boya (Renk Değiştir)";
     }
 });
 
