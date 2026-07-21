@@ -154,12 +154,22 @@ const createScene = async () => {
     ssao.base = 0.5;
 
 
-    buildStore(scene);
-
-
-    createProduct(scene, "id_1", "Maraş İpliği", "Klasik Kesim T-Shirt", "100% Pamuklu.", "₺450", new Vector3(-1.8, 1.45, 1.5), new Color3(0.8, 0.2, 0.2), true);
-    createProduct(scene, "id_2", "Uzun Çarşı Butik", "Sokak T-Shirt", "Bol kesim.", "₺550", new Vector3(0, 1.45, 1.5), new Color3(0.2, 0.5, 0.8), true);
-    createProduct(scene, "id_3", "Yöresel Dokuma", "Özel Gömlek", "El işlemesi.", "₺850", new Vector3(1.8, 1.45, 1.5), new Color3(0.9, 0.8, 0.2), true);
+    engine.displayLoadingUI();
+    
+    try {
+        await SceneLoader.AppendAsync("/models/", "binaaktıf2.glb", scene);
+        scene.meshes.forEach(mesh => {
+            mesh.checkCollisions = true;
+            mesh.receiveShadows = true;
+        });
+        
+        // Move camera slightly up so it falls gracefully onto the scene
+        camera.position.y += 5;
+    } catch (err) {
+        console.error("Ana sahne yuklenirken hata olustu:", err);
+    }
+    
+    engine.hideLoadingUI();
 
 
     try {
@@ -197,7 +207,7 @@ const createScene = async () => {
         switch (pointerInfo.type) {
             case PointerEventTypes.POINTERMOVE:
                 if (ghostProduct && ghostPedestal) {
-                    const pickResult = scene.pick(scene.pointerX, scene.pointerY, (mesh) => mesh.name === 'storeFloor');
+                    const pickResult = scene.pick(scene.pointerX, scene.pointerY, (mesh) => mesh.name !== 'ghostProd' && mesh.name !== 'ghostPed' && mesh.checkCollisions);
                     if (pickResult.hit) {
                         ghostPedestal.position = pickResult.pickedPoint.clone();
                         ghostPedestal.position.y = 0.55;
@@ -211,7 +221,7 @@ const createScene = async () => {
             case PointerEventTypes.POINTERDOWN:
                 if (pointerInfo.event.button !== 0) return; 
                 if (ghostProduct && ghostPedestal && addFormOverlay.classList.contains('hidden')) {
-                    const pickResult = scene.pick(scene.pointerX, scene.pointerY, (mesh) => mesh.name === 'storeFloor');
+                    const pickResult = scene.pick(scene.pointerX, scene.pointerY, (mesh) => mesh.name !== 'ghostProd' && mesh.name !== 'ghostPed' && mesh.checkCollisions);
                     if (pickResult.hit) {
                         placedPosition = pickResult.pickedPoint.clone();
                         openProductForm();
@@ -230,91 +240,6 @@ const createScene = async () => {
 
 
     return scene;
-};
-
-
-const buildStore = (scene) => {
-    const ground = MeshBuilder.CreateGround('storeFloor', { width: 15, height: 15 }, scene);
-    const groundMat = new PBRMaterial('floorMat', scene);
-    groundMat.albedoColor = new Color3(0.05, 0.05, 0.06);
-    groundMat.metallic = 0.3;
-    groundMat.roughness = 0.4;
-    ground.material = groundMat;
-    ground.receiveShadows = true;
-    ground.checkCollisions = true;
-
-
-    const wallMat = new PBRMaterial('wallMat', scene);
-    wallMat.albedoColor = new Color3(0.15, 0.15, 0.18);
-    wallMat.metallic = 0.1;
-    wallMat.roughness = 0.8;
-
-
-    const backWall = MeshBuilder.CreateBox('backWall', { width: 15, height: 5, depth: 0.5 }, scene);
-    backWall.position = new Vector3(0, 2.5, 5.25);
-    backWall.material = wallMat;
-    backWall.receiveShadows = true;
-    backWall.checkCollisions = true;
-
-
-    const leftWall = MeshBuilder.CreateBox('leftWall', { width: 0.5, height: 5, depth: 15 }, scene);
-    leftWall.position = new Vector3(-5.25, 2.5, 0);
-    leftWall.material = wallMat;
-    leftWall.receiveShadows = true;
-    leftWall.checkCollisions = true;
-
-
-    const rightWall = MeshBuilder.CreateBox('rightWall', { width: 0.5, height: 5, depth: 15 }, scene);
-    rightWall.position = new Vector3(5.25, 2.5, 0);
-    rightWall.material = wallMat;
-    rightWall.receiveShadows = true;
-    rightWall.checkCollisions = true;
-
-
-    const colMat = new PBRMaterial('colMat', scene);
-    colMat.albedoColor = new Color3(0.08, 0.08, 0.1);
-    colMat.metallic = 0.6;
-    colMat.roughness = 0.3;
-
-
-    const createColumn = (x, z) => {
-        const col = MeshBuilder.CreateBox('col', { width: 0.4, height: 5, depth: 0.4 }, scene);
-        col.position = new Vector3(x, 2.5, z);
-        col.material = colMat;
-        shadowGenerator.getShadowMap().renderList.push(col);
-        col.receiveShadows = true;
-        col.checkCollisions = true;
-    };
-
-
-    createColumn(-4.8, 4.8);
-    createColumn(4.8, 4.8);
-    createColumn(-4.8, -4.8);
-    createColumn(4.8, -4.8);
-
-
-    const beamMat = new PBRMaterial('beamMat', scene);
-    beamMat.albedoColor = new Color3(0.05, 0.05, 0.05);
-    beamMat.metallic = 0.1;
-    beamMat.roughness = 0.9;
-
-
-    for(let i = -4; i <= 4; i += 2) {
-        const beam = MeshBuilder.CreateBox('beam', { width: 15, height: 0.2, depth: 0.4 }, scene);
-        beam.position = new Vector3(0, 4.9, i);
-        beam.material = beamMat;
-        shadowGenerator.getShadowMap().renderList.push(beam);
-    }
-
-
-    const stage = MeshBuilder.CreateCylinder('stage', { diameter: 7, height: 0.1 }, scene);
-    stage.position = new Vector3(0, 0.05, 1.5);
-    const stageMat = new PBRMaterial('stageMat', scene);
-    stageMat.albedoColor = new Color3(0.1, 0.1, 0.15);
-    stageMat.metallic = 0.1;
-    stageMat.roughness = 0.8;
-    stage.material = stageMat;
-    stage.receiveShadows = true;
 };
 
 
