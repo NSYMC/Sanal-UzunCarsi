@@ -184,12 +184,12 @@ const createScene = async () => {
     pipeline.samples = 4; 
     pipeline.fxaaEnabled = true; 
     pipeline.bloomEnabled = true;
-    pipeline.bloomThreshold = 0.85; 
-    pipeline.bloomWeight = 0.25; 
+    pipeline.bloomThreshold = 0.95; 
+    pipeline.bloomWeight = 0.15; 
     pipeline.imageProcessingEnabled = true;
     pipeline.imageProcessing.toneMappingEnabled = true;
     pipeline.imageProcessing.toneMappingType = 1; 
-    pipeline.imageProcessing.exposure = 1.0; 
+    pipeline.imageProcessing.exposure = 0.8; 
     pipeline.imageProcessing.contrast = 1.1;
     pipeline.depthOfFieldEnabled = false; 
 
@@ -385,19 +385,34 @@ const instantiateEntity = async (ent) => {
     }
 };
 
-const createInteractiveProduct = (scene, id, prodInfo, localPosition, parentMesh) => {
-    const mesh = MeshBuilder.CreateBox(id, { width: 0.3, height: 0.4, depth: 0.1 }, scene);
-    mesh.setParent(parentMesh);
-    mesh.position = localPosition.clone();
+const createInteractiveProduct = async (scene, id, prodInfo, localPosition, parentMesh) => {
+    const rootBox = MeshBuilder.CreateBox(id, { width: 0.3, height: 0.4, depth: 0.3 }, scene);
+    rootBox.setParent(parentMesh);
+    rootBox.position = localPosition.clone();
+    rootBox.visibility = 0;
+    rootBox.isPickable = true;
     
-    const mat = new PBRMaterial(id + "_mat", scene);
-    mat.albedoColor = new Color3(Math.random(), Math.random(), Math.random());
-    mat.metallic = 0.1;
-    mat.roughness = 0.7;
-    mesh.material = mat;
-    shadowGenerator.getShadowMap().renderList.push(mesh);
+    try {
+        const result = await SceneLoader.ImportMeshAsync("", "/products/", "valiz.glb", scene);
+        const prodModel = result.meshes[0];
+        prodModel.setParent(rootBox);
+        prodModel.position = Vector3.Zero();
+        prodModel.scaling = new Vector3(0.5, 0.5, 0.5);
+        result.meshes.forEach(m => {
+            m.isPickable = false;
+            shadowGenerator.getShadowMap().renderList.push(m);
+        });
+    } catch (e) {
+        console.warn("Valiz modeli bulunamadi.");
+        const fallback = MeshBuilder.CreateBox(id + "_fallback", { width: 0.3, height: 0.4, depth: 0.1 }, scene);
+        fallback.setParent(rootBox);
+        fallback.position = Vector3.Zero();
+        const mat = new PBRMaterial(id + "_mat", scene);
+        mat.albedoColor = new Color3(Math.random(), Math.random(), Math.random());
+        fallback.material = mat;
+    }
     
-    mesh.metadata = { 
+    rootBox.metadata = { 
         isProduct: true,
         brand: prodInfo.brand, 
         name: prodInfo.name, 
@@ -405,23 +420,32 @@ const createInteractiveProduct = (scene, id, prodInfo, localPosition, parentMesh
         price: prodInfo.price 
     };
     
-    mesh.actionManager = new ActionManager(scene);
+    rootBox.actionManager = new ActionManager(scene);
     
-    mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOverTrigger, () => {
+    rootBox.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOverTrigger, () => {
         if(!activeProduct && !isEditorMode) {
             document.getElementById('renderCanvas').style.cursor = 'pointer';
-            mesh.material.emissiveColor = new Color3(0.2, 0.2, 0.2); 
+            rootBox.getChildMeshes().forEach(child => {
+                if(child.material) {
+                    if(!child.material.emissiveColor) child.material.emissiveColor = new Color3(0,0,0);
+                    child.material.emissiveColor = new Color3(0.2, 0.2, 0.2); 
+                }
+            });
         }
     }));
     
-    mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOutTrigger, () => {
+    rootBox.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPointerOutTrigger, () => {
         document.getElementById('renderCanvas').style.cursor = 'default';
-        mesh.material.emissiveColor = new Color3(0, 0, 0);
+        rootBox.getChildMeshes().forEach(child => {
+            if(child.material && child.material.emissiveColor) {
+                child.material.emissiveColor = new Color3(0, 0, 0); 
+            }
+        });
     }));
     
-    mesh.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, () => {
+    rootBox.actionManager.registerAction(new ExecuteCodeAction(ActionManager.OnPickTrigger, () => {
         if(!activeProduct && !isEditorMode) {
-            openProductView(mesh);
+            openProductView(rootBox);
         }
     }));
 };
@@ -665,7 +689,9 @@ const closeProductView = () => {
         animateValue(activeProduct, "rotation", activeProduct.rotation, originalRotation, () => {
             // Re-parent is tricky, but we can just snap it back by disposing and refreshing or keeping absolute
             // Let's just leave it unparented in exactly the same spot
-            activeProduct.material.emissiveColor = new Color3(0,0,0);
+            activeProduct.getChildMeshes().forEach(child => {
+                if (child.material) child.material.emissiveColor = new Color3(0,0,0);
+            });
             activeProduct = null;
             camera.attachControl(canvas, true);
         });
