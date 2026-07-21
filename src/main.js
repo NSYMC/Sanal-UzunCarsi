@@ -304,17 +304,19 @@ const createScene = async () => {
         else if (pointerInfo.type === PointerEventTypes.POINTERUP) {
             if (isEditorMode && gizmoManager && gizmoManager.attachedMesh) {
                 const mesh = gizmoManager.attachedMesh;
-                const ent = entities.find(e => e.id === mesh.metadata.entityId);
-                if (ent) {
-                    ent.x = mesh.position.x;
-                    ent.y = mesh.position.y - 0.4; // offset from rootBox
-                    ent.z = mesh.position.z;
-                    if (mesh.rotationQuaternion) {
-                        ent.rotY = mesh.rotationQuaternion.toEulerAngles().y;
-                    } else {
-                        ent.rotY = mesh.rotation.y;
+                if (mesh.metadata && mesh.metadata.entityId) {
+                    const ent = entities.find(e => e.id === mesh.metadata.entityId);
+                    if (ent) {
+                        ent.x = mesh.position.x;
+                        ent.y = mesh.position.y - 0.4; // offset from rootBox
+                        ent.z = mesh.position.z;
+                        if (mesh.rotationQuaternion) {
+                            ent.rotY = mesh.rotationQuaternion.toEulerAngles().y;
+                        } else {
+                            ent.rotY = mesh.rotation.y;
+                        }
+                        saveEntityToDB(ent);
                     }
-                    saveEntityToDB(ent);
                 }
             }
         }
