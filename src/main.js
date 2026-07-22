@@ -189,28 +189,29 @@ const createScene = async () => {
     // High-Quality Ambient Occlusion (Micro-shadows) for extreme indoor realism
     const ssao = new SSAO2RenderingPipeline("ssao", scene, 0.5, [camera]);
     ssao.radius = 2.0;
-    ssao.totalStrength = 1.5;
+    ssao.totalStrength = 1.2;
     ssao.expensiveBlur = false; 
-    ssao.samples = 16;
-    ssao.maxZ = 200;
+    ssao.samples = 8; // Optimized for FPS
+    ssao.maxZ = 100;
 
     // Screen Space Reflections for glossy floors and metallic objects
     const ssr = new SSRRenderingPipeline("ssr", scene, [camera]);
     ssr.thickness = 0.5;
     ssr.blurDispersionStrength = 0.05;
     ssr.roughnessFactor = 0.1;
-    ssr.step = 2.0;
+    ssr.step = 4.0; // Optimized for FPS
+    ssr.maxSteps = 64;
     
     // Add IBL (HDRI Environment) for PBR materials with a beautiful Skybox
     scene.createDefaultEnvironment({ 
         createSkybox: true, 
         skyboxSize: 1000, 
-        skyboxColor: new Color3(0.5, 0.7, 1.0), 
+        skyboxColor: new Color3(0.85, 0.75, 0.65), // Warm boutique color, removes blue indoor reflections
         createGround: false 
     });
 
     // Light Tricks (God Rays) - Low density to keep FPS high
-    const godrays = new VolumetricLightScatteringPostProcess('godrays', 1.0, camera, null, 100, Texture.BILINEAR_SAMPLINGMODE, engine, false);
+    const godrays = new VolumetricLightScatteringPostProcess('godrays', 1.0, camera, null, 50, Texture.BILINEAR_SAMPLINGMODE, engine, false);
     godrays.mesh.material.diffuseColor = new Color3(1, 0.9, 0.8);
     godrays.mesh.position = new Vector3(50, 50, 50);
     godrays.exposure = 0.2;
@@ -267,14 +268,14 @@ const createScene = async () => {
             
             // Bind shadows to this local light for perfect indoor shadows
             shadowGenerator = new ShadowGenerator(1024, localLight);
-            shadowGenerator.useContactHardeningShadow = true;
-            shadowGenerator.contactHardeningLightSizeUVRatio = 0.05;
+            shadowGenerator.usePercentageCloserFiltering = true; // PCF is much faster than PCSS
+            shadowGenerator.filteringQuality = ShadowGenerator.QUALITY_MEDIUM;
             shadowGenerator.setDarkness(0.5);
         } else {
             // Fallback
             shadowGenerator = new ShadowGenerator(1024, dirLight);
-            shadowGenerator.useContactHardeningShadow = true;
-            shadowGenerator.contactHardeningLightSizeUVRatio = 0.05;
+            shadowGenerator.usePercentageCloserFiltering = true;
+            shadowGenerator.filteringQuality = ShadowGenerator.QUALITY_MEDIUM;
             shadowGenerator.setDarkness(0.5);
         }
         
