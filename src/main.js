@@ -68,17 +68,8 @@ let isPaintMode = false;
 let currentPlacementType = null; 
 let ghostMesh = null;
 let activeProduct = null;
-let activeEntityId = null; 
-let activeColorMesh = null;
-let originalColorHex = null;
-let camera = null;
-let scene = null;
-let shadowGenerator = null;
-let pipeline = null;
-let gizmoManager = null;
-
-let originalPosition = null;
-let originalRotation = null;
+var activeEntityId=null,activeColorMesh=null,originalColorHex=null,camera=null,scene=null,shadowGenerator=null,pipeline=null,gizmoManager=null;
+var originalPosition=null,originalRotation=null;
 let entityIdCounter = 1;
 
 // Entities Array for memory
