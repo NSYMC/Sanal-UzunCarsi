@@ -8,7 +8,26 @@ import {
 import '@babylonjs/loaders/glTF';
 
 const canvas = document.getElementById('renderCanvas');
-const engine = new Engine(canvas, true);
+let engine;
+try {
+    engine = new Engine(canvas, true, { failIfMajorPerformanceCaveat: false, preserveDrawingBuffer: true, stencil: true });
+} catch (e) {
+    document.body.innerHTML = `
+        <div style='color:white; text-align:center; margin-top:15%; font-family:sans-serif; padding: 2rem;'>
+            <h1 style='color:#ff4a4a;'>⚠️ 3D Motoru Başlatılamadı (WebGL Hatası)</h1>
+            <p style='font-size: 1.2rem'>Tarayıcınızın 3D donanım hızlandırıcısı, diğer yapay zekanın yazdığı hatalı kodlar yüzünden <b>kilitlenmiş</b>.</p>
+            <div style='background: #222; padding: 1.5rem; border-radius: 8px; display: inline-block; text-align: left; margin-top: 1rem;'>
+                <h3>Nasıl Çözülür? (Çok Basit):</h3>
+                <ol>
+                    <li>Adres çubuğuna şunu yapıştırıp Enter'a bas: <b style="color:#00ffff">chrome://settings/system</b> (veya edge://settings/system)</li>
+                    <li><b>"Donanım hızlandırmayı kullan"</b> (Hardware Acceleration) seçeneğini kapatıp tekrar açın.</li>
+                    <li>Tarayıcınızı (tüm Chrome pencerelerini) <b>tamamen kapatıp</b> baştan açın.</li>
+                </ol>
+            </div>
+        </div>
+    `;
+    throw e;
+}
 
 // UI Elements
 const uiOverlay = document.getElementById('uiOverlay');
@@ -186,31 +205,27 @@ const createScene = async () => {
     pipeline.imageProcessing.contrast = 1.2;
     pipeline.depthOfFieldEnabled = false; 
 
-    // High-Quality Ambient Occlusion (Micro-shadows) for extreme indoor realism
     const ssao = new SSAO2RenderingPipeline("ssao", scene, 0.5, [camera]);
     ssao.radius = 2.0;
     ssao.totalStrength = 1.2;
     ssao.expensiveBlur = false; 
-    ssao.samples = 8; // Optimized for FPS
+    ssao.samples = 8;
     ssao.maxZ = 100;
 
-    // Screen Space Reflections for glossy floors and metallic objects
     const ssr = new SSRRenderingPipeline("ssr", scene, [camera]);
     ssr.thickness = 0.5;
     ssr.blurDispersionStrength = 0.05;
     ssr.roughnessFactor = 0.1;
-    ssr.step = 4.0; // Optimized for FPS
+    ssr.step = 4.0; 
     ssr.maxSteps = 64;
     
-    // Add IBL (HDRI Environment) for PBR materials with a beautiful Skybox
     scene.createDefaultEnvironment({ 
         createSkybox: true, 
         skyboxSize: 1000, 
-        skyboxColor: new Color3(0.85, 0.75, 0.65), // Warm boutique color, removes blue indoor reflections
+        skyboxColor: new Color3(0.85, 0.75, 0.65), 
         createGround: false 
     });
 
-    // Light Tricks (God Rays) - Low density to keep FPS high
     const godrays = new VolumetricLightScatteringPostProcess('godrays', 1.0, camera, null, 50, Texture.BILINEAR_SAMPLINGMODE, engine, false);
     godrays.mesh.material.diffuseColor = new Color3(1, 0.9, 0.8);
     godrays.mesh.position = new Vector3(50, 50, 50);
@@ -266,17 +281,28 @@ const createScene = async () => {
             localLight.intensity = 4.0;
             localLight.diffuse = new Color3(1.0, 0.9, 0.8);
             
-            // Bind shadows to this local light for perfect indoor shadows
             shadowGenerator = new ShadowGenerator(1024, localLight);
-            shadowGenerator.usePercentageCloserFiltering = true; // PCF is much faster than PCSS
+            shadowGenerator.usePercentageCloserFiltering = true;
             shadowGenerator.filteringQuality = ShadowGenerator.QUALITY_MEDIUM;
             shadowGenerator.setDarkness(0.5);
+            
+            scene.meshes.forEach(mesh => {
+                if (mesh.name !== "ghost" && mesh.name !== "skyBox" && !mesh.name.startsWith("ent_")) {
+                    shadowGenerator.addShadowCaster(mesh, true);
+                }
+            });
         } else {
             // Fallback
             shadowGenerator = new ShadowGenerator(1024, dirLight);
             shadowGenerator.usePercentageCloserFiltering = true;
             shadowGenerator.filteringQuality = ShadowGenerator.QUALITY_MEDIUM;
             shadowGenerator.setDarkness(0.5);
+            
+            scene.meshes.forEach(mesh => {
+                if (mesh.name !== "ghost" && mesh.name !== "skyBox" && !mesh.name.startsWith("ent_")) {
+                    shadowGenerator.addShadowCaster(mesh, true);
+                }
+            });
         }
         
     } catch (err) {
