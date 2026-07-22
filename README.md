@@ -5,7 +5,7 @@ Babylon.js tabanlı, tarayıcı üzerinden çalışan 3D ürün yerleştirme ve 
 ## Teknik Altyapı ve Özellikler
 
 - **Render Motoru:** Babylon.js (WebGL/WebGPU destekli).
-- **Post-Processing:** ACES Tone Mapping, aktif IBL (Image Based Lighting) ve lokalleştirilmiş Point Light gölgelendirmesi (Shadow Map 1024px).
+- **Post-Processing & Aydınlatma:** ACES Tone Mapping, aktif IBL (Sıcak mağaza tonları: Color3(0.85, 0.75, 0.65)). SSAO2 (8 sample) ile mikro-gölgelendirme, SSR (Screen Space Reflections) ile zemin yansımaları, Volumetric Light Scattering (God Rays, 50 sample). PCF (Percentage Closer Filtering) destekli Point Light gölgelendirmesi (1024px).
 - **Veri Yönetimi:** IndexedDB (v3) kullanılarak tarayıcı tarafında asenkron nesne kaydı (Entity ID, Position, Rotation, Color).
 - **Performans Optimizasyonu:** Yaklaşık 240MB'lık statik alan modeli (`binaaktıf2.glb`) için `freezeWorldMatrix` ve `doNotSyncBoundingInfo` metodları uygulanarak 60 FPS hedeflenmiştir.
 - **Editör Modu:** Çalışma zamanında (Runtime) sahneye obje ekleme (Instancing), `GizmoManager` üzerinden XYZ pozisyon/rotasyon manipülasyonu.
