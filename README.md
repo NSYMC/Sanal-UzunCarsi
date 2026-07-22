@@ -37,5 +37,3 @@ Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları i
 - **W, A, S, D:** Kamerayı hareket ettirir (İleri, Sola, Geri, Sağa).
 - **Fare (Sol Tık Basılı Tutarak):** Etrafa bakmanızı sağlar.
 - **Fare (Sol Tık):** Ürünlere tıklayarak bilgi ekranını açar veya Editör modundayken objeleri seçmenizi sağlar.
-
-İyi gezintiler!

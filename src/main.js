@@ -3,7 +3,7 @@ import {
     Engine, Scene, Vector3, HemisphericLight, DirectionalLight, MeshBuilder, UniversalCamera, 
     PBRMaterial, Color3, ActionManager, ExecuteCodeAction, Animation, 
     CubicEase, EasingFunction, ShadowGenerator, DefaultRenderingPipeline, SceneLoader, PointerEventTypes,
-    CubeTexture, SSAO2RenderingPipeline, GizmoManager, VolumetricLightScatteringPostProcess, Texture, PointLight
+    CubeTexture, SSAO2RenderingPipeline, GizmoManager, VolumetricLightScatteringPostProcess, Texture, PointLight, SSRRenderingPipeline
 } from '@babylonjs/core';
 import '@babylonjs/loaders/glTF';
 
@@ -186,8 +186,20 @@ const createScene = async () => {
     pipeline.imageProcessing.contrast = 1.2;
     pipeline.depthOfFieldEnabled = false; 
 
-    // Remove SSAO for massive FPS boost on heavy scenes
-    // const ssao = new SSAO2RenderingPipeline("ssao", scene, 0.75, [camera]);
+    // High-Quality Ambient Occlusion (Micro-shadows) for extreme indoor realism
+    const ssao = new SSAO2RenderingPipeline("ssao", scene, 0.5, [camera]);
+    ssao.radius = 2.0;
+    ssao.totalStrength = 1.5;
+    ssao.expensiveBlur = false; 
+    ssao.samples = 16;
+    ssao.maxZ = 200;
+
+    // Screen Space Reflections for glossy floors and metallic objects
+    const ssr = new SSRRenderingPipeline("ssr", scene, [camera]);
+    ssr.thickness = 0.5;
+    ssr.blurDispersionStrength = 0.05;
+    ssr.roughnessFactor = 0.1;
+    ssr.step = 2.0;
     
     // Add IBL (HDRI Environment) for PBR materials with a beautiful Skybox
     scene.createDefaultEnvironment({ 
@@ -255,12 +267,15 @@ const createScene = async () => {
             
             // Bind shadows to this local light for perfect indoor shadows
             shadowGenerator = new ShadowGenerator(1024, localLight);
-            shadowGenerator.useBlurExponentialShadowMap = true;
-            shadowGenerator.blurKernel = 16;
+            shadowGenerator.useContactHardeningShadow = true;
+            shadowGenerator.contactHardeningLightSizeUVRatio = 0.05;
+            shadowGenerator.setDarkness(0.5);
         } else {
             // Fallback
             shadowGenerator = new ShadowGenerator(1024, dirLight);
-            shadowGenerator.useBlurExponentialShadowMap = true;
+            shadowGenerator.useContactHardeningShadow = true;
+            shadowGenerator.contactHardeningLightSizeUVRatio = 0.05;
+            shadowGenerator.setDarkness(0.5);
         }
         
     } catch (err) {
