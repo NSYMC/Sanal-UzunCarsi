@@ -13,6 +13,13 @@ Babylon.js tabanlı, tarayıcı üzerinden çalışan 3D ürün yerleştirme ve 
 ## Ekran Görüntüleri
 ![Motordan Görüntü](dukkan.png)
 
+## Modelleme İlerlemeleri
+Projenin 3D modelleme aşamasındaki güncel ilerlemeleri ve dükkan dış cephe tasarımları aşağıda sunulmuştur:
+
+![Hacıoğlu](screenshots/hacioglu.png)
+![Hacıoğlu 2](screenshots/hacioglu2.png)
+![Özmin](screenshots/ozmin.png)
+
 ## Nasıl Çalıştırılır?
 
 Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin:
