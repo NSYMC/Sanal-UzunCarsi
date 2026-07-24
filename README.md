@@ -20,6 +20,7 @@ Projenin 3D modelleme aşamasındaki güncel ilerlemeleri ve dükkan dış cephe
 ![Hacıoğlu 2](screenshots/hacioglu2.png)
 ![Hacıoğlu 3](screenshots/hacioglu3.png)
 ![Özmin](screenshots/ozmin.png)
+![Pasta Home](screenshots/pastahome.png)
 
 ## Nasıl Çalıştırılır?
 
