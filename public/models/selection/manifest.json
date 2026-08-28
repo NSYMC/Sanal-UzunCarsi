@@ -1,0 +1,70 @@
+{
+  "version": 4,
+  "generatedAt": "2026-08-28T15:04:27.374Z",
+  "output": "public/models/selection/selection-world.glb",
+  "outputBytes": 171851116,
+  "outputSha256": "1090b1f4c69e37af82ccafe079a8a5d24970e794a055ec26e018dcde9e6d053a",
+  "triangles": 6277859,
+  "sources": [
+    {
+      "id": "outside",
+      "path": "public/models/world/outside.glb",
+      "bytes": 181550160,
+      "sha256": "317822f2c9ed452a68663ea1c13a0dc58007fa3a4088ed6f621c08c1a2943c76",
+      "triangles": 1295620,
+      "materialsBefore": 332,
+      "texturesBefore": 137,
+      "materialsAfter": 9,
+      "texturesAfter": 2,
+      "preservedWorldTextures": true
+    },
+    {
+      "id": "always",
+      "path": "public/models/world/always.glb",
+      "bytes": 128956056,
+      "sha256": "2ddcfd892f6a27f1ebc9a050317e49fcf8c3486bcd25ffed78857877984cf0fc",
+      "triangles": 321600,
+      "materialsBefore": 123,
+      "texturesBefore": 155,
+      "materialsAfter": 7,
+      "texturesAfter": 0,
+      "preservedWorldTextures": false
+    },
+    {
+      "id": "guzel-optik",
+      "path": "public/models/guzel-optik/store-environment.glb",
+      "bytes": 110970588,
+      "sha256": "e340dc2f0c387637987ad305b00557d43dbf61f47a7cfbde92c28e8b37d95581",
+      "triangles": 3080634,
+      "materialsBefore": 284,
+      "texturesBefore": 52,
+      "materialsAfter": 7,
+      "texturesAfter": 0,
+      "preservedWorldTextures": false
+    },
+    {
+      "id": "sude-home",
+      "path": "public/models/sude-home/store-raw.glb",
+      "bytes": 202320896,
+      "sha256": "fd729cea115f4636c8a5a9288795eef61b251ac5689f71fe32d2eaaf3b3d3ff5",
+      "triangles": 741176,
+      "materialsBefore": 245,
+      "texturesBefore": 222,
+      "materialsAfter": 7,
+      "texturesAfter": 0,
+      "preservedWorldTextures": false
+    },
+    {
+      "id": "mawus",
+      "path": "public/models/mawus/store-raw.glb",
+      "bytes": 92735488,
+      "sha256": "b12d5a2f41dd1cb0dcd502ec2721307d33a7c06e98700bc01d6904516dfe0014",
+      "triangles": 838829,
+      "materialsBefore": 153,
+      "texturesBefore": 95,
+      "materialsAfter": 7,
+      "texturesAfter": 0,
+      "preservedWorldTextures": false
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "path": "public/models/sude-home/store-raw.glb",
+      "size": 202320896,
+      "sha256": "fd729cea115f4636c8a5a9288795eef61b251ac5689f71fe32d2eaaf3b3d3ff5",
+      "parts": [
+        "public__models__sude-home__store-raw.glb.part01",
+        "public__models__sude-home__store-raw.glb.part02",
+        "public__models__sude-home__store-raw.glb.part03",
+        "public__models__sude-home__store-raw.glb.part04",
+        "public__models__sude-home__store-raw.glb.part05"
+      ]
+    },
+    {
+      "path": "public/models/mawus/store-raw.glb",
+      "size": 92735488,
+      "sha256": "b12d5a2f41dd1cb0dcd502ec2721307d33a7c06e98700bc01d6904516dfe0014",
+      "parts": [
+        "public__models__mawus__store-raw.glb.part01",
+        "public__models__mawus__store-raw.glb.part02"
+      ]
+    },
+    {
+      "path": "public/models/guzel-optik/store-environment.glb",
+      "size": 110970588,
+      "sha256": "e340dc2f0c387637987ad305b00557d43dbf61f47a7cfbde92c28e8b37d95581",
+      "parts": [
+        "public__models__guzel-optik__store-environment.glb.part01",
+        "public__models__guzel-optik__store-environment.glb.part02",
+        "public__models__guzel-optik__store-environment.glb.part03"
+      ]
+    },
+    {
+      "path": "public/models/world/always.glb",
+      "size": 128956056,
+      "sha256": "2ddcfd892f6a27f1ebc9a050317e49fcf8c3486bcd25ffed78857877984cf0fc",
+      "parts": [
+        "public__models__world__always.glb.part01",
+        "public__models__world__always.glb.part02",
+        "public__models__world__always.glb.part03"
+      ]
+    },
+    {
+      "path": "public/models/world/outside.glb",
+      "size": 181550160,
+      "sha256": "317822f2c9ed452a68663ea1c13a0dc58007fa3a4088ed6f621c08c1a2943c76",
+      "parts": [
+        "public__models__world__outside.glb.part01",
+        "public__models__world__outside.glb.part02",
+        "public__models__world__outside.glb.part03",
+        "public__models__world__outside.glb.part04"
+      ]
+    }
+  ]
+}

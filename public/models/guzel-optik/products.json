@@ -1,0 +1,1355 @@
+{
+  "version": 1,
+  "products": [
+    {
+      "id": "OPTIK_PRODUCT_021",
+      "sourceName": "OPTIK_PRODUCT_021_V10",
+      "variant": 10,
+      "center": [
+        25.099493,
+        -6.375655,
+        12.016673
+      ],
+      "size": [
+        0.239357,
+        1.162933,
+        2.087208
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_032",
+      "sourceName": "OPTIK_PRODUCT_032_V10",
+      "variant": 10,
+      "center": [
+        25.099493,
+        -6.191555,
+        10.333572
+      ],
+      "size": [
+        0.239357,
+        1.162933,
+        2.087208
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_046",
+      "sourceName": "OPTIK_PRODUCT_046_V05",
+      "variant": 5,
+      "center": [
+        25.099493,
+        -6.372147,
+        8.886523
+      ],
+      "size": [
+        0.239357,
+        1.174,
+        2.090399
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_052",
+      "sourceName": "OPTIK_PRODUCT_052_V04",
+      "variant": 4,
+      "center": [
+        29.744886,
+        -6.740951,
+        12.645895
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_056",
+      "sourceName": "OPTIK_PRODUCT_056_V08",
+      "variant": 8,
+      "center": [
+        29.782609,
+        -6.372677,
+        11.679354
+      ],
+      "size": [
+        0.239357,
+        1.167541,
+        2.085662
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_061",
+      "sourceName": "OPTIK_PRODUCT_061_V06",
+      "variant": 6,
+      "center": [
+        29.759413,
+        -6.927645,
+        11.6803
+      ],
+      "size": [
+        0.178594,
+        0.057312,
+        0.156354
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_076",
+      "sourceName": "OPTIK_PRODUCT_076_V04",
+      "variant": 4,
+      "center": [
+        29.744886,
+        -6.92505,
+        9.136095
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_077",
+      "sourceName": "OPTIK_PRODUCT_077_V02",
+      "variant": 2,
+      "center": [
+        29.819795,
+        -6.745008,
+        9.136101
+      ],
+      "size": [
+        0.163635,
+        0.054643,
+        0.15094
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_079",
+      "sourceName": "OPTIK_PRODUCT_079_V01",
+      "variant": 1,
+      "center": [
+        29.823755,
+        -6.010255,
+        9.1361
+      ],
+      "size": [
+        0.157063,
+        0.052335,
+        0.152569
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_080",
+      "sourceName": "OPTIK_PRODUCT_080_V12",
+      "variant": 12,
+      "center": [
+        29.747686,
+        -5.822117,
+        9.136098
+      ],
+      "size": [
+        0.153876,
+        0.059221,
+        0.152606
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_082",
+      "sourceName": "OPTIK_PRODUCT_082_V03",
+      "variant": 3,
+      "center": [
+        29.751337,
+        -6.747122,
+        8.6533
+      ],
+      "size": [
+        0.153573,
+        0.050389,
+        0.153311
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_083",
+      "sourceName": "OPTIK_PRODUCT_083_V06",
+      "variant": 6,
+      "center": [
+        29.759413,
+        -6.375245,
+        8.6533
+      ],
+      "size": [
+        0.178594,
+        0.057312,
+        0.156354
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_084",
+      "sourceName": "OPTIK_PRODUCT_084_V11",
+      "variant": 11,
+      "center": [
+        29.758245,
+        -6.007801,
+        8.653322
+      ],
+      "size": [
+        0.159601,
+        0.056997,
+        0.152966
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_085",
+      "sourceName": "OPTIK_PRODUCT_085_V13",
+      "variant": 13,
+      "center": [
+        29.758028,
+        -5.8228,
+        8.6533
+      ],
+      "size": [
+        0.158425,
+        0.057199,
+        0.151324
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_086",
+      "sourceName": "OPTIK_PRODUCT_086_V14",
+      "variant": 14,
+      "center": [
+        29.782609,
+        -7.201399,
+        8.650881
+      ],
+      "size": [
+        0.239356,
+        0.983586,
+        1.123006
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_087",
+      "sourceName": "OPTIK_PRODUCT_087_V04",
+      "variant": 4,
+      "center": [
+        29.744886,
+        -6.740951,
+        8.170495
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_088",
+      "sourceName": "OPTIK_PRODUCT_088_V02",
+      "variant": 2,
+      "center": [
+        29.819795,
+        -6.376708,
+        8.170501
+      ],
+      "size": [
+        0.163635,
+        0.054643,
+        0.15094
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_090",
+      "sourceName": "OPTIK_PRODUCT_090_V01",
+      "variant": 1,
+      "center": [
+        29.823755,
+        -5.826154,
+        8.1705
+      ],
+      "size": [
+        0.157063,
+        0.052335,
+        0.152569
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_091",
+      "sourceName": "OPTIK_PRODUCT_091_V12",
+      "variant": 12,
+      "center": [
+        29.747686,
+        -6.926916,
+        7.687798
+      ],
+      "size": [
+        0.153876,
+        0.059221,
+        0.152606
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_093",
+      "sourceName": "OPTIK_PRODUCT_093_V03",
+      "variant": 3,
+      "center": [
+        29.751337,
+        -6.378822,
+        7.6878
+      ],
+      "size": [
+        0.153573,
+        0.050389,
+        0.153311
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_094",
+      "sourceName": "OPTIK_PRODUCT_094_V06",
+      "variant": 6,
+      "center": [
+        29.759413,
+        -6.006945,
+        7.6878
+      ],
+      "size": [
+        0.178594,
+        0.057312,
+        0.156354
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_095",
+      "sourceName": "OPTIK_PRODUCT_095_V11",
+      "variant": 11,
+      "center": [
+        29.758245,
+        -5.823701,
+        7.687822
+      ],
+      "size": [
+        0.159601,
+        0.056997,
+        0.152966
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_096",
+      "sourceName": "OPTIK_PRODUCT_096_V13",
+      "variant": 13,
+      "center": [
+        29.758028,
+        -6.927599,
+        7.205
+      ],
+      "size": [
+        0.158425,
+        0.057199,
+        0.151324
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_098",
+      "sourceName": "OPTIK_PRODUCT_098_V04",
+      "variant": 4,
+      "center": [
+        29.744886,
+        -6.372651,
+        7.204995
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_099",
+      "sourceName": "OPTIK_PRODUCT_099_V02",
+      "variant": 2,
+      "center": [
+        29.819795,
+        -6.008408,
+        7.205001
+      ],
+      "size": [
+        0.163635,
+        0.054643,
+        0.15094
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_101",
+      "sourceName": "OPTIK_PRODUCT_101_V01",
+      "variant": 1,
+      "center": [
+        29.823755,
+        -6.930954,
+        5.6422
+      ],
+      "size": [
+        0.157063,
+        0.052335,
+        0.152569
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_102",
+      "sourceName": "OPTIK_PRODUCT_102_V12",
+      "variant": 12,
+      "center": [
+        29.747686,
+        -6.742817,
+        5.642199
+      ],
+      "size": [
+        0.153876,
+        0.059221,
+        0.152606
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_104",
+      "sourceName": "OPTIK_PRODUCT_104_V03",
+      "variant": 3,
+      "center": [
+        29.751337,
+        -6.010522,
+        5.6422
+      ],
+      "size": [
+        0.153573,
+        0.050389,
+        0.153311
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_105",
+      "sourceName": "OPTIK_PRODUCT_105_V06",
+      "variant": 6,
+      "center": [
+        29.759413,
+        -5.822845,
+        5.6422
+      ],
+      "size": [
+        0.178594,
+        0.057312,
+        0.156354
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_106",
+      "sourceName": "OPTIK_PRODUCT_106_V11",
+      "variant": 11,
+      "center": [
+        29.758245,
+        -6.928501,
+        5.159422
+      ],
+      "size": [
+        0.159601,
+        0.056997,
+        0.152966
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_107",
+      "sourceName": "OPTIK_PRODUCT_107_V13",
+      "variant": 13,
+      "center": [
+        29.758028,
+        -6.7435,
+        5.1594
+      ],
+      "size": [
+        0.158425,
+        0.057199,
+        0.151324
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_109",
+      "sourceName": "OPTIK_PRODUCT_109_V04",
+      "variant": 4,
+      "center": [
+        29.744886,
+        -6.004351,
+        5.159395
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_110",
+      "sourceName": "OPTIK_PRODUCT_110_V02",
+      "variant": 2,
+      "center": [
+        29.819795,
+        -5.824308,
+        5.159401
+      ],
+      "size": [
+        0.163635,
+        0.054643,
+        0.15094
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_112",
+      "sourceName": "OPTIK_PRODUCT_112_V01",
+      "variant": 1,
+      "center": [
+        29.823755,
+        -6.746854,
+        4.6766
+      ],
+      "size": [
+        0.157063,
+        0.052335,
+        0.152569
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_114",
+      "sourceName": "OPTIK_PRODUCT_114_V09",
+      "variant": 9,
+      "center": [
+        29.789907,
+        -5.997888,
+        4.676601
+      ],
+      "size": [
+        0.206169,
+        0.076009,
+        0.215006
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_115",
+      "sourceName": "OPTIK_PRODUCT_115_V12",
+      "variant": 12,
+      "center": [
+        29.747686,
+        -5.822117,
+        4.676598
+      ],
+      "size": [
+        0.153876,
+        0.059221,
+        0.152606
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_117",
+      "sourceName": "OPTIK_PRODUCT_117_V03",
+      "variant": 3,
+      "center": [
+        29.751337,
+        -6.747122,
+        4.1938
+      ],
+      "size": [
+        0.153573,
+        0.050389,
+        0.153311
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_118",
+      "sourceName": "OPTIK_PRODUCT_118_V06",
+      "variant": 6,
+      "center": [
+        29.759413,
+        -6.375245,
+        4.1938
+      ],
+      "size": [
+        0.178594,
+        0.057312,
+        0.156354
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_119",
+      "sourceName": "OPTIK_PRODUCT_119_V11",
+      "variant": 11,
+      "center": [
+        29.758245,
+        -6.007801,
+        4.193822
+      ],
+      "size": [
+        0.159601,
+        0.056997,
+        0.152966
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_120",
+      "sourceName": "OPTIK_PRODUCT_120_V13",
+      "variant": 13,
+      "center": [
+        29.758028,
+        -5.8228,
+        4.1938
+      ],
+      "size": [
+        0.158425,
+        0.057199,
+        0.151324
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_122",
+      "sourceName": "OPTIK_PRODUCT_122_V04",
+      "variant": 4,
+      "center": [
+        29.744886,
+        -6.740951,
+        3.710995
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_123",
+      "sourceName": "OPTIK_PRODUCT_123_V02",
+      "variant": 2,
+      "center": [
+        29.819795,
+        -6.376708,
+        3.711001
+      ],
+      "size": [
+        0.163635,
+        0.054643,
+        0.15094
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_125",
+      "sourceName": "OPTIK_PRODUCT_125_V01",
+      "variant": 1,
+      "center": [
+        29.823755,
+        -5.826154,
+        3.711
+      ],
+      "size": [
+        0.157063,
+        0.052335,
+        0.152569
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_126",
+      "sourceName": "OPTIK_PRODUCT_126_V12",
+      "variant": 12,
+      "center": [
+        29.593484,
+        -8.287316,
+        2.505799
+      ],
+      "size": [
+        0.153876,
+        0.059221,
+        0.152606
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_128",
+      "sourceName": "OPTIK_PRODUCT_128_V03",
+      "variant": 3,
+      "center": [
+        29.597136,
+        -7.408022,
+        2.5058
+      ],
+      "size": [
+        0.153573,
+        0.050389,
+        0.153311
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_129",
+      "sourceName": "OPTIK_PRODUCT_129_V06",
+      "variant": 6,
+      "center": [
+        29.605211,
+        -6.962645,
+        2.5058
+      ],
+      "size": [
+        0.178594,
+        0.057312,
+        0.156354
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_130",
+      "sourceName": "OPTIK_PRODUCT_130_V11",
+      "variant": 11,
+      "center": [
+        29.604043,
+        -6.521701,
+        2.505822
+      ],
+      "size": [
+        0.159601,
+        0.056997,
+        0.152966
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_131",
+      "sourceName": "OPTIK_PRODUCT_131_V13",
+      "variant": 13,
+      "center": [
+        29.622427,
+        -8.195799,
+        2.1137
+      ],
+      "size": [
+        0.158425,
+        0.057199,
+        0.151324
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_133",
+      "sourceName": "OPTIK_PRODUCT_133_V04",
+      "variant": 4,
+      "center": [
+        29.609284,
+        -7.30965,
+        2.113695
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_134",
+      "sourceName": "OPTIK_PRODUCT_134_V02",
+      "variant": 2,
+      "center": [
+        29.600801,
+        -6.871908,
+        2.113701
+      ],
+      "size": [
+        0.163635,
+        0.054643,
+        0.15094
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_136",
+      "sourceName": "OPTIK_PRODUCT_136_V01",
+      "variant": 1,
+      "center": [
+        29.688154,
+        -8.199154,
+        1.8561
+      ],
+      "size": [
+        0.157063,
+        0.052335,
+        0.152569
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_137",
+      "sourceName": "OPTIK_PRODUCT_137_V12",
+      "variant": 12,
+      "center": [
+        29.612085,
+        -7.753317,
+        1.856098
+      ],
+      "size": [
+        0.153876,
+        0.059221,
+        0.152606
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_139",
+      "sourceName": "OPTIK_PRODUCT_139_V03",
+      "variant": 3,
+      "center": [
+        29.615736,
+        -6.874021,
+        1.8561
+      ],
+      "size": [
+        0.153573,
+        0.050389,
+        0.153311
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_140",
+      "sourceName": "OPTIK_PRODUCT_140_V06",
+      "variant": 6,
+      "center": [
+        29.623812,
+        -6.428645,
+        1.8561
+      ],
+      "size": [
+        0.178594,
+        0.057312,
+        0.156354
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_141",
+      "sourceName": "OPTIK_PRODUCT_141_V11",
+      "variant": 11,
+      "center": [
+        29.604043,
+        -8.288901,
+        1.386422
+      ],
+      "size": [
+        0.159601,
+        0.056997,
+        0.152966
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_142",
+      "sourceName": "OPTIK_PRODUCT_142_V13",
+      "variant": 13,
+      "center": [
+        29.603827,
+        -7.846199,
+        1.3864
+      ],
+      "size": [
+        0.158425,
+        0.057199,
+        0.151324
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_144",
+      "sourceName": "OPTIK_PRODUCT_144_V04",
+      "variant": 4,
+      "center": [
+        29.590684,
+        -6.960051,
+        1.386395
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_145",
+      "sourceName": "OPTIK_PRODUCT_145_V02",
+      "variant": 2,
+      "center": [
+        29.665594,
+        -6.522308,
+        1.386401
+      ],
+      "size": [
+        0.163635,
+        0.054643,
+        0.15094
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_147",
+      "sourceName": "OPTIK_PRODUCT_147_V01",
+      "variant": 1,
+      "center": [
+        29.688154,
+        -7.757354,
+        0.9472
+      ],
+      "size": [
+        0.157063,
+        0.052335,
+        0.152569
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_148",
+      "sourceName": "OPTIK_PRODUCT_148_V12",
+      "variant": 12,
+      "center": [
+        29.612085,
+        -7.311516,
+        0.947199
+      ],
+      "size": [
+        0.153876,
+        0.059221,
+        0.152606
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_150",
+      "sourceName": "OPTIK_PRODUCT_150_V03",
+      "variant": 3,
+      "center": [
+        29.615736,
+        -6.432222,
+        0.9472
+      ],
+      "size": [
+        0.153573,
+        0.050389,
+        0.153311
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_151",
+      "sourceName": "OPTIK_PRODUCT_151_V06",
+      "variant": 6,
+      "center": [
+        29.623812,
+        -8.195845,
+        0.6896
+      ],
+      "size": [
+        0.178594,
+        0.057312,
+        0.156354
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_152",
+      "sourceName": "OPTIK_PRODUCT_152_V11",
+      "variant": 11,
+      "center": [
+        29.622644,
+        -7.754901,
+        0.689622
+      ],
+      "size": [
+        0.159601,
+        0.056997,
+        0.152966
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_153",
+      "sourceName": "OPTIK_PRODUCT_153_V13",
+      "variant": 13,
+      "center": [
+        29.622427,
+        -7.3122,
+        0.6896
+      ],
+      "size": [
+        0.158425,
+        0.057199,
+        0.151324
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_155",
+      "sourceName": "OPTIK_PRODUCT_155_V04",
+      "variant": 4,
+      "center": [
+        29.609284,
+        -6.426051,
+        0.689595
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_156",
+      "sourceName": "OPTIK_PRODUCT_156_V02",
+      "variant": 2,
+      "center": [
+        29.665594,
+        -8.289508,
+        0.196502
+      ],
+      "size": [
+        0.163635,
+        0.054643,
+        0.15094
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_158",
+      "sourceName": "OPTIK_PRODUCT_158_V01",
+      "variant": 1,
+      "center": [
+        29.669554,
+        -7.407755,
+        0.1965
+      ],
+      "size": [
+        0.157063,
+        0.052335,
+        0.152569
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_159",
+      "sourceName": "OPTIK_PRODUCT_159_V12",
+      "variant": 12,
+      "center": [
+        29.593484,
+        -6.961917,
+        0.196499
+      ],
+      "size": [
+        0.153876,
+        0.059221,
+        0.152606
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_161",
+      "sourceName": "OPTIK_PRODUCT_161_V03",
+      "variant": 3,
+      "center": [
+        29.615736,
+        -8.199421,
+        -0.3239
+      ],
+      "size": [
+        0.153573,
+        0.050389,
+        0.153311
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_162",
+      "sourceName": "OPTIK_PRODUCT_162_V06",
+      "variant": 6,
+      "center": [
+        29.623812,
+        -7.754045,
+        -0.3239
+      ],
+      "size": [
+        0.178594,
+        0.057312,
+        0.156354
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_163",
+      "sourceName": "OPTIK_PRODUCT_163_V11",
+      "variant": 11,
+      "center": [
+        29.622644,
+        -7.313101,
+        -0.323878
+      ],
+      "size": [
+        0.159601,
+        0.056997,
+        0.152966
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_164",
+      "sourceName": "OPTIK_PRODUCT_164_V13",
+      "variant": 13,
+      "center": [
+        29.622427,
+        -6.870399,
+        -0.3239
+      ],
+      "size": [
+        0.158425,
+        0.057199,
+        0.151324
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_166",
+      "sourceName": "OPTIK_PRODUCT_166_V04",
+      "variant": 4,
+      "center": [
+        29.609284,
+        -8.19325,
+        -0.581505
+      ],
+      "size": [
+        0.160447,
+        0.062689,
+        0.162233
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_167",
+      "sourceName": "OPTIK_PRODUCT_167_V02",
+      "variant": 2,
+      "center": [
+        29.684194,
+        -7.755508,
+        -0.581498
+      ],
+      "size": [
+        0.163635,
+        0.054643,
+        0.15094
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_169",
+      "sourceName": "OPTIK_PRODUCT_169_V01",
+      "variant": 1,
+      "center": [
+        29.688154,
+        -6.873754,
+        -0.5815
+      ],
+      "size": [
+        0.157063,
+        0.052335,
+        0.152569
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_171",
+      "sourceName": "OPTIK_PRODUCT_171_V09",
+      "variant": 9,
+      "center": [
+        26.887,
+        -8.186787,
+        -0.885906
+      ],
+      "size": [
+        0.215006,
+        0.076009,
+        0.206169
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_172",
+      "sourceName": "OPTIK_PRODUCT_172_V12",
+      "variant": 12,
+      "center": [
+        26.886998,
+        -7.753317,
+        -0.843685
+      ],
+      "size": [
+        0.152606,
+        0.059221,
+        0.153876
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_174",
+      "sourceName": "OPTIK_PRODUCT_174_V03",
+      "variant": 3,
+      "center": [
+        26.886999,
+        -6.874021,
+        -0.847337
+      ],
+      "size": [
+        0.153311,
+        0.050389,
+        0.153573
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_175",
+      "sourceName": "OPTIK_PRODUCT_175_V06",
+      "variant": 6,
+      "center": [
+        26.886999,
+        -6.428645,
+        -0.855412
+      ],
+      "size": [
+        0.156354,
+        0.057312,
+        0.178594
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_176",
+      "sourceName": "OPTIK_PRODUCT_176_V11",
+      "variant": 11,
+      "center": [
+        27.553823,
+        -8.1967,
+        -0.854244
+      ],
+      "size": [
+        0.152966,
+        0.056997,
+        0.159601
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_177",
+      "sourceName": "OPTIK_PRODUCT_177_V13",
+      "variant": 13,
+      "center": [
+        27.553801,
+        -7.754,
+        -0.854028
+      ],
+      "size": [
+        0.151324,
+        0.057199,
+        0.158425
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_179",
+      "sourceName": "OPTIK_PRODUCT_179_V04",
+      "variant": 4,
+      "center": [
+        27.553796,
+        -6.86785,
+        -0.840885
+      ],
+      "size": [
+        0.162233,
+        0.062689,
+        0.160447
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_180",
+      "sourceName": "OPTIK_PRODUCT_180_V02",
+      "variant": 2,
+      "center": [
+        27.553802,
+        -6.430108,
+        -0.915794
+      ],
+      "size": [
+        0.15094,
+        0.054643,
+        0.163635
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_182",
+      "sourceName": "OPTIK_PRODUCT_182_V01",
+      "variant": 1,
+      "center": [
+        28.363899,
+        -7.757354,
+        -0.919755
+      ],
+      "size": [
+        0.152569,
+        0.052335,
+        0.157063
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_183",
+      "sourceName": "OPTIK_PRODUCT_183_V07",
+      "variant": 7,
+      "center": [
+        28.363768,
+        -7.322071,
+        -0.90972
+      ],
+      "size": [
+        0.133813,
+        0.038887,
+        0.148062
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_184",
+      "sourceName": "OPTIK_PRODUCT_184_V12",
+      "variant": 12,
+      "center": [
+        28.363898,
+        -6.869716,
+        -0.843685
+      ],
+      "size": [
+        0.152606,
+        0.059221,
+        0.153876
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_186",
+      "sourceName": "OPTIK_PRODUCT_186_V03",
+      "variant": 3,
+      "center": [
+        29.080401,
+        -8.199421,
+        -0.847337
+      ],
+      "size": [
+        0.153311,
+        0.050389,
+        0.153573
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_187",
+      "sourceName": "OPTIK_PRODUCT_187_V06",
+      "variant": 6,
+      "center": [
+        29.0804,
+        -7.754045,
+        -0.855412
+      ],
+      "size": [
+        0.156354,
+        0.057312,
+        0.178594
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_188",
+      "sourceName": "OPTIK_PRODUCT_188_V11",
+      "variant": 11,
+      "center": [
+        29.080423,
+        -7.313101,
+        -0.854244
+      ],
+      "size": [
+        0.152966,
+        0.056997,
+        0.159601
+      ]
+    },
+    {
+      "id": "OPTIK_PRODUCT_189",
+      "sourceName": "OPTIK_PRODUCT_189_V13",
+      "variant": 13,
+      "center": [
+        29.0804,
+        -6.870399,
+        -0.854028
+      ],
+      "size": [
+        0.151324,
+        0.057199,
+        0.158425
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4632 @@
+{
+  "schemaVersion": 1,
+  "products": [
+    {
+      "id": "MAWUS_CUMHURIYET_ALTINI",
+      "storeId": "mawus",
+      "name": "Cumhuriyet Altını",
+      "category": "Altın",
+      "price": null,
+      "currency": "TRY",
+      "tags": [
+        "cumhuriyet altını",
+        "altın",
+        "sikke",
+        "kuyumculuk"
+      ],
+      "highQualityModel": "/models/products/mawus/cumhuriyet-altini.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "OPTIK_PRODUCT_021",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Camlı Metal Güneş Gözlüğü · 021",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal güneş gözlüğü.",
+      "modelVariant": 10
+    },
+    {
+      "id": "OPTIK_PRODUCT_032",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Camlı Metal Güneş Gözlüğü · 032",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal güneş gözlüğü.",
+      "modelVariant": 10
+    },
+    {
+      "id": "OPTIK_PRODUCT_046",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Camlı Plastik Gözlük · 046",
+      "category": "Gözlük",
+      "price": 990,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil cam",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-yesil-cam-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı plastik gözlük.",
+      "modelVariant": 5
+    },
+    {
+      "id": "OPTIK_PRODUCT_052",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 052",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_056",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Metal Gözlük · 056",
+      "category": "Gözlük",
+      "price": 1990,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu metal çerçeveli gözlük.",
+      "modelVariant": 8
+    },
+    {
+      "id": "OPTIK_PRODUCT_061",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 061",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_076",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 076",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_077",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 077",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_079",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 079",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_080",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 080",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_082",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 082",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_083",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 083",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_084",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 084",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_085",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 085",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_086",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Metal Gözlük · 086",
+      "category": "Gözlük",
+      "price": 1990,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu metal çerçeveli gözlük.",
+      "modelVariant": 14
+    },
+    {
+      "id": "OPTIK_PRODUCT_087",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 087",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_088",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 088",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_090",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 090",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_091",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 091",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_093",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 093",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_094",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 094",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_095",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 095",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_096",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 096",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_098",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 098",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_099",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 099",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_101",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 101",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_102",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 102",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_104",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 104",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_105",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 105",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_106",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 106",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_107",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 107",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_109",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 109",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_110",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 110",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_112",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 112",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_114",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 114",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 9
+    },
+    {
+      "id": "OPTIK_PRODUCT_115",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 115",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_117",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 117",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_118",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 118",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_119",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 119",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_120",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 120",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_122",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 122",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_123",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 123",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_125",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 125",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_126",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 126",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_128",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 128",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_129",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 129",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_130",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 130",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_131",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 131",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_133",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 133",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_134",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 134",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_136",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 136",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_137",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 137",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_139",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 139",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_140",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 140",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_141",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 141",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_142",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 142",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_144",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 144",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_145",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 145",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_147",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 147",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_148",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 148",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_150",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 150",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_151",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 151",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_152",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 152",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_153",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 153",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_155",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 155",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_156",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 156",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_158",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 158",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_159",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 159",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_161",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 161",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_162",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 162",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_163",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 163",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_164",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 164",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_166",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 166",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_167",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 167",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_169",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 169",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_171",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 171",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 9
+    },
+    {
+      "id": "OPTIK_PRODUCT_172",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 172",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_174",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 174",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_175",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 175",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_176",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 176",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_177",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 177",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_179",
+      "storeId": "guzel-optik",
+      "name": "Turuncu Camlı Gözlük · 179",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_180",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Metal Çerçeveli Gözlük · 180",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_182",
+      "storeId": "guzel-optik",
+      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 182",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_183",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 183",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 7
+    },
+    {
+      "id": "OPTIK_PRODUCT_184",
+      "storeId": "guzel-optik",
+      "name": "Yeşil Plastik Gözlük · 184",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_186",
+      "storeId": "guzel-optik",
+      "name": "Sarı Plastik Çerçeveli Gözlük · 186",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_187",
+      "storeId": "guzel-optik",
+      "name": "Mavi Camlı Gözlük · 187",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_188",
+      "storeId": "guzel-optik",
+      "name": "Siyah Çerçevesiz Gözlük · 188",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_189",
+      "storeId": "guzel-optik",
+      "name": "Çerçevesiz Güneş Gözlüğü · 189",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_SPECIAL_ANIMATION_GOZLUK",
+      "storeId": "guzel-optik",
+      "name": "Güzel Optik Aero",
+      "brand": "Güzel Optik",
+      "category": "Özel Gözlük",
+      "price": 2490,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza katalog fiyatıdır.",
+      "description": "Parçaları ve bağlantı noktaları animasyonla gösterilen gözlük.",
+      "tags": [
+        "güzel optik",
+        "özel gözlük",
+        "gözlük",
+        "parçalanma animasyonu",
+        "imza ürün"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/animation-gozluk.glb",
+      "animationPlayback": {
+        "autoPlay": true,
+        "loop": false,
+        "speedRatio": 1,
+        "clipName": "Animation",
+        "cameraRadiusMultiplier": 1.45
+      },
+      "hotspots": [
+        {
+          "label": "Geniş görüş alanı",
+          "description": "Geniş cam formu çevrenizi daha rahat görmenize yardımcı olur.",
+          "nodeName": "Cube.005"
+        },
+        {
+          "label": "Dengeli köprü yapısı",
+          "description": "Ön bölümün ağırlığını iki tarafa dengeli biçimde dağıtır.",
+          "nodeName": "Cube.006"
+        },
+        {
+          "label": "Rahat menteşe geçişi",
+          "description": "Sapların daha akıcı açılıp kapanmasına uygun bağlantı formu.",
+          "nodeName": "Cube.010"
+        },
+        {
+          "label": "Kulağa oturan sol sap",
+          "description": "Kulağın arkasına uzanan formu gözlüğün dengeli durmasına yardımcı olur.",
+          "nodeName": "Cube.018"
+        },
+        {
+          "label": "Kulağa oturan sağ sap",
+          "description": "İnce yapısı kulak çevresinde daha hafif bir kullanım hissi verir.",
+          "nodeName": "Cube.021"
+        },
+        {
+          "label": "Rahat burun desteği",
+          "description": "Burun üzerinde daha dengeli ve yumuşak bir oturuş sağlar.",
+          "nodeName": "NurbsPath"
+        }
+      ],
+      "previewTransform": {
+        "position": [0, 0, 0],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_ALTIN_DESENLI_KASE",
+      "storeId": "sude-home",
+      "name": "Altın Desenli Porselen Kase",
+      "brand": "Sude Home",
+      "category": "Kase",
+      "price": 1190,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Altın Desenli Porselen Kase.",
+      "tags": [
+        "sude home",
+        "kase",
+        "altın",
+        "desenli",
+        "porselen",
+        "kase"
+      ],
+      "highQualityModel": "/models/products/sude-home/altin-desenli-kase.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BAKIR_SURAHI",
+      "storeId": "sude-home",
+      "name": "Klasik Bakır Sürahi",
+      "brand": "Sude Home",
+      "category": "Sürahi",
+      "price": 1790,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Klasik Bakır Sürahi.",
+      "tags": [
+        "sude home",
+        "sürahi",
+        "klasik",
+        "bakır",
+        "sürahi"
+      ],
+      "highQualityModel": "/models/products/sude-home/bakir-surahi.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BAKIR_CAYDANLIK",
+      "storeId": "sude-home",
+      "name": "Bakır Çaydanlık",
+      "brand": "Sude Home",
+      "category": "Çaydanlık",
+      "price": 2190,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Bakır Çaydanlık.",
+      "tags": [
+        "sude home",
+        "çaydanlık",
+        "bakır",
+        "çaydanlık"
+      ],
+      "highQualityModel": "/models/products/sude-home/bakir-caydanlik.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BAKIR_SURAHI2",
+      "storeId": "sude-home",
+      "name": "Dövme Görünümlü Bakır Sürahi",
+      "brand": "Sude Home",
+      "category": "Sürahi",
+      "price": 2490,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Dövme Görünümlü Bakır Sürahi.",
+      "tags": [
+        "sude home",
+        "sürahi",
+        "dövme",
+        "görünümlü",
+        "bakır",
+        "sürahi"
+      ],
+      "highQualityModel": "/models/products/sude-home/bakir-surahi2.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BAKIR_TENCERE",
+      "storeId": "sude-home",
+      "name": "Bakır Servis Tenceresi",
+      "brand": "Sude Home",
+      "category": "Tencere",
+      "price": 1890,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Bakır Servis Tenceresi.",
+      "tags": [
+        "sude home",
+        "tencere",
+        "bakır",
+        "servis",
+        "tenceresi"
+      ],
+      "highQualityModel": "/models/products/sude-home/bakir-tencere.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BAKIR_TENCERE_SET",
+      "storeId": "sude-home",
+      "name": "Bakır Tencere Seti",
+      "brand": "Sude Home",
+      "category": "Tencere Seti",
+      "price": 3290,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Bakır Tencere Seti.",
+      "tags": [
+        "sude home",
+        "tencere seti",
+        "bakır",
+        "tencere",
+        "seti"
+      ],
+      "highQualityModel": "/models/products/sude-home/bakir-tencere-set.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BEYAZ_KASE",
+      "storeId": "sude-home",
+      "name": "Beyaz Seramik Kase",
+      "brand": "Sude Home",
+      "category": "Kase",
+      "price": 449,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Beyaz Seramik Kase.",
+      "tags": [
+        "sude home",
+        "kase",
+        "beyaz",
+        "seramik",
+        "kase"
+      ],
+      "highQualityModel": "/models/products/sude-home/beyaz-kase.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BUYUK_METAL_KETIL",
+      "storeId": "sude-home",
+      "name": "Büyük Metal Kettle",
+      "brand": "Sude Home",
+      "category": "Kettle",
+      "price": 2290,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Büyük Metal Kettle.",
+      "tags": [
+        "sude home",
+        "kettle",
+        "büyük",
+        "metal",
+        "kettle"
+      ],
+      "highQualityModel": "/models/products/sude-home/buyuk-metal-ketil.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BUYUK_PORSELEN_KASE",
+      "storeId": "sude-home",
+      "name": "Büyük Porselen Kase",
+      "brand": "Sude Home",
+      "category": "Kase",
+      "price": 749,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Büyük Porselen Kase.",
+      "tags": [
+        "sude home",
+        "kase",
+        "büyük",
+        "porselen",
+        "kase"
+      ],
+      "highQualityModel": "/models/products/sude-home/buyuk-porselen-kase.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BUYUK_PORSELEN_KAVANOZ",
+      "storeId": "sude-home",
+      "name": "Büyük Porselen Kavanoz",
+      "brand": "Sude Home",
+      "category": "Kavanoz",
+      "price": 1090,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Büyük Porselen Kavanoz.",
+      "tags": [
+        "sude home",
+        "kavanoz",
+        "büyük",
+        "porselen",
+        "kavanoz"
+      ],
+      "highQualityModel": "/models/products/sude-home/buyuk-porselen-kavanoz.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BUYUK_TAVA",
+      "storeId": "sude-home",
+      "name": "Ahşap Saplı Büyük Tava",
+      "brand": "Sude Home",
+      "category": "Tava",
+      "price": 1390,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Ahşap Saplı Büyük Tava.",
+      "tags": [
+        "sude home",
+        "tava",
+        "ahşap",
+        "saplı",
+        "büyük",
+        "tava"
+      ],
+      "highQualityModel": "/models/products/sude-home/buyuk-tava.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_BUYUK_VAZO",
+      "storeId": "sude-home",
+      "name": "Büyük Porselen Vazo",
+      "brand": "Sude Home",
+      "category": "Vazo",
+      "price": 1290,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Büyük Porselen Vazo.",
+      "tags": [
+        "sude home",
+        "vazo",
+        "büyük",
+        "porselen",
+        "vazo"
+      ],
+      "highQualityModel": "/models/products/sude-home/buyuk-vazo.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_CAYDANLIK_CICEK_DESENLI",
+      "storeId": "sude-home",
+      "name": "Çiçek Desenli Çaydanlık",
+      "brand": "Sude Home",
+      "category": "Çaydanlık",
+      "price": 1490,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çiçek Desenli Çaydanlık.",
+      "tags": [
+        "sude home",
+        "çaydanlık",
+        "çiçek",
+        "desenli",
+        "çaydanlık"
+      ],
+      "highQualityModel": "/models/products/sude-home/caydanlik-cicek-desenli.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_CELIK_TERMOS",
+      "storeId": "sude-home",
+      "name": "Çelik Termos",
+      "brand": "Sude Home",
+      "category": "Termos",
+      "price": 799,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çelik Termos.",
+      "tags": [
+        "sude home",
+        "termos",
+        "çelik",
+        "termos"
+      ],
+      "highQualityModel": "/models/products/sude-home/celik-termos.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_DESENLI_TERMOS",
+      "storeId": "sude-home",
+      "name": "Çiçek Desenli Termos",
+      "brand": "Sude Home",
+      "category": "Termos",
+      "price": 1290,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çiçek Desenli Termos.",
+      "tags": [
+        "sude home",
+        "termos",
+        "çiçek",
+        "desenli",
+        "termos"
+      ],
+      "highQualityModel": "/models/products/sude-home/desenli-termos.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_KETIL",
+      "storeId": "sude-home",
+      "name": "Beyaz Çelik Kettle",
+      "brand": "Sude Home",
+      "category": "Kettle",
+      "price": 1590,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Beyaz Çelik Kettle.",
+      "tags": [
+        "sude home",
+        "kettle",
+        "beyaz",
+        "çelik",
+        "kettle"
+      ],
+      "highQualityModel": "/models/products/sude-home/ketil.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_KETIL_TAHTA_KULPLU",
+      "storeId": "sude-home",
+      "name": "Ahşap Kulplu Kettle",
+      "brand": "Sude Home",
+      "category": "Kettle",
+      "price": 1890,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Ahşap Kulplu Kettle.",
+      "tags": [
+        "sude home",
+        "kettle",
+        "ahşap",
+        "kulplu",
+        "kettle"
+      ],
+      "highQualityModel": "/models/products/sude-home/ketil-tahta-kulplu.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_KUCUK_PORSELEN_KASE",
+      "storeId": "sude-home",
+      "name": "Küçük Desenli Porselen Kase",
+      "brand": "Sude Home",
+      "category": "Kase",
+      "price": 499,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Küçük Desenli Porselen Kase.",
+      "tags": [
+        "sude home",
+        "kase",
+        "küçük",
+        "desenli",
+        "porselen",
+        "kase"
+      ],
+      "highQualityModel": "/models/products/sude-home/kucuk-porselen-kase.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_KUCUK_PORSELEN_KAVANOZ",
+      "storeId": "sude-home",
+      "name": "Küçük Porselen Kavanoz",
+      "brand": "Sude Home",
+      "category": "Kavanoz",
+      "price": 649,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Küçük Porselen Kavanoz.",
+      "tags": [
+        "sude home",
+        "kavanoz",
+        "küçük",
+        "porselen",
+        "kavanoz"
+      ],
+      "highQualityModel": "/models/products/sude-home/kucuk-porselen-kavanoz.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_ORTA_PORSELEN_VAZO",
+      "storeId": "sude-home",
+      "name": "Orta Boy Porselen Vazo",
+      "brand": "Sude Home",
+      "category": "Vazo",
+      "price": 899,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Orta Boy Porselen Vazo.",
+      "tags": [
+        "sude home",
+        "vazo",
+        "orta",
+        "boy",
+        "porselen",
+        "vazo"
+      ],
+      "highQualityModel": "/models/products/sude-home/orta-porselen-vazo.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_PORSELEN_BEYAZ_KASE",
+      "storeId": "sude-home",
+      "name": "Mermer Görünümlü Beyaz Kase",
+      "brand": "Sude Home",
+      "category": "Kase",
+      "price": 990,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mermer Görünümlü Beyaz Kase.",
+      "tags": [
+        "sude home",
+        "kase",
+        "mermer",
+        "görünümlü",
+        "beyaz",
+        "kase"
+      ],
+      "highQualityModel": "/models/products/sude-home/porselen-beyaz-kase.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_PORSELEN_KASE",
+      "storeId": "sude-home",
+      "name": "Mavi Beyaz Porselen Kase",
+      "brand": "Sude Home",
+      "category": "Kase",
+      "price": 849,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi Beyaz Porselen Kase.",
+      "tags": [
+        "sude home",
+        "kase",
+        "mavi",
+        "beyaz",
+        "porselen",
+        "kase"
+      ],
+      "highQualityModel": "/models/products/sude-home/porselen-kase.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_PORSELEN_KAVANOZ",
+      "storeId": "sude-home",
+      "name": "Desenli Porselen Kavanoz",
+      "brand": "Sude Home",
+      "category": "Kavanoz",
+      "price": 890,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Desenli Porselen Kavanoz.",
+      "tags": [
+        "sude home",
+        "kavanoz",
+        "desenli",
+        "porselen",
+        "kavanoz"
+      ],
+      "highQualityModel": "/models/products/sude-home/porselen-kavanoz.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_PORSELEN_MAVI_BUYUK_KAE",
+      "storeId": "sude-home",
+      "name": "Büyük Mavi Porselen Kase",
+      "brand": "Sude Home",
+      "category": "Kase",
+      "price": 790,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Büyük Mavi Porselen Kase.",
+      "tags": [
+        "sude home",
+        "kase",
+        "büyük",
+        "mavi",
+        "porselen",
+        "kase"
+      ],
+      "highQualityModel": "/models/products/sude-home/porselen-mavi-buyuk-kae.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_SIYAH_TERMOS",
+      "storeId": "sude-home",
+      "name": "Siyah Termos",
+      "brand": "Sude Home",
+      "category": "Termos",
+      "price": 899,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah Termos.",
+      "tags": [
+        "sude home",
+        "termos",
+        "siyah",
+        "termos"
+      ],
+      "highQualityModel": "/models/products/sude-home/siyah-termos.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_TAVA",
+      "storeId": "sude-home",
+      "name": "Kırmızı Gövdeli Tava",
+      "brand": "Sude Home",
+      "category": "Tava",
+      "price": 1190,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı Gövdeli Tava.",
+      "tags": [
+        "sude home",
+        "tava",
+        "kırmızı",
+        "gövdeli",
+        "tava"
+      ],
+      "highQualityModel": "/models/products/sude-home/tava.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_TENCERE",
+      "storeId": "sude-home",
+      "name": "Kapaklı Çelik Tencere",
+      "brand": "Sude Home",
+      "category": "Tencere",
+      "price": 1390,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kapaklı Çelik Tencere.",
+      "tags": [
+        "sude home",
+        "tencere",
+        "kapaklı",
+        "çelik",
+        "tencere"
+      ],
+      "highQualityModel": "/models/products/sude-home/tencere.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "SUDE_HQ_TENCERE_TURUNCU_KULP",
+      "storeId": "sude-home",
+      "name": "Turuncu Kulplu Tencere",
+      "brand": "Sude Home",
+      "category": "Tencere",
+      "price": 1690,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu Kulplu Tencere.",
+      "tags": [
+        "sude home",
+        "tencere",
+        "turuncu",
+        "kulplu",
+        "tencere"
+      ],
+      "highQualityModel": "/models/products/sude-home/tencere-turuncu-kulp.glb",
+      "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    }
+  ]
+}

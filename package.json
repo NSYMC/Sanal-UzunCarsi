@@ -1,0 +1,38 @@
+{
+  "name": "uzuncarsi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/runtime-assets.mjs && node scripts/deduplicate-guzel-optik-materials.mjs && node scripts/build-selection-world.mjs && node scripts/validate-runtime-assets.mjs",
+    "prebuild": "node scripts/runtime-assets.mjs && node scripts/deduplicate-guzel-optik-materials.mjs && node scripts/build-selection-world.mjs && node scripts/validate-runtime-assets.mjs",
+    "dev": "vite",
+    "dev:original": "node scripts/runtime-assets.mjs && node scripts/deduplicate-guzel-optik-materials.mjs && node scripts/validate-runtime-assets.mjs --variant original && vite --mode original",
+    "dev:etc1s": "node scripts/runtime-assets.mjs && node scripts/compress-runtime-textures.mjs && node scripts/deduplicate-guzel-optik-materials.mjs && node scripts/validate-runtime-assets.mjs --variant etc1s && vite --mode etc1s",
+    "build": "vite build",
+    "build:original": "node scripts/runtime-assets.mjs && node scripts/deduplicate-guzel-optik-materials.mjs && node scripts/validate-runtime-assets.mjs --variant original && vite build --mode original",
+    "build:etc1s": "node scripts/runtime-assets.mjs && node scripts/compress-runtime-textures.mjs && node scripts/deduplicate-guzel-optik-materials.mjs && node scripts/validate-runtime-assets.mjs --variant etc1s && vite build --mode etc1s",
+    "preview": "vite preview",
+    "assets:etc1s": "node scripts/compress-runtime-textures.mjs && node scripts/deduplicate-guzel-optik-materials.mjs",
+    "assets:dedup-materials": "node scripts/deduplicate-guzel-optik-materials.mjs",
+    "assets:selection": "node scripts/build-selection-world.mjs",
+    "assets:compare": "node scripts/compare-scene-variants.mjs",
+    "scene:validate-products": "node scripts/validate-product-catalog.mjs public/models/guzel-optik/product-library.glb",
+    "scene:validate-store": "node scripts/validate-store-package.mjs public/models/guzel-optik",
+    "scene:rebuild-optik": "node scripts/rebuild-optik-manifest.mjs",
+    "products:validate": "node scripts/validate-product-data.mjs",
+    "products:analyze": "node scripts/analyze-product-models.mjs",
+    "products:enrich": "node scripts/enrich-product-data.mjs",
+    "products:enrich-sude": "node scripts/enrich-sude-product-data.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/cli": "^4.4.2",
+    "vite": "^8.1.1"
+  },
+  "dependencies": {
+    "@babylonjs/core": "^9.16.1",
+    "@babylonjs/ktx2decoder": "^9.16.1",
+    "@babylonjs/loaders": "^9.16.1"
+  }
+}

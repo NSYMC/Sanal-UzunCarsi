@@ -1,0 +1,13 @@
+.git
+.github
+.cache
+dist
+node_modules
+screenshots
+*.log
+*.assembling
+
+# Docker derlemesi kaynak parçalardan tek GLB üretir. Yerelde oluşturulmuş
+# 617 MB'lık kopyayı build context'e ikinci kez göndermeyiz.
+**/*.glb
+

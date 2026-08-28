@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ozminBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24111d" />
+      <stop offset="100%" stop-color="#3b172d" />
+    </linearGradient>
+    <linearGradient id="leatherGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9e6234" />
+      <stop offset="100%" stop-color="#6e3e1a" />
+    </linearGradient>
+    <linearGradient id="burgundyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8a2538" />
+      <stop offset="100%" stop-color="#541220" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#ozminBg)" />
+  <rect x="30" y="30" width="540" height="300" rx="12" fill="#2d1525" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+  
+  <!-- Warm Spotlight -->
+  <circle cx="300" cy="80" r="120" fill="rgba(255, 200, 220, 0.08)" filter="blur(25px)" />
+  <rect x="80" y="270" width="440" height="12" rx="3" fill="#1c0b16" stroke="rgba(255,255,255,0.05)" />
+
+  <!-- Luxury Handbag 1 (Burgundy Tote) -->
+  <g transform="translate(140, 130)">
+    <path d="M 25 45 L 35 125 Q 75 135 115 125 L 125 45 Z" fill="url(#burgundyGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+    <path d="M 50 45 Q 75 0 100 45" fill="none" stroke="#d4af37" stroke-width="4.5" stroke-linecap="round" />
+    <circle cx="75" cy="70" r="6" fill="#d4af37" />
+    <!-- Flap stitching -->
+    <path d="M 30 50 Q 75 80 120 50" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,2" />
+  </g>
+
+  <!-- Luxury Handbag 2 (Tan Leather Satchel) -->
+  <g transform="translate(320, 115) scale(1.15)">
+    <path d="M 20 40 L 25 120 Q 70 128 115 120 L 120 40 Z" fill="url(#leatherGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+    <path d="M 20 40 Q 70 65 120 40 L 115 85 Q 70 105 25 85 Z" fill="#542e13" />
+    <path d="M 45 40 Q 70 5 95 40" fill="none" stroke="#d4af37" stroke-width="4" stroke-linecap="round" />
+    <rect x="64" y="80" width="12" height="16" rx="2" fill="#d4af37" />
+  </g>
+
+  <!-- Badge / Kicker -->
+  <g transform="translate(50, 48)">
+    <rect width="140" height="26" rx="6" fill="rgba(189, 92, 136, 0.25)" stroke="rgba(189, 92, 136, 0.5)" />
+    <text x="70" y="17" fill="#ff99c8" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">GİYİM &amp; ÇANTA</text>
+  </g>
+</svg>

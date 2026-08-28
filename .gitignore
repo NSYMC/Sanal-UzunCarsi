@@ -1,0 +1,66 @@
+node_modules/
+dist/
+.DS_Store
+__pycache__/
+*.pyc
+
+# Yerel çalışma ve doğrulama çıktıları.
+/scratch/
+/.publish-worktree/
+/assets/
+/tmp-*.jpg
+/bina_cephe*.jpg
+/scripts/benchmark-*.mjs
+/scripts/test-*.mjs
+/scripts/urgent_*
+/scripts/build-progressive-scene.mjs
+/scripts/build-quality-scene.mjs
+/scripts/visual-quality-walkthrough.mjs
+/public/assets/*_store.svg
+/public/assets/guzel_optik.png
+
+# Ana kaynak sahne ve derleme sırasında birleştirilen GLB yerel kalır.
+*.glb
+!public/models/**/*.glb
+
+# GitHub dosya sınırını aşan runtime modelleri parçalardan oluşturulur.
+/public/models/sude-home/store-raw.glb
+/public/models/mawus/store-raw.glb
+/public/models/world/always.glb
+/public/models/world/outside.glb
+/public/models/guzel-optik/store-environment.glb
+/public/models/selection/selection-world.glb
+/public/models/etc1s/
+/public/models/materials-optimized/
+
+# Uygulamanın kullanmadığı eski paket çıktıları.
+/public/environments/store-evening.hdr
+/public/models/sude-home/store-environment.glb
+/public/models/sude-home/product-proxies.glb
+/public/models/sude-home/product-library.glb
+/public/models/sude-home/products.json
+
+# Kaynak modeller ve yerel üretim dosyaları.
+/Products/
+/docs/
+/*.exr
+/scripts/build-store-assets.mjs
+/scripts/build-sude-store-assets.mjs
+/scripts/compress-lossless-meshopt.mjs
+/scripts/convert-scene-textures-hybrid.mjs
+/scripts/convert-scene-textures-uastc.mjs
+/scripts/copy-file.mjs
+/scripts/extract-scene-store-anchors.mjs
+/scripts/finalize-hybrid-textures.mjs
+/scripts/prepare-hybrid-textures.mjs
+/scripts/split-store-scene.mjs
+/src/product-binding-editor.js
+/src/product-binding-editor.css
+
+# GLB içine gömülmeyen ara dönüştürme çıktıları dağıtıma dahil edilmez.
+/public/models/tour-v2/*.ktx2
+/public/models/tour-v2/*.bin
+
+# Geçici/yerel model dönüşüm kalıntıları.
+*.assembling
+.cache/

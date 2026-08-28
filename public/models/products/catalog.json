@@ -1,0 +1,997 @@
+{
+  "version": 1,
+  "models": [
+    {
+      "id": "1000G_ALTIN",
+      "name": "1000g Altin",
+      "filename": "1000gAltin.glb",
+      "url": "/models/products/mawus/1000g-altin.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "altin",
+          "gold"
+        ]
+      },
+      "category": "Altın",
+      "sizeBytes": 3329664,
+      "meshCount": 1
+    },
+    {
+      "id": "12_5KG_ALTIN",
+      "name": "12 5kg Altin",
+      "filename": "12.5kgAltin.glb",
+      "url": "/models/products/mawus/12-5kg-altin.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "altin",
+          "gold"
+        ]
+      },
+      "category": "Altın",
+      "sizeBytes": 3085452,
+      "meshCount": 1
+    },
+    {
+      "id": "ALTIN_YUZUK",
+      "name": "AltıN YüZüK",
+      "filename": "altınYüzük.glb",
+      "url": "/models/products/mawus/altin-yuzuk.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "yuzuk",
+          "altin",
+          "gold",
+          "ring"
+        ]
+      },
+      "category": "Yüzük",
+      "sizeBytes": 4538604,
+      "meshCount": 4
+    },
+    {
+      "id": "ALTIN_YUZUK_TASLI",
+      "name": "AltıN YüZüK Taslı",
+      "filename": "altınYüzükTaslı.glb",
+      "url": "/models/products/mawus/altin-yuzuk-tasli.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "yuzuk",
+          "altin",
+          "gold",
+          "diamond",
+          "ring",
+          "gem"
+        ]
+      },
+      "category": "Yüzük",
+      "sizeBytes": 2377712,
+      "meshCount": 9
+    },
+    {
+      "id": "ALTIN_DESENLI_KASE",
+      "name": "Altin Desenli Kase",
+      "filename": "altinDesenliKase.glb",
+      "url": "/models/products/sude-home/altin-desenli-kase.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "kase"
+        ]
+      },
+      "category": "Altın",
+      "sizeBytes": 4264160,
+      "meshCount": 1
+    },
+    {
+      "id": "ALTIN_KIRMIZI_KALPLI",
+      "name": "Altin Kirmizi Kalpli",
+      "filename": "altinKirmiziKalpli.glb",
+      "url": "/models/products/mawus/altin-kirmizi-kalpli.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "altin",
+          "gold",
+          "diamond",
+          "ring"
+        ]
+      },
+      "category": "Altın",
+      "sizeBytes": 2748064,
+      "meshCount": 11
+    },
+    {
+      "id": "ALTIN_KIRMIZI_TAS",
+      "name": "Altin Kirmizi Tas",
+      "filename": "altinKirmiziTas.glb",
+      "url": "/models/products/mawus/altin-kirmizi-tas.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "altin",
+          "gold",
+          "diamond",
+          "ring",
+          "gem"
+        ]
+      },
+      "category": "Altın",
+      "sizeBytes": 3143976,
+      "meshCount": 12
+    },
+    {
+      "id": "BAKIR_SURAHI",
+      "name": "BakıR Surahi",
+      "filename": "BakırSurahi.glb",
+      "url": "/models/products/sude-home/bakir-surahi.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "surahi",
+          "bakir"
+        ]
+      },
+      "category": "Sürahi",
+      "sizeBytes": 1339464,
+      "meshCount": 1
+    },
+    {
+      "id": "BAKIR_CAYDANLIK",
+      "name": "Bakir Caydanlik",
+      "filename": "BakirCaydanlik.glb",
+      "url": "/models/products/sude-home/bakir-caydanlik.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "caydanlik",
+          "bakir"
+        ]
+      },
+      "category": "Çaydanlık",
+      "sizeBytes": 2832948,
+      "meshCount": 1
+    },
+    {
+      "id": "BAKIR_SURAHI2",
+      "name": "Bakir Surahi2",
+      "filename": "bakirSurahi2.glb",
+      "url": "/models/products/sude-home/bakir-surahi2.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "surahi",
+          "bakir"
+        ]
+      },
+      "category": "Sürahi",
+      "sizeBytes": 15081940,
+      "meshCount": 1
+    },
+    {
+      "id": "BAKIR_TENCERE",
+      "name": "Bakir Tencere",
+      "filename": "bakirTencere.glb",
+      "url": "/models/products/sude-home/bakir-tencere.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "tencere",
+          "bakir"
+        ]
+      },
+      "category": "Tencere",
+      "sizeBytes": 1272436,
+      "meshCount": 1
+    },
+    {
+      "id": "BAKIR_TENCERE_SET",
+      "name": "Bakir Tencere Set",
+      "filename": "BakirTencereSet.glb",
+      "url": "/models/products/sude-home/bakir-tencere-set.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "tencere",
+          "bakir"
+        ]
+      },
+      "category": "Tencere",
+      "sizeBytes": 3596340,
+      "meshCount": 3
+    },
+    {
+      "id": "BEYAZ_KASE",
+      "name": "Beyaz Kase",
+      "filename": "BeyazKase.glb",
+      "url": "/models/products/sude-home/beyaz-kase.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "kase"
+        ]
+      },
+      "category": "Kase",
+      "sizeBytes": 220224,
+      "meshCount": 1
+    },
+    {
+      "id": "BUYUK_METAL_KETIL",
+      "name": "Buyuk Metal Ketil",
+      "filename": "BuyukMetalKetil.glb",
+      "url": "/models/products/sude-home/buyuk-metal-ketil.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "ketil"
+        ]
+      },
+      "category": "Termos & Kettle",
+      "sizeBytes": 2997576,
+      "meshCount": 1
+    },
+    {
+      "id": "BUYUK_PORSELEN_KASE",
+      "name": "Buyuk Porselen Kase",
+      "filename": "buyukPorselenKase.glb",
+      "url": "/models/products/sude-home/buyuk-porselen-kase.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "kase",
+          "porselen"
+        ]
+      },
+      "category": "Kase",
+      "sizeBytes": 2598812,
+      "meshCount": 1
+    },
+    {
+      "id": "BUYUK_PORSELEN_KAVANOZ",
+      "name": "Buyuk Porselen Kavanoz",
+      "filename": "BuyukPorselenKavanoz.glb",
+      "url": "/models/products/sude-home/buyuk-porselen-kavanoz.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "kavanoz",
+          "porselen"
+        ]
+      },
+      "category": "Kavanoz",
+      "sizeBytes": 2708644,
+      "meshCount": 1
+    },
+    {
+      "id": "BUYUK_TAVA",
+      "name": "Buyuk Tava",
+      "filename": "buyukTava.glb",
+      "url": "/models/products/sude-home/buyuk-tava.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "tava"
+        ]
+      },
+      "category": "Tava",
+      "sizeBytes": 5339548,
+      "meshCount": 1
+    },
+    {
+      "id": "BUYUK_VAZO",
+      "name": "Buyuk Vazo",
+      "filename": "BuyukVazo.glb",
+      "url": "/models/products/sude-home/buyuk-vazo.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "vazo"
+        ]
+      },
+      "category": "Vazo",
+      "sizeBytes": 2637676,
+      "meshCount": 1
+    },
+    {
+      "id": "CAYDANLIK_CICEK_DESENLI",
+      "name": "Caydanlik Cicek Desenli",
+      "filename": "caydanlikCicekDesenli.glb",
+      "url": "/models/products/sude-home/caydanlik-cicek-desenli.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "caydanlik"
+        ]
+      },
+      "category": "Çaydanlık",
+      "sizeBytes": 285296,
+      "meshCount": 1
+    },
+    {
+      "id": "CELIK_TERMOS",
+      "name": "Celik Termos",
+      "filename": "celikTermos.glb",
+      "url": "/models/products/sude-home/celik-termos.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "termos"
+        ]
+      },
+      "category": "Termos & Kettle",
+      "sizeBytes": 107112,
+      "meshCount": 1
+    },
+    {
+      "id": "CERCEVESIZ_GOZLUK",
+      "name": "Cercevesiz Gozluk",
+      "filename": "cercevesizGozluk.glb",
+      "url": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "cerceve"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 348324,
+      "meshCount": 7
+    },
+    {
+      "id": "CUMHURIYET_ALTINI",
+      "name": "Cumhuriyet Altini",
+      "filename": "cumhuriyetAltini.glb",
+      "url": "/models/products/mawus/cumhuriyet-altini.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "altin",
+          "gold"
+        ]
+      },
+      "category": "Altın",
+      "sizeBytes": 3993264,
+      "meshCount": 1
+    },
+    {
+      "id": "CICIEK_KIRMIZI_YUZUK",
+      "name": "çİçİek KıRmıZı Yuzuk",
+      "filename": "çiçiekKırmızıYuzuk.glb",
+      "url": "/models/products/mawus/ciciek-kirmizi-yuzuk.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "yuzuk",
+          "gold",
+          "diamond",
+          "ring"
+        ]
+      },
+      "category": "Yüzük",
+      "sizeBytes": 508656,
+      "meshCount": 6
+    },
+    {
+      "id": "CICIEK_YUZUK",
+      "name": "çİçİek Yuzuk",
+      "filename": "çiçiekYuzuk.glb",
+      "url": "/models/products/mawus/ciciek-yuzuk.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "yuzuk",
+          "gold",
+          "diamond",
+          "ring"
+        ]
+      },
+      "category": "Yüzük",
+      "sizeBytes": 10687172,
+      "meshCount": 100
+    },
+    {
+      "id": "DESENLI_TERMOS",
+      "name": "Desenli Termos",
+      "filename": "desenliTermos.glb",
+      "url": "/models/products/sude-home/desenli-termos.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "termos"
+        ]
+      },
+      "category": "Termos & Kettle",
+      "sizeBytes": 7944468,
+      "meshCount": 1
+    },
+    {
+      "id": "ELMAS_YUZUK",
+      "name": "Elmas YüZüK",
+      "filename": "elmasYüzük.glb",
+      "url": "/models/products/mawus/elmas-yuzuk.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "yuzuk",
+          "gold",
+          "diamond",
+          "elmas",
+          "ring"
+        ]
+      },
+      "category": "Yüzük",
+      "sizeBytes": 4074480,
+      "meshCount": 3
+    },
+    {
+      "id": "GRAM_ALTIN",
+      "name": "Gram Altin",
+      "filename": "gramAltin.glb",
+      "url": "/models/products/mawus/gram-altin.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "altin",
+          "gold",
+          "gram"
+        ]
+      },
+      "category": "Altın",
+      "sizeBytes": 3908096,
+      "meshCount": 1
+    },
+    {
+      "id": "GRI_YUZUK",
+      "name": "Gri Yuzuk",
+      "filename": "griYuzuk.glb",
+      "url": "/models/products/mawus/gri-yuzuk.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "yuzuk",
+          "gold",
+          "diamond",
+          "ring"
+        ]
+      },
+      "category": "Yüzük",
+      "sizeBytes": 3169296,
+      "meshCount": 18
+    },
+    {
+      "id": "KETIL",
+      "name": "Ketil",
+      "filename": "Ketil.glb",
+      "url": "/models/products/sude-home/ketil.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "ketil"
+        ]
+      },
+      "category": "Termos & Kettle",
+      "sizeBytes": 893648,
+      "meshCount": 1
+    },
+    {
+      "id": "KETIL_TAHTA_KULPLU",
+      "name": "Ketil Tahta Kulplu",
+      "filename": "KetilTahtaKulplu.glb",
+      "url": "/models/products/sude-home/ketil-tahta-kulplu.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "ketil"
+        ]
+      },
+      "category": "Termos & Kettle",
+      "sizeBytes": 420264,
+      "meshCount": 1
+    },
+    {
+      "id": "KIRMIZI_CAMLI_GOZLUK",
+      "name": "KıRmıZı Camlı Gozluk",
+      "filename": "kırmızıCamlıGozluk.glb",
+      "url": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "camli"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 10327416,
+      "meshCount": 28
+    },
+    {
+      "id": "KUCUK_PORSELEN_KASE",
+      "name": "Kucuk Porselen Kase",
+      "filename": "KucukPorselenKase.glb",
+      "url": "/models/products/sude-home/kucuk-porselen-kase.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "kase",
+          "porselen"
+        ]
+      },
+      "category": "Kase",
+      "sizeBytes": 654488,
+      "meshCount": 1
+    },
+    {
+      "id": "KUCUK_PORSELEN_KAVANOZ",
+      "name": "Kucuk Porselen Kavanoz",
+      "filename": "kucukPorselenKavanoz.glb",
+      "url": "/models/products/sude-home/kucuk-porselen-kavanoz.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "kavanoz",
+          "porselen"
+        ]
+      },
+      "category": "Kavanoz",
+      "sizeBytes": 2659028,
+      "meshCount": 1
+    },
+    {
+      "id": "MAVI_CAMLI_GOZLUK",
+      "name": "Mavi Camli Gozluk",
+      "filename": "maviCamliGozluk.glb",
+      "url": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "camli"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 2347756,
+      "meshCount": 3
+    },
+    {
+      "id": "ORTA_PORSELEN_VAZO",
+      "name": "Orta Porselen Vazo",
+      "filename": "ortaPorselenVazo.glb",
+      "url": "/models/products/sude-home/orta-porselen-vazo.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "vazo",
+          "porselen"
+        ]
+      },
+      "category": "Vazo",
+      "sizeBytes": 2729740,
+      "meshCount": 1
+    },
+    {
+      "id": "PLASTIK_SARI_GOZLUK",
+      "name": "Plastik Sari Gozluk",
+      "filename": "plastikSariGozluk.glb",
+      "url": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "lens",
+          "frame"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 245448,
+      "meshCount": 8
+    },
+    {
+      "id": "PLASTIK_YESIL_CAM_GOZLUK",
+      "name": "Plastik Yesil Cam Gozluk",
+      "filename": "plastikYesilCamGozluk.glb",
+      "url": "/models/products/guzel-optik/plastik-yesil-cam-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 242972,
+      "meshCount": 11
+    },
+    {
+      "id": "PORSELEN_BEYAZ_KASE",
+      "name": "Porselen Beyaz Kase",
+      "filename": "porselenBeyazKase.glb",
+      "url": "/models/products/sude-home/porselen-beyaz-kase.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "kase",
+          "porselen"
+        ]
+      },
+      "category": "Kase",
+      "sizeBytes": 2608332,
+      "meshCount": 1
+    },
+    {
+      "id": "PORSELEN_KASE",
+      "name": "Porselen Kase",
+      "filename": "porselenKase.glb",
+      "url": "/models/products/sude-home/porselen-kase.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "kase",
+          "porselen"
+        ]
+      },
+      "category": "Kase",
+      "sizeBytes": 764352,
+      "meshCount": 1
+    },
+    {
+      "id": "PORSELEN_KAVANOZ",
+      "name": "Porselen Kavanoz",
+      "filename": "porselenKavanoz.glb",
+      "url": "/models/products/sude-home/porselen-kavanoz.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "kavanoz",
+          "porselen"
+        ]
+      },
+      "category": "Kavanoz",
+      "sizeBytes": 2699492,
+      "meshCount": 1
+    },
+    {
+      "id": "PORSELEN_MAVI_BUYUK_KAE",
+      "name": "Porselen Mavi Buyuk Kae",
+      "filename": "porselenMaviBuyukKae.glb",
+      "url": "/models/products/sude-home/porselen-mavi-buyuk-kae.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "porselen"
+        ]
+      },
+      "category": "Diğer",
+      "sizeBytes": 240912,
+      "meshCount": 1
+    },
+    {
+      "id": "SIYAH_CERCEVESIZ_GOZLUK",
+      "name": "Siyah Cercevesiz Gozluk",
+      "filename": "siyahCercevesizGozluk.glb",
+      "url": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "cerceve",
+          "lens",
+          "frame"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 397552,
+      "meshCount": 10
+    },
+    {
+      "id": "SIYAH_TERMOS",
+      "name": "Siyah Termos",
+      "filename": "siyahTermos.glb",
+      "url": "/models/products/sude-home/siyah-termos.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "termos"
+        ]
+      },
+      "category": "Termos & Kettle",
+      "sizeBytes": 3154432,
+      "meshCount": 1
+    },
+    {
+      "id": "TAVA",
+      "name": "Tava",
+      "filename": "Tava.glb",
+      "url": "/models/products/sude-home/tava.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "tava"
+        ]
+      },
+      "category": "Tava",
+      "sizeBytes": 15182652,
+      "meshCount": 1
+    },
+    {
+      "id": "TENCERE",
+      "name": "Tencere",
+      "filename": "Tencere.glb",
+      "url": "/models/products/sude-home/tencere.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "tencere"
+        ]
+      },
+      "category": "Tencere",
+      "sizeBytes": 811656,
+      "meshCount": 1
+    },
+    {
+      "id": "TENCERE_TURUNCU_KULP",
+      "name": "Tencere Turuncu Kulp",
+      "filename": "TencereTuruncuKulp.glb",
+      "url": "/models/products/sude-home/tencere-turuncu-kulp.glb",
+      "storeId": "sude-home",
+      "productType": "home",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "tencere"
+        ]
+      },
+      "category": "Tencere",
+      "sizeBytes": 6411404,
+      "meshCount": 1
+    },
+    {
+      "id": "TURUNCU_GOZLUK",
+      "name": "Turuncu Gozluk",
+      "filename": "turuncuGozluk.glb",
+      "url": "/models/products/guzel-optik/turuncu-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "lens",
+          "frame"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 502476,
+      "meshCount": 21
+    },
+    {
+      "id": "TURUNCU_GOZLUK_TURUNCU_CAM",
+      "name": "Turuncu Gozluk Turuncu Cam",
+      "filename": "turuncuGozlukTuruncuCam.glb",
+      "url": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "lens",
+          "frame"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 589764,
+      "meshCount": 10
+    },
+    {
+      "id": "YAKUT_YUZUK",
+      "name": "Yakut Yuzuk",
+      "filename": "yakutYuzuk.glb",
+      "url": "/models/products/mawus/yakut-yuzuk.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "yuzuk",
+          "gold",
+          "diamond",
+          "yakut",
+          "ring"
+        ]
+      },
+      "category": "Yüzük",
+      "sizeBytes": 2099360,
+      "meshCount": 7
+    },
+    {
+      "id": "YARIM_TAM_CEYREKALTIN",
+      "name": "Yarim Tam Ceyrekaltin",
+      "filename": "yarimTamCeyrekaltin.glb",
+      "url": "/models/products/mawus/yarim-tam-ceyrekaltin.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "altin",
+          "gold",
+          "ceyrek",
+          "gram"
+        ]
+      },
+      "category": "Altın",
+      "sizeBytes": 4227236,
+      "meshCount": 1
+    },
+    {
+      "id": "YESIL_CAMLI_GOZLUK",
+      "name": "Yesil Camli Gozluk",
+      "filename": "yesilCamliGozluk.glb",
+      "url": "/models/products/guzel-optik/yesil-camli-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "camli"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 10716196,
+      "meshCount": 29
+    },
+    {
+      "id": "YESIL_GOZLUK",
+      "name": "Yesil Gozluk",
+      "filename": "yesilGozluk.glb",
+      "url": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "lens",
+          "frame"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 1449056,
+      "meshCount": 11
+    },
+    {
+      "id": "YESIL_PLASTIK_GOZLUK",
+      "name": "Yesil Plastik Gozluk",
+      "filename": "yesilPlastikGozluk.glb",
+      "url": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk",
+          "lens",
+          "frame"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 160836,
+      "meshCount": 9
+    },
+    {
+      "id": "ZUMRUT_YUZUK",
+      "name": "ZüMrüT Yuzuk",
+      "filename": "zümrütYuzuk.glb",
+      "url": "/models/products/mawus/zumrut-yuzuk.glb",
+      "storeId": "mawus",
+      "productType": "jewelry",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "yuzuk",
+          "gold",
+          "zumrut",
+          "ring",
+          "gem"
+        ]
+      },
+      "category": "Yüzük",
+      "sizeBytes": 9549864,
+      "meshCount": 5
+    }
+  ]
+}

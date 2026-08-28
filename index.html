@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080c14" />
+    <meta
+      name="description"
+      content="Kahramanmaraş Uzun Çarşı'daki mağaza ve ürünlerin 3B görünümü."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Sanal Uzun Çarşı | Mağazalar ve Ürünler</title>
+  </head>
+  <body>
+    <canvas id="renderCanvas" tabindex="0" aria-label="Sanal Uzun Çarşı 3B tur sahnesi"></canvas>
+
+    <div id="aimReticle" class="aim-reticle" aria-hidden="true">
+      <span></span>
+    </div>
+
+    <!-- 3D Scene Loading Overlay -->
+    <div id="loadingScreen" class="loading-screen hidden" role="status" aria-live="polite" hidden>
+      <div class="loading-screen__backdrop" aria-hidden="true"></div>
+      <section class="loading-card" aria-labelledby="loadingStoreName">
+        <header class="loading-card__header">
+          <div>
+            <div class="loading-badge">
+              <span class="loading-badge__pulse" aria-hidden="true"></span>
+              <span>MAĞAZA</span>
+            </div>
+            <h1 id="loadingStoreName" class="loading-title">Güzel Optik Lens</h1>
+            <p id="loadingStoreCategory" class="loading-store-category">Optik &amp; Gözlük</p>
+          </div>
+          <div id="loadingStoreIcon" class="loading-store-icon" aria-hidden="true">👓</div>
+        </header>
+
+        <div class="loading-card__body">
+          <div class="loading-progress-copy">
+            <div>
+              <span class="loading-progress-copy__label">Yükleniyor</span>
+              <p id="loadingStatus" class="loading-status">Mağaza yükleniyor…</p>
+            </div>
+            <span id="loadingPercent" class="loading-percent">12%</span>
+          </div>
+
+          <div class="progress-wrap">
+            <div class="progress-track" aria-hidden="true">
+              <span id="loadingProgress" class="progress-value"></span>
+            </div>
+          </div>
+
+          <div class="loading-footer">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <p id="loadingDetail" class="loading-detail">Mağaza dosyaları yükleniyor.</p>
+          </div>
+
+          <div class="loading-journey" aria-label="Yükleme aşamaları">
+            <span><b>01</b> Çarşı</span>
+            <span><b>02</b> Mağaza</span>
+            <span><b>03</b> Ürünler</span>
+          </div>
+        </div>
+
+        <footer class="loading-tip">
+          <span aria-hidden="true">⌁</span>
+          <p>Fareyle etrafa bakabilir, ürün detaylarını açmak için ürüne tıklayabilirsiniz.</p>
+        </footer>
+      </section>
+    </div>
+
+    <!-- Interactive In-Tour Hover Tooltip -->
+    <div id="productHoverPrompt" class="product-hover-prompt hidden" aria-live="polite">
+      <div class="product-hover-prompt__icon">👓</div>
+      <div class="product-hover-prompt__text">
+        <strong id="hoverPromptName">Optik Gözlük</strong>
+        <span id="hoverPromptDesc">Detayları açmak için tıklayın veya E tuşuna basın</span>
+      </div>
+    </div>
+
+    <div id="errorScreen" class="error-screen hidden" role="alert" hidden>
+      <div class="error-card">
+        <p class="eyebrow">YÜKLEME HATASI</p>
+        <h1>Mağaza açılamadı</h1>
+        <p id="errorMessage">Tarayıcınızın donanım hızlandırmasını açıp sayfayı yenileyin.</p>
+        <button id="retryButton" type="button">Yeniden dene</button>
+      </div>
+    </div>
+
+    <section id="selectionMapScreen" class="store-map-screen" aria-labelledby="selectionMapTitle">
+      <header class="store-map-header">
+        <p class="eyebrow">SANAL UZUN ÇARŞI</p>
+        <h1 id="selectionMapTitle">Bir mağaza seçin</h1>
+        <p>Haritadaki işaretlerden veya aşağıdaki listeden mağazaya gidebilirsiniz.</p>
+        <div class="store-map-count"><strong id="selectionStoreCount">3</strong> mağaza <i></i><span id="selectionMapStatus">Harita yükleniyor</span></div>
+        <div class="store-map-guide" aria-label="Kullanım rehberi">
+          <span><b>1</b> Mağazayı seç</span><span><b>2</b> İçeri gir</span><span><b>3</b> Ürünlere bak</span>
+        </div>
+      </header>
+      <div class="store-map-angle" aria-hidden="true"><span>↗</span> Harita</div>
+      <form id="selectionSearchForm" class="store-map-search" role="search">
+        <div class="store-map-search__heading">
+          <div><span>ÜRÜN BUL</span><strong id="selectionResultSummary">Tüm mağazalar</strong></div>
+          <button id="selectionFilterClear" type="button">Temizle</button>
+        </div>
+        <div class="store-map-search__query">
+          <input id="selectionProductQuery" type="search" placeholder="Gözlük, çaydanlık, gram altın…" autocomplete="off" aria-label="Ürün ara" />
+          <button type="submit" aria-label="Aramayı uygula">Ara</button>
+        </div>
+        <div class="store-map-search__filters">
+          <label><span>Mağaza</span><select id="selectionStoreFilter"><option value="">Tüm mağazalar</option><option value="guzel-optik">Güzel Optik</option><option value="sude-home">Sude Home</option><option value="mawus">Mawuş</option></select></label>
+          <label><span>Kategori</span><select id="selectionCategoryFilter"><option value="">Tüm kategoriler</option></select></label>
+          <label><span>En az</span><input id="selectionMinPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="0 TL" /></label>
+          <label><span>En çok</span><input id="selectionMaxPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="Üst sınır" /></label>
+        </div>
+        <div class="store-map-search__footer">
+          <span id="selectionActiveFilterText">Tüm ürünler</span>
+          <button id="openCatalogBtn" type="button">Kart görünümü</button>
+        </div>
+      </form>
+      <div id="selectionMarkerLayer" class="store-marker-layer" aria-label="Haritadaki mağazalar">
+        <button class="store-marker store-marker--optik" type="button" data-selection-store="guzel-optik" aria-label="Güzel Optik mağazasını seç">
+          <span class="store-marker__pin"><i>👓</i></span><strong>Güzel Optik</strong><small>Optik &amp; Gözlük</small>
+        </button>
+        <button class="store-marker store-marker--sude" type="button" data-selection-store="sude-home" aria-label="Sude Home mağazasını seç">
+          <span class="store-marker__pin"><i>🍽️</i></span><strong>Sude Home</strong><small>Ev &amp; Yaşam</small>
+        </button>
+        <button class="store-marker store-marker--mawus" type="button" data-selection-store="mawus" aria-label="Mawuş mağazasını seç">
+          <span class="store-marker__pin"><i>💍</i></span><strong>Mawuş</strong><small>Kuyumculuk</small>
+        </button>
+      </div>
+      <div class="store-map-list" aria-label="Mağaza seçim listesi">
+        <button type="button" data-selection-list="guzel-optik" style="--store-color:#dc8fa3"><span></span><strong>Güzel Optik</strong><small data-selection-match>Optik &amp; Gözlük</small></button>
+        <button type="button" data-selection-list="sude-home" style="--store-color:#79b9a4"><span></span><strong>Sude Home</strong><small data-selection-match>Ev &amp; Yaşam</small></button>
+        <button type="button" data-selection-list="mawus" style="--store-color:#e7ae78"><span></span><strong>Mawuş</strong><small data-selection-match>Kuyumculuk</small></button>
+      </div>
+      <div id="selectionEmptyState" class="store-map-empty" hidden>Bu filtrelerle eşleşen mağaza bulunamadı.</div>
+      <p class="store-map-hint"><span>⌁</span> Haritayı sürükleyin, yakınlaşmak için tekerleği kullanın</p>
+    </section>
+
+    <div id="storeSelectPortal" class="store-portal hidden" role="dialog" aria-modal="true" aria-labelledby="portalTitle" hidden>
+      <div class="store-portal__backdrop"></div>
+      <div class="store-portal__container">
+        <header class="store-portal__header">
+          <div class="store-portal__brand">
+            <span class="portal-badge">SANAL UZUN ÇARŞI</span>
+            <h1 id="portalTitle">Ürün ve mağaza ara</h1>
+            <p class="portal-subtitle">Arama kutusunu ve filtreleri kullanarak sonuçları daraltabilirsiniz.</p>
+          </div>
+          <div class="portal-entry-actions">
+            <span id="portalPreloadStatus" class="portal-preload-status" aria-live="polite">Yükleniyor</span>
+            <button id="portalExploreAllBtn" class="portal-btn portal-btn--outline" type="button">Seçili mağazaya gir</button>
+          </div>
+        </header>
+
+        <div class="portal-searchbar">
+          <label for="portalProductQuery">Ürün ara</label>
+          <div class="portal-searchbar__control">
+            <input id="portalProductQuery" type="search" placeholder="Örn. güneş gözlüğü, çay takımı, gram altın" autocomplete="off" />
+            <button id="portalSearchBtn" type="button">Ara</button>
+          </div>
+        </div>
+
+        <div class="store-portal__main">
+          <aside class="portal-filters" aria-label="Ürün filtreleri">
+            <div class="portal-filters__head">
+              <strong>Filtreler</strong>
+              <button id="portalFilterClear" type="button">Temizle</button>
+            </div>
+            <label class="portal-filter-field" for="portalStoreFilter">
+              <span>Mağaza</span>
+              <select id="portalStoreFilter">
+                <option value="">Tüm mağazalar</option>
+                <option value="guzel-optik">Güzel Optik</option>
+                <option value="sude-home">Sude Home</option>
+                <option value="mawus">Mawuş Kuyumculuk</option>
+              </select>
+            </label>
+            <label class="portal-filter-field" for="portalCategoryFilter">
+              <span>Kategori</span>
+              <select id="portalCategoryFilter"><option value="">Tüm kategoriler</option></select>
+            </label>
+            <fieldset class="portal-price-filter">
+              <legend>Fiyat aralığı</legend>
+              <div>
+                <label for="portalMinPrice">En az</label>
+                <input id="portalMinPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="0 TL" />
+              </div>
+              <div>
+                <label for="portalMaxPrice">En çok</label>
+                <input id="portalMaxPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="Üst sınır" />
+              </div>
+            </fieldset>
+            <button id="portalFilterApply" class="portal-filter-apply" type="button">Sonuçları göster</button>
+            <p id="portalPriceStatus" class="portal-filter-note">Optik ürünlerde katalog fiyatı, altın ürünlerinde canlı piyasa hesabı kullanılır.</p>
+          </aside>
+
+          <section class="portal-results" aria-live="polite">
+            <div class="portal-results__head">
+              <div>
+                <span>MAĞAZALAR</span>
+                <strong id="portalResultSummary">3 mağaza listeleniyor</strong>
+              </div>
+              <p id="portalActiveFilterText">Tüm ürünler</p>
+            </div>
+            <div class="store-portal__grid" id="storeGrid" role="list">
+            <article class="store-card is-active" role="listitem" tabindex="0" data-store-id="guzel-optik" aria-selected="true">
+              <div class="store-card__banner">
+                <img src="/assets/guzel_optik_cover.png" alt="Güzel Optik Lens" loading="eager" />
+                <span class="store-card__badge">Optik</span>
+              </div>
+              <div class="store-card__body">
+                <div class="store-card__header">
+                  <h2 class="store-card__title">Güzel Optik Lens</h2>
+                  <span class="store-card__category">Optik &amp; Güneş Gözlüğü</span>
+                </div>
+                <p class="store-card__description">Optik çerçeve ve güneş gözlüğü modelleri.</p>
+                <div class="store-card__meta"><span class="store-card__items">91 ürün</span><span class="store-card__load" data-store-load>Yükleniyor</span><span class="store-card__match" data-store-match>91 eşleşme</span></div>
+              </div>
+            </article>
+
+            <article class="store-card" role="listitem" tabindex="0" data-store-id="sude-home" aria-selected="false">
+              <div class="store-card__banner">
+                <img src="/assets/sude_store.svg" alt="Sude Home" loading="eager" />
+                <span class="store-card__badge">Ev &amp; Yaşam</span>
+              </div>
+              <div class="store-card__body">
+                <div class="store-card__header">
+                  <h2 class="store-card__title">Sude Home</h2>
+                  <span class="store-card__category">Züccaciye &amp; Ev Yaşam</span>
+                </div>
+                <p class="store-card__description">Sofra, mutfak ve ev yaşam ürünleri.</p>
+                <div class="store-card__meta"><span class="store-card__items">28 ürün</span><span class="store-card__load" data-store-load>Bekliyor</span><span class="store-card__match" data-store-match>28 eşleşme</span></div>
+              </div>
+            </article>
+
+            <article class="store-card" role="listitem" tabindex="0" data-store-id="mawus" aria-selected="false">
+              <div class="store-card__banner">
+                <img src="/assets/mawus_store.svg" alt="Mawuş Kuyumculuk" loading="eager" />
+                <span class="store-card__badge">Kuyumculuk</span>
+              </div>
+              <div class="store-card__body">
+                <div class="store-card__header">
+                  <h2 class="store-card__title">Mawuş Kuyumculuk</h2>
+                  <span class="store-card__category">Kuyumculuk &amp; Mücevher</span>
+                </div>
+                <p class="store-card__description">Altın, yüzük ve mücevher ürünleri.</p>
+                <div class="store-card__meta"><span class="store-card__items">111 ürün</span><span class="store-card__load" data-store-load>Bekliyor</span><span class="store-card__match" data-store-match>15 eşleşme</span></div>
+              </div>
+            </article>
+            <div id="portalEmptyState" class="portal-empty hidden" hidden>
+              <strong>Bu filtrelerle eşleşen ürün yok</strong>
+              <p>Arama kelimesini veya fiyat aralığını değiştirin.</p>
+            </div>
+            </div>
+          </section>
+        </div>
+
+        <footer class="store-portal__footer">
+          <div class="portal-quick-info">
+            <span>3 mağaza</span><span>133 ürün</span><span>3B modeller</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <div id="tourHud" class="tour-hud hidden" hidden>
+      <div class="tour-hud__left">
+        <button id="worldMapReturnBtn" class="hud-pill-button hud-map-return" type="button" title="Mağaza haritasına dön">
+          <span class="hud-btn-icon" aria-hidden="true">←</span>
+          <span>Haritaya dön</span>
+        </button>
+
+        <div class="store-switcher-wrapper">
+          <button id="storeSwitcherBtn" class="hud-pill-button" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="hud-btn-icon" aria-hidden="true">📍</span>
+            <span id="activeStoreName">Mağaza Seç</span>
+            <span class="hud-btn-arrow" aria-hidden="true">▾</span>
+          </button>
+
+          <div id="storeSwitcherMenu" class="store-switcher-menu hidden" role="menu" hidden>
+            <div class="store-switcher-menu__header">
+              <strong>Hızlı Geçiş</strong>
+              <small>Geçiş yapmak için mağazayı seçin</small>
+            </div>
+            <div class="store-switcher-menu__list" id="storeSwitcherList"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="control-hint" aria-label="Tur kontrolleri">
+        <span class="control-hint__title">HAREKET</span>
+        <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span>
+        <span>Fare: bakış · Sol tık: incele · <kbd>Esc</kbd>: serbest</span>
+        <button id="ambientToggle" class="ambient-toggle" type="button" aria-pressed="true" title="Ortam sesini kapat">
+          <span class="ambient-toggle__icon" aria-hidden="true"></span>
+          <span data-ambient-label>Ortam sesi açık</span>
+        </button>
+      </div>
+
+      <label class="quality-control" for="qualitySelect">
+        <span>Görüntü kalitesi</span>
+        <select id="qualitySelect">
+          <option value="auto">Otomatik</option>
+          <option value="performance">Performans</option>
+          <option value="balanced">Dengeli</option>
+          <option value="quality">Yüksek</option>
+        </select>
+        <small id="qualityStatus"></small>
+      </label>
+    </div>
+
+    <aside id="editorPanel" class="editor-panel hidden" aria-label="Ürün yerleştirme editörü">
+      <header class="editor-panel__header">
+        <div>
+          <p class="editor-kicker">ÜRÜN YERLEŞİMİ</p>
+          <h2>Raf yerleşimi</h2>
+        </div>
+        <button id="editorCloseBtn" class="editor-icon-button" type="button" aria-label="Editörü kapat">×</button>
+      </header>
+
+      <p id="editorStatus" class="editor-status" aria-live="polite">
+        Bir ürün türü seçin, ilk ürünün yerini belirleyin ve ürünleri istediğiniz yöne sıralayın.
+      </p>
+
+      <section class="editor-section editor-create-section">
+        <div class="editor-section__heading">
+          <div>
+            <span>1. ADIM</span>
+            <h3>Yeni ürün dizisi başlat</h3>
+          </div>
+        </div>
+        <div class="trigger-type-grid">
+          <button type="button" data-add-trigger="bag">
+            <span class="trigger-type-icon trigger-type-icon--bag" aria-hidden="true"></span>
+            <strong>Çanta dizisi</strong>
+            <small>Çanta ölçülerinde beş ürünle başlar</small>
+          </button>
+          <button type="button" data-add-trigger="shirt">
+            <span class="trigger-type-icon trigger-type-icon--shirt" aria-hidden="true"></span>
+            <strong>Tişört dizisi</strong>
+            <small>Tişört ölçülerinde beş ürünle başlar</small>
+          </button>
+          <button type="button" data-add-trigger="light">
+            <span class="trigger-type-icon" aria-hidden="true" style="font-size: 24px;">💡</span>
+            <strong>Işık Kaynağı</strong>
+            <small>Özel renk ve güçte aydınlatma sağlar</small>
+          </button>
+        </div>
+      </section>
+
+      <section class="editor-section">
+        <div class="editor-section__heading">
+          <div>
+            <span>2. ADIM</span>
+            <h3>Ürün dizileri</h3>
+          </div>
+          <strong id="triggerCount">0 dizi</strong>
+        </div>
+        <div id="triggerList" class="trigger-list"></div>
+      </section>
+
+      <div id="editorEmptyState" class="editor-empty-state">
+        <span aria-hidden="true">＋</span>
+        <strong>Henüz ürün dizisi yok</strong>
+        <p>Bir ürün türü seçin. Oluşan renkli ürünleri rafa taşıyabilir, ölçülerini ve sıralama yönünü değiştirebilirsiniz.</p>
+      </div>
+
+      <form id="triggerForm" class="editor-section editor-form hidden">
+        <div class="editor-section__heading">
+          <div>
+            <span>SEÇİLİ DİZİ</span>
+            <h3 id="selectedTriggerTitle">Ürün dizisi</h3>
+          </div>
+        </div>
+
+        <div class="selected-area-overview">
+          <div>
+            <span>TEK ÜRÜN ÖLÇÜSÜ</span>
+            <strong id="triggerSizeSummary">—</strong>
+          </div>
+          <div>
+            <span>ÜRÜN SAYISI</span>
+            <strong id="triggerProductCount">0</strong>
+          </div>
+        </div>
+
+        <div class="transform-tabs" aria-label="3B düzenleme aracı">
+          <button class="is-active" type="button" data-transform-mode="move">↔ Taşı</button>
+          <button type="button" data-transform-mode="rotate">⟳ Döndür</button>
+          <button type="button" data-transform-mode="resize">↗ Ürün ölçüsü</button>
+        </div>
+
+        <p id="transformHelp" class="transform-help">Kırmızı, yeşil ve mavi oklarla ilk ürünü raftaki yerine taşıyın.</p>
+
+        <fieldset class="editor-fieldset editor-fieldset--three editor-fieldset--dimensions" id="dimensionsFieldset">
+          <legend>Tek ürün ölçüsü — metre</legend>
+          <label><span>Genişlik</span><input id="triggerWidth" type="number" min="0.08" max="8" step="0.02" /></label>
+          <label><span>Yükseklik</span><input id="triggerHeight" type="number" min="0.08" max="8" step="0.02" /></label>
+          <label><span>Derinlik</span><input id="triggerDepth" type="number" min="0.03" max="8" step="0.02" /></label>
+        </fieldset>
+
+        <fieldset class="editor-fieldset editor-fieldset--three hidden" id="lightSettingsFieldset">
+          <legend>Işık Ayarları</legend>
+          <label><span>Güç</span><input id="triggerLightIntensity" type="number" min="0.1" max="100" step="0.5" value="5" /></label>
+          <label><span>Mesafe</span><input id="triggerLightRange" type="number" min="1" max="100" step="1" value="20" /></label>
+          <label><span>Renk</span><input id="triggerLightColor" type="color" value="#ffffff" /></label>
+        </fieldset>
+
+        <div class="editor-form-actions editor-form-actions--quick" id="dimensionsActions">
+          <button id="focusTriggerBtn" class="editor-secondary-button" type="button">İlk ürünü göster</button>
+          <button id="applyTriggerBtn" class="editor-primary-button" type="button">Ölçüleri uygula</button>
+        </div>
+
+        <section class="product-layout-builder" id="productLayoutBuilder" aria-labelledby="productLayoutTitle">
+          <div class="product-layout-builder__heading">
+            <div>
+              <span>DİZİLİM AYARLARI</span>
+              <strong id="productLayoutTitle">Kaç ürün, hangi yöne?</strong>
+            </div>
+            <span id="productLayoutPreview">—</span>
+          </div>
+
+          <div class="product-layout-fields">
+            <label>
+              <span>Adet</span>
+              <input id="triggerQuantity" type="number" min="1" max="96" step="1" value="5" />
+            </label>
+            <label>
+              <span>Sıralama yönü</span>
+              <select id="triggerDirection">
+                <option value="x+">Sağa doğru →</option>
+                <option value="x-">Sola doğru ←</option>
+                <option value="y+">Yukarı doğru ↑</option>
+                <option value="y-">Aşağı doğru ↓</option>
+                <option value="z+">Öne doğru</option>
+                <option value="z-">Arkaya doğru</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="editor-range editor-field--wide">
+            <span><strong>Ürün aralığı</strong><output id="triggerGapValue">8 cm</output></span>
+            <input id="triggerGap" type="range" min="0.015" max="0.6" step="0.005" />
+          </label>
+        </section>
+
+        <button id="regenerateTriggerBtn" class="editor-fill-button" type="button">
+          <span>Ürünleri oluştur</span>
+          <small id="triggerLayoutHint">Adet ve yöne göre farklı renklerde dizer</small>
+        </button>
+
+        <button id="clearProductsBtn" class="editor-secondary-button editor-wide-button" type="button">Dizideki ürünleri temizle</button>
+
+        <button id="repositionTriggerBtn" class="editor-secondary-button editor-wide-button" type="button">İlk ürünü rafa tıklayarak yerleştir</button>
+
+        <details class="editor-advanced">
+          <summary>İsim, konum ve ince ayarlar</summary>
+          <div class="editor-advanced__content">
+
+            <label class="editor-field editor-field--wide">
+              <span>Dizi adı</span>
+              <input id="triggerName" type="text" maxlength="80" />
+            </label>
+
+            <label class="editor-field editor-field--wide">
+              <span>Türü</span>
+              <select id="triggerType">
+                <option value="bag">Çanta Dizisi</option>
+                <option value="shirt">Tişört Dizisi</option>
+              </select>
+            </label>
+
+            <fieldset class="editor-fieldset">
+              <legend>Konum</legend>
+              <label><span>X</span><input id="triggerPosX" type="number" step="0.05" /></label>
+              <label><span>Y</span><input id="triggerPosY" type="number" step="0.05" /></label>
+              <label><span>Z</span><input id="triggerPosZ" type="number" step="0.05" /></label>
+              <label><span>Dönüş (°)</span><input id="triggerRotY" type="number" step="5" min="-360" max="360" /></label>
+            </fieldset>
+
+          </div>
+        </details>
+
+        <button id="removeTriggerBtn" class="editor-danger-button editor-wide-button" type="button">🗑 Bu diziyi sil</button>
+      </form>
+
+      <div id="productFormEmpty" class="editor-product-empty hidden">
+        <strong>Ürün bilgilerini düzenleme</strong>
+        <p>Önce adet ve yön seçerek ürünleri oluşturun; ardından sahnedeki renkli ürünlerden birine tıklayın.</p>
+      </div>
+
+      <form id="productForm" class="editor-section editor-form hidden">
+        <div class="editor-section__heading">
+          <div>
+            <span>SEÇİLİ ÜRÜN</span>
+            <h3>Ürün bilgileri</h3>
+          </div>
+          <input id="editProductColor" class="product-color-input" type="color" aria-label="Ürün rengi" />
+        </div>
+        <label class="editor-field editor-field--wide"><span>Marka</span><input id="editProductBrand" type="text" maxlength="80" /></label>
+        <label class="editor-field editor-field--wide"><span>Ürün adı</span><input id="editProductName" type="text" maxlength="100" /></label>
+        <label class="editor-field editor-field--wide"><span>Fiyat</span><input id="editProductPrice" type="text" maxlength="40" placeholder="Örn. 799 TL" /></label>
+        <label class="editor-field editor-field--wide"><span>Açıklama</span><textarea id="editProductDescription" rows="4" maxlength="600"></textarea></label>
+        <label class="editor-field editor-field--wide"><span>Özellikler</span><textarea id="editProductProperties" rows="4" maxlength="600" placeholder="Her satıra Özellik: Değer"></textarea></label>
+        <div class="editor-form-actions">
+          <button class="editor-primary-button" type="submit">Bilgileri kaydet</button>
+          <button id="previewProductBtn" class="editor-secondary-button" type="button">Ürünü önizle</button>
+        </div>
+      </form>
+
+      <p class="editor-footnote">Tüm değişiklikler bu bilgisayarda otomatik kaydedilir.</p>
+    </aside>
+
+    <div id="editorSceneToolbar" class="editor-scene-toolbar hidden" aria-label="Seçili ürün dizisi araçları">
+      <div class="editor-scene-toolbar__modes">
+        <button class="is-active" type="button" data-transform-mode="move">Taşı</button>
+        <button type="button" data-transform-mode="rotate">Döndür</button>
+        <button type="button" data-transform-mode="resize">Ölçü</button>
+      </div>
+      <span id="sceneToolbarSize">—</span>
+      <button id="quickFillProductsBtn" class="editor-scene-toolbar__fill" type="button">Ürünleri oluştur</button>
+    </div>
+
+    <div id="triggerSelectionHud" class="trigger-selection-hud hidden" aria-hidden="true">
+      <strong id="triggerHudName">Ürün dizisi</strong>
+      <span id="triggerHudSize">—</span>
+      <small id="triggerHudProducts">0 ürün</small>
+    </div>
+
+    <div id="triggerPlacementHint" class="placement-hint hidden" role="status">
+      <div>
+        <span>YERLEŞTİRME MODU</span>
+        <strong id="triggerPlacementTitle">İlk ürünün yerini seçin</strong>
+        <p id="triggerPlacementCopy">İlk ürünün duracağı raf noktasına tıklayın.</p>
+      </div>
+      <div class="placement-hint__actions">
+        <button id="placeTriggerInFrontBtn" type="button">Kameranın önüne koy</button>
+        <button id="cancelTriggerPlacementBtn" type="button">Vazgeç</button>
+      </div>
+    </div>
+
+    <div id="editorUndoToast" class="editor-undo hidden" role="status" aria-live="polite">
+      <span id="editorUndoText">Ürün dizisi silindi.</span>
+      <button id="editorUndoBtn" type="button">Geri al</button>
+    </div>
+
+    <section id="productInspector" class="product-inspector hidden" role="dialog" aria-modal="true" aria-labelledby="inspectorName">
+      <div class="product-inspector__glow" aria-hidden="true"></div>
+      <div class="product-inspector__shell">
+        <header class="product-inspector__header">
+          <div class="product-inspector__heading">
+            <span class="portal-badge">ÜRÜN BİLGİLERİ</span>
+            <p>Modeli döndürmek için sürükleyin</p>
+          </div>
+          <div class="product-inspector__header-actions">
+            <span class="product-inspector__esc">ESC ile kapat</span>
+            <button id="productInspectorClose" class="product-inspector__close" type="button" aria-label="Ürün incelemeyi kapat">
+              <span>Kapat</span><b aria-hidden="true">×</b>
+            </button>
+          </div>
+        </header>
+
+        <div class="product-inspector__content">
+          <div class="product-stage">
+            <span class="product-stage__label">3B MODEL</span>
+            <div class="product-stage__pedestal" aria-hidden="true"></div>
+            <canvas id="productPreviewCanvas" aria-label="Döndürülebilir 3B ürün önizlemesi"></canvas>
+            <p id="productPreviewStatus" class="product-stage__status" aria-live="polite"></p>
+            <div id="productStageHotspots" class="product-stage__hotspots" aria-label="Ürün ayrıntıları"></div>
+            <div class="product-stage__hint">
+              <span><b aria-hidden="true">↔</b> Sürükle ve döndür</span>
+              <span><b aria-hidden="true">＋</b> Tekerlekle yakınlaş</span>
+            </div>
+          </div>
+          <aside class="product-detail">
+            <p id="inspectorBrand" class="product-detail__brand">Uzun Çarşı</p>
+            <h2 id="inspectorName">Ürün adı</h2>
+            <p id="inspectorPrice" class="product-detail__price">799 TL</p>
+            <div class="product-detail__divider"></div>
+            <p id="inspectorDescription" class="product-detail__description"></p>
+            <dl id="inspectorProperties" class="product-properties"></dl>
+            <section id="goldPricingPanel" class="gold-pricing hidden" aria-live="polite">
+              <div class="gold-pricing__head">
+                <div><span>ALTIN FİYATI</span><strong data-gold-spot>Güncel fiyat alınıyor…</strong></div>
+                <small data-gold-updated></small>
+              </div>
+              <div class="gold-pricing__chart-wrap">
+                <canvas data-gold-chart aria-label="Gram altının son 30 günlük fiyat grafiği"></canvas>
+                <span data-gold-range></span>
+              </div>
+              <div class="gold-pricing__tariff"><span>Mağaza tarifesi</span><strong data-gold-tariff></strong></div>
+              <div class="gold-pricing__calculation" data-gold-calculation></div>
+              <div class="gold-pricing__total"><span>Ürün fiyatı</span><strong data-gold-total>—</strong></div>
+              <p data-gold-note></p>
+            </section>
+            <button id="productInspectorDone" class="product-detail__action" type="button">
+              <span>Mağazaya geri dön</span><b aria-hidden="true">→</b>
+            </button>
+            <p class="product-detail__footnote">Kapatınca mağazaya dönersiniz.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2115 @@
+{
+  "schemaVersion": 1,
+  "bindings": [
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_021",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_021",
+      "meshNames": [
+        "OPTIK_PRODUCT_021_V10"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_021(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          25.099493,
+          -6.375655,
+          12.016673
+        ],
+        "size": [
+          0.239357,
+          1.162933,
+          2.087208
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_032",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_032",
+      "meshNames": [
+        "OPTIK_PRODUCT_032_V10"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_032(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          25.099493,
+          -6.191555,
+          10.333572
+        ],
+        "size": [
+          0.239357,
+          1.162933,
+          2.087208
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_046",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_046",
+      "meshNames": [
+        "OPTIK_PRODUCT_046_V05"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_046(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          25.099493,
+          -6.372147,
+          8.886523
+        ],
+        "size": [
+          0.239357,
+          1.174,
+          2.090399
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_052",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_052",
+      "meshNames": [
+        "OPTIK_PRODUCT_052_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_052(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.744886,
+          -6.740951,
+          12.645895
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_056",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_056",
+      "meshNames": [
+        "OPTIK_PRODUCT_056_V08"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_056(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.782609,
+          -6.372677,
+          11.679354
+        ],
+        "size": [
+          0.239357,
+          1.167541,
+          2.085662
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_061",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_061",
+      "meshNames": [
+        "OPTIK_PRODUCT_061_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_061(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.759413,
+          -6.927645,
+          11.6803
+        ],
+        "size": [
+          0.178594,
+          0.057312,
+          0.156354
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_076",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_076",
+      "meshNames": [
+        "OPTIK_PRODUCT_076_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_076(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.744886,
+          -6.92505,
+          9.136095
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_077",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_077",
+      "meshNames": [
+        "OPTIK_PRODUCT_077_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_077(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.819795,
+          -6.745008,
+          9.136101
+        ],
+        "size": [
+          0.163635,
+          0.054643,
+          0.15094
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_079",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_079",
+      "meshNames": [
+        "OPTIK_PRODUCT_079_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_079(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.823755,
+          -6.010255,
+          9.1361
+        ],
+        "size": [
+          0.157063,
+          0.052335,
+          0.152569
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_080",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_080",
+      "meshNames": [
+        "OPTIK_PRODUCT_080_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_080(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.747686,
+          -5.822117,
+          9.136098
+        ],
+        "size": [
+          0.153876,
+          0.059221,
+          0.152606
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_082",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_082",
+      "meshNames": [
+        "OPTIK_PRODUCT_082_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_082(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.751337,
+          -6.747122,
+          8.6533
+        ],
+        "size": [
+          0.153573,
+          0.050389,
+          0.153311
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_083",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_083",
+      "meshNames": [
+        "OPTIK_PRODUCT_083_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_083(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.759413,
+          -6.375245,
+          8.6533
+        ],
+        "size": [
+          0.178594,
+          0.057312,
+          0.156354
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_084",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_084",
+      "meshNames": [
+        "OPTIK_PRODUCT_084_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_084(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.758245,
+          -6.007801,
+          8.653322
+        ],
+        "size": [
+          0.159601,
+          0.056997,
+          0.152966
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_085",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_085",
+      "meshNames": [
+        "OPTIK_PRODUCT_085_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_085(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.758028,
+          -5.8228,
+          8.6533
+        ],
+        "size": [
+          0.158425,
+          0.057199,
+          0.151324
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_086",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_086",
+      "meshNames": [
+        "OPTIK_PRODUCT_086_V14"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_086(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.782609,
+          -7.201399,
+          8.650881
+        ],
+        "size": [
+          0.239356,
+          0.983586,
+          1.123006
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_087",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_087",
+      "meshNames": [
+        "OPTIK_PRODUCT_087_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_087(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.744886,
+          -6.740951,
+          8.170495
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_088",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_088",
+      "meshNames": [
+        "OPTIK_PRODUCT_088_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_088(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.819795,
+          -6.376708,
+          8.170501
+        ],
+        "size": [
+          0.163635,
+          0.054643,
+          0.15094
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_090",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_090",
+      "meshNames": [
+        "OPTIK_PRODUCT_090_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_090(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.823755,
+          -5.826154,
+          8.1705
+        ],
+        "size": [
+          0.157063,
+          0.052335,
+          0.152569
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_091",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_091",
+      "meshNames": [
+        "OPTIK_PRODUCT_091_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_091(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.747686,
+          -6.926916,
+          7.687798
+        ],
+        "size": [
+          0.153876,
+          0.059221,
+          0.152606
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_093",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_093",
+      "meshNames": [
+        "OPTIK_PRODUCT_093_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_093(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.751337,
+          -6.378822,
+          7.6878
+        ],
+        "size": [
+          0.153573,
+          0.050389,
+          0.153311
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_094",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_094",
+      "meshNames": [
+        "OPTIK_PRODUCT_094_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_094(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.759413,
+          -6.006945,
+          7.6878
+        ],
+        "size": [
+          0.178594,
+          0.057312,
+          0.156354
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_095",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_095",
+      "meshNames": [
+        "OPTIK_PRODUCT_095_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_095(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.758245,
+          -5.823701,
+          7.687822
+        ],
+        "size": [
+          0.159601,
+          0.056997,
+          0.152966
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_096",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_096",
+      "meshNames": [
+        "OPTIK_PRODUCT_096_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_096(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.758028,
+          -6.927599,
+          7.205
+        ],
+        "size": [
+          0.158425,
+          0.057199,
+          0.151324
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_098",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_098",
+      "meshNames": [
+        "OPTIK_PRODUCT_098_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_098(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.744886,
+          -6.372651,
+          7.204995
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_099",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_099",
+      "meshNames": [
+        "OPTIK_PRODUCT_099_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_099(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.819795,
+          -6.008408,
+          7.205001
+        ],
+        "size": [
+          0.163635,
+          0.054643,
+          0.15094
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_101",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_101",
+      "meshNames": [
+        "OPTIK_PRODUCT_101_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_101(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.823755,
+          -6.930954,
+          5.6422
+        ],
+        "size": [
+          0.157063,
+          0.052335,
+          0.152569
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_102",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_102",
+      "meshNames": [
+        "OPTIK_PRODUCT_102_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_102(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.747686,
+          -6.742817,
+          5.642199
+        ],
+        "size": [
+          0.153876,
+          0.059221,
+          0.152606
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_104",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_104",
+      "meshNames": [
+        "OPTIK_PRODUCT_104_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_104(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.751337,
+          -6.010522,
+          5.6422
+        ],
+        "size": [
+          0.153573,
+          0.050389,
+          0.153311
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_105",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_105",
+      "meshNames": [
+        "OPTIK_PRODUCT_105_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_105(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.759413,
+          -5.822845,
+          5.6422
+        ],
+        "size": [
+          0.178594,
+          0.057312,
+          0.156354
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_106",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_106",
+      "meshNames": [
+        "OPTIK_PRODUCT_106_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_106(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.758245,
+          -6.928501,
+          5.159422
+        ],
+        "size": [
+          0.159601,
+          0.056997,
+          0.152966
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_107",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_107",
+      "meshNames": [
+        "OPTIK_PRODUCT_107_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_107(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.758028,
+          -6.7435,
+          5.1594
+        ],
+        "size": [
+          0.158425,
+          0.057199,
+          0.151324
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_109",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_109",
+      "meshNames": [
+        "OPTIK_PRODUCT_109_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_109(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.744886,
+          -6.004351,
+          5.159395
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_110",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_110",
+      "meshNames": [
+        "OPTIK_PRODUCT_110_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_110(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.819795,
+          -5.824308,
+          5.159401
+        ],
+        "size": [
+          0.163635,
+          0.054643,
+          0.15094
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_112",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_112",
+      "meshNames": [
+        "OPTIK_PRODUCT_112_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_112(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.823755,
+          -6.746854,
+          4.6766
+        ],
+        "size": [
+          0.157063,
+          0.052335,
+          0.152569
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_114",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_114",
+      "meshNames": [
+        "OPTIK_PRODUCT_114_V09"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_114(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.789907,
+          -5.997888,
+          4.676601
+        ],
+        "size": [
+          0.206169,
+          0.076009,
+          0.215006
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_115",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_115",
+      "meshNames": [
+        "OPTIK_PRODUCT_115_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_115(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.747686,
+          -5.822117,
+          4.676598
+        ],
+        "size": [
+          0.153876,
+          0.059221,
+          0.152606
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_117",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_117",
+      "meshNames": [
+        "OPTIK_PRODUCT_117_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_117(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.751337,
+          -6.747122,
+          4.1938
+        ],
+        "size": [
+          0.153573,
+          0.050389,
+          0.153311
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_118",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_118",
+      "meshNames": [
+        "OPTIK_PRODUCT_118_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_118(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.759413,
+          -6.375245,
+          4.1938
+        ],
+        "size": [
+          0.178594,
+          0.057312,
+          0.156354
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_119",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_119",
+      "meshNames": [
+        "OPTIK_PRODUCT_119_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_119(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.758245,
+          -6.007801,
+          4.193822
+        ],
+        "size": [
+          0.159601,
+          0.056997,
+          0.152966
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_120",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_120",
+      "meshNames": [
+        "OPTIK_PRODUCT_120_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_120(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.758028,
+          -5.8228,
+          4.1938
+        ],
+        "size": [
+          0.158425,
+          0.057199,
+          0.151324
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_122",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_122",
+      "meshNames": [
+        "OPTIK_PRODUCT_122_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_122(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.744886,
+          -6.740951,
+          3.710995
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_123",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_123",
+      "meshNames": [
+        "OPTIK_PRODUCT_123_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_123(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.819795,
+          -6.376708,
+          3.711001
+        ],
+        "size": [
+          0.163635,
+          0.054643,
+          0.15094
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_125",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_125",
+      "meshNames": [
+        "OPTIK_PRODUCT_125_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_125(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.823755,
+          -5.826154,
+          3.711
+        ],
+        "size": [
+          0.157063,
+          0.052335,
+          0.152569
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_126",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_126",
+      "meshNames": [
+        "OPTIK_PRODUCT_126_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_126(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.593484,
+          -8.287316,
+          2.505799
+        ],
+        "size": [
+          0.153876,
+          0.059221,
+          0.152606
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_128",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_128",
+      "meshNames": [
+        "OPTIK_PRODUCT_128_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_128(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.597136,
+          -7.408022,
+          2.5058
+        ],
+        "size": [
+          0.153573,
+          0.050389,
+          0.153311
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_129",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_129",
+      "meshNames": [
+        "OPTIK_PRODUCT_129_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_129(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.605211,
+          -6.962645,
+          2.5058
+        ],
+        "size": [
+          0.178594,
+          0.057312,
+          0.156354
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_130",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_130",
+      "meshNames": [
+        "OPTIK_PRODUCT_130_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_130(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.604043,
+          -6.521701,
+          2.505822
+        ],
+        "size": [
+          0.159601,
+          0.056997,
+          0.152966
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_131",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_131",
+      "meshNames": [
+        "OPTIK_PRODUCT_131_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_131(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.622427,
+          -8.195799,
+          2.1137
+        ],
+        "size": [
+          0.158425,
+          0.057199,
+          0.151324
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_133",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_133",
+      "meshNames": [
+        "OPTIK_PRODUCT_133_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_133(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.609284,
+          -7.30965,
+          2.113695
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_134",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_134",
+      "meshNames": [
+        "OPTIK_PRODUCT_134_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_134(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.600801,
+          -6.871908,
+          2.113701
+        ],
+        "size": [
+          0.163635,
+          0.054643,
+          0.15094
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_136",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_136",
+      "meshNames": [
+        "OPTIK_PRODUCT_136_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_136(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.688154,
+          -8.199154,
+          1.8561
+        ],
+        "size": [
+          0.157063,
+          0.052335,
+          0.152569
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_137",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_137",
+      "meshNames": [
+        "OPTIK_PRODUCT_137_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_137(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.612085,
+          -7.753317,
+          1.856098
+        ],
+        "size": [
+          0.153876,
+          0.059221,
+          0.152606
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_139",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_139",
+      "meshNames": [
+        "OPTIK_PRODUCT_139_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_139(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.615736,
+          -6.874021,
+          1.8561
+        ],
+        "size": [
+          0.153573,
+          0.050389,
+          0.153311
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_140",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_140",
+      "meshNames": [
+        "OPTIK_PRODUCT_140_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_140(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.623812,
+          -6.428645,
+          1.8561
+        ],
+        "size": [
+          0.178594,
+          0.057312,
+          0.156354
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_141",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_141",
+      "meshNames": [
+        "OPTIK_PRODUCT_141_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_141(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.604043,
+          -8.288901,
+          1.386422
+        ],
+        "size": [
+          0.159601,
+          0.056997,
+          0.152966
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_142",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_142",
+      "meshNames": [
+        "OPTIK_PRODUCT_142_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_142(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.603827,
+          -7.846199,
+          1.3864
+        ],
+        "size": [
+          0.158425,
+          0.057199,
+          0.151324
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_144",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_144",
+      "meshNames": [
+        "OPTIK_PRODUCT_144_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_144(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.590684,
+          -6.960051,
+          1.386395
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_145",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_145",
+      "meshNames": [
+        "OPTIK_PRODUCT_145_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_145(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.665594,
+          -6.522308,
+          1.386401
+        ],
+        "size": [
+          0.163635,
+          0.054643,
+          0.15094
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_147",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_147",
+      "meshNames": [
+        "OPTIK_PRODUCT_147_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_147(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.688154,
+          -7.757354,
+          0.9472
+        ],
+        "size": [
+          0.157063,
+          0.052335,
+          0.152569
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_148",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_148",
+      "meshNames": [
+        "OPTIK_PRODUCT_148_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_148(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.612085,
+          -7.311516,
+          0.947199
+        ],
+        "size": [
+          0.153876,
+          0.059221,
+          0.152606
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_150",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_150",
+      "meshNames": [
+        "OPTIK_PRODUCT_150_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_150(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.615736,
+          -6.432222,
+          0.9472
+        ],
+        "size": [
+          0.153573,
+          0.050389,
+          0.153311
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_151",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_151",
+      "meshNames": [
+        "OPTIK_PRODUCT_151_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_151(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.623812,
+          -8.195845,
+          0.6896
+        ],
+        "size": [
+          0.178594,
+          0.057312,
+          0.156354
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_152",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_152",
+      "meshNames": [
+        "OPTIK_PRODUCT_152_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_152(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.622644,
+          -7.754901,
+          0.689622
+        ],
+        "size": [
+          0.159601,
+          0.056997,
+          0.152966
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_153",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_153",
+      "meshNames": [
+        "OPTIK_PRODUCT_153_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_153(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.622427,
+          -7.3122,
+          0.6896
+        ],
+        "size": [
+          0.158425,
+          0.057199,
+          0.151324
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_155",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_155",
+      "meshNames": [
+        "OPTIK_PRODUCT_155_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_155(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.609284,
+          -6.426051,
+          0.689595
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_156",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_156",
+      "meshNames": [
+        "OPTIK_PRODUCT_156_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_156(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.665594,
+          -8.289508,
+          0.196502
+        ],
+        "size": [
+          0.163635,
+          0.054643,
+          0.15094
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_158",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_158",
+      "meshNames": [
+        "OPTIK_PRODUCT_158_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_158(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.669554,
+          -7.407755,
+          0.1965
+        ],
+        "size": [
+          0.157063,
+          0.052335,
+          0.152569
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_159",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_159",
+      "meshNames": [
+        "OPTIK_PRODUCT_159_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_159(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.593484,
+          -6.961917,
+          0.196499
+        ],
+        "size": [
+          0.153876,
+          0.059221,
+          0.152606
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_161",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_161",
+      "meshNames": [
+        "OPTIK_PRODUCT_161_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_161(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.615736,
+          -8.199421,
+          -0.3239
+        ],
+        "size": [
+          0.153573,
+          0.050389,
+          0.153311
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_162",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_162",
+      "meshNames": [
+        "OPTIK_PRODUCT_162_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_162(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.623812,
+          -7.754045,
+          -0.3239
+        ],
+        "size": [
+          0.178594,
+          0.057312,
+          0.156354
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_163",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_163",
+      "meshNames": [
+        "OPTIK_PRODUCT_163_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_163(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.622644,
+          -7.313101,
+          -0.323878
+        ],
+        "size": [
+          0.159601,
+          0.056997,
+          0.152966
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_164",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_164",
+      "meshNames": [
+        "OPTIK_PRODUCT_164_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_164(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.622427,
+          -6.870399,
+          -0.3239
+        ],
+        "size": [
+          0.158425,
+          0.057199,
+          0.151324
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_166",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_166",
+      "meshNames": [
+        "OPTIK_PRODUCT_166_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_166(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.609284,
+          -8.19325,
+          -0.581505
+        ],
+        "size": [
+          0.160447,
+          0.062689,
+          0.162233
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_167",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_167",
+      "meshNames": [
+        "OPTIK_PRODUCT_167_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_167(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.684194,
+          -7.755508,
+          -0.581498
+        ],
+        "size": [
+          0.163635,
+          0.054643,
+          0.15094
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_169",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_169",
+      "meshNames": [
+        "OPTIK_PRODUCT_169_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_169(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.688154,
+          -6.873754,
+          -0.5815
+        ],
+        "size": [
+          0.157063,
+          0.052335,
+          0.152569
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_171",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_171",
+      "meshNames": [
+        "OPTIK_PRODUCT_171_V09"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_171(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          26.887,
+          -8.186787,
+          -0.885906
+        ],
+        "size": [
+          0.215006,
+          0.076009,
+          0.206169
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_172",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_172",
+      "meshNames": [
+        "OPTIK_PRODUCT_172_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_172(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          26.886998,
+          -7.753317,
+          -0.843685
+        ],
+        "size": [
+          0.152606,
+          0.059221,
+          0.153876
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_174",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_174",
+      "meshNames": [
+        "OPTIK_PRODUCT_174_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_174(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          26.886999,
+          -6.874021,
+          -0.847337
+        ],
+        "size": [
+          0.153311,
+          0.050389,
+          0.153573
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_175",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_175",
+      "meshNames": [
+        "OPTIK_PRODUCT_175_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_175(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          26.886999,
+          -6.428645,
+          -0.855412
+        ],
+        "size": [
+          0.156354,
+          0.057312,
+          0.178594
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_176",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_176",
+      "meshNames": [
+        "OPTIK_PRODUCT_176_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_176(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          27.553823,
+          -8.1967,
+          -0.854244
+        ],
+        "size": [
+          0.152966,
+          0.056997,
+          0.159601
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_177",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_177",
+      "meshNames": [
+        "OPTIK_PRODUCT_177_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_177(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          27.553801,
+          -7.754,
+          -0.854028
+        ],
+        "size": [
+          0.151324,
+          0.057199,
+          0.158425
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_179",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_179",
+      "meshNames": [
+        "OPTIK_PRODUCT_179_V04"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_179(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          27.553796,
+          -6.86785,
+          -0.840885
+        ],
+        "size": [
+          0.162233,
+          0.062689,
+          0.160447
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_180",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_180",
+      "meshNames": [
+        "OPTIK_PRODUCT_180_V02"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_180(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          27.553802,
+          -6.430108,
+          -0.915794
+        ],
+        "size": [
+          0.15094,
+          0.054643,
+          0.163635
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_182",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_182",
+      "meshNames": [
+        "OPTIK_PRODUCT_182_V01"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_182(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          28.363899,
+          -7.757354,
+          -0.919755
+        ],
+        "size": [
+          0.152569,
+          0.052335,
+          0.157063
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_183",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_183",
+      "meshNames": [
+        "OPTIK_PRODUCT_183_V07"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_183(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          28.363768,
+          -7.322071,
+          -0.90972
+        ],
+        "size": [
+          0.133813,
+          0.038887,
+          0.148062
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_184",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_184",
+      "meshNames": [
+        "OPTIK_PRODUCT_184_V12"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_184(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          28.363898,
+          -6.869716,
+          -0.843685
+        ],
+        "size": [
+          0.152606,
+          0.059221,
+          0.153876
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_186",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_186",
+      "meshNames": [
+        "OPTIK_PRODUCT_186_V03"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_186(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.080401,
+          -8.199421,
+          -0.847337
+        ],
+        "size": [
+          0.153311,
+          0.050389,
+          0.153573
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_187",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_187",
+      "meshNames": [
+        "OPTIK_PRODUCT_187_V06"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_187(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.0804,
+          -7.754045,
+          -0.855412
+        ],
+        "size": [
+          0.156354,
+          0.057312,
+          0.178594
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_188",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_188",
+      "meshNames": [
+        "OPTIK_PRODUCT_188_V11"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_188(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.080423,
+          -7.313101,
+          -0.854244
+        ],
+        "size": [
+          0.152966,
+          0.056997,
+          0.159601
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_PRODUCT_189",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_PRODUCT_189",
+      "meshNames": [
+        "OPTIK_PRODUCT_189_V13"
+      ],
+      "meshNamePatterns": [
+        "^OPTIK_PRODUCT_189(?:_V\\d+)?$"
+      ],
+      "bounds": {
+        "center": [
+          29.0804,
+          -6.870399,
+          -0.854028
+        ],
+        "size": [
+          0.151324,
+          0.057199,
+          0.158425
+        ]
+      }
+    },
+    {
+      "id": "binding:guzel-optik:OPTIK_SPECIAL_ANIMATION_GOZLUK",
+      "storeId": "guzel-optik",
+      "productId": "OPTIK_SPECIAL_ANIMATION_GOZLUK",
+      "pickProxy": true,
+      "meshNames": [
+        "Bolt.042",
+        "Bolt.043",
+        "Bolt.044",
+        "Bolt.047",
+        "Circle.081",
+        "Circle.082",
+        "Circle.083",
+        "Cube.204",
+        "Cube.206",
+        "Cube.207",
+        "Cube.208",
+        "Cube.209",
+        "Cube.210",
+        "Cube.211",
+        "Cube.212",
+        "Cube.214",
+        "Cube.218",
+        "Cube.220",
+        "Cube.221",
+        "Cube.224",
+        "Cube.225",
+        "Cube.226",
+        "Cube.227",
+        "Cube.292",
+        "Cube.293",
+        "Cube.294",
+        "Cube.296",
+        "NurbsPath.002"
+      ],
+      "bounds": {
+        "center": [28.31, -7.185, 7.306],
+        "size": [0.3, 0.16, 0.25]
+      }
+    }
+  ]
+}

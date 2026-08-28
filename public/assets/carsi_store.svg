@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="carsiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121e17" />
+      <stop offset="100%" stop-color="#1e3327" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#carsiBg)" />
+  <rect x="30" y="30" width="540" height="300" rx="12" fill="#15261d" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <!-- Grand Bazaar Archway & Perspective Street -->
+  <g transform="translate(300, 190)">
+    <!-- Perspective Floor -->
+    <polygon points="-240,110 240,110 30,-20 -30,-20" fill="#0f1c15" />
+    <!-- Cobblestone grid lines -->
+    <path d="M 0 -20 L -120 110" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <path d="M 0 -20 L 120 110" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    
+    <!-- Arch 1 (Front) -->
+    <path d="M -160 110 L -160 -40 Q 0 -130 160 -40 L 160 110" fill="none" stroke="#e6c84f" stroke-width="6" opacity="0.8" />
+    <!-- Arch 2 (Mid) -->
+    <path d="M -100 80 L -100 -20 Q 0 -80 100 -20 L 100 80" fill="none" stroke="#5aa66f" stroke-width="4" opacity="0.6" />
+    
+    <!-- Warm Lanterns -->
+    <circle cx="-130" cy="-20" r="10" fill="#ffcc44" filter="blur(6px)" />
+    <circle cx="130" cy="-20" r="10" fill="#ffcc44" filter="blur(6px)" />
+  </g>
+
+  <!-- Badge / Kicker -->
+  <g transform="translate(50, 48)">
+    <rect width="160" height="26" rx="6" fill="rgba(90, 166, 111, 0.25)" stroke="rgba(90, 166, 111, 0.5)" />
+    <text x="80" y="17" fill="#8ee3a4" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">GENEL ÇARŞI TURU</text>
+  </g>
+</svg>

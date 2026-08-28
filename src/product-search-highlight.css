@@ -1,0 +1,31 @@
+.scene-filter-status {
+    position: fixed;
+    z-index: 620;
+    top: 78px;
+    left: 18px;
+    display: grid;
+    grid-template-columns: 9px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    min-width: 260px;
+    padding: 10px 11px;
+    border: 1px solid rgb(255 255 255 / 18%);
+    border-radius: 5px;
+    color: #f8fafc;
+    background: rgb(15 23 42 / 92%);
+    box-shadow: 0 12px 30px rgb(0 0 0 / 24%);
+    backdrop-filter: blur(12px);
+}
+
+.scene-filter-status.hidden { display: none; }
+.scene-filter-status__mark { width: 9px; height: 9px; background: #e0a02b; box-shadow: 0 0 0 4px rgb(224 160 43 / 15%); }
+.scene-filter-status div { display: grid; gap: 2px; }
+.scene-filter-status strong { font: 700 12px/1.2 system-ui, sans-serif; }
+.scene-filter-status small { color: #94a3b8; font: 500 10px/1.2 system-ui, sans-serif; }
+.scene-filter-status em { color: #f4c56e; font: 700 10px/1.2 system-ui, sans-serif; font-style: normal; }
+.scene-filter-status button { padding: 7px 8px; border: 1px solid #334155; border-radius: 3px; color: #cbd5e1; background: #1e293b; cursor: pointer; font: 650 10px/1 system-ui, sans-serif; }
+.scene-filter-status button:hover { color: #fff; border-color: #64748b; }
+
+@media (max-width: 700px) {
+    .scene-filter-status { top: 68px; right: 10px; left: 10px; min-width: 0; }
+}

@@ -1,0 +1,64 @@
+{
+  "coordinateSystem": "glTF right-handed, Y-up, forward -Z",
+  "reference": {
+    "file": "sahne.glb",
+    "sha256": "92DCF64089D8493D80B70FC6B580D6F73FBC7F4EDE47C49B94D3600DC567D80E",
+    "runtimeRendered": false
+  },
+  "stores": {
+    "guzel-optik": {
+      "assetTransform": {
+        "translation": [0, 0, 0],
+        "rotationQuaternion": [0, 0, 0, 1],
+        "scale": [1, 1, 1]
+      },
+      "center": [27.445, -6.65, 3.28],
+      "floorY": -8.62,
+      "bounds": {
+        "minX": 24.86,
+        "maxX": 30.03,
+        "minZ": -11.45,
+        "maxZ": 18.0
+      },
+      "entrance": [27.445, -6.72, 16.35],
+      "entranceTarget": [27.445, -6.72, 10.2],
+      "verificationNode": "OPTIK_PRODUCT_021_V10"
+    },
+    "sude-home": {
+      "assetTransform": {
+        "translation": [0, 0, 0],
+        "rotationQuaternion": [0, 0, 0, 1],
+        "scale": [1, 1, 1]
+      },
+      "center": [-34.20643, -5.20304, 3.24188],
+      "floorY": -8.82539,
+      "bounds": {
+        "minX": -37.85912,
+        "maxX": -30.55374,
+        "minZ": -11.72394,
+        "maxZ": 18.2077
+      },
+      "entrance": [-34.20643, -6.72, 16.55],
+      "entranceTarget": [-34.20643, -6.72, 10.4],
+      "verificationNode": "SUDE_HOME_GLASS_ENTRANCE_SINGLE"
+    },
+    "mawus": {
+      "assetTransform": {
+        "translation": [0, 0, 0],
+        "rotationQuaternion": [0, 0, 0, 1],
+        "scale": [1, 1, 1]
+      },
+      "center": [-95.47, -5.17, 3.26],
+      "floorY": -8.52,
+      "bounds": {
+        "minX": -97.22,
+        "maxX": -93.72,
+        "minZ": -11.74,
+        "maxZ": 18.26
+      },
+      "entrance": [-95.47, -6.42, 16.58],
+      "entranceTarget": [-95.47, -6.42, 10.5],
+      "verificationNode": "MAWUS_LUXE_BrandName"
+    }
+  }
+}

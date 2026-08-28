@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sudeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1f26" />
+      <stop offset="100%" stop-color="#16313d" />
+    </linearGradient>
+    <linearGradient id="porcelainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#d6e4e8" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#sudeBg)" />
+  <rect x="30" y="30" width="540" height="300" rx="12" fill="#12242c" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+  
+  <rect x="80" y="270" width="440" height="10" rx="3" fill="#0b171c" />
+
+  <!-- Teapot and Plates (Sude Porcelain) -->
+  <g transform="translate(180, 110)">
+    <!-- Plate behind -->
+    <ellipse cx="60" cy="90" rx="55" ry="16" fill="url(#porcelainGrad)" stroke="#c3d5da" stroke-width="1.5" />
+    <ellipse cx="60" cy="88" rx="42" ry="11" fill="none" stroke="#d4af37" stroke-width="1" />
+
+    <!-- Teapot -->
+    <path d="M 120 80 Q 95 30 145 30 Q 195 30 170 80 Q 200 130 145 140 Q 90 130 120 80 Z" fill="url(#porcelainGrad)" stroke="#b8cbcf" stroke-width="1.5" />
+    <!-- Lid & Knob -->
+    <ellipse cx="145" cy="30" rx="26" ry="7" fill="#ffffff" stroke="#d4af37" stroke-width="1" />
+    <circle cx="145" cy="18" r="6" fill="#d4af37" />
+    <!-- Spout & Handle -->
+    <path d="M 115 70 Q 80 50 70 80 Q 85 95 110 85" fill="url(#porcelainGrad)" stroke="#b8cbcf" stroke-width="1.5" />
+    <path d="M 175 55 Q 225 70 205 115 Q 185 125 170 115" fill="none" stroke="url(#porcelainGrad)" stroke-width="10" stroke-linecap="round" />
+    <path d="M 175 55 Q 225 70 205 115 Q 185 125 170 115" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Stacking Cups -->
+  <g transform="translate(390, 150)">
+    <path d="M 10 30 L 18 75 Q 45 85 72 75 L 80 30 Z" fill="url(#porcelainGrad)" stroke="#c3d5da" stroke-width="1.5" />
+    <path d="M 75 42 Q 95 50 85 68 Q 75 75 70 68" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Badge / Kicker -->
+  <g transform="translate(50, 48)">
+    <rect width="160" height="26" rx="6" fill="rgba(63, 143, 168, 0.25)" stroke="rgba(63, 143, 168, 0.5)" />
+    <text x="80" y="17" fill="#7ed4ed" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">ZÜCCACİYE &amp; SOFRA</text>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pastaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#241014" />
+      <stop offset="100%" stop-color="#3d1820" />
+    </linearGradient>
+    <linearGradient id="creamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8f0" />
+      <stop offset="100%" stop-color="#f5e0cc" />
+    </linearGradient>
+    <linearGradient id="chocGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5a2e1d" />
+      <stop offset="100%" stop-color="#381b10" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#pastaBg)" />
+  <rect x="30" y="30" width="540" height="300" rx="12" fill="#2d1319" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <rect x="80" y="270" width="440" height="10" rx="3" fill="#17070b" />
+
+  <!-- Cake Stand & Layer Cake -->
+  <g transform="translate(220, 110)">
+    <!-- Stand -->
+    <path d="M 50 160 L 110 160 L 85 140 L 75 140 Z" fill="#d4af37" />
+    <ellipse cx="80" cy="140" rx="75" ry="12" fill="#e8c76b" stroke="#d4af37" stroke-width="1.5" />
+
+    <!-- Cake Bottom Layer -->
+    <rect x="25" y="70" width="110" height="60" rx="6" fill="url(#chocGrad)" />
+    <!-- Cream Drips -->
+    <path d="M 25 70 Q 35 90 45 70 Q 55 95 65 70 Q 75 88 85 70 Q 95 92 105 70 Q 115 88 125 70 Q 135 70 135 70 L 135 60 L 25 60 Z" fill="url(#creamGrad)" />
+    
+    <!-- Top Layer -->
+    <rect x="40" y="25" width="80" height="40" rx="4" fill="url(#creamGrad)" />
+    <path d="M 40 30 Q 50 45 60 30 Q 70 48 80 30 Q 90 45 100 30 Q 110 46 120 30 L 120 20 L 40 20 Z" fill="#c0392b" />
+    
+    <!-- Cherries & Strawberries on top -->
+    <circle cx="80" cy="12" r="8" fill="#e74c3c" />
+    <path d="M 80 8 Q 85 -2 95 2" stroke="#27ae60" stroke-width="2" fill="none" />
+    <circle cx="65" cy="16" r="6" fill="#c0392b" />
+    <circle cx="95" cy="16" r="6" fill="#c0392b" />
+  </g>
+
+  <!-- Badge / Kicker -->
+  <g transform="translate(50, 48)">
+    <rect width="170" height="26" rx="6" fill="rgba(217, 93, 84, 0.25)" stroke="rgba(217, 93, 84, 0.5)" />
+    <text x="85" y="17" fill="#ff9991" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">PASTANE &amp; BUTİK KAFE</text>
+  </g>
+</svg>

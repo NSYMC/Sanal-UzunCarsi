@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="haciBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f140d" />
+      <stop offset="100%" stop-color="#361f12" />
+    </linearGradient>
+    <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e08253" />
+      <stop offset="50%" stop-color="#b85928" />
+      <stop offset="100%" stop-color="#733211" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#haciBg)" />
+  <rect x="30" y="30" width="540" height="300" rx="12" fill="#26170e" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <rect x="80" y="270" width="440" height="10" rx="3" fill="#120a05" />
+
+  <!-- Traditional Copper Turkish Coffee Pot (Cezve) & Cup -->
+  <g transform="translate(180, 110)">
+    <!-- Cezve Body -->
+    <path d="M 60 40 L 40 140 Q 80 150 120 140 L 100 40 Z" fill="url(#copperGrad)" stroke="#59250b" stroke-width="1.5" />
+    <path d="M 55 40 Q 40 38 45 48" fill="none" stroke="url(#copperGrad)" stroke-width="2" />
+    <!-- Handle -->
+    <path d="M 95 60 L 175 25" stroke="#4a301f" stroke-width="9" stroke-linecap="round" />
+    <path d="M 95 60 L 175 25" stroke="#d4af37" stroke-width="2" stroke-linecap="round" fill="none" />
+
+    <!-- Coffee Steam -->
+    <path d="M 70 30 Q 65 15 75 5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 85 30 Q 95 15 85 5" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round" />
+  </g>
+
+  <!-- Turkish Coffee Cup & Saucer -->
+  <g transform="translate(360, 160)">
+    <ellipse cx="45" cy="85" rx="40" ry="10" fill="#d4af37" />
+    <ellipse cx="45" cy="83" rx="35" ry="8" fill="#ffffff" />
+    <path d="M 20 40 L 25 75 Q 45 83 65 75 L 70 40 Z" fill="#ffffff" stroke="#d4af37" stroke-width="2" />
+    <path d="M 68 48 Q 85 55 78 70 Q 68 73 66 68" fill="none" stroke="#d4af37" stroke-width="3" />
+    <ellipse cx="45" cy="42" rx="22" ry="5" fill="#381a0e" />
+  </g>
+
+  <!-- Badge / Kicker -->
+  <g transform="translate(50, 48)">
+    <rect width="180" height="26" rx="6" fill="rgba(223, 157, 63, 0.25)" stroke="rgba(223, 157, 63, 0.5)" />
+    <text x="90" y="17" fill="#ffd48a" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">KAHVE &amp; BAHARAT</text>
+  </g>
+</svg>
