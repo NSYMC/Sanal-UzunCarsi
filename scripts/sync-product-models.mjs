@@ -56,7 +56,35 @@ const semanticText = (document, basename) => turkishAscii([
     ...(document?.materials || []).map((entry) => entry?.name)
 ].filter(Boolean).join(' ')).toLowerCase();
 
+// Telefon dükkânının ürünleri dosya adından kesin olarak tanınır: telefonlarda
+// `lens`/`gold` malzemeleri, kılıflarda ise hiçbir anahtar bulunmadığından
+// malzeme adına bakan sezgisel sınıflandırma bu ürünlerde çalışmaz.
+const TELEFON_TIPI = [
+    [/^telefon/i, 'phone', 'Telefon'],
+    [/^kilif/i, 'phone-case', 'Kılıf'],
+    [/^kutukilif/i, 'phone-case-box', 'Kılıf Kutusu'],
+    [/^kutu/i, 'phone-accessory', 'Aksesuar']
+];
+
+const telefonSinifi = (basename) => {
+    const ad = turkishAscii(basename).toLowerCase();
+    if (/^kutukilif/i.test(ad)) return { productType: 'phone-case-box', category: 'Kılıf Kutusu' };
+    for (const [desen, productType, category] of TELEFON_TIPI) {
+        if (desen.test(ad)) return { productType, category };
+    }
+    return null;
+};
+
 const classifyProduct = (document, basename) => {
+    const telefon = telefonSinifi(basename);
+    if (telefon) {
+        return {
+            productType: telefon.productType,
+            storeId: 'telefon',
+            confidence: 'high',
+            signals: ['telefon']
+        };
+    }
     const semantic = semanticText(document, basename);
     const basenameSemantic = turkishAscii(basename).toLowerCase();
     const eyewearSignals = ['gozluk', 'cerceve', 'camli', 'lens', 'eyeglass', 'sunglass', 'frame']
@@ -79,7 +107,7 @@ const classifyProduct = (document, basename) => {
                 : eyewearSignals.length > jewelrySignals.length ? 'eyewear' : 'jewelry';
     return {
         productType,
-        storeId: productType === 'eyewear' ? 'guzel-optik' : productType === 'home' ? 'sude-home' : 'mawus',
+        storeId: productType === 'eyewear' ? 'guzel-optik' : productType === 'home' ? 'sude-home' : 'nisantasi',
         confidence: explicitEyewear || explicitJewelry || explicitHome || Math.max(eyewearSignals.length, jewelrySignals.length, homeSignals.length) >= 2
             ? 'high'
             : 'medium',
@@ -88,6 +116,8 @@ const classifyProduct = (document, basename) => {
 };
 
 const categoryFor = (basename) => {
+    const telefon = telefonSinifi(basename);
+    if (telefon) return telefon.category;
     const normalized = turkishAscii(basename).toLowerCase();
     if (/gozluk|cerceve|camli/.test(normalized)) return 'Gözlük';
     if (/yuzuk/.test(normalized)) return 'Yüzük';
@@ -117,7 +147,8 @@ for (const filename of filenames) {
     const slug = slugify(basename) || `product-${models.length + 1}`;
     const classification = classifyProduct(document, basename);
     const storeId = classification.storeId;
-    const destinationDirectory = path.join(publicDirectory, storeId);
+    const modelDirectoryId = classification.productType === 'jewelry' ? 'mawus' : storeId;
+    const destinationDirectory = path.join(publicDirectory, modelDirectoryId);
     const destinationFilename = `${slug}.glb`;
     const destinationPath = path.join(destinationDirectory, destinationFilename);
     await mkdir(destinationDirectory, { recursive: true });
@@ -132,7 +163,7 @@ for (const filename of filenames) {
         id: slug.toUpperCase().replace(/-/g, '_'),
         name: displayName(basename),
         filename,
-        url: `/models/products/${storeId}/${destinationFilename}`,
+        url: `/models/products/${modelDirectoryId}/${destinationFilename}`,
         storeId,
         productType: classification.productType,
         classification: {
@@ -145,7 +176,7 @@ for (const filename of filenames) {
     });
 }
 
-for (const storeId of ['guzel-optik', 'sude-home', 'mawus']) {
+for (const storeId of ['guzel-optik', 'sude-home', 'mawus', 'telefon']) {
     const directory = path.join(publicDirectory, storeId);
     const entries = await readdir(directory, { withFileTypes: true }).catch(() => []);
     for (const entry of entries) {

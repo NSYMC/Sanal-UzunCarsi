@@ -63,11 +63,10 @@ const requiredFiles = [
     'public/models/world/always.glb',
     'public/models/world/outside.glb',
     'public/models/guzel-optik/store-environment.glb',
-    'public/models/materials-optimized/guzel-optik/store-environment.glb',
     'public/models/guzel-optik/product-proxies.glb',
     'public/models/guzel-optik/product-library.glb',
     'public/models/sude-home/store-raw.glb',
-    'public/models/mawus/store-raw.glb',
+    'public/models/nisantasi/store-raw.glb',
     'public/environments/store-ocean-sky.hdr'
 ];
 

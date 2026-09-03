@@ -3,7 +3,7 @@
   "products": [
     {
       "id": "MAWUS_CUMHURIYET_ALTINI",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "name": "Cumhuriyet Altını",
       "category": "Altın",
       "price": null,
@@ -31,3503 +31,6 @@
           1,
           1
         ]
-      },
-      "active": true
-    },
-    {
-      "id": "OPTIK_PRODUCT_021",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Camlı Metal Güneş Gözlüğü · 021",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal güneş gözlüğü.",
-      "modelVariant": 10
-    },
-    {
-      "id": "OPTIK_PRODUCT_032",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Camlı Metal Güneş Gözlüğü · 032",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal güneş gözlüğü.",
-      "modelVariant": 10
-    },
-    {
-      "id": "OPTIK_PRODUCT_046",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Camlı Plastik Gözlük · 046",
-      "category": "Gözlük",
-      "price": 990,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil cam",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-yesil-cam-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı plastik gözlük.",
-      "modelVariant": 5
-    },
-    {
-      "id": "OPTIK_PRODUCT_052",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 052",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_056",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Metal Gözlük · 056",
-      "category": "Gözlük",
-      "price": 1990,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu metal çerçeveli gözlük.",
-      "modelVariant": 8
-    },
-    {
-      "id": "OPTIK_PRODUCT_061",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 061",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_076",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 076",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_077",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 077",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_079",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 079",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_080",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 080",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_082",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 082",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_083",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 083",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_084",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 084",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_085",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 085",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_PRODUCT_086",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Metal Gözlük · 086",
-      "category": "Gözlük",
-      "price": 1990,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu metal çerçeveli gözlük.",
-      "modelVariant": 14
-    },
-    {
-      "id": "OPTIK_PRODUCT_087",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 087",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_088",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 088",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_090",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 090",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_091",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 091",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_093",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 093",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_094",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 094",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_095",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 095",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_096",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 096",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_PRODUCT_098",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 098",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_099",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 099",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_101",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 101",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_102",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 102",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_104",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 104",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_105",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 105",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_106",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 106",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_107",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 107",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_PRODUCT_109",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 109",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_110",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 110",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_112",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 112",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_114",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 114",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 9
-    },
-    {
-      "id": "OPTIK_PRODUCT_115",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 115",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_117",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 117",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_118",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 118",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_119",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 119",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_120",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 120",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_PRODUCT_122",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 122",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_123",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 123",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_125",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 125",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_126",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 126",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_128",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 128",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_129",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 129",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_130",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 130",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_131",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 131",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_PRODUCT_133",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 133",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_134",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 134",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_136",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 136",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_137",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 137",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_139",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 139",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_140",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 140",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_141",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 141",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_142",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 142",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_PRODUCT_144",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 144",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_145",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 145",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_147",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 147",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_148",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 148",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_150",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 150",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_151",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 151",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_152",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 152",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_153",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 153",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_PRODUCT_155",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 155",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_156",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 156",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_158",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 158",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_159",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 159",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_161",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 161",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_162",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 162",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_163",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 163",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_164",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 164",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_PRODUCT_166",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 166",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_167",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 167",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_169",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 169",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_171",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 171",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 9
-    },
-    {
-      "id": "OPTIK_PRODUCT_172",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 172",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_174",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 174",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_175",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 175",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_176",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 176",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_177",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 177",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_PRODUCT_179",
-      "storeId": "guzel-optik",
-      "name": "Turuncu Camlı Gözlük · 179",
-      "category": "Gözlük",
-      "price": 1690,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "turuncu cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Turuncu camlı güneş gözlüğü.",
-      "modelVariant": 4
-    },
-    {
-      "id": "OPTIK_PRODUCT_180",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Metal Çerçeveli Gözlük · 180",
-      "category": "Gözlük",
-      "price": 1790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "metal çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil camlı metal gözlük.",
-      "modelVariant": 2
-    },
-    {
-      "id": "OPTIK_PRODUCT_182",
-      "storeId": "guzel-optik",
-      "name": "Kırmızı Camlı Metal Güneş Gözlüğü · 182",
-      "category": "Gözlük",
-      "price": 2290,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "kırmızı cam",
-        "metal çerçeve",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Kırmızı camlı metal güneş gözlüğü.",
-      "modelVariant": 1
-    },
-    {
-      "id": "OPTIK_PRODUCT_183",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 183",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 7
-    },
-    {
-      "id": "OPTIK_PRODUCT_184",
-      "storeId": "guzel-optik",
-      "name": "Yeşil Plastik Gözlük · 184",
-      "category": "Gözlük",
-      "price": 890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "yeşil",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Yeşil plastik çerçeveli gözlük.",
-      "modelVariant": 12
-    },
-    {
-      "id": "OPTIK_PRODUCT_186",
-      "storeId": "guzel-optik",
-      "name": "Sarı Plastik Çerçeveli Gözlük · 186",
-      "category": "Gözlük",
-      "price": 790,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "sarı",
-        "plastik çerçeve"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Sarı plastik çerçeveli gözlük.",
-      "modelVariant": 3
-    },
-    {
-      "id": "OPTIK_PRODUCT_187",
-      "storeId": "guzel-optik",
-      "name": "Mavi Camlı Gözlük · 187",
-      "category": "Gözlük",
-      "price": 1890,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "mavi cam",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Mavi camlı gözlük.",
-      "modelVariant": 6
-    },
-    {
-      "id": "OPTIK_PRODUCT_188",
-      "storeId": "guzel-optik",
-      "name": "Siyah Çerçevesiz Gözlük · 188",
-      "category": "Gözlük",
-      "price": 1490,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "siyah",
-        "çerçevesiz"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Siyah çerçevesiz gözlük.",
-      "modelVariant": 11
-    },
-    {
-      "id": "OPTIK_PRODUCT_189",
-      "storeId": "guzel-optik",
-      "name": "Çerçevesiz Güneş Gözlüğü · 189",
-      "category": "Gözlük",
-      "price": 1590,
-      "currency": "TRY",
-      "tags": [
-        "güzel optik",
-        "gözlük",
-        "çerçevesiz",
-        "güneş gözlüğü"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
-      "previewTransform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "active": true,
-      "brand": "Güzel Optik",
-      "priceType": "catalog",
-      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
-      "description": "Çerçevesiz güneş gözlüğü.",
-      "modelVariant": 13
-    },
-    {
-      "id": "OPTIK_SPECIAL_ANIMATION_GOZLUK",
-      "storeId": "guzel-optik",
-      "name": "Güzel Optik Aero",
-      "brand": "Güzel Optik",
-      "category": "Özel Gözlük",
-      "price": 2490,
-      "currency": "TRY",
-      "priceType": "catalog",
-      "priceNote": "Mağaza katalog fiyatıdır.",
-      "description": "Parçaları ve bağlantı noktaları animasyonla gösterilen gözlük.",
-      "tags": [
-        "güzel optik",
-        "özel gözlük",
-        "gözlük",
-        "parçalanma animasyonu",
-        "imza ürün"
-      ],
-      "highQualityModel": "/models/products/guzel-optik/animation-gozluk.glb",
-      "animationPlayback": {
-        "autoPlay": true,
-        "loop": false,
-        "speedRatio": 1,
-        "clipName": "Animation",
-        "cameraRadiusMultiplier": 1.45
-      },
-      "hotspots": [
-        {
-          "label": "Geniş görüş alanı",
-          "description": "Geniş cam formu çevrenizi daha rahat görmenize yardımcı olur.",
-          "nodeName": "Cube.005"
-        },
-        {
-          "label": "Dengeli köprü yapısı",
-          "description": "Ön bölümün ağırlığını iki tarafa dengeli biçimde dağıtır.",
-          "nodeName": "Cube.006"
-        },
-        {
-          "label": "Rahat menteşe geçişi",
-          "description": "Sapların daha akıcı açılıp kapanmasına uygun bağlantı formu.",
-          "nodeName": "Cube.010"
-        },
-        {
-          "label": "Kulağa oturan sol sap",
-          "description": "Kulağın arkasına uzanan formu gözlüğün dengeli durmasına yardımcı olur.",
-          "nodeName": "Cube.018"
-        },
-        {
-          "label": "Kulağa oturan sağ sap",
-          "description": "İnce yapısı kulak çevresinde daha hafif bir kullanım hissi verir.",
-          "nodeName": "Cube.021"
-        },
-        {
-          "label": "Rahat burun desteği",
-          "description": "Burun üzerinde daha dengeli ve yumuşak bir oturuş sağlar.",
-          "nodeName": "NurbsPath"
-        }
-      ],
-      "previewTransform": {
-        "position": [0, 0, 0],
-        "rotation": [0, 0, 0],
-        "scale": [1, 1, 1]
       },
       "active": true
     },
@@ -4609,6 +1112,3515 @@
       ],
       "highQualityModel": "/models/products/sude-home/tencere-turuncu-kulp.glb",
       "runtimeBinding": "nearest-scene-root",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true
+    },
+    {
+      "id": "OPTIK_PRODUCT_021",
+      "storeId": "guzel-optik",
+      "name": "Marin 2165 Metal Güneş Gözlüğü · Yeşil Cam · Ref. 021",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal güneş gözlüğü.",
+      "modelVariant": 10
+    },
+    {
+      "id": "OPTIK_PRODUCT_032",
+      "storeId": "guzel-optik",
+      "name": "Marin 2165 Metal Güneş Gözlüğü · Yeşil Cam · Ref. 032",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal güneş gözlüğü.",
+      "modelVariant": 10
+    },
+    {
+      "id": "OPTIK_PRODUCT_046",
+      "storeId": "guzel-optik",
+      "name": "Vega 5525 Plastik Güneş Gözlüğü · Yeşil Cam · Ref. 046",
+      "category": "Gözlük",
+      "price": 990,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil cam",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-yesil-cam-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı plastik gözlük.",
+      "modelVariant": 5
+    },
+    {
+      "id": "OPTIK_PRODUCT_052",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 052",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_056",
+      "storeId": "guzel-optik",
+      "name": "Ege 4035 Metal Optik Çerçeve · Turuncu · Ref. 056",
+      "category": "Gözlük",
+      "price": 1990,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu metal çerçeveli gözlük.",
+      "modelVariant": 8
+    },
+    {
+      "id": "OPTIK_PRODUCT_061",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 061",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_076",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 076",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_077",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 077",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_079",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 079",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_080",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 080",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_082",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 082",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_083",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 083",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_084",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 084",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_085",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 085",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_086",
+      "storeId": "guzel-optik",
+      "name": "Ege 4060 Metal Optik Çerçeve · Turuncu · Ref. 086",
+      "category": "Gözlük",
+      "price": 1990,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu metal çerçeveli gözlük.",
+      "modelVariant": 14
+    },
+    {
+      "id": "OPTIK_PRODUCT_087",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 087",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_088",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 088",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_090",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 090",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_091",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 091",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_093",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 093",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_094",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 094",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_095",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 095",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_096",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 096",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_098",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 098",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_099",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 099",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_101",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 101",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_102",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 102",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_104",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 104",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_105",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 105",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_106",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 106",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_107",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 107",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_109",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 109",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_110",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 110",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_112",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 112",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_114",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1790 Güneş Gözlüğü · Mavi Cam · Ref. 114",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 9
+    },
+    {
+      "id": "OPTIK_PRODUCT_115",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 115",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_117",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 117",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_118",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 118",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_119",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 119",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_120",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 120",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_122",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 122",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_123",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 123",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_125",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 125",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_126",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 126",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_128",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 128",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_129",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 129",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_130",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 130",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_131",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 131",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_133",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 133",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_134",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 134",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_136",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 136",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_137",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 137",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_139",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 139",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_140",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 140",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_141",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 141",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_142",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 142",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_144",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 144",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_145",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 145",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_147",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 147",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_148",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 148",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_150",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 150",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_151",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 151",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_152",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 152",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_153",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 153",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_155",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 155",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_156",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 156",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_158",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 158",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_159",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 159",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_161",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 161",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_162",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 162",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_163",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 163",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_164",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 164",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_166",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 166",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_167",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 167",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_169",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 169",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_171",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1790 Güneş Gözlüğü · Mavi Cam · Ref. 171",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 9
+    },
+    {
+      "id": "OPTIK_PRODUCT_172",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 172",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_174",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 174",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_175",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 175",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_176",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 176",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_177",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 177",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_PRODUCT_179",
+      "storeId": "guzel-optik",
+      "name": "Ege 4020 Güneş Gözlüğü · Turuncu Cam · Ref. 179",
+      "category": "Gözlük",
+      "price": 1690,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "turuncu cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/turuncu-gozluk-turuncu-cam.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Turuncu camlı güneş gözlüğü.",
+      "modelVariant": 4
+    },
+    {
+      "id": "OPTIK_PRODUCT_180",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3080 Metal Optik Çerçeve · Yeşil · Ref. 180",
+      "category": "Gözlük",
+      "price": 1790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "metal çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil camlı metal gözlük.",
+      "modelVariant": 2
+    },
+    {
+      "id": "OPTIK_PRODUCT_182",
+      "storeId": "guzel-optik",
+      "name": "Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam · Ref. 182",
+      "category": "Gözlük",
+      "price": 2290,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "kırmızı cam",
+        "metal çerçeve",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/kirmizi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Kırmızı camlı metal güneş gözlüğü.",
+      "modelVariant": 1
+    },
+    {
+      "id": "OPTIK_PRODUCT_183",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6100 Çerçevesiz Optik · Siyah · Ref. 183",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 7
+    },
+    {
+      "id": "OPTIK_PRODUCT_184",
+      "storeId": "guzel-optik",
+      "name": "Kordon 3115 Plastik Optik Çerçeve · Yeşil · Ref. 184",
+      "category": "Gözlük",
+      "price": 890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "yeşil",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/yesil-plastik-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Yeşil plastik çerçeveli gözlük.",
+      "modelVariant": 12
+    },
+    {
+      "id": "OPTIK_PRODUCT_186",
+      "storeId": "guzel-optik",
+      "name": "Vega 5510 Plastik Optik Çerçeve · Sarı · Ref. 186",
+      "category": "Gözlük",
+      "price": 790,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "sarı",
+        "plastik çerçeve"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/plastik-sari-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Sarı plastik çerçeveli gözlük.",
+      "modelVariant": 3
+    },
+    {
+      "id": "OPTIK_PRODUCT_187",
+      "storeId": "guzel-optik",
+      "name": "Deniz 1750 Güneş Gözlüğü · Mavi Cam · Ref. 187",
+      "category": "Gözlük",
+      "price": 1890,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "mavi cam",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/mavi-camli-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Mavi camlı gözlük.",
+      "modelVariant": 6
+    },
+    {
+      "id": "OPTIK_PRODUCT_188",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6140 Çerçevesiz Optik · Siyah · Ref. 188",
+      "category": "Gözlük",
+      "price": 1490,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "siyah",
+        "çerçevesiz"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/siyah-cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Siyah çerçevesiz gözlük.",
+      "modelVariant": 11
+    },
+    {
+      "id": "OPTIK_PRODUCT_189",
+      "storeId": "guzel-optik",
+      "name": "Nazar 6220 Çerçevesiz Güneş Gözlüğü · Ref. 189",
+      "category": "Gözlük",
+      "price": 1590,
+      "currency": "TRY",
+      "tags": [
+        "güzel optik",
+        "gözlük",
+        "çerçevesiz",
+        "güneş gözlüğü"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/cercevesiz-gozluk.glb",
+      "previewTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "active": true,
+      "brand": "Güzel Optik",
+      "priceType": "catalog",
+      "priceNote": "Mağaza tarafından tanımlanan katalog fiyatıdır.",
+      "description": "Çerçevesiz güneş gözlüğü.",
+      "modelVariant": 13
+    },
+    {
+      "id": "OPTIK_SPECIAL_ANIMATION_GOZLUK",
+      "storeId": "guzel-optik",
+      "name": "Güzel Optik Aero",
+      "brand": "Güzel Optik",
+      "category": "Özel Gözlük",
+      "price": 2490,
+      "currency": "TRY",
+      "priceType": "catalog",
+      "priceNote": "Mağaza katalog fiyatıdır.",
+      "description": "Parçaları ve bağlantı noktaları animasyonla gösterilen gözlük.",
+      "tags": [
+        "güzel optik",
+        "özel gözlük",
+        "gözlük",
+        "parçalanma animasyonu",
+        "imza ürün"
+      ],
+      "highQualityModel": "/models/products/guzel-optik/animation-gozluk.glb",
+      "animationPlayback": {
+        "autoPlay": true,
+        "loop": false,
+        "speedRatio": 1,
+        "clipName": "Animation",
+        "cameraRadiusMultiplier": 1.45
+      },
+      "hotspots": [
+        {
+          "label": "Geniş görüş alanı",
+          "description": "Geniş cam formu çevrenizi daha rahat görmenize yardımcı olur.",
+          "nodeName": "Cube.005"
+        },
+        {
+          "label": "Dengeli köprü yapısı",
+          "description": "Ön bölümün ağırlığını iki tarafa dengeli biçimde dağıtır.",
+          "nodeName": "Cube.006"
+        },
+        {
+          "label": "Rahat menteşe geçişi",
+          "description": "Sapların daha akıcı açılıp kapanmasına uygun bağlantı formu.",
+          "nodeName": "Cube.010"
+        },
+        {
+          "label": "Kulağa oturan sol sap",
+          "description": "Kulağın arkasına uzanan formu gözlüğün dengeli durmasına yardımcı olur.",
+          "nodeName": "Cube.018"
+        },
+        {
+          "label": "Kulağa oturan sağ sap",
+          "description": "İnce yapısı kulak çevresinde daha hafif bir kullanım hissi verir.",
+          "nodeName": "Cube.021"
+        },
+        {
+          "label": "Rahat burun desteği",
+          "description": "Burun üzerinde daha dengeli ve yumuşak bir oturuş sağlar.",
+          "nodeName": "NurbsPath"
+        }
+      ],
       "previewTransform": {
         "position": [
           0,

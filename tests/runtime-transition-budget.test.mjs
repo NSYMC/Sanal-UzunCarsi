@@ -30,6 +30,7 @@ test('seçilecek mağaza menü etkileşiminde görünmeden önce hazırlanmaya b
     assert.match(mainSource, /item\.addEventListener\('pointerenter'/);
     assert.match(mainSource, /loadStore\(scene, quality, STORES\[storeId\], \{ background: true \}\)/);
     assert.match(mainSource, /if \(!background\) \{\s*await scene\.whenReadyAsync\(\)/);
+    assert.match(mainSource, /if \(!background\) setLoadingProgress/);
     assert.doesNotMatch(mainSource, /streaming\.prewarmAll\(\)/);
 });
 

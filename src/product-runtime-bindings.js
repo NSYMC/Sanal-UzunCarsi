@@ -128,9 +128,13 @@ export const applyProductBindings = ({ scene, registry, store, runtime }) => {
     const proxyBoxes = [];
 
     for (const mesh of [...geometryMeshes, ...(runtime.selectionBoxes || [])]) {
-        if (mesh.metadata?.modeledProductId && !mesh.metadata.productId) {
-            mesh.metadata = { ...(mesh.metadata || {}), productId: mesh.metadata.modeledProductId };
-        }
+        mesh.metadata = {
+            ...(mesh.metadata || {}),
+            storeId: store.id,
+            ...(mesh.metadata?.modeledProductId && !mesh.metadata.productId
+                ? { productId: mesh.metadata.modeledProductId }
+                : {})
+        };
     }
 
     for (const binding of bindings) {
@@ -140,6 +144,7 @@ export const applyProductBindings = ({ scene, registry, store, runtime }) => {
             if (!meshMatchesBinding(mesh, binding)) continue;
             mesh.metadata = {
                 ...(mesh.metadata || {}),
+                storeId: store.id,
                 productId: binding.productId,
                 productBindingId: binding.id,
                 isProductBindingTarget: true
@@ -166,6 +171,7 @@ export const applyProductBindings = ({ scene, registry, store, runtime }) => {
         proxy.isPickable = true;
         proxy.checkCollisions = false;
         proxy.metadata = {
+            storeId: store.id,
             productId: binding.productId,
             productBindingId: binding.id,
             isProductBindingTarget: true,

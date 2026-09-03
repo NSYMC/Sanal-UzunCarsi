@@ -39,7 +39,7 @@ export const sudeProducts = [
     product('buyuk-vazo', 'Büyük Porselen Vazo', 'Vazo', 1290, 'Uzun gövdesi ve sade porselen görünümüyle masa veya konsol üstü dekoratif vazo.', ['ornate gold vase', 'vase.001'], 'vase'),
     product('caydanlik-cicek-desenli', 'Çiçek Desenli Çaydanlık', 'Çaydanlık', 1490, 'Açık renkli gövdesi, kırmızı ayrıntıları ve çiçek bezemeleriyle dekoratif çaydanlık.', ['circle.068', 'ceramic teapot'], 'kettle'),
     product('celik-termos', 'Çelik Termos', 'Termos', 799, 'Çelik görünümlü gövdesi ve siyah kapak ayrıntısıyla sade, günlük kullanıma uygun termos.', ['stainless steel water bottle', 'water bottle stainless steel', 'bottle.001'], 'thermos'),
-    product('desenli-termos', 'Çiçek Desenli Termos', 'Termos', 1290, 'Çiçek desenli gövdesi, metalik yüzeyleri ve doğal tonlu kapak ayrıntısıyla dekoratif termos.', ['classic floral thermos'], 'thermos'),
+    product('desenli-termos', 'Çiçek Desenli Termos', 'Termos', 1290, 'Çiçek desenli gövdesi, metalik yüzeyleri ve doğal tonlu kapak ayrıntısıyla dekoratif termos.', ['classic floral thermos', 'bottom'], 'thermos'),
     product('ketil', 'Beyaz Çelik Kettle', 'Kettle', 1590, 'Beyaz ve çelik görünümlü gövdesi, ahşap tonlu kapak düğmesiyle modern kettle.', ['knob'], 'kettle'),
     product('ketil-tahta-kulplu', 'Ahşap Kulplu Kettle', 'Kettle', 1890, 'Mat metal gövdesi ve ahşap görünümlü kulp ayrıntılarıyla modern ocak üstü kettle.', ['fellow kettle info degrees', 'fellow kettle pro'], 'kettle'),
     product('kucuk-porselen-kase', 'Küçük Desenli Porselen Kase', 'Kase', 499, 'İç yüzeyindeki yumuşak renk geçişleriyle küçük porselen servis kasesi.', ['bowl l hermitage cinza e bege'], 'bowl'),
@@ -49,7 +49,7 @@ export const sudeProducts = [
     product('porselen-kase', 'Mavi Beyaz Porselen Kase', 'Kase', 849, 'Mavi-beyaz geleneksel desenleri ve yuvarlak servis formuyla porselen kase.', ['blue_and_white_porcelain_bowl'], 'bowl'),
     product('porselen-kavanoz', 'Desenli Porselen Kavanoz', 'Kavanoz', 890, 'Kapaklı porselen gövdesi ve dekoratif yüzey görünümüyle saklama kavanozu.', ['jar.003'], 'jar'),
     product('porselen-mavi-buyuk-kae', 'Büyük Mavi Porselen Kase', 'Kase', 790, 'Mavi tonlu geniş porselen formuyla servis ve dekoratif kullanım için büyük kase.', ['geo_x_bowl', 'blue marble ceramic vase'], 'bowl'),
-    product('siyah-termos', 'Siyah Termos', 'Termos', 899, 'Mat siyah gövdesi ve metalik bağlantı ayrıntılarıyla sade, güçlü görünümlü termos.', ['thermos bottle g'], 'thermos'),
+    product('siyah-termos', 'Siyah Termos', 'Termos', 899, 'Mat siyah gövdesi ve metalik bağlantı ayrıntılarıyla sade, güçlü görünümlü termos.', ['thermos bottle g', 'bottle'], 'thermos'),
     product('tava', 'Kırmızı Gövdeli Tava', 'Tava', 1190, 'Kırmızı dış yüzeyi, koyu pişirme tabanı ve ergonomik sapıyla günlük kullanıma uygun tava.', ['cooking pan.001'], 'pan'),
     product('tencere', 'Kapaklı Çelik Tencere', 'Tencere', 1390, 'Çelik görünümlü gövdesi ve kapağıyla orta boy günlük kullanım tenceresi.', ['cooking pot medium with lid'], 'pot'),
     product('tencere-turuncu-kulp', 'Turuncu Kulplu Tencere', 'Tencere', 1690, 'Metalik gövdesi, cam görünümlü kapağı ve turuncu-bakır tonlu kulplarıyla modern tencere.', ['circle.001'], 'pot')
@@ -87,7 +87,7 @@ export const resolveSudeProduct = ({ rootName, sourceName }) => {
     }
     const exact = sudeProducts.find((candidate) => candidate.aliases.some((alias) => {
         const normalizedAlias = normalize(alias);
-        return normalizedAlias.length >= 4 && (root === normalizedAlias || root.includes(normalizedAlias));
+        return root === normalizedAlias || (normalizedAlias.length >= 4 && root.includes(normalizedAlias));
     }));
     if (exact) return exact;
     const family = familyFromText(`${rootName} ${sourceName}`);

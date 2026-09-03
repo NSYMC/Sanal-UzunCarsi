@@ -4,7 +4,7 @@ const CACHE_KEY = 'uzunCarsi:goldMarket:v1';
 const CACHE_TTL = 5 * 60 * 1000;
 
 export const MAWUS_TARIFF = Object.freeze({
-    name: 'Sistemde tanımlı Mawuş fiyat tarifesi',
+    name: 'Sistemde tanımlı Nişantaşı fiyat tarifesi',
     bullionMarginRate: 0.025,
     jewelryMarginRate: 0.06,
     workmanshipPerGram: 425,
@@ -165,7 +165,7 @@ export const createGoldPricingPanel = (root) => {
 
     const show = async (product, storeId) => {
         const profile = PRODUCT_PROFILES[product?.id];
-        if (storeId !== 'mawus' || !profile || !dom.root) return hide();
+        if (storeId !== 'nisantasi' || !profile || !dom.root) return hide();
         const activeRequest = ++requestId;
         dom.root.classList.remove('hidden');
         dom.spot.textContent = 'Güncel fiyat alınıyor…';

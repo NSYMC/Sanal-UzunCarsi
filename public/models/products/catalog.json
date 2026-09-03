@@ -6,7 +6,7 @@
       "name": "1000g Altin",
       "filename": "1000gAltin.glb",
       "url": "/models/products/mawus/1000g-altin.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -24,7 +24,7 @@
       "name": "12 5kg Altin",
       "filename": "12.5kgAltin.glb",
       "url": "/models/products/mawus/12-5kg-altin.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -42,7 +42,7 @@
       "name": "AltıN YüZüK",
       "filename": "altınYüzük.glb",
       "url": "/models/products/mawus/altin-yuzuk.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -62,7 +62,7 @@
       "name": "AltıN YüZüK Taslı",
       "filename": "altınYüzükTaslı.glb",
       "url": "/models/products/mawus/altin-yuzuk-tasli.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -101,7 +101,7 @@
       "name": "Altin Kirmizi Kalpli",
       "filename": "altinKirmiziKalpli.glb",
       "url": "/models/products/mawus/altin-kirmizi-kalpli.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -121,7 +121,7 @@
       "name": "Altin Kirmizi Tas",
       "filename": "altinKirmiziTas.glb",
       "url": "/models/products/mawus/altin-kirmizi-tas.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -136,6 +136,23 @@
       "category": "Altın",
       "sizeBytes": 3143976,
       "meshCount": 12
+    },
+    {
+      "id": "ANIMATION_GOZLUK",
+      "name": "Animation Gozluk",
+      "filename": "animationGozluk.glb",
+      "url": "/models/products/guzel-optik/animation-gozluk.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "gozluk"
+        ]
+      },
+      "category": "Gözlük",
+      "sizeBytes": 13668680,
+      "meshCount": 28
     },
     {
       "id": "BAKIR_SURAHI",
@@ -388,7 +405,7 @@
       "name": "Cumhuriyet Altini",
       "filename": "cumhuriyetAltini.glb",
       "url": "/models/products/mawus/cumhuriyet-altini.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -406,7 +423,7 @@
       "name": "çİçİek KıRmıZı Yuzuk",
       "filename": "çiçiekKırmızıYuzuk.glb",
       "url": "/models/products/mawus/ciciek-kirmizi-yuzuk.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -426,7 +443,7 @@
       "name": "çİçİek Yuzuk",
       "filename": "çiçiekYuzuk.glb",
       "url": "/models/products/mawus/ciciek-yuzuk.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -463,7 +480,7 @@
       "name": "Elmas YüZüK",
       "filename": "elmasYüzük.glb",
       "url": "/models/products/mawus/elmas-yuzuk.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -484,7 +501,7 @@
       "name": "Gram Altin",
       "filename": "gramAltin.glb",
       "url": "/models/products/mawus/gram-altin.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -503,7 +520,7 @@
       "name": "Gri Yuzuk",
       "filename": "griYuzuk.glb",
       "url": "/models/products/mawus/gri-yuzuk.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -571,6 +588,431 @@
       "meshCount": 28
     },
     {
+      "id": "KILIF_BAR_ALTIGEN_OKYANUS",
+      "name": "Kilif Bar Altigen Okyanus",
+      "filename": "kilifBarAltigenOkyanus.glb",
+      "url": "/models/products/telefon/kilif-bar-altigen-okyanus.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 926176,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_BAR_DOKUMA_ORMAN",
+      "name": "Kilif Bar Dokuma Orman",
+      "filename": "kilifBarDokumaOrman.glb",
+      "url": "/models/products/telefon/kilif-bar-dokuma-orman.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 249328,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_BAR_DUZ_GECE",
+      "name": "Kilif Bar Duz Gece",
+      "filename": "kilifBarDuzGece.glb",
+      "url": "/models/products/telefon/kilif-bar-duz-gece.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 194204,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_BAR_NOKTA_MERCAN",
+      "name": "Kilif Bar Nokta Mercan",
+      "filename": "kilifBarNoktaMercan.glb",
+      "url": "/models/products/telefon/kilif-bar-nokta-mercan.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 3077468,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_BAR_SERIT_KUM",
+      "name": "Kilif Bar Serit Kum",
+      "filename": "kilifBarSeritKum.glb",
+      "url": "/models/products/telefon/kilif-bar-serit-kum.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 227708,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_BUDGET_ALTIGEN_OKYANUS",
+      "name": "Kilif Budget Altigen Okyanus",
+      "filename": "kilifBudgetAltigenOkyanus.glb",
+      "url": "/models/products/telefon/kilif-budget-altigen-okyanus.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 1067588,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_BUDGET_DOKUMA_ORMAN",
+      "name": "Kilif Budget Dokuma Orman",
+      "filename": "kilifBudgetDokumaOrman.glb",
+      "url": "/models/products/telefon/kilif-budget-dokuma-orman.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 272508,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_BUDGET_DUZ_GECE",
+      "name": "Kilif Budget Duz Gece",
+      "filename": "kilifBudgetDuzGece.glb",
+      "url": "/models/products/telefon/kilif-budget-duz-gece.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 195112,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_BUDGET_NOKTA_MERCAN",
+      "name": "Kilif Budget Nokta Mercan",
+      "filename": "kilifBudgetNoktaMercan.glb",
+      "url": "/models/products/telefon/kilif-budget-nokta-mercan.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 3736824,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_BUDGET_SERIT_KUM",
+      "name": "Kilif Budget Serit Kum",
+      "filename": "kilifBudgetSeritKum.glb",
+      "url": "/models/products/telefon/kilif-budget-serit-kum.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 232408,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_COMPACT_ALTIGEN_OKYANUS",
+      "name": "Kilif Compact Altigen Okyanus",
+      "filename": "kilifCompactAltigenOkyanus.glb",
+      "url": "/models/products/telefon/kilif-compact-altigen-okyanus.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 937468,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_COMPACT_DOKUMA_ORMAN",
+      "name": "Kilif Compact Dokuma Orman",
+      "filename": "kilifCompactDokumaOrman.glb",
+      "url": "/models/products/telefon/kilif-compact-dokuma-orman.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 272612,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_COMPACT_DUZ_GECE",
+      "name": "Kilif Compact Duz Gece",
+      "filename": "kilifCompactDuzGece.glb",
+      "url": "/models/products/telefon/kilif-compact-duz-gece.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 208488,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_COMPACT_NOKTA_MERCAN",
+      "name": "Kilif Compact Nokta Mercan",
+      "filename": "kilifCompactNoktaMercan.glb",
+      "url": "/models/products/telefon/kilif-compact-nokta-mercan.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 3174032,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_COMPACT_SERIT_KUM",
+      "name": "Kilif Compact Serit Kum",
+      "filename": "kilifCompactSeritKum.glb",
+      "url": "/models/products/telefon/kilif-compact-serit-kum.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 246360,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_PRO_MAX_ALTIGEN_OKYANUS",
+      "name": "Kilif Pro Max Altigen Okyanus",
+      "filename": "kilifProMaxAltigenOkyanus.glb",
+      "url": "/models/products/telefon/kilif-pro-max-altigen-okyanus.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 1047548,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_PRO_MAX_DOKUMA_ORMAN",
+      "name": "Kilif Pro Max Dokuma Orman",
+      "filename": "kilifProMaxDokumaOrman.glb",
+      "url": "/models/products/telefon/kilif-pro-max-dokuma-orman.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 288948,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_PRO_MAX_DUZ_GECE",
+      "name": "Kilif Pro Max Duz Gece",
+      "filename": "kilifProMaxDuzGece.glb",
+      "url": "/models/products/telefon/kilif-pro-max-duz-gece.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 211360,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_PRO_MAX_NOKTA_MERCAN",
+      "name": "Kilif Pro Max Nokta Mercan",
+      "filename": "kilifProMaxNoktaMercan.glb",
+      "url": "/models/products/telefon/kilif-pro-max-nokta-mercan.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 3655176,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_PRO_MAX_SERIT_KUM",
+      "name": "Kilif Pro Max Serit Kum",
+      "filename": "kilifProMaxSeritKum.glb",
+      "url": "/models/products/telefon/kilif-pro-max-serit-kum.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 251104,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_RUGGED_ALTIGEN_OKYANUS",
+      "name": "Kilif Rugged Altigen Okyanus",
+      "filename": "kilifRuggedAltigenOkyanus.glb",
+      "url": "/models/products/telefon/kilif-rugged-altigen-okyanus.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 1174216,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_RUGGED_DOKUMA_ORMAN",
+      "name": "Kilif Rugged Dokuma Orman",
+      "filename": "kilifRuggedDokumaOrman.glb",
+      "url": "/models/products/telefon/kilif-rugged-dokuma-orman.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 294168,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_RUGGED_DUZ_GECE",
+      "name": "Kilif Rugged Duz Gece",
+      "filename": "kilifRuggedDuzGece.glb",
+      "url": "/models/products/telefon/kilif-rugged-duz-gece.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 216960,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_RUGGED_NOKTA_MERCAN",
+      "name": "Kilif Rugged Nokta Mercan",
+      "filename": "kilifRuggedNoktaMercan.glb",
+      "url": "/models/products/telefon/kilif-rugged-nokta-mercan.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 4006696,
+      "meshCount": 1
+    },
+    {
+      "id": "KILIF_RUGGED_SERIT_KUM",
+      "name": "Kilif Rugged Serit Kum",
+      "filename": "kilifRuggedSeritKum.glb",
+      "url": "/models/products/telefon/kilif-rugged-serit-kum.glb",
+      "storeId": "telefon",
+      "productType": "phone-case",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf",
+      "sizeBytes": 264940,
+      "meshCount": 1
+    },
+    {
       "id": "KUCUK_PORSELEN_KASE",
       "name": "Kucuk Porselen Kase",
       "filename": "KucukPorselenKase.glb",
@@ -604,6 +1046,397 @@
       },
       "category": "Kavanoz",
       "sizeBytes": 2659028,
+      "meshCount": 1
+    },
+    {
+      "id": "KUTU_EKRAN_CAMI1",
+      "name": "Kutu Ekran Cami1",
+      "filename": "kutuEkranCami1.glb",
+      "url": "/models/products/telefon/kutu-ekran-cami1.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 90276,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_EKRAN_CAMI2",
+      "name": "Kutu Ekran Cami2",
+      "filename": "kutuEkranCami2.glb",
+      "url": "/models/products/telefon/kutu-ekran-cami2.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 90276,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KABLO1",
+      "name": "Kutu Kablo1",
+      "filename": "kutuKablo1.glb",
+      "url": "/models/products/telefon/kutu-kablo1.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 128904,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KABLO2",
+      "name": "Kutu Kablo2",
+      "filename": "kutuKablo2.glb",
+      "url": "/models/products/telefon/kutu-kablo2.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 129320,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_BAR_ALTIGEN_OKYANUS",
+      "name": "Kutu Kilif Bar Altigen Okyanus",
+      "filename": "kutuKilifBarAltigenOkyanus.glb",
+      "url": "/models/products/telefon/kutu-kilif-bar-altigen-okyanus.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 1001812,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_BAR_DUZ_GECE",
+      "name": "Kutu Kilif Bar Duz Gece",
+      "filename": "kutuKilifBarDuzGece.glb",
+      "url": "/models/products/telefon/kutu-kilif-bar-duz-gece.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 268692,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_BUDGET_DOKUMA_ORMAN",
+      "name": "Kutu Kilif Budget Dokuma Orman",
+      "filename": "kutuKilifBudgetDokumaOrman.glb",
+      "url": "/models/products/telefon/kutu-kilif-budget-dokuma-orman.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 350136,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_BUDGET_SERIT_KUM",
+      "name": "Kutu Kilif Budget Serit Kum",
+      "filename": "kutuKilifBudgetSeritKum.glb",
+      "url": "/models/products/telefon/kutu-kilif-budget-serit-kum.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 307940,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_COMPACT_DOKUMA_ORMAN",
+      "name": "Kutu Kilif Compact Dokuma Orman",
+      "filename": "kutuKilifCompactDokumaOrman.glb",
+      "url": "/models/products/telefon/kutu-kilif-compact-dokuma-orman.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 351060,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_COMPACT_NOKTA_MERCAN",
+      "name": "Kutu Kilif Compact Nokta Mercan",
+      "filename": "kutuKilifCompactNoktaMercan.glb",
+      "url": "/models/products/telefon/kutu-kilif-compact-nokta-mercan.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 3250560,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_COMPACT_SERIT_KUM",
+      "name": "Kutu Kilif Compact Serit Kum",
+      "filename": "kutuKilifCompactSeritKum.glb",
+      "url": "/models/products/telefon/kutu-kilif-compact-serit-kum.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 322820,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_PRO_MAX_ALTIGEN_OKYANUS",
+      "name": "Kutu Kilif Pro Max Altigen Okyanus",
+      "filename": "kutuKilifProMaxAltigenOkyanus.glb",
+      "url": "/models/products/telefon/kutu-kilif-pro-max-altigen-okyanus.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 1125544,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_PRO_MAX_DUZ_GECE",
+      "name": "Kutu Kilif Pro Max Duz Gece",
+      "filename": "kutuKilifProMaxDuzGece.glb",
+      "url": "/models/products/telefon/kutu-kilif-pro-max-duz-gece.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 288572,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_PRO_MAX_NOKTA_MERCAN",
+      "name": "Kutu Kilif Pro Max Nokta Mercan",
+      "filename": "kutuKilifProMaxNoktaMercan.glb",
+      "url": "/models/products/telefon/kutu-kilif-pro-max-nokta-mercan.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 3731448,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_RUGGED_ALTIGEN_OKYANUS",
+      "name": "Kutu Kilif Rugged Altigen Okyanus",
+      "filename": "kutuKilifRuggedAltigenOkyanus.glb",
+      "url": "/models/products/telefon/kutu-kilif-rugged-altigen-okyanus.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 1252028,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KILIF_RUGGED_NOKTA_MERCAN",
+      "name": "Kutu Kilif Rugged Nokta Mercan",
+      "filename": "kutuKilifRuggedNoktaMercan.glb",
+      "url": "/models/products/telefon/kutu-kilif-rugged-nokta-mercan.glb",
+      "storeId": "telefon",
+      "productType": "phone-case-box",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Kılıf Kutusu",
+      "sizeBytes": 4082684,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KULAKLIK1",
+      "name": "Kutu Kulaklik1",
+      "filename": "kutuKulaklik1.glb",
+      "url": "/models/products/telefon/kutu-kulaklik1.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 137268,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_KULAKLIK2",
+      "name": "Kutu Kulaklik2",
+      "filename": "kutuKulaklik2.glb",
+      "url": "/models/products/telefon/kutu-kulaklik2.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 136996,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_POWERBANK1",
+      "name": "Kutu Powerbank1",
+      "filename": "kutuPowerbank1.glb",
+      "url": "/models/products/telefon/kutu-powerbank1.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 106328,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_POWERBANK2",
+      "name": "Kutu Powerbank2",
+      "filename": "kutuPowerbank2.glb",
+      "url": "/models/products/telefon/kutu-powerbank2.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 106460,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_SARJ_ADAPTORU1",
+      "name": "Kutu Sarj Adaptoru1",
+      "filename": "kutuSarjAdaptoru1.glb",
+      "url": "/models/products/telefon/kutu-sarj-adaptoru1.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 101540,
+      "meshCount": 4
+    },
+    {
+      "id": "KUTU_SARJ_ADAPTORU2",
+      "name": "Kutu Sarj Adaptoru2",
+      "filename": "kutuSarjAdaptoru2.glb",
+      "url": "/models/products/telefon/kutu-sarj-adaptoru2.glb",
+      "storeId": "telefon",
+      "productType": "phone-accessory",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Aksesuar",
+      "sizeBytes": 100420,
+      "meshCount": 4
+    },
+    {
+      "id": "LENS_SOLUSYON",
+      "name": "Lens Solusyon",
+      "filename": "LensSolusyon.glb",
+      "url": "/models/products/guzel-optik/lens-solusyon.glb",
+      "storeId": "guzel-optik",
+      "productType": "eyewear",
+      "classification": {
+        "confidence": "medium",
+        "signals": [
+          "lens"
+        ]
+      },
+      "category": "Diğer",
+      "sizeBytes": 438864,
       "meshCount": 1
     },
     {
@@ -804,6 +1637,91 @@
       "meshCount": 1
     },
     {
+      "id": "TELEFON_BAR",
+      "name": "Telefon Bar",
+      "filename": "telefonBar.glb",
+      "url": "/models/products/telefon/telefon-bar.glb",
+      "storeId": "telefon",
+      "productType": "phone",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Telefon",
+      "sizeBytes": 3386196,
+      "meshCount": 11
+    },
+    {
+      "id": "TELEFON_BUDGET",
+      "name": "Telefon Budget",
+      "filename": "telefonBudget.glb",
+      "url": "/models/products/telefon/telefon-budget.glb",
+      "storeId": "telefon",
+      "productType": "phone",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Telefon",
+      "sizeBytes": 3816488,
+      "meshCount": 11
+    },
+    {
+      "id": "TELEFON_COMPACT",
+      "name": "Telefon Compact",
+      "filename": "telefonCompact.glb",
+      "url": "/models/products/telefon/telefon-compact.glb",
+      "storeId": "telefon",
+      "productType": "phone",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Telefon",
+      "sizeBytes": 3329500,
+      "meshCount": 11
+    },
+    {
+      "id": "TELEFON_PRO_MAX",
+      "name": "Telefon Pro Max",
+      "filename": "telefonProMax.glb",
+      "url": "/models/products/telefon/telefon-pro-max.glb",
+      "storeId": "telefon",
+      "productType": "phone",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Telefon",
+      "sizeBytes": 3991156,
+      "meshCount": 11
+    },
+    {
+      "id": "TELEFON_RUGGED",
+      "name": "Telefon Rugged",
+      "filename": "telefonRugged.glb",
+      "url": "/models/products/telefon/telefon-rugged.glb",
+      "storeId": "telefon",
+      "productType": "phone",
+      "classification": {
+        "confidence": "high",
+        "signals": [
+          "telefon"
+        ]
+      },
+      "category": "Telefon",
+      "sizeBytes": 4008596,
+      "meshCount": 11
+    },
+    {
       "id": "TENCERE",
       "name": "Tencere",
       "filename": "Tencere.glb",
@@ -880,7 +1798,7 @@
       "name": "Yakut Yuzuk",
       "filename": "yakutYuzuk.glb",
       "url": "/models/products/mawus/yakut-yuzuk.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -901,7 +1819,7 @@
       "name": "Yarim Tam Ceyrekaltin",
       "filename": "yarimTamCeyrekaltin.glb",
       "url": "/models/products/mawus/yarim-tam-ceyrekaltin.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",
@@ -977,7 +1895,7 @@
       "name": "ZüMrüT Yuzuk",
       "filename": "zümrütYuzuk.glb",
       "url": "/models/products/mawus/zumrut-yuzuk.glb",
-      "storeId": "mawus",
+      "storeId": "nisantasi",
       "productType": "jewelry",
       "classification": {
         "confidence": "high",

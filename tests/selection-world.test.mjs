@@ -63,3 +63,11 @@ test('harita ekranı temel kullanım bilgisini içerir', async () => {
     assert.match(html, /Ürün ara/);
     assert.match(html, /Haritayı sürükleyin/);
 });
+
+test('mağaza seçim arayüzü 3B harita canvasını opak katmanla kapatmaz', async () => {
+    const css = await readFile(path.join(projectRoot, 'src', 'style.css'), 'utf8');
+    const screenRules = [...css.matchAll(/\.store-map-screen\s*\{([^}]*)\}/g)];
+    const finalRule = screenRules.at(-1)?.[1] || '';
+
+    assert.match(finalRule, /background:\s*transparent/);
+});

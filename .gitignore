@@ -6,6 +6,7 @@ __pycache__/
 
 # Yerel çalışma ve doğrulama çıktıları.
 /scratch/
+/outputs/
 /.publish-worktree/
 /assets/
 /tmp-*.jpg
@@ -25,7 +26,7 @@ __pycache__/
 
 # GitHub dosya sınırını aşan runtime modelleri parçalardan oluşturulur.
 /public/models/sude-home/store-raw.glb
-/public/models/mawus/store-raw.glb
+/public/models/nisantasi/store-raw.glb
 /public/models/world/always.glb
 /public/models/world/outside.glb
 /public/models/guzel-optik/store-environment.glb

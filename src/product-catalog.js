@@ -236,13 +236,13 @@ const descriptorFor = (id, names) => {
         return { ...base, brand: 'Wenitto', name: `Duvar Gömleği ${number}`, description: 'Duvar rafı sunumu için kumaş katları ve yaka ayrıntıları korunmuş gömlek.' };
     }
     if (/RING|SOLITAIRE|WEDDING/.test(id)) {
-        return { ...base, brand: 'Mawuş Kuyumculuk', name: `Yüzük ${number}`, description: 'Taşlı metal yüzük.' };
+        return { ...base, brand: 'Nişantaşı Kuyumculuk', name: `Yüzük ${number}`, description: 'Taşlı metal yüzük.' };
     }
     if (/EARRING/.test(id)) {
-        return { ...base, brand: 'Mawuş Kuyumculuk', name: `Küpe ${number}`, description: 'Metal ve taş parçaları ayrı yüzey özellikleriyle hazırlanmış küpe modeli.' };
+        return { ...base, brand: 'Nişantaşı Kuyumculuk', name: `Küpe ${number}`, description: 'Metal ve taş parçaları ayrı yüzey özellikleriyle hazırlanmış küpe modeli.' };
     }
     if (/BANGLE/.test(id)) {
-        return { ...base, brand: 'Mawuş Kuyumculuk', name: `Bilezik ${number}`, description: 'Parlatılmış metal ve taş detayları bulunan kuyumculuk bileziği.' };
+        return { ...base, brand: 'Nişantaşı Kuyumculuk', name: `Bilezik ${number}`, description: 'Parlatılmış metal ve taş detayları bulunan kuyumculuk bileziği.' };
     }
     if (id.startsWith('IC-COLLECTION-')) {
         return { ...base, brand: 'Uzun Çarşı', name: `Mağaza Ürün Grubu ${number}`, description: 'Mağaza ürün grubu.' };
@@ -316,7 +316,7 @@ const descriptorFor = (id, names) => {
             description: 'Gözlük modeli.'
         };
     }
-    return { ...base, brand: 'Mawuş Kuyumculuk', name: `Kolye ${number}`, description: 'Zincirli kolye.' };
+    return { ...base, brand: 'Nişantaşı Kuyumculuk', name: `Kolye ${number}`, description: 'Zincirli kolye.' };
 };
 
 const setPbrColor = (material, hex) => {

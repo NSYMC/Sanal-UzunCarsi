@@ -152,10 +152,7 @@ export const createSceneAssetPreloader = ({
         return record.deferred.promise;
     };
 
-    const prepareEntry = (storeId) => Promise.all([
-        prioritize(`store:${storeId}`, 160),
-        prioritize('world:always', 150)
-    ]);
+    const prepareEntry = (storeId) => prioritize(`store:${storeId}`, 160);
 
     const preloadAll = () => {
         const pending = [];

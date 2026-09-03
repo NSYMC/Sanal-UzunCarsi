@@ -59,7 +59,7 @@
           <div class="loading-journey" aria-label="Yükleme aşamaları">
             <span><b>01</b> Çarşı</span>
             <span><b>02</b> Mağaza</span>
-            <span><b>03</b> Ürünler</span>
+            <span><b>03</b> Hazırlık</span>
           </div>
         </div>
 
@@ -92,7 +92,7 @@
       <header class="store-map-header">
         <p class="eyebrow">SANAL UZUN ÇARŞI</p>
         <h1 id="selectionMapTitle">Bir mağaza seçin</h1>
-        <p>Haritadaki işaretlerden veya aşağıdaki listeden mağazaya gidebilirsiniz.</p>
+        <p>Mağazanızı seçin; sahneyi gezerken raflardaki her ürünü 3B olarak inceleyin.</p>
         <div class="store-map-count"><strong id="selectionStoreCount">3</strong> mağaza <i></i><span id="selectionMapStatus">Harita yükleniyor</span></div>
         <div class="store-map-guide" aria-label="Kullanım rehberi">
           <span><b>1</b> Mağazayı seç</span><span><b>2</b> İçeri gir</span><span><b>3</b> Ürünlere bak</span>
@@ -109,7 +109,7 @@
           <button type="submit" aria-label="Aramayı uygula">Ara</button>
         </div>
         <div class="store-map-search__filters">
-          <label><span>Mağaza</span><select id="selectionStoreFilter"><option value="">Tüm mağazalar</option><option value="guzel-optik">Güzel Optik</option><option value="sude-home">Sude Home</option><option value="mawus">Mawuş</option></select></label>
+          <label><span>Mağaza</span><select id="selectionStoreFilter"><option value="">Tüm mağazalar</option><option value="guzel-optik">Güzel Optik</option><option value="sude-home">Sude Home</option><option value="nisantasi">Nişantaşı</option><option value="telefon">Zeka Teknoloji</option></select></label>
           <label><span>Kategori</span><select id="selectionCategoryFilter"><option value="">Tüm kategoriler</option></select></label>
           <label><span>En az</span><input id="selectionMinPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="0 TL" /></label>
           <label><span>En çok</span><input id="selectionMaxPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="Üst sınır" /></label>
@@ -126,14 +126,18 @@
         <button class="store-marker store-marker--sude" type="button" data-selection-store="sude-home" aria-label="Sude Home mağazasını seç">
           <span class="store-marker__pin"><i>🍽️</i></span><strong>Sude Home</strong><small>Ev &amp; Yaşam</small>
         </button>
-        <button class="store-marker store-marker--mawus" type="button" data-selection-store="mawus" aria-label="Mawuş mağazasını seç">
-          <span class="store-marker__pin"><i>💍</i></span><strong>Mawuş</strong><small>Kuyumculuk</small>
+        <button class="store-marker store-marker--nisantasi" type="button" data-selection-store="nisantasi" aria-label="Nişantaşı mağazasını seç">
+          <span class="store-marker__pin"><i>💍</i></span><strong>Nişantaşı</strong><small>Kuyumculuk</small>
+        </button>
+        <button class="store-marker store-marker--telefon" type="button" data-selection-store="telefon" aria-label="Zeka Teknoloji mağazasını seç">
+          <span class="store-marker__pin"><i>📱</i></span><strong>Zeka Teknoloji</strong><small>Telefon &amp; Aksesuar</small>
         </button>
       </div>
       <div class="store-map-list" aria-label="Mağaza seçim listesi">
         <button type="button" data-selection-list="guzel-optik" style="--store-color:#dc8fa3"><span></span><strong>Güzel Optik</strong><small data-selection-match>Optik &amp; Gözlük</small></button>
         <button type="button" data-selection-list="sude-home" style="--store-color:#79b9a4"><span></span><strong>Sude Home</strong><small data-selection-match>Ev &amp; Yaşam</small></button>
-        <button type="button" data-selection-list="mawus" style="--store-color:#e7ae78"><span></span><strong>Mawuş</strong><small data-selection-match>Kuyumculuk</small></button>
+        <button type="button" data-selection-list="nisantasi" style="--store-color:#e7ae78"><span></span><strong>Nişantaşı</strong><small data-selection-match>Kuyumculuk</small></button>
+        <button type="button" data-selection-list="telefon" style="--store-color:#7fa7d8"><span></span><strong>Zeka Teknoloji</strong><small data-selection-match>Telefon &amp; Aksesuar</small></button>
       </div>
       <div id="selectionEmptyState" class="store-map-empty" hidden>Bu filtrelerle eşleşen mağaza bulunamadı.</div>
       <p class="store-map-hint"><span>⌁</span> Haritayı sürükleyin, yakınlaşmak için tekerleği kullanın</p>
@@ -174,7 +178,8 @@
                 <option value="">Tüm mağazalar</option>
                 <option value="guzel-optik">Güzel Optik</option>
                 <option value="sude-home">Sude Home</option>
-                <option value="mawus">Mawuş Kuyumculuk</option>
+                <option value="nisantasi">Nişantaşı Kuyumculuk</option>
+                <option value="telefon">Zeka Teknoloji</option>
               </select>
             </label>
             <label class="portal-filter-field" for="portalCategoryFilter">
@@ -235,18 +240,33 @@
               </div>
             </article>
 
-            <article class="store-card" role="listitem" tabindex="0" data-store-id="mawus" aria-selected="false">
+            <article class="store-card" role="listitem" tabindex="0" data-store-id="nisantasi" aria-selected="false">
               <div class="store-card__banner">
-                <img src="/assets/mawus_store.svg" alt="Mawuş Kuyumculuk" loading="eager" />
+                <img src="/assets/mawus_store.svg" alt="Nişantaşı Kuyumculuk" loading="eager" />
                 <span class="store-card__badge">Kuyumculuk</span>
               </div>
               <div class="store-card__body">
                 <div class="store-card__header">
-                  <h2 class="store-card__title">Mawuş Kuyumculuk</h2>
+                  <h2 class="store-card__title">Nişantaşı Kuyumculuk</h2>
                   <span class="store-card__category">Kuyumculuk &amp; Mücevher</span>
                 </div>
                 <p class="store-card__description">Altın, yüzük ve mücevher ürünleri.</p>
                 <div class="store-card__meta"><span class="store-card__items">111 ürün</span><span class="store-card__load" data-store-load>Bekliyor</span><span class="store-card__match" data-store-match>15 eşleşme</span></div>
+              </div>
+            </article>
+
+            <article class="store-card" role="listitem" tabindex="0" data-store-id="telefon" aria-selected="false">
+              <div class="store-card__banner">
+                <img src="/assets/optik_store.svg" alt="Zeka Teknoloji" loading="eager" />
+                <span class="store-card__badge">Telefon</span>
+              </div>
+              <div class="store-card__body">
+                <div class="store-card__header">
+                  <h2 class="store-card__title">Zeka Teknoloji</h2>
+                  <span class="store-card__category">Telefon &amp; Aksesuar</span>
+                </div>
+                <p class="store-card__description">Cep telefonu, kılıf ve aksesuar kataloğu.</p>
+                <div class="store-card__meta"><span class="store-card__items">52 ürün</span><span class="store-card__load" data-store-load>Bekliyor</span><span class="store-card__match" data-store-match>52 eşleşme</span></div>
               </div>
             </article>
             <div id="portalEmptyState" class="portal-empty hidden" hidden>
@@ -259,7 +279,7 @@
 
         <footer class="store-portal__footer">
           <div class="portal-quick-info">
-            <span>3 mağaza</span><span>133 ürün</span><span>3B modeller</span>
+            <span>3 mağaza</span><span>136 ürün</span><span>3B modeller</span>
           </div>
         </footer>
       </div>
@@ -288,12 +308,17 @@
           </div>
         </div>
 
+        <button id="recentProductBtn" class="hud-pill-button recent-product-button hidden" type="button" hidden title="Son incelediğiniz ürünü yeniden aç">
+          <span class="recent-product-button__mark" aria-hidden="true"></span>
+          <span class="recent-product-button__copy"><small>SON İNCELENEN</small><strong id="recentProductName">Son ürün</strong></span>
+        </button>
+
       </div>
 
       <div class="control-hint" aria-label="Tur kontrolleri">
-        <span class="control-hint__title">HAREKET</span>
+        <span class="control-hint__title">GEZİN</span>
         <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span>
-        <span>Fare: bakış · Sol tık: incele · <kbd>Esc</kbd>: serbest</span>
+        <span>Bakış: fare · Hızlan: Shift · İncele: E</span>
         <button id="ambientToggle" class="ambient-toggle" type="button" aria-pressed="true" title="Ortam sesini kapat">
           <span class="ambient-toggle__icon" aria-hidden="true"></span>
           <span data-ambient-label>Ortam sesi açık</span>
@@ -573,6 +598,16 @@
             <div class="product-stage__hint">
               <span><b aria-hidden="true">↔</b> Sürükle ve döndür</span>
               <span><b aria-hidden="true">＋</b> Tekerlekle yakınlaş</span>
+            </div>
+            <div id="productStageTools" class="product-stage__tools hidden">
+              <button id="productExplodeBtn" class="stage-tool stage-tool--explode hidden" type="button" aria-pressed="false">
+                <span class="stage-tool__icon" aria-hidden="true">◈</span>
+                <span class="stage-tool__label">Parçalarına ayır</span>
+              </button>
+              <div id="productCaseTray" class="stage-cases hidden" role="group" aria-label="Kılıf seçenekleri">
+                <span class="stage-cases__title">Kılıf dene</span>
+                <div id="productCaseOptions" class="stage-cases__options"></div>
+              </div>
             </div>
           </div>
           <aside class="product-detail">

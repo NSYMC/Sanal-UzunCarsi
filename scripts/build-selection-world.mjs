@@ -19,7 +19,8 @@ const sources = [
     { id: 'always', path: 'public/models/world/always.glb' },
     { id: 'guzel-optik', path: 'public/models/guzel-optik/store-environment.glb' },
     { id: 'sude-home', path: 'public/models/sude-home/store-raw.glb' },
-    { id: 'mawus', path: 'public/models/mawus/store-raw.glb' }
+    { id: 'nisantasi', path: 'public/models/nisantasi/store-raw.glb' },
+    { id: 'telefon', path: 'public/models/telefon/store-raw.glb' }
 ];
 
 const palettes = {
@@ -47,11 +48,17 @@ const palettes = {
         ['sude-blue', [0.58, 0.70, 0.82, 1]], ['sude-lime', [0.76, 0.84, 0.59, 1]],
         ['sude-forest', [0.34, 0.52, 0.46, 1]]
     ],
-    mawus: [
-        ['mawus-cream', [0.98, 0.91, 0.77, 1]], ['mawus-apricot', [0.95, 0.72, 0.47, 1]],
-        ['mawus-honey', [0.87, 0.61, 0.31, 1]], ['mawus-champagne', [0.91, 0.79, 0.59, 1]],
-        ['mawus-mauve', [0.73, 0.61, 0.70, 1]], ['mawus-coral', [0.91, 0.61, 0.49, 1]],
-        ['mawus-cocoa', [0.53, 0.42, 0.35, 1]]
+    nisantasi: [
+        ['nisantasi-cream', [0.98, 0.91, 0.77, 1]], ['nisantasi-apricot', [0.95, 0.72, 0.47, 1]],
+        ['nisantasi-honey', [0.87, 0.61, 0.31, 1]], ['nisantasi-champagne', [0.91, 0.79, 0.59, 1]],
+        ['nisantasi-mauve', [0.73, 0.61, 0.70, 1]], ['nisantasi-coral', [0.91, 0.61, 0.49, 1]],
+        ['nisantasi-cocoa', [0.53, 0.42, 0.35, 1]]
+    ],
+    telefon: [
+        ['telefon-frost', [0.93, 0.95, 0.97, 1]], ['telefon-steel', [0.72, 0.77, 0.83, 1]],
+        ['telefon-slate', [0.46, 0.53, 0.62, 1]], ['telefon-ink', [0.24, 0.28, 0.34, 1]],
+        ['telefon-azure', [0.58, 0.74, 0.88, 1]], ['telefon-mint', [0.66, 0.84, 0.80, 1]],
+        ['telefon-amber', [0.92, 0.72, 0.45, 1]]
     ]
 };
 

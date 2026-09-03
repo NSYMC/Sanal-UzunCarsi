@@ -1,64 +1,182 @@
 {
-  "coordinateSystem": "glTF right-handed, Y-up, forward -Z",
-  "reference": {
-    "file": "sahne.glb",
-    "sha256": "92DCF64089D8493D80B70FC6B580D6F73FBC7F4EDE47C49B94D3600DC567D80E",
-    "runtimeRendered": false
-  },
-  "stores": {
-    "guzel-optik": {
-      "assetTransform": {
-        "translation": [0, 0, 0],
-        "rotationQuaternion": [0, 0, 0, 1],
-        "scale": [1, 1, 1]
-      },
-      "center": [27.445, -6.65, 3.28],
-      "floorY": -8.62,
-      "bounds": {
-        "minX": 24.86,
-        "maxX": 30.03,
-        "minZ": -11.45,
-        "maxZ": 18.0
-      },
-      "entrance": [27.445, -6.72, 16.35],
-      "entranceTarget": [27.445, -6.72, 10.2],
-      "verificationNode": "OPTIK_PRODUCT_021_V10"
+    "coordinateSystem": "glTF right-handed, Y-up, forward -Z",
+    "reference": {
+        "file": "sahne.glb",
+        "sha256": "92DCF64089D8493D80B70FC6B580D6F73FBC7F4EDE47C49B94D3600DC567D80E",
+        "runtimeRendered": false
     },
-    "sude-home": {
-      "assetTransform": {
-        "translation": [0, 0, 0],
-        "rotationQuaternion": [0, 0, 0, 1],
-        "scale": [1, 1, 1]
-      },
-      "center": [-34.20643, -5.20304, 3.24188],
-      "floorY": -8.82539,
-      "bounds": {
-        "minX": -37.85912,
-        "maxX": -30.55374,
-        "minZ": -11.72394,
-        "maxZ": 18.2077
-      },
-      "entrance": [-34.20643, -6.72, 16.55],
-      "entranceTarget": [-34.20643, -6.72, 10.4],
-      "verificationNode": "SUDE_HOME_GLASS_ENTRANCE_SINGLE"
-    },
-    "mawus": {
-      "assetTransform": {
-        "translation": [0, 0, 0],
-        "rotationQuaternion": [0, 0, 0, 1],
-        "scale": [1, 1, 1]
-      },
-      "center": [-95.47, -5.17, 3.26],
-      "floorY": -8.52,
-      "bounds": {
-        "minX": -97.22,
-        "maxX": -93.72,
-        "minZ": -11.74,
-        "maxZ": 18.26
-      },
-      "entrance": [-95.47, -6.42, 16.58],
-      "entranceTarget": [-95.47, -6.42, 10.5],
-      "verificationNode": "MAWUS_LUXE_BrandName"
+    "stores": {
+        "guzel-optik": {
+            "assetTransform": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotationQuaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "center": [
+                27.445,
+                -6.65,
+                -22.78693
+            ],
+            "floorY": -8.62,
+            "bounds": {
+                "minX": 24.86,
+                "maxX": 30.03,
+                "minZ": -37.79088,
+                "maxZ": -7.78053
+            },
+            "entrance": [
+                27.445,
+                -6.72,
+                -9.71693
+            ],
+            "entranceTarget": [
+                27.445,
+                -6.72,
+                -15.86693
+            ],
+            "verificationNode": "OPTIK_PRODUCT_021_V10"
+        },
+        "sude-home": {
+            "assetTransform": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotationQuaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "center": [
+                -34.20643,
+                -5.20304,
+                -22.82505
+            ],
+            "floorY": -8.82539,
+            "bounds": {
+                "minX": -37.85912,
+                "maxX": -30.55374,
+                "minZ": -37.79088,
+                "maxZ": -7.85923
+            },
+            "entrance": [
+                -34.20643,
+                -6.72,
+                -9.51693
+            ],
+            "entranceTarget": [
+                -34.20643,
+                -6.72,
+                -15.66693
+            ],
+            "verificationNode": "SUDE_HOME_GLASS_ENTRANCE_SINGLE"
+        },
+        "nisantasi": {
+            "assetTransform": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotationQuaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "center": [
+                44.1944,
+                -5.17,
+                -24.94825
+            ],
+            "floorY": -8.52,
+            "bounds": {
+                "minX": 41.75,
+                "maxX": 46.65,
+                "minZ": -37.79088,
+                "maxZ": -12.10492
+            },
+            "entrance": [
+                43.9,
+                -6.42,
+                -11.7
+            ],
+            "entranceTarget": [
+                43.72,
+                -7.15,
+                -17.5
+            ],
+            "verificationNode": "AKFA_Ceiling_Center_Base"
+        },
+        "telefon": {
+            "assetTransform": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotationQuaternion": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "center": [
+                -27.853,
+                -6.55,
+                -24.95
+            ],
+            "floorY": -8.44,
+            "bounds": {
+                "minX": -30.62,
+                "maxX": -25.02,
+                "minZ": -37.79,
+                "maxZ": -12.1
+            },
+            "entrance": [
+                -25.9,
+                -6.34,
+                -11.6
+            ],
+            "entranceTarget": [
+                -27.6,
+                -7.1,
+                -17.5
+            ],
+            "verificationNode": "TAVAN_Plaka"
+        }
     }
-  }
 }

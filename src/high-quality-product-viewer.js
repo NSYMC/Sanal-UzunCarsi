@@ -17,6 +17,7 @@ import '@babylonjs/loaders/glTF';
 
 const DEFAULT_CACHE_SIZE = 2;
 const GLASS_NAME_PATTERN = /glass|cam|lens|vitrin|window/i;
+const EXPLODE_DURATION_MS = 900;
 
 const finiteNumber = (value, fallback = 0) => Number.isFinite(Number(value)) ? Number(value) : fallback;
 
@@ -163,17 +164,36 @@ const collectStats = (meshes) => {
     };
 };
 
-const fitCameraToMeshes = (camera, meshes) => {
+const meshWorldBounds = (meshes, { refresh = false } = {}) => {
     let minimum = new Vector3(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY);
     let maximum = new Vector3(Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY);
 
     for (const mesh of meshes) {
         mesh.computeWorldMatrix(true);
-        mesh.refreshBoundingInfo(true);
+        if (refresh) mesh.refreshBoundingInfo(true);
         const bounds = mesh.getBoundingInfo().boundingBox;
         minimum = Vector3.Minimize(minimum, bounds.minimumWorld);
         maximum = Vector3.Maximize(maximum, bounds.maximumWorld);
     }
+
+    return { minimum, maximum };
+};
+
+// Parçalarına ayrılmış model dikeyde uzadığı için yarıçap, en büyük kenardan
+// değil kameranın görüş açısından hesaplanır.
+export const radiusToFrame = (fov, aspectRatio, size, margin = 1.12) => {
+    const tanHalfFov = Math.tan(Math.max(finiteNumber(fov, 0.8), 0.1) / 2);
+    const halfHeight = Math.max(finiteNumber(size.y, 0), 0.001) / 2;
+    // Model yörünge kamerasıyla döndüğünden yatayda en geniş kesit ölçü alınır.
+    const halfWidth = Math.max(finiteNumber(size.x, 0), finiteNumber(size.z, 0), 0.001) / 2;
+    return Math.max(
+        halfHeight / tanHalfFov,
+        halfWidth / (tanHalfFov * Math.max(finiteNumber(aspectRatio, 1), 0.2))
+    ) * Math.max(margin, 1);
+};
+
+const fitCameraToMeshes = (camera, meshes) => {
+    const { minimum, maximum } = meshWorldBounds(meshes, { refresh: true });
 
     if (!Number.isFinite(minimum.x) || !Number.isFinite(maximum.x)) {
         camera.setTarget(Vector3.Zero());
@@ -275,6 +295,20 @@ export const createHighQualityProductViewer = ({
     let activeTransientContainer = null;
     let activeAnimationGroups = [];
     let activeHotspots = [];
+    // Parçalanma kullanıcının düğmesine bağlı: 'kapali' | 'aciliyor' | 'acik' | 'kapaniyor'
+    let explodePhase = 'kapali';
+    let explodeBaseRadius = null;
+    // 0 = birleşik, 1 = tam ayrılmış. Geçiş yarıda çevrilebilsin diye tutulur.
+    let explodeProgress = 0;
+    let explodeOpenSize = null;
+    let explodeDrive = null;
+    // Alt araç çubuğunun modeli örtmemesi için ayrılan şerit (piksel).
+    let bottomInsetPx = 0;
+    let onExplodeChange = null;
+    let caseEntries = null;
+    let caseRoot = null;
+    let caseTransientContainer = null;
+    let activeCaseUrl = null;
     let heroMotion = null;
     let requestVersion = 0;
     let disposed = false;
@@ -302,6 +336,10 @@ export const createHighQualityProductViewer = ({
             element.removeAttribute('data-tracking');
         });
         activeHotspots = [];
+        if (explodeDrive) {
+            scene.onBeforeRenderObservable.removeCallback(explodeDrive);
+            explodeDrive = null;
+        }
         activeAnimationGroups.forEach((group) => group.stop());
         activeAnimationGroups = [];
         activeEntries?.dispose();
@@ -312,6 +350,30 @@ export const createHighQualityProductViewer = ({
         heroMotion = null;
         activeTransientContainer?.dispose();
         activeTransientContainer = null;
+        releaseCase();
+        explodePhase = 'kapali';
+        explodeBaseRadius = null;
+        explodeProgress = 0;
+        explodeOpenSize = null;
+        camera.targetScreenOffset.y = 0;
+    };
+
+    /** Parçalanma animasyonunu 0..1 aralığında tarar. */
+    const applyExplodeProgress = (oran) => {
+        explodeProgress = Math.max(0, Math.min(1, finiteNumber(oran, 0)));
+        for (const group of activeAnimationGroups) {
+            group.goToFrame(group.from + (group.to - group.from) * explodeProgress);
+        }
+    };
+
+    const releaseCase = () => {
+        caseEntries?.dispose();
+        caseEntries = null;
+        caseRoot?.dispose();
+        caseRoot = null;
+        caseTransientContainer?.dispose();
+        caseTransientContainer = null;
+        activeCaseUrl = null;
     };
 
     const bindHotspots = (product, entries, meshes) => {
@@ -482,13 +544,45 @@ export const createHighQualityProductViewer = ({
                 cached,
                 animationCount: activeAnimationGroups.length
             };
+            explodeBaseRadius = camera.radius;
+            explodeProgress = 0;
+            explodeOpenSize = null;
+            camera.targetScreenOffset.y = 0;
             if (animationPlayback) {
+                // autoPlay tanımlı ürünler açılır açılmaz kendiliğinden oynar.
                 camera.radius *= animationPlayback.cameraRadiusMultiplier;
+                explodeBaseRadius = camera.radius;
+                explodePhase = 'acik';
+                explodeProgress = 1;
                 activeAnimationGroups.forEach((group) => {
                     group.reset();
                     group.start(animationPlayback.loop, animationPlayback.speedRatio);
                 });
+            } else if (activeAnimationGroups.length) {
+                // Düğmeyle açılır. Gruplar "başlatılmış ama duraklatılmış" kalır;
+                // goToFrame yalnızca bu durumda kare atlayabilir.
+                activeAnimationGroups.forEach((group) => {
+                    group.reset();
+                    group.start(false, 1.0);
+                    group.pause();
+                });
+                // Ayrılmış halin ölçüsü bir kez alınır; kadraj yarıçapı düğmeye
+                // basıldığında bu ölçüden hesaplanır.
+                applyExplodeProgress(1);
+                const acik = meshWorldBounds(meshes);
+                const merkez = camera.getTarget();
+                // Kamera hedefi yerinde kaldığından ölçü merkeze göre simetriktir.
+                explodeOpenSize = new Vector3(
+                    Math.max(acik.maximum.x - merkez.x, merkez.x - acik.minimum.x) * 2,
+                    Math.max(acik.maximum.y - merkez.y, merkez.y - acik.minimum.y) * 2,
+                    Math.max(acik.maximum.z - merkez.z, merkez.z - acik.minimum.z) * 2
+                );
+                applyExplodeProgress(0);
+                explodePhase = 'kapali';
+            } else {
+                explodePhase = 'kapali';
             }
+            onExplodeChange?.(explodeState());
             const lift = Math.max(stats.size[1] * 0.08, 0.025);
             activeRoot.scaling.copyFromFloats(0.82, 0.82, 0.82);
             activeRoot.position.y = -lift;
@@ -518,6 +612,108 @@ export const createHighQualityProductViewer = ({
             onError?.(error, nextState, product);
             return nextState;
         }
+    };
+
+    const explodeState = () => ({
+        destekli: activeAnimationGroups.length > 0,
+        asama: explodePhase,
+        acik: explodePhase === 'acik'
+    });
+
+    /**
+     * Parçalanmayı sürer. Babylon geri sarımda (speedRatio < 0)
+     * onAnimationGroupEndObservable'ı tetiklemediğinden animasyon start/stop
+     * yerine her karede goToFrame ile taranır; aşama geçişi gözlemciye değil
+     * buradaki zamanlayıcıya bağlıdır.
+     */
+    const runExplode = (acilacak) => {
+        if (!activeAnimationGroups.length) return;
+        explodePhase = acilacak ? 'aciliyor' : 'kapaniyor';
+        onExplodeChange?.(explodeState());
+        if (explodeBaseRadius == null) explodeBaseRadius = camera.radius;
+
+        // Araç çubuğunun kapladığı şerit kadar kadrajı daraltır ve modeli yukarı iter.
+        const bandOrani = Math.min(0.34, bottomInsetPx / Math.max(canvas.clientHeight, 1));
+        const hedefYaricap = acilacak && explodeOpenSize
+            ? radiusToFrame(camera.fov, engine.getAspectRatio(camera), explodeOpenSize)
+                / Math.max(1 - bandOrani, 0.5)
+            : explodeBaseRadius;
+        camera.upperRadiusLimit = Math.max(camera.upperRadiusLimit || 0, hedefYaricap * 1.3);
+        const gorunurYukseklik = 2 * hedefYaricap * Math.tan(Math.max(camera.fov, 0.1) / 2);
+        const hedefKaydirma = acilacak ? gorunurYukseklik * bandOrani * 0.5 : 0;
+
+        const baslangicOran = explodeProgress;
+        const hedefOran = acilacak ? 1 : 0;
+        const baslangicYaricap = camera.radius;
+        const baslangicKaydirma = camera.targetScreenOffset.y;
+        // Yarıda çevrilirse kalan mesafe kadar sürer; hızlanma sıçraması olmaz.
+        const sure = Math.max(180, EXPLODE_DURATION_MS * Math.abs(hedefOran - baslangicOran));
+        const t0 = performance.now();
+
+        if (explodeDrive) scene.onBeforeRenderObservable.removeCallback(explodeDrive);
+        explodeDrive = () => {
+            const k = Math.min(1, (performance.now() - t0) / sure);
+            const e = 1 - Math.pow(1 - k, 3);
+            applyExplodeProgress(baslangicOran + (hedefOran - baslangicOran) * e);
+            camera.radius = baslangicYaricap + (hedefYaricap - baslangicYaricap) * e;
+            camera.targetScreenOffset.y = baslangicKaydirma + (hedefKaydirma - baslangicKaydirma) * e;
+            if (k < 1) return;
+            scene.onBeforeRenderObservable.removeCallback(explodeDrive);
+            explodeDrive = null;
+            explodePhase = acilacak ? 'acik' : 'kapali';
+            onExplodeChange?.(explodeState());
+        };
+        scene.onBeforeRenderObservable.add(explodeDrive);
+    };
+
+    /** Parçalanmayı ileri/geri oynatır. Kılıf takılıysa kılıf çıkarılır. */
+    const toggleExplode = () => {
+        if (disposed || !activeAnimationGroups.length) return explodeState();
+        if (explodePhase === 'aciliyor' || explodePhase === 'kapaniyor') return explodeState();
+        const acilacak = explodePhase !== 'acik';
+        if (acilacak && activeCaseUrl) releaseCase();
+        runExplode(acilacak);
+        return explodeState();
+    };
+
+    /** Aynı sahnede telefonun üzerine kılıf giydirir; null ise çıkarır. */
+    const setCase = async (modelUrl) => {
+        if (disposed) return null;
+        const url = String(modelUrl || '').trim();
+        if (!url) {
+            releaseCase();
+            return null;
+        }
+        if (url === activeCaseUrl) return url;
+        if (!activeModelRoot) return null;
+        // Kılıf yalnızca birleşik telefona giydirilir; parçalar ayrıksa toplanır.
+        if (explodePhase === 'acik' || explodePhase === 'aciliyor') runExplode(false);
+        releaseCase();
+        const { container } = await getContainer(url);
+        if (disposed || !activeModelRoot) return null;
+        if (!sourceCache.has(url)) caseTransientContainer = container;
+        caseRoot = new TransformNode(`hqCaseRoot_${Date.now()}`, scene);
+        // Kılıf ve telefon aynı orijinde üretildiği için ek dönüşüm gerekmez.
+        caseRoot.parent = activeModelRoot;
+        caseEntries = container.instantiateModelsToScene(
+            (sourceName) => `hqCase_${sourceName}`,
+            false,
+            { doNotInstantiate: true }
+        );
+        for (const rootNode of caseEntries.rootNodes) rootNode.parent = caseRoot;
+        activeCaseUrl = url;
+        return url;
+    };
+
+    const getCase = () => activeCaseUrl;
+
+    const setExplodeListener = (fn) => {
+        onExplodeChange = typeof fn === 'function' ? fn : null;
+    };
+
+    /** Alt araç çubuğunun yüksekliği; parçalar bu şeridin üzerine taşmaz. */
+    const setBottomInset = (pixels) => {
+        bottomInsetPx = Math.max(0, finiteNumber(pixels, 0));
     };
 
     const clear = () => {
@@ -577,5 +773,17 @@ export const createHighQualityProductViewer = ({
     });
     publishState(state);
 
-    return { open, clear, resize, dispose, getState };
+    return {
+        open,
+        clear,
+        resize,
+        dispose,
+        getState,
+        toggleExplode,
+        explodeState,
+        setExplodeListener,
+        setBottomInset,
+        setCase,
+        getCase
+    };
 };

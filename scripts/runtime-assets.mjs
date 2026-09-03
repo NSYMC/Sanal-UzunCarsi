@@ -9,7 +9,7 @@ const manifestPath = path.join(assetsDirectory, 'manifest.json');
 const chunkSize = 48 * 1024 * 1024;
 const originalSourcePaths = [
     'public/models/sude-home/store-raw.glb',
-    'public/models/mawus/store-raw.glb',
+    'public/models/nisantasi/store-raw.glb',
     'public/models/guzel-optik/store-environment.glb',
     'public/models/world/always.glb',
     'public/models/world/outside.glb'

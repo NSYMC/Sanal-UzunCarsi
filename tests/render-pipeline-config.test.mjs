@@ -60,9 +60,25 @@ test('harita hazır olduğunda mağaza ve ürün modellerinin tamamı arka pland
     ]);
 
     assert.match(mainSource, /productModelPreloadAssets/);
+    assert.match(mainSource, /id:\s*'store:guzel-optik:(?:library|proxies|manifest)'/);
+    assert.match(mainSource, /const targetStoreId = STORES\[storeId\] \? storeId : selectedStoreId/);
+    assert.match(mainSource, /enterStore\(storeId\)/);
     assert.match(mainSource, /selectionWorld\.whenReady/);
     assert.match(mainSource, /scenePreloader\.preloadAll\(\)/);
+    assert.match(mainSource, /\[worldRuntime, runtime, outsideRuntime\] = await Promise\.all/);
+    assert.match(mainSource, /loadAlwaysWorld\(scene, quality\)/);
+    assert.match(mainSource, /loadOutsideWorld\(scene, quality, \{ reportProgress: false \}\)/);
+    assert.doesNotMatch(mainSource, /startDeferredWorldLoading|loadDeferredWorldRuntime/);
+    assert.match(mainSource, /qualityStatus\.dataset\.outsideRendered = String\(isOutside\)/);
+    assert.match(mainSource, /setContainerRendered\(outsideRuntime, isOutside\)/);
     assert.match(mainSource, /concurrency:\s*4/);
     assert.match(workerSource, /glb\|gltf\|json/);
     assert.match(workerSource, /\\\.hdr/);
+});
+
+test('streaming ışıkları değiştiğinde mağaza malzemeleri yeniden hazırlanır', async () => {
+    const source = await readProjectFile('src/main.js');
+    assert.doesNotMatch(source, /materials\.forEach\(\(material\) => material\.freeze\(\)\)/);
+    assert.match(source, /const refreshSceneMaterialsForLighting[\s\S]*material\.markAsDirty\?\.\(Material\.AllDirtyFlag\)/);
+    assert.match(source, /const setRuntimeLightsEnabled[\s\S]*refreshSceneMaterialsForLighting/);
 });

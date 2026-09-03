@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateProductDataset } from '../src/product-registry.js';
-import mawusProductMatches from '../src/data/mawus-product-matches.js';
+import nisantasiProductMatches from '../src/data/mawus-product-matches.js';
+import telefonProductMatches from '../src/data/telefon-product-matches.js';
 
 const workspaceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const productsPath = path.resolve(workspaceRoot, process.argv[2] || 'src/data/products.json');
@@ -13,8 +14,16 @@ const productsFile = readJson(productsPath);
 const bindingsFile = readJson(bindingsPath);
 const dataset = {
     schemaVersion: productsFile.schemaVersion ?? bindingsFile.schemaVersion,
-    products: [...productsFile.products, ...mawusProductMatches.products],
-    bindings: [...bindingsFile.bindings, ...mawusProductMatches.bindings]
+    products: [
+        ...productsFile.products,
+        ...nisantasiProductMatches.products,
+        ...telefonProductMatches.products
+    ],
+    bindings: [
+        ...bindingsFile.bindings,
+        ...nisantasiProductMatches.bindings,
+        ...telefonProductMatches.bindings
+    ]
 };
 
 const validation = validateProductDataset(dataset);

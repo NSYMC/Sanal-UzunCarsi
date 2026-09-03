@@ -13,6 +13,7 @@ import { ShadowGenerator } from '@babylonjs/core/Lights/Shadows/shadowGenerator'
 import { MeshBuilder } from '@babylonjs/core/Meshes/meshBuilder';
 import { AbstractMesh } from '@babylonjs/core/Meshes/abstractMesh';
 import { PBRMaterial } from '@babylonjs/core/Materials/PBR/pbrMaterial';
+import { Material } from '@babylonjs/core/Materials/material';
 import { BackgroundMaterial } from '@babylonjs/core/Materials/Background/backgroundMaterial';
 import { HDRCubeTexture } from '@babylonjs/core/Materials/Textures/hdrCubeTexture';
 import { Texture } from '@babylonjs/core/Materials/Textures/texture';
@@ -41,7 +42,8 @@ import {
 import { applyProductBindings, registerRuntimeProducts } from './product-runtime-bindings.js';
 import productData from './data/products.json';
 import bindingData from './data/scene-product-bindings.json';
-import mawusProductMatches from './data/mawus-product-matches.js';
+import nisantasiProductMatches from './data/mawus-product-matches.js';
+import telefonProductMatches from './data/telefon-product-matches.js';
 import { resolveSudeProduct, sudeProducts } from './data/sude-product-matches.js';
 import { loadMawusProductPrices } from './gold-pricing.js';
 import storeAnchors from './store-anchors.json';
@@ -49,6 +51,7 @@ import {
     containsXZ,
     createStoreSpatialLimits
 } from './store-streaming-policy.js';
+import { createNavigationColliderSpecs } from './navigation-colliders.js';
 
 import '@babylonjs/core/Collisions/collisionCoordinator';
 import '@babylonjs/core/Culling/Octrees/octreeSceneComponent';
@@ -70,7 +73,8 @@ KhronosTextureContainer2.DefaultNumWorkers = 0;
 KhronosTextureContainer2._KTX2DecoderModule = KTX2DecoderModule;
 const MODEL_ROOT = `${PUBLIC_ROOT}models/guzel-optik/`;
 const SUDE_MODEL_ROOT = `${PUBLIC_ROOT}models/sude-home/`;
-const MAWUS_MODEL_ROOT = `${PUBLIC_ROOT}models/mawus/`;
+const NISANTASI_MODEL_ROOT = `${PUBLIC_ROOT}models/nisantasi/`;
+const TELEFON_MODEL_ROOT = `${PUBLIC_ROOT}models/telefon/`;
 const ALWAYS_WORLD_ROOT = `${PUBLIC_ROOT}models/world/`;
 const OUTSIDE_WORLD_ROOT = SCENE_ASSET_VARIANT === 'etc1s'
     ? `${PUBLIC_ROOT}models/etc1s/world/`
@@ -79,19 +83,21 @@ const GUZEL_SCENE_ROOT = SCENE_ASSET_VARIANT === 'etc1s'
     ? `${PUBLIC_ROOT}models/materials-optimized/etc1s/guzel-optik/`
     : MODEL_ROOT;
 const SUDE_SCENE_ROOT = SUDE_MODEL_ROOT;
-const MAWUS_SCENE_ROOT = MAWUS_MODEL_ROOT;
-const SCENE_CACHE_NAME = 'uzuncarsi-scenes-v12';
+const NISANTASI_SCENE_ROOT = NISANTASI_MODEL_ROOT;
+const TELEFON_SCENE_ROOT = TELEFON_MODEL_ROOT;
+const SCENE_CACHE_NAME = 'uzuncarsi-scenes-v16';
 const versionedAsset = (filename, revision) => `${filename}?asset=${revision}`;
-const ENVIRONMENT_FILE = versionedAsset('store-environment.glb', 'e340dc2f');
+const ENVIRONMENT_FILE = versionedAsset('store-environment.glb', '17759e7e');
 const PRODUCT_PROXY_FILE = 'product-proxies.glb';
 const PRODUCT_LIBRARY_FILE = 'product-library.glb';
 const PRODUCT_MANIFEST_FILE = 'products.json';
 const WORLD_ENVIRONMENT_FILE = `${PUBLIC_ROOT}environments/store-ocean-sky.hdr`;
-const SUDE_RAW_FILE = 'store-raw.glb';
-const MAWUS_RAW_FILE = 'store-raw.glb';
-const ALWAYS_WORLD_FILE = versionedAsset('always.glb', '2ddcfd89');
-const OUTSIDE_WORLD_FILE = versionedAsset('outside.glb', '317822f2');
-const SELECTION_WORLD_FILE = versionedAsset('selection-world.glb', '1090b1f4');
+const SUDE_RAW_FILE = versionedAsset('store-raw.glb', '64aea422');
+const NISANTASI_RAW_FILE = versionedAsset('store-raw.glb', '8993ca9d');
+const TELEFON_RAW_FILE = versionedAsset('store-raw.glb', 'f33d73f5');
+const ALWAYS_WORLD_FILE = versionedAsset('always.glb', 'dcf64790');
+const OUTSIDE_WORLD_FILE = versionedAsset('outside.glb', 'b1f71887');
+const SELECTION_WORLD_FILE = versionedAsset('selection-world.glb', 'd68008ad');
 const QUALITY_STORAGE_KEY = 'uzunCarsi:storeQuality:v3';
 const SHADOWS_DISABLED = new URLSearchParams(window.location.search).get('shadows') === 'off';
 const OUTSIDE_ONLY_TEST = new URLSearchParams(window.location.search).get('outsideOnly') === '1';
@@ -101,8 +107,8 @@ const STORE_INSIDE_ENTER_DEPTH = 1.25;
 const STORE_INSIDE_EXIT_DEPTH = 0.35;
 const PLAYER_EYE_HEIGHT = 1.92;
 // Web tabanlı birinci şahıs gezintisi için yürüme ve hızlanma arasındaki farkı küçük tutar.
-const PLAYER_WALK_SPEED = 0.18;
-const PLAYER_SPRINT_SPEED = 0.27;
+const PLAYER_WALK_SPEED = 0.21;
+const PLAYER_SPRINT_SPEED = 0.31;
 const PLAYER_COLLISION_RADIUS = 0.15;
 const PLAYER_MAX_STEP_HEIGHT = 0.52;
 const PLAYER_STEP_LOOKAHEAD = 0.46;
@@ -153,20 +159,35 @@ const STORES = Object.freeze({
         icon: '🍽️',
         bounds: worldBoundsForStore('sude-home')
     },
-    'mawus': {
-        id: 'mawus',
-        name: 'Mawuş Kuyumculuk',
-        shortName: 'Mawuş',
-        type: 'raw-mawus',
-        modelRoot: MAWUS_MODEL_ROOT,
-        sceneRoot: MAWUS_SCENE_ROOT,
-        sceneFile: MAWUS_RAW_FILE,
-        itemCount: '111 Ürün',
+    'nisantasi': {
+        id: 'nisantasi',
+        name: 'Nişantaşı Kuyumculuk',
+        shortName: 'Nişantaşı',
+        type: 'raw-jewelry',
+        modelRoot: NISANTASI_MODEL_ROOT,
+        sceneRoot: NISANTASI_SCENE_ROOT,
+        sceneFile: NISANTASI_RAW_FILE,
+        itemCount: '17 Ürün',
         category: 'Kuyumculuk & Mücevher',
         description: 'Altın ve mücevher ürünleri kataloğu.',
         image: `${PUBLIC_ROOT}assets/mawus_store.svg`,
         icon: '💍',
-        bounds: worldBoundsForStore('mawus')
+        bounds: worldBoundsForStore('nisantasi')
+    },
+    'telefon': {
+        id: 'telefon',
+        name: 'Zeka Teknoloji',
+        shortName: 'Zeka Teknoloji',
+        type: 'raw-telefon',
+        modelRoot: TELEFON_MODEL_ROOT,
+        sceneRoot: TELEFON_SCENE_ROOT,
+        sceneFile: TELEFON_RAW_FILE,
+        itemCount: '52 Ürün',
+        category: 'Telefon & Aksesuar',
+        description: 'Cep telefonu, kılıf ve aksesuar kataloğu.',
+        image: `${PUBLIC_ROOT}assets/optik_store.svg`,
+        icon: '📱',
+        bounds: worldBoundsForStore('telefon')
     }
 });
 
@@ -225,6 +246,8 @@ const storeSwitcherBtn = document.getElementById('storeSwitcherBtn');
 const worldMapReturnBtn = document.getElementById('worldMapReturnBtn');
 const storeSwitcherMenu = document.getElementById('storeSwitcherMenu');
 const storeSwitcherList = document.getElementById('storeSwitcherList');
+const recentProductBtn = document.getElementById('recentProductBtn');
+const recentProductName = document.getElementById('recentProductName');
 let storeSwitcherOpenGuard = false;
 const storeCards = [...document.querySelectorAll('[data-store-id]')];
 const portalProductQuery = document.getElementById('portalProductQuery');
@@ -246,11 +269,19 @@ const ambientToggle = document.getElementById('ambientToggle');
 const productDataset = combineProductData(
     {
         schemaVersion: productData.schemaVersion,
-        products: [...productData.products, ...mawusProductMatches.products]
+        products: [
+            ...productData.products,
+            ...nisantasiProductMatches.products,
+            ...telefonProductMatches.products
+        ]
     },
     {
         schemaVersion: bindingData.schemaVersion,
-        bindings: [...bindingData.bindings, ...mawusProductMatches.bindings]
+        bindings: [
+            ...bindingData.bindings,
+            ...nisantasiProductMatches.bindings,
+            ...telefonProductMatches.bindings
+        ]
     }
 );
 const productRegistry = createProductRegistry(productDataset, { autoPersist: false });
@@ -321,8 +352,8 @@ const createCamera = (scene, store) => {
     // Dar görüş açısı yürüyüşü ağır ve kapalı hissettirir; bu değer masaüstü web gezintisi için dengeli kalır.
     camera.fov = 1.12;
     camera.speed = PLAYER_WALK_SPEED;
-    camera.inertia = 0.42;
-    camera.angularSensibility = 1500;
+    camera.inertia = 0.34;
+    camera.angularSensibility = 1850;
     camera.applyGravity = true;
     camera.checkCollisions = true;
     camera.ellipsoid.copyFromFloats(PLAYER_COLLISION_RADIUS, 0.86, PLAYER_COLLISION_RADIUS);
@@ -367,11 +398,48 @@ const isCollisionExcludedMesh = (mesh) => {
 };
 
 const createStoreObstacleColliders = (scene, store, meshes) => {
-    // Mağaza GLB'lerinde ayrı collision meshleri bulunmadığı için engel üretilmez.
-    void scene;
-    void store;
-    void meshes;
-    return [];
+    const candidates = meshes.flatMap((mesh, index) => {
+        if (!mesh?.geometry || mesh.isDisposed?.() || isCollisionExcludedMesh(mesh)) return [];
+        try {
+            mesh.computeWorldMatrix(true);
+            mesh.refreshBoundingInfo(true);
+            const box = mesh.getBoundingInfo().boundingBox;
+            return [{
+                id: `${store.id}:${index}`,
+                label: `${mesh.name || ''} ${mesh.material?.name || ''}`,
+                productId: mesh.metadata?.productId || mesh.metadata?.modeledProductId || null,
+                isProduct: isProductMesh(mesh),
+                minimum: box.minimumWorld,
+                maximum: box.maximumWorld
+            }];
+        } catch {
+            return [];
+        }
+    });
+    const specs = createNavigationColliderSpecs(candidates, store.bounds, {
+        eyeHeight: PLAYER_EYE_HEIGHT,
+        maxStepHeight: PLAYER_MAX_STEP_HEIGHT,
+        limit: 40
+    });
+    return specs.map((spec, index) => {
+        const collider = MeshBuilder.CreateBox(`${store.id}_navigationCollider_${index}`, {
+            width: spec.width,
+            height: spec.height,
+            depth: spec.depth
+        }, scene);
+        collider.position.copyFromFloats(spec.position.x, spec.position.y, spec.position.z);
+        collider.isVisible = false;
+        collider.isPickable = false;
+        collider.checkCollisions = true;
+        collider.metadata = {
+            isNavigationCollider: true,
+            storeId: store.id,
+            sourceName: spec.sourceName,
+            stepHeight: spec.stepHeight
+        };
+        collider.freezeWorldMatrix();
+        return collider;
+    });
 };
 
 const createComfortMovement = (scene, camera) => {
@@ -1136,26 +1204,41 @@ const createRawSudeProductCatalog = (scene, container, renderMeshes) => {
     };
 };
 
-const mawusProductIdForName = (name) => {
+const NISANTASI_ROW_PRODUCTS = Object.freeze([
+    'MAWUS_HQ_ALTIN_YUZUK',
+    'MAWUS_HQ_ALTIN_YUZUK_TASLI',
+    'MAWUS_HQ_ALTIN_KIRMIZI_KALPLI',
+    'MAWUS_HQ_ALTIN_KIRMIZI_TAS',
+    'MAWUS_HQ_CICEK_KIRMIZI_YUZUK',
+    'MAWUS_HQ_CICEK_YUZUK',
+    'MAWUS_HQ_ELMAS_YUZUK',
+    'MAWUS_HQ_GRI_YUZUK',
+    'MAWUS_HQ_YAKUT_YUZUK',
+    'MAWUS_HQ_ZUMRUT_YUZUK'
+]);
+
+const nisantasiProductIdForName = (name) => {
     const normalized = String(name || '').trim();
+    const row = normalized.match(/^MAWUS_ORIGINAL_M0[34]_ROW(\d{2})_SIX_RINGS$/i);
+    if (row) return NISANTASI_ROW_PRODUCTS[Number(row[1]) - 1] || null;
     if (/^MAWUS_(?:RING|NECK)_R\d+_C\d+_\d+$/i.test(normalized)) return normalized.toUpperCase();
     if (/^MAWUS_NECKLACE_SET_[A-Z0-9_]+$/i.test(normalized)) return normalized.toUpperCase();
     return null;
 };
 
-const mawusProductDetails = (id, sourceName) => {
+const nisantasiProductDetails = (id, sourceName) => {
     const ring = sourceName.match(/^MAWUS_RING_R(\d+)_C(\d+)_(\d+)$/i);
     const necklace = sourceName.match(/^MAWUS_NECK_R(\d+)_C(\d+)_(\d+)$/i);
     const row = sourceName.match(/^MAWUS_ORIGINAL_M(\d+)_ROW(\d+)_SIX_RINGS$/i);
     let name = sourceName.replace(/^MAWUS_/, '').replace(/_/g, ' ');
-    let description = 'Mawuş Kuyumculuk ürün modeli.';
-    let properties = 'Mağaza: Mawuş Kuyumculuk';
+    let description = 'Nişantaşı Kuyumculuk ürün modeli.';
+    let properties = 'Mağaza: Nişantaşı Kuyumculuk';
     if (ring) {
-        name = `Mawuş Yüzük · Sıra ${ring[1]} / Bölüm ${Number(ring[2])} / Model ${ring[3]}`;
+        name = `Nişantaşı Yüzük · Sıra ${ring[1]} / Bölüm ${Number(ring[2])} / Model ${ring[3]}`;
         description = 'Yüzük modeli.';
         properties += '\nKategori: Yüzük';
     } else if (necklace) {
-        name = `Mawuş Kolye · Sıra ${necklace[1]} / Bölüm ${Number(necklace[2])} / Model ${necklace[3]}`;
+        name = `Nişantaşı Kolye · Sıra ${necklace[1]} / Bölüm ${Number(necklace[2])} / Model ${necklace[3]}`;
         description = 'Kolye modeli.';
         properties += '\nKategori: Kolye';
     } else if (row) {
@@ -1169,7 +1252,7 @@ const mawusProductDetails = (id, sourceName) => {
     }
     return {
         id,
-        brand: 'Mawuş Kuyumculuk',
+        brand: 'Nişantaşı Kuyumculuk',
         name,
         price: 'Mağazada bilgi alın',
         description,
@@ -1177,14 +1260,14 @@ const mawusProductDetails = (id, sourceName) => {
     };
 };
 
-const createRawMawusProductCatalog = (scene, renderMeshes) => {
+const createRawNisantasiProductCatalog = (scene, renderMeshes) => {
     const candidates = renderMeshes
         .filter((mesh) => mesh?.geometry && !mesh.isDisposed?.())
         .map((mesh) => {
             let current = mesh;
             let depth = 0;
             while (current && depth < 12) {
-                const id = mawusProductIdForName(current.name);
+                const id = nisantasiProductIdForName(current.name);
                 if (id) return { mesh, id, sourceName: current.name };
                 current = current.parent;
                 depth += 1;
@@ -1210,8 +1293,6 @@ const createRawMawusProductCatalog = (scene, renderMeshes) => {
         const minimum = new Vector3(Infinity, Infinity, Infinity);
         const maximum = new Vector3(-Infinity, -Infinity, -Infinity);
         for (const mesh of product.meshes) {
-            mesh.computeWorldMatrix(true);
-            mesh.refreshBoundingInfo();
             const bounds = mesh.getBoundingInfo().boundingBox;
             minimum.minimizeInPlace(bounds.minimumWorld);
             maximum.maximizeInPlace(bounds.maximumWorld);
@@ -1251,7 +1332,7 @@ const createRawMawusProductCatalog = (scene, renderMeshes) => {
         if (!source) continue;
         product.inspectMeshes = source.meshes;
         product.highQualityMeshes = source.meshes;
-        product.details = mawusProductDetails(id, source.sourceName);
+        product.details = nisantasiProductDetails(id, source.sourceName);
     }
     return {
         catalog,
@@ -1275,6 +1356,13 @@ const disableLoadedStoreForBackgroundPreparation = ({
         .forEach((light) => light.setEnabled(false));
 };
 
+const refreshSceneMaterialsForLighting = (scene) => {
+    for (const material of scene?.materials || []) {
+        if (material.isFrozen) material.unfreeze();
+        material.markAsDirty?.(Material.AllDirtyFlag);
+    }
+};
+
 const completeStoreRenderingSetup = async ({
     scene,
     materials,
@@ -1288,18 +1376,18 @@ const completeStoreRenderingSetup = async ({
         scene.render();
     }
     applyLocalReflections(materials, reflectionProbe);
-    materials.forEach((material) => material.freeze());
+    refreshSceneMaterialsForLighting(scene);
     scene.cleanCachedTextureBuffer();
 };
 
 const loadPackagedStore = async (scene, quality, store, { background = false } = {}) => {
-    setLoadingProgress(10, `${store.shortName} yükleniyor…`, 'Mağaza dosyaları yükleniyor.');
+    if (!background) setLoadingProgress(10, `${store.shortName} yükleniyor…`, 'Mağaza dosyaları yükleniyor.');
     const transfer = { environment: 0, proxies: 0 };
     const updateTransfer = (key, event) => {
         if (!event.lengthComputable || !event.total) return;
         transfer[key] = event.loaded / event.total;
         const ratio = transfer.environment * 0.9 + transfer.proxies * 0.1;
-        setLoadingProgress(10 + ratio * 66, 'Mağaza yükleniyor…', `%${Math.round(ratio * 100)}`);
+        if (!background) setLoadingProgress(10 + ratio * 66, 'Mağaza yükleniyor…', `%${Math.round(ratio * 100)}`);
     };
     const [environmentContainer, proxyContainer, manifest] = await Promise.all([
         SceneLoader.LoadAssetContainerAsync(store.sceneRoot, store.sceneFile, scene, (event) => updateTransfer('environment', event)),
@@ -1309,7 +1397,7 @@ const loadPackagedStore = async (scene, quality, store, { background = false } =
         loadProductManifest(store)
     ]);
 
-    setLoadingProgress(79, 'Mağaza açılıyor…', 'Ürünler yükleniyor.');
+    if (!background) setLoadingProgress(79, 'Mağaza açılıyor…', 'Sahne ve etkileşimler hazırlanıyor.');
     environmentContainer.addAllToScene();
     proxyContainer?.addAllToScene();
     const environmentMeshes = [...environmentContainer.meshes];
@@ -1343,6 +1431,7 @@ const loadPackagedStore = async (scene, quality, store, { background = false } =
 
     return {
         containers: [environmentContainer, proxyContainer].filter(Boolean),
+        materials,
         renderMeshes,
         collisionMeshes,
         selectionBoxes,
@@ -1358,7 +1447,7 @@ const loadPackagedStore = async (scene, quality, store, { background = false } =
 };
 
 const loadRawSudeStore = async (scene, quality, store, { background = false } = {}) => {
-    setLoadingProgress(8, 'Sude Home yükleniyor…', 'Mağaza dosyaları yükleniyor.');
+    if (!background) setLoadingProgress(8, 'Sude Home yükleniyor…', 'Mağaza dosyaları yükleniyor.');
     const container = await SceneLoader.LoadAssetContainerAsync(
         store.sceneRoot,
         store.sceneFile,
@@ -1366,11 +1455,11 @@ const loadRawSudeStore = async (scene, quality, store, { background = false } = 
         (event) => {
             if (!event.lengthComputable || !event.total) return;
             const ratio = event.loaded / event.total;
-            setLoadingProgress(8 + ratio * 68, 'Sude Home yükleniyor…', `%${Math.round(ratio * 100)}`);
+            if (!background) setLoadingProgress(8 + ratio * 68, 'Sude Home yükleniyor…', `%${Math.round(ratio * 100)}`);
         }
     );
 
-    setLoadingProgress(79, 'Sude Home açılıyor…', 'Ürünler yükleniyor.');
+    if (!background) setLoadingProgress(79, 'Sude Home açılıyor…', 'Sahne ve etkileşimler hazırlanıyor.');
     container.addAllToScene();
     const renderMeshes = [...container.meshes];
     const productRuntime = createRawSudeProductCatalog(scene, container, renderMeshes);
@@ -1404,6 +1493,7 @@ const loadRawSudeStore = async (scene, quality, store, { background = false } = 
 
     return {
         containers: [container],
+        materials,
         renderMeshes,
         collisionMeshes,
         selectionBoxes: productRuntime.selectionBoxes,
@@ -1418,8 +1508,8 @@ const loadRawSudeStore = async (scene, quality, store, { background = false } = 
     };
 };
 
-const loadRawMawusStore = async (scene, quality, store, { background = false } = {}) => {
-    setLoadingProgress(8, 'Mawuş Kuyumculuk yükleniyor…', 'Mağaza dosyaları yükleniyor.');
+const loadRawNisantasiStore = async (scene, quality, store, { background = false } = {}) => {
+    if (!background) setLoadingProgress(8, 'Nişantaşı Kuyumculuk yükleniyor…', 'Mağaza dosyaları yükleniyor.');
     const container = await SceneLoader.LoadAssetContainerAsync(
         store.sceneRoot,
         store.sceneFile,
@@ -1427,18 +1517,205 @@ const loadRawMawusStore = async (scene, quality, store, { background = false } =
         (event) => {
             if (!event.lengthComputable || !event.total) return;
             const ratio = event.loaded / event.total;
-            setLoadingProgress(8 + ratio * 68, 'Mawuş Kuyumculuk yükleniyor…', `%${Math.round(ratio * 100)}`);
+            if (!background) setLoadingProgress(8 + ratio * 68, 'Nişantaşı Kuyumculuk yükleniyor…', `%${Math.round(ratio * 100)}`);
         }
     );
 
-    setLoadingProgress(79, 'Mawuş açılıyor…', 'Ürünler yükleniyor.');
+    if (!background) setLoadingProgress(79, 'Nişantaşı açılıyor…', 'Sahne ve etkileşimler hazırlanıyor.');
     container.addAllToScene();
     const renderMeshes = [...container.meshes];
-    const productRuntime = createRawMawusProductCatalog(scene, renderMeshes);
+    const productRuntime = createRawNisantasiProductCatalog(scene, renderMeshes);
     qualityStatus.dataset.productMarkers = String(productRuntime.sourceCount);
     qualityStatus.dataset.productMatches = String(productRuntime.matchedProducts);
     qualityStatus.dataset.productCatalogCount = String(productRuntime.catalog.productCount);
-    const materials = configureMaterials({ meshes: renderMeshes, textures: container.textures }, quality);
+    const materials = new Set();
+    renderMeshes.forEach((mesh) => {
+        const candidates = mesh.material?.subMaterials || [mesh.material];
+        candidates.filter(Boolean).forEach((material) => materials.add(material));
+    });
+    container.textures.forEach((texture) => {
+        texture.anisotropicFilteringLevel = quality.textureAnisotropy;
+    });
+    const collisionMeshes = createStoreObstacleColliders(scene, store, renderMeshes);
+    const lighting = createLightingRig(scene, renderMeshes, quality, store);
+    const reflectionProbe = createLocalReflection(scene, renderMeshes, quality, store);
+    if (background) {
+        disableLoadedStoreForBackgroundPreparation({
+            renderMeshes,
+            collisionMeshes,
+            selectionBoxes: productRuntime.selectionBoxes,
+            lighting
+        });
+    }
+    await completeStoreRenderingSetup({
+        scene,
+        materials,
+        reflectionProbe,
+        background,
+        progressDetail: `${productRuntime.matchedProducts} ürün bulundu.`
+    });
+
+    return {
+        containers: [container],
+        materials,
+        renderMeshes,
+        collisionMeshes,
+        selectionBoxes: productRuntime.selectionBoxes,
+        sceneProducts: productRuntime.catalog,
+        productLibrary: { load: null, loaded: true, dispose() {} },
+        productMatchStats: {
+            markers: productRuntime.sourceCount,
+            matched: productRuntime.matchedProducts
+        },
+        lighting,
+        reflectionProbe
+    };
+};
+
+// Zeka Teknoloji sahnesinde kaydı bulunamayan bir mesh için yedek ad üretir;
+// scripts/build-telefon-products.mjs içindeki adlarla aynı kalmalıdır.
+const TELEFON_MODEL_ADI = {
+    COMPACT: 'Z5 Mini', PROMAX: 'Z9 Pro Max', BAR: 'Z7 Plus',
+    BUDGET: 'A3 Lite', RUGGED: 'X6 Active'
+};
+const TELEFON_FINIS_ADI = {
+    DUZ: ['Mat Silikon', 'Siyah'], SERIT: ['Çizgi Dokulu', 'Bej'],
+    NOKTA: ['Nokta Dokulu', 'Mercan'], ALTIGEN: ['Petek Dokulu', 'Turkuaz'],
+    DOKUMA: ['Örgü Dokulu', 'Haki']
+};
+const TELEFON_AKSESUAR_ADI = {
+    KULAKLIK: ['Air 20 TWS Kablosuz Kulaklık', 'Air 40 ANC Kablosuz Kulaklık'],
+    SARJ: ['PD 35W GaN Şarj Adaptörü', 'PD 65W Çift Portlu Şarj Adaptörü'],
+    POWERBANK: ['PB10 10.000 mAh Powerbank', 'PB20 20.000 mAh Powerbank'],
+    KABLO: ['USB-C Örgü Kablo 1 m', 'USB-C Örgü Kablo 2 m'],
+    EKRAN: ['9H Temperli Ekran Koruyucu', 'Hayalet Temperli Ekran Koruyucu']
+};
+
+// Sahnede aynı model onlarca kez tekrarlandığından kimlik örnek değil model
+// bazında üretilir; böylece 1237 mesh 52 ürüne bağlanır.
+const telefonProductIdForName = (name) => {
+    const normalized = String(name || '').trim();
+    const telefon = normalized.match(/^TEL_(compact|promax|bar|budget|rugged)_Cube_\d+_\d+/i);
+    if (telefon) return `TEL_PHONE_${telefon[1].toUpperCase()}`;
+    const kilif = normalized.match(/^PK_kilif_([a-z]+)_([a-z]+)_/i);
+    if (kilif) return `TEL_BOX_KILIF_${kilif[1].toUpperCase()}_${kilif[2].toUpperCase()}`;
+    const aksesuar = normalized.match(/^PK_aks_([a-z]+)_(\d+)_/i);
+    if (aksesuar) return `TEL_BOX_${aksesuar[1].toUpperCase()}_${Number(aksesuar[2]) + 1}`;
+    return null;
+};
+
+const telefonProductDetails = (id) => {
+    const telefon = id.match(/^TEL_PHONE_([A-Z]+)$/);
+    const kilif = id.match(/^TEL_BOX_KILIF_([A-Z]+)_([A-Z]+)$/);
+    const aksesuar = id.match(/^TEL_BOX_([A-Z]+)_(\d+)$/);
+    if (telefon) {
+        return {
+            id,
+            brand: 'ZEKA',
+            name: `ZEKA ${TELEFON_MODEL_ADI[telefon[1]] || telefon[1]}`,
+            price: 'Mağazada bilgi alın',
+            description: 'Parçalarına ayırarak iç donanımı inceleyebilirsiniz.',
+            properties: 'Mağaza: Zeka Teknoloji\nKategori: Telefon'
+        };
+    }
+    if (kilif) {
+        const model = TELEFON_MODEL_ADI[kilif[1]] || kilif[1];
+        const [doku, renk] = TELEFON_FINIS_ADI[kilif[2]] || [kilif[2], ''];
+        return {
+            id,
+            brand: 'ARKA',
+            name: `ARKA ${model} ${doku} Kılıf${renk ? ` · ${renk}` : ''} (Askılı Paket)`,
+            price: 'Mağazada bilgi alın',
+            description: 'Raf askılığına takılı perakende ambalajında koruyucu arka kapak.',
+            properties: 'Mağaza: Zeka Teknoloji\nKategori: Kılıf'
+        };
+    }
+    if (aksesuar) {
+        const modeller = TELEFON_AKSESUAR_ADI[aksesuar[1]];
+        const ad = modeller?.[Number(aksesuar[2]) - 1] || `${aksesuar[1]} ${aksesuar[2]}`;
+        return {
+            id,
+            brand: 'VOLT',
+            name: `VOLT ${ad}`,
+            price: 'Mağazada bilgi alın',
+            description: 'Askılık ambalajında telefon aksesuarı.',
+            properties: 'Mağaza: Zeka Teknoloji\nKategori: Aksesuar'
+        };
+    }
+    return {
+        id,
+        brand: 'Zeka Teknoloji',
+        name: id,
+        price: 'Mağazada bilgi alın',
+        description: 'Ürün modeli.',
+        properties: 'Mağaza: Zeka Teknoloji'
+    };
+};
+
+const createRawTelefonProductCatalog = (scene, renderMeshes) => {
+    // Kutular ve telefonlar elle tutulur boyutta olduğundan ayrı seçim kutusu
+    // üretilmez; mesh'in kendisi tıklanabilir.
+    const eslesenler = [];
+    for (const mesh of renderMeshes) {
+        if (mesh?.isDisposed?.()) continue;
+        if (!(mesh?.geometry || mesh?.sourceMesh?.geometry)) continue;
+        let current = mesh;
+        let depth = 0;
+        let id = null;
+        let sourceName = mesh.name;
+        while (current && depth < 8) {
+            id = telefonProductIdForName(current.name);
+            if (id) {
+                sourceName = current.name;
+                break;
+            }
+            current = current.parent;
+            depth += 1;
+        }
+        if (!id) continue;
+        mesh.metadata = { ...(mesh.metadata || {}), modeledProductId: id, sourceName };
+        mesh.isPickable = true;
+        eslesenler.push(mesh);
+    }
+
+    const catalog = createModeledProductCatalog(eslesenler);
+    for (const [id, product] of catalog.products) {
+        product.inspectMeshes = product.meshes;
+        product.highQualityMeshes = product.meshes;
+        product.details = telefonProductDetails(id);
+    }
+    return {
+        catalog,
+        selectionBoxes: [],
+        markerCount: eslesenler.length,
+        matchedProducts: catalog.productCount
+    };
+};
+
+const loadRawTelefonStore = async (scene, quality, store, { background = false } = {}) => {
+    if (!background) setLoadingProgress(8, 'Zeka Teknoloji yükleniyor…', 'Mağaza dosyaları yükleniyor.');
+    const container = await SceneLoader.LoadAssetContainerAsync(
+        store.sceneRoot,
+        store.sceneFile,
+        scene,
+        (event) => {
+            if (!event.lengthComputable || !event.total) return;
+            const ratio = event.loaded / event.total;
+            if (!background) setLoadingProgress(8 + ratio * 68, 'Zeka Teknoloji yükleniyor…', `%${Math.round(ratio * 100)}`);
+        }
+    );
+
+    if (!background) setLoadingProgress(79, 'Zeka Teknoloji açılıyor…', 'Sahne ve etkileşimler hazırlanıyor.');
+    container.addAllToScene();
+    const renderMeshes = [...container.meshes];
+    const productRuntime = createRawTelefonProductCatalog(scene, renderMeshes);
+    qualityStatus.dataset.productMarkers = String(productRuntime.markerCount);
+    qualityStatus.dataset.productMatches = String(productRuntime.matchedProducts);
+    qualityStatus.dataset.productCatalogCount = String(productRuntime.catalog.productCount);
+    const materials = configureMaterials(
+        { meshes: renderMeshes, textures: container.textures },
+        { ...quality, textureAnisotropy: Math.max(8, quality.textureAnisotropy) }
+    );
     prepareMeshes(renderMeshes);
     const collisionMeshes = createStoreObstacleColliders(scene, store, renderMeshes);
     const lighting = createLightingRig(scene, renderMeshes, quality, store);
@@ -1461,13 +1738,14 @@ const loadRawMawusStore = async (scene, quality, store, { background = false } =
 
     return {
         containers: [container],
+        materials,
         renderMeshes,
         collisionMeshes,
         selectionBoxes: productRuntime.selectionBoxes,
         sceneProducts: productRuntime.catalog,
         productLibrary: { load: null, loaded: true, dispose() {} },
         productMatchStats: {
-            markers: productRuntime.sourceCount,
+            markers: productRuntime.markerCount,
             matched: productRuntime.matchedProducts
         },
         lighting,
@@ -1478,13 +1756,17 @@ const loadRawMawusStore = async (scene, quality, store, { background = false } =
 const loadStore = (scene, quality, store, options) => (
     store.type === 'raw'
         ? loadRawSudeStore(scene, quality, store, options)
-        : store.type === 'raw-mawus'
-            ? loadRawMawusStore(scene, quality, store, options)
-            : loadPackagedStore(scene, quality, store, options)
+        : store.type === 'raw-jewelry'
+            ? loadRawNisantasiStore(scene, quality, store, options)
+            : store.type === 'raw-telefon'
+                ? loadRawTelefonStore(scene, quality, store, options)
+                : loadPackagedStore(scene, quality, store, options)
 );
 
-const loadAlwaysWorld = async (scene, quality) => {
-    setLoadingProgress(6, 'Uzun Çarşı yükleniyor…', 'Çevre dosyası yükleniyor.');
+const loadAlwaysWorld = async (scene, quality, { reportProgress = true } = {}) => {
+    if (reportProgress) {
+        setLoadingProgress(6, 'Uzun Çarşı yükleniyor…', 'Ortak çevre dosyası yükleniyor.');
+    }
     const container = await SceneLoader.LoadAssetContainerAsync(
         ALWAYS_WORLD_ROOT,
         ALWAYS_WORLD_FILE,
@@ -1497,7 +1779,7 @@ const loadAlwaysWorld = async (scene, quality) => {
     });
     const materials = configureMaterials({ meshes: renderMeshes, textures: container.textures }, quality);
     prepareMeshes(renderMeshes, AbstractMesh.CULLINGSTRATEGY_STANDARD);
-    return { container, renderMeshes, materials };
+    return { container, renderMeshes, materials, rendered: true, desiredRendered: true };
 };
 
 const loadOutsideWorld = async (scene, quality, { reportProgress = true } = {}) => {
@@ -1549,6 +1831,7 @@ const setRuntimeLightsEnabled = (runtime, enabled) => {
     [lighting.ambient, lighting.doorway, ...(lighting.interiorFills || [])]
         .filter(Boolean)
         .forEach((light) => light.setEnabled(enabled));
+    refreshSceneMaterialsForLighting(lighting.ambient?.getScene?.());
 };
 
 const setMeshesEnabledWithFrameBudget = async (
@@ -1587,20 +1870,18 @@ const queueRuntimeActivation = (runtime, rendered, {
     runtime.activationPromise = (async () => {
         while (runtime.rendered !== runtime.desiredRendered) {
             const target = runtime.desiredRendered;
-            const stillCurrent = () => runtime.desiredRendered === target;
+            const completeBatch = () => true;
             if (target) {
                 setRuntimeLightsEnabled(runtime, true);
-                await setMeshesEnabledWithFrameBudget(visualMeshes, true, stillCurrent);
-                if (!stillCurrent()) continue;
+                await setMeshesEnabledWithFrameBudget(visualMeshes, true, completeBatch);
                 await nextAnimationFrame();
-                await setMeshesEnabledWithFrameBudget(interactionMeshes, true, stillCurrent, 2.5);
+                await setMeshesEnabledWithFrameBudget(interactionMeshes, true, completeBatch, 2.5);
             } else {
-                await setMeshesEnabledWithFrameBudget(interactionMeshes, false, stillCurrent, 2.5);
-                if (!stillCurrent()) continue;
-                await setMeshesEnabledWithFrameBudget(visualMeshes, false, stillCurrent);
-                if (stillCurrent()) setRuntimeLightsEnabled(runtime, false);
+                await setMeshesEnabledWithFrameBudget(interactionMeshes, false, completeBatch, 2.5);
+                await setMeshesEnabledWithFrameBudget(visualMeshes, false, completeBatch);
+                setRuntimeLightsEnabled(runtime, false);
             }
-            if (stillCurrent()) runtime.rendered = target;
+            runtime.rendered = target;
         }
     })().finally(() => {
         runtime.activationPromise = null;
@@ -1949,10 +2230,6 @@ const startTour = async (storeId) => {
         qualityStatus.dataset.worldMeshes = String(
             worldRuntime.renderMeshes.filter((mesh) => mesh?.geometry && !mesh.isDisposed?.()).length
         );
-        const exteriorMeshes = [
-            ...worldRuntime.renderMeshes,
-            ...outsideRuntime.renderMeshes
-        ].filter((mesh) => mesh?.geometry && !mesh.isDisposed?.());
         // GLB'ler farklı kök/instance meshleri kullandığı için liste tabanlı
         // aydınlatma bazı yüzeyleri sessizce dışarıda bırakabiliyor. Gündüz
         // ışıkları tüm sahneye uygulanır; mağaza ışıkları yerel kalır.
@@ -1960,6 +2237,7 @@ const startTour = async (storeId) => {
         rendering.exteriorSun.includedOnlyMeshes = [];
         rendering.exteriorAmbient.setEnabled(true);
         rendering.exteriorSun.setEnabled(true);
+        refreshSceneMaterialsForLighting(scene);
         qualityStatus.dataset.outsideFile = OUTSIDE_WORLD_FILE;
         qualityStatus.dataset.outsideMeshes = String(
             outsideRuntime.renderMeshes.filter((mesh) => mesh?.geometry && !mesh.isDisposed?.()).length
@@ -1978,19 +2256,144 @@ const startTour = async (storeId) => {
             qualityStatus.dataset.renderedStores = '';
         }
         let highQualityViewer = null;
+        // İnceleme sahnesi araçları: parçalarına ayırma ve kılıf deneme.
+        const stageTools = document.getElementById('productStageTools');
+        const explodeButton = document.getElementById('productExplodeBtn');
+        const caseTray = document.getElementById('productCaseTray');
+        const caseOptionsHost = document.getElementById('productCaseOptions');
+        const stageHotspots = document.getElementById('productStageHotspots');
+        const CASE_SWATCH = {
+            DUZ: '#2b2d33', SERIT: '#b9a482', NOKTA: '#e08a6e',
+            ALTIGEN: '#4e94a8', DOKUMA: '#6a9c74'
+        };
+        const EXPLODE_LABEL = {
+            kapali: 'Parçalarına ayır',
+            aciliyor: 'Ayrılıyor…',
+            acik: 'Yeniden birleştir',
+            kapaniyor: 'Birleşiyor…'
+        };
+
+        const caseProductsFor = (productId) => {
+            const match = /^TEL_PHONE_([A-Z]+)$/.exec(String(productId || ''));
+            if (!match) return [];
+            const onek = `TEL_CASE_${match[1]}_`;
+            return productRegistry.filterProducts({ activeOnly: false })
+                .filter((entry) => entry.id.startsWith(onek) && entry.highQualityModel)
+                .sort((a, b) => String(a.name).localeCompare(String(b.name), 'tr'));
+        };
+
+        const setActiveCaseButton = (modelUrl) => {
+            if (!caseOptionsHost) return;
+            caseOptionsHost.querySelectorAll('.stage-case').forEach((button) => {
+                button.setAttribute('aria-pressed',
+                    String((button.dataset.modelUrl || '') === (modelUrl || '')));
+            });
+        };
+
+        const renderExplodeState = (durum) => {
+            if (!explodeButton) return;
+            const bekliyor = durum.asama === 'aciliyor' || durum.asama === 'kapaniyor';
+            explodeButton.querySelector('.stage-tool__label').textContent =
+                EXPLODE_LABEL[durum.asama] || EXPLODE_LABEL.kapali;
+            explodeButton.setAttribute('aria-pressed', String(durum.acik));
+            explodeButton.disabled = bekliyor;
+            // Parçalanabilen üründe işaretler ancak parçalar ayrılınca okunur
+            // olur; parçalanmayan ürünün işaretleri her zaman görünür kalır.
+            if (stageHotspots) {
+                stageHotspots.dataset.partsHidden = String(durum.destekli && !durum.acik);
+            }
+        };
+
+        const buildCaseTray = (product) => {
+            if (!caseTray || !caseOptionsHost) return false;
+            const cases = caseProductsFor(product?.id);
+            caseOptionsHost.replaceChildren();
+            if (!cases.length) {
+                caseTray.classList.add('hidden');
+                return false;
+            }
+            const ekle = (etiket, modelUrl, renk, ekSinif = '') => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = `stage-case ${ekSinif}`.trim();
+                button.dataset.modelUrl = modelUrl || '';
+                button.setAttribute('aria-pressed', String(!modelUrl));
+                const swatch = document.createElement('span');
+                swatch.className = 'stage-case__swatch';
+                if (renk) swatch.style.setProperty('--case-color', renk);
+                const text = document.createElement('span');
+                text.textContent = etiket;
+                button.append(swatch, text);
+                button.addEventListener('click', async () => {
+                    try {
+                        await highQualityViewer?.setCase(modelUrl || null);
+                        setActiveCaseButton(modelUrl || '');
+                        if (modelUrl) renderExplodeState(highQualityViewer.explodeState());
+                    } catch (error) {
+                        console.error('Kılıf yüklenemedi:', error);
+                    }
+                });
+                caseOptionsHost.append(button);
+            };
+            ekle('Kılıfsız', '', null, 'stage-case--none');
+            for (const entry of cases) {
+                const finish = entry.id.split('_').pop();
+                const etiket = String(entry.name).split('·').pop().trim() || entry.name;
+                ekle(etiket, entry.highQualityModel, CASE_SWATCH[finish] || '#888');
+            }
+            caseTray.classList.remove('hidden');
+            return true;
+        };
+
+        const setupStageTools = (product) => {
+            if (!stageTools) return;
+            const durum = highQualityViewer?.explodeState?.() || { destekli: false, asama: 'kapali', acik: false };
+            const kilifVar = buildCaseTray(product);
+            if (explodeButton) explodeButton.classList.toggle('hidden', !durum.destekli);
+            const gorunur = durum.destekli || kilifVar;
+            stageTools.classList.toggle('hidden', !gorunur);
+            renderExplodeState(durum);
+            // Araç çubuğu modelin önünde durduğundan yüksekliği inceleyiciye
+            // bildirilir; ayrılan parçalar bu şeridin üzerine taşmaz.
+            highQualityViewer?.setBottomInset?.(
+                gorunur ? stageTools.offsetHeight + 20 : 0
+            );
+        };
+
+        const hideStageTools = () => {
+            stageTools?.classList.add('hidden');
+            explodeButton?.classList.add('hidden');
+            caseTray?.classList.add('hidden');
+            caseOptionsHost?.replaceChildren();
+            if (stageHotspots) stageHotspots.dataset.partsHidden = 'false';
+        };
+
+        explodeButton?.addEventListener('click', () => {
+            renderExplodeState(highQualityViewer?.toggleExplode?.()
+                || { destekli: false, asama: 'kapali', acik: false });
+            // Parçalanırken kılıf çıkarıldığı için tepsi de bunu yansıtır.
+            setActiveCaseButton(highQualityViewer?.getCase?.() || '');
+        });
+
         const openHighQualityProduct = async (product) => {
             if (!highQualityViewer) {
                 highQualityViewer = createHighQualityProductViewer({
                     canvas: document.getElementById('productPreviewCanvas'),
                     statusElement: productPreviewStatus,
                     hotspotContainer: document.getElementById('productStageHotspots'),
-                    cacheSize: 2
+                    // Telefon ve kılıf aynı anda sahnede; önbellek ikisini de tutar.
+                    cacheSize: 4
                 });
+                highQualityViewer.setExplodeListener(renderExplodeState);
             }
             requestAnimationFrame(() => highQualityViewer?.resize());
-            return highQualityViewer.open(product);
+            hideStageTools();
+            const durum = await highQualityViewer.open(product);
+            setupStageTools(product);
+            return durum;
         };
         const closeHighQualityProduct = ({ dispose = false } = {}) => {
+            hideStageTools();
             if (dispose) {
                 highQualityViewer?.dispose();
                 highQualityViewer = null;
@@ -1998,6 +2401,7 @@ const startTour = async (storeId) => {
             }
             highQualityViewer?.clear();
         };
+        let lastViewedProduct = null;
         const createEditorForRuntime = (targetRuntime, targetStoreId) => createTourEditor({
             scene,
             camera,
@@ -2008,11 +2412,39 @@ const startTour = async (storeId) => {
             productRegistry,
             openHighQualityProduct,
             closeHighQualityProduct,
+            onProductOpened: (product) => {
+                lastViewedProduct = productRegistry.getProduct(product.id) || product;
+                if (recentProductName) recentProductName.textContent = product.name || product.details?.name || 'Ürün';
+                if (recentProductBtn) {
+                    recentProductBtn.hidden = false;
+                    recentProductBtn.classList.remove('hidden');
+                }
+                try { localStorage.setItem('uzunCarsi:lastViewedProduct:v1', product.id); } catch {}
+            },
             storeId: targetStoreId
         });
 
         let editorStoreId = store.id;
         let editor = createEditorForRuntime(runtime, store.id);
+        try {
+            const savedProductId = localStorage.getItem('uzunCarsi:lastViewedProduct:v1');
+            lastViewedProduct = savedProductId ? productRegistry.getProduct(savedProductId) : null;
+        } catch {}
+        if (lastViewedProduct && recentProductBtn) {
+            recentProductName.textContent = lastViewedProduct.name || 'Son ürün';
+            recentProductBtn.hidden = false;
+            recentProductBtn.classList.remove('hidden');
+        }
+        recentProductBtn?.addEventListener('click', () => {
+            if (lastViewedProduct) editor.openProduct(lastViewedProduct);
+        });
+        // ?product=<ID> doğrudan ürün inceleme ekranını açar. Ürün seçimi imleç
+        // kilidine ve nişangâha bağlı olduğundan tıklama gerektirmeyen bu yol
+        // otomatik denetimlerde kullanılır.
+        const derinBaglantiUrun = new URLSearchParams(window.location.search).get('product');
+        if (derinBaglantiUrun) {
+            requestAnimationFrame(() => editor.openProduct(derinBaglantiUrun));
+        }
         const productSearch = createProductSearchHighlight({
             scene,
             registry: productRegistry
@@ -2024,7 +2456,6 @@ const startTour = async (storeId) => {
         productSearch.setSuspended(!OUTSIDE_ONLY_TEST);
         productSearch.applyFilters({ ...activePortalFilters, storeId: store.id });
         const entranceCinematic = createStoreEntryCinematic({ scene, camera, canvas });
-
         let streaming = null;
         streaming = OUTSIDE_ONLY_TEST
             ? {
@@ -2401,11 +2832,11 @@ const clearPortalFilters = () => {
     applyPortalFilters();
 };
 
-const hydrateMawusPrices = async () => {
+const hydrateNisantasiPrices = async () => {
     portalPriceStatus.textContent = 'Optik katalog fiyatları hazır. Altın ürünlerinin canlı fiyatı alınıyor…';
     try {
         const market = await loadMawusProductPrices();
-        const updates = productRegistry.productsForStore('mawus').map((product) => {
+        const updates = productRegistry.productsForStore('nisantasi').map((product) => {
             const pricing = market.prices[product.id];
             return pricing ? {
                 ...product,
@@ -2445,22 +2876,23 @@ const selectStore = (storeId, { preload = true } = {}) => {
 
 let selectionWorld = null;
 let selectionEntryRunning = false;
-const enterStore = async () => {
+const enterStore = async (storeId = selectedStoreId) => {
     if (selectionEntryRunning) return;
+    const targetStoreId = STORES[storeId] ? storeId : selectedStoreId;
     storeSelectPortal.hidden = true;
     storeSelectPortal.classList.add('hidden');
     if (tourStarted) {
-        activeTourTravel?.(selectedStoreId);
+        activeTourTravel?.(targetStoreId);
         return;
     }
     selectionEntryRunning = true;
     void Promise.all([
-        scenePreloader.prioritize(`store:${selectedStoreId}`, 200),
+        scenePreloader.prioritize(`store:${targetStoreId}`, 200),
         scenePreloader.prioritize('world:always', 190),
         scenePreloader.prioritize('world:outside', 180)
     ]).catch(() => {});
     try {
-        await selectionWorld?.flyToStore(selectedStoreId);
+        await selectionWorld?.flyToStore(targetStoreId);
         await new Promise((resolve) => window.setTimeout(resolve, 220));
     } finally {
         selectionWorld?.dispose();
@@ -2469,7 +2901,7 @@ const enterStore = async () => {
         selectionMapScreen.classList.add('hidden');
         selectionEntryRunning = false;
     }
-    void startTour(selectedStoreId);
+    void startTour(targetStoreId);
 };
 
 const setStoreSwitcherOpen = (open) => {
@@ -2537,7 +2969,7 @@ for (const category of portalCategories) {
     selectionCategoryFilter.append(new Option(category, category));
 }
 applyPortalFilters();
-void hydrateMawusPrices();
+void hydrateNisantasiPrices();
 populateStoreSwitcher();
 selectionWorld = createSelectionWorld({
     canvas,
@@ -2559,7 +2991,7 @@ void selectionWorld.whenReady
 const chooseFromSelectionMap = (storeId) => {
     if (!STORES[storeId]) return;
     selectStore(storeId);
-    void enterStore();
+    void enterStore(storeId);
 };
 for (const button of document.querySelectorAll('[data-selection-store], [data-selection-list]')) {
     const storeId = button.dataset.selectionStore || button.dataset.selectionList;

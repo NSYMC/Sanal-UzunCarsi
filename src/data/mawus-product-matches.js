@@ -25,7 +25,7 @@ const descriptions = Object.freeze({
 
 const product = (id, name, category, model, tags = []) => ({
     id,
-    storeId: 'mawus',
+    storeId: 'nisantasi',
     name,
     category,
     price: null,
@@ -33,15 +33,15 @@ const product = (id, name, category, model, tags = []) => ({
     priceType: 'live-gold',
     priceNote: 'Tahmini fiyat; güncel altın değeri, ürün ağırlığı, ayarı, işçilik ve mağaza payına göre hesaplanır.',
     description: descriptions[id],
-    tags: ['mawus', 'kuyumculuk', category.toLocaleLowerCase('tr-TR'), ...tags],
+    tags: ['nişantaşı', 'kuyumculuk', category.toLocaleLowerCase('tr-TR'), ...tags],
     highQualityModel: `/models/products/mawus/${model}.glb`,
     previewTransform,
     active: true
 });
 
 const binding = (productId, meshNames, meshNamePatterns, confidence = 'high') => ({
-    id: `binding:mawus:${productId}`,
-    storeId: 'mawus',
+    id: `binding:nisantasi:${productId}`,
+    storeId: 'nisantasi',
     productId,
     meshNames,
     meshNamePatterns,
@@ -52,14 +52,17 @@ const binding = (productId, meshNames, meshNamePatterns, confidence = 'high') =>
 const rowBinding = (productId, row) => ({
     ...binding(
         productId,
-        [`MAWUS_ORIGINAL_M03_ROW${row}_SIX_RINGS`],
-        [`^MAWUS_ORIGINAL_M03_ROW${row}_SIX_RINGS$`],
-        'medium'
+        [
+            `MAWUS_ORIGINAL_M03_ROW${row}_SIX_RINGS`,
+            `MAWUS_ORIGINAL_M04_ROW${row}_SIX_RINGS`
+        ],
+        [`^MAWUS_ORIGINAL_M0[34]_ROW${row}_SIX_RINGS$`],
+        'high'
     ),
-    matchSource: 'Mawuş vitrinindeki altılı yüzük sırası'
+    matchSource: 'Nişantaşı sahnesindeki iki vitrinde bulunan altılı yüzük sırası'
 });
 
-export const mawusProductMatches = {
+export const nisantasiProductMatches = {
     schemaVersion: 1,
     products: [
         product('MAWUS_HQ_1000G_ALTIN', '1000 Gram Altın Külçe', 'Altın', '1000g-altin', ['külçe', '1000 gram']),
@@ -88,25 +91,22 @@ export const mawusProductMatches = {
             'SM__asset_goldblock125_001.001',
             'SM__asset_goldblock125_001.002'
         ], ['^SM__asset_goldblock125_001(?:\\.\\d+)?$']),
-        binding('MAWUS_HQ_ALTIN_YUZUK', ['pattern01_right'], ['^pattern01_right$']),
-        rowBinding('MAWUS_HQ_ALTIN_YUZUK_TASLI', '01'),
-        rowBinding('MAWUS_HQ_ALTIN_KIRMIZI_KALPLI', '02'),
-        binding('MAWUS_HQ_ALTIN_KIRMIZI_TAS', [
-            'Gold womens ring - Regal Crimson',
-            'Gold_Ring_big_prong_02'
-        ], ['^Gold womens ring - Regal Crimson$', '^Gold_Ring_big_prong_02$']),
-        rowBinding('MAWUS_HQ_CICEK_KIRMIZI_YUZUK', '03'),
+        rowBinding('MAWUS_HQ_ALTIN_YUZUK', '01'),
+        rowBinding('MAWUS_HQ_ALTIN_YUZUK_TASLI', '02'),
+        rowBinding('MAWUS_HQ_ALTIN_KIRMIZI_KALPLI', '03'),
+        rowBinding('MAWUS_HQ_ALTIN_KIRMIZI_TAS', '04'),
+        rowBinding('MAWUS_HQ_CICEK_KIRMIZI_YUZUK', '05'),
         binding('MAWUS_CUMHURIYET_ALTINI', [
             'Cumhuriyet altını',
             'Cumhuriyet altını.001'
         ], ['^Cumhuriyet altını(?:\\.\\d+)?$']),
-        binding('MAWUS_HQ_CICEK_YUZUK', ['Retopo_Plane.002'], ['^Retopo_Plane\\.002$'], 'medium'),
-        rowBinding('MAWUS_HQ_ELMAS_YUZUK', '04'),
+        rowBinding('MAWUS_HQ_CICEK_YUZUK', '06'),
+        rowBinding('MAWUS_HQ_ELMAS_YUZUK', '07'),
         binding('MAWUS_HQ_GRAM_ALTIN', [
             'gram', 'gram.001', 'gram.002', 'gram.003'
         ], ['^gram(?:\\.\\d+)?$']),
-        rowBinding('MAWUS_HQ_GRI_YUZUK', '05'),
-        rowBinding('MAWUS_HQ_YAKUT_YUZUK', '06'),
+        rowBinding('MAWUS_HQ_GRI_YUZUK', '08'),
+        rowBinding('MAWUS_HQ_YAKUT_YUZUK', '09'),
         binding('MAWUS_HQ_CEYREK_ALTIN', [
             'ceyrek', 'ceyrek.001', 'ceyrek.002', 'ceyrek.003'
         ], ['^ceyrek(?:\\.\\d+)?$']),
@@ -116,10 +116,8 @@ export const mawusProductMatches = {
         binding('MAWUS_HQ_TAM_ALTIN', [
             'Tam', 'Tam.001', 'Tam.002', 'Tam.003'
         ], ['^Tam(?:\\.\\d+)?$']),
-        binding('MAWUS_HQ_ZUMRUT_YUZUK', [
-            'Crystal Circle', 'Crystal Clamp', 'Crystal Stand', 'Gem', 'Ring'
-        ], ['^Crystal (?:Circle|Clamp|Stand)$', '^Gem$', '^Ring$'])
+        rowBinding('MAWUS_HQ_ZUMRUT_YUZUK', '10')
     ]
 };
 
-export default mawusProductMatches;
+export default nisantasiProductMatches;

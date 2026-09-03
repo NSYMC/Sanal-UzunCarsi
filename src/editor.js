@@ -14,6 +14,7 @@ import { MultiMaterial } from '@babylonjs/core/Materials/multiMaterial';
 import { StandardMaterial } from '@babylonjs/core/Materials/standardMaterial';
 import { PBRMaterial } from '@babylonjs/core/Materials/PBR/pbrMaterial';
 import { createGoldPricingPanel } from './gold-pricing.js';
+import { isInspectableProductMeshForStore } from './product-interaction.js';
 import { PointLight } from '@babylonjs/core/Lights/pointLight';
 import { GizmoManager } from '@babylonjs/core/Gizmos/gizmoManager';
 
@@ -268,6 +269,7 @@ export const createTourEditor = ({
     productRegistry = null,
     openHighQualityProduct = null,
     closeHighQualityProduct = null,
+    onProductOpened = null,
     storeId = null
 }) => {
     const dom = {
@@ -462,9 +464,7 @@ export const createTourEditor = ({
     const findRegisteredProduct = (id) => productRegistry?.getProduct?.(id)
         || productRegistry?.get?.(id)
         || null;
-    const isInspectableProductMesh = (mesh) => Boolean(
-        mesh?.metadata?.isGeneratedProduct || mesh?.metadata?.modeledProductId || mesh?.metadata?.productId
-    );
+    const isInspectableProductMesh = (mesh) => isInspectableProductMeshForStore(mesh, storeId);
 
     const setStatus = (message, tone = '') => {
         dom.status.textContent = message;
@@ -582,6 +582,7 @@ export const createTourEditor = ({
             const product = trigger.products[index];
             const metadata = {
                 isGeneratedProduct: true,
+                storeId,
                 triggerId: trigger.id,
                 productId: product.id
             };
@@ -1201,7 +1202,8 @@ export const createTourEditor = ({
 
     const fillProductHotspots = (product = {}) => {
         dom.inspectorHotspots.replaceChildren();
-        if (product.animationPlayback?.autoPlay !== true) return;
+        // İşaretleri ürünün kendi hotspots listesi belirler; görünürlükleri
+        // sahne araçlarındaki [data-parts-hidden] ile yönetilir.
         const explicitHotspots = Array.isArray(product.hotspots)
             ? product.hotspots.filter((hotspot) => hotspot?.label && hotspot?.nodeName).slice(0, 32)
             : [];
@@ -1689,6 +1691,8 @@ export const createTourEditor = ({
     const openInspector = async (productId, targetMesh = null) => {
         const modeledProduct = findModeledProduct(productId);
         const registeredProduct = findRegisteredProduct(productId);
+        const inspectedProduct = registeredProduct || modeledProduct;
+        if (inspectedProduct) onProductOpened?.(inspectedProduct);
         if (registeredProduct && (!modeledProduct || registeredProduct.highQualityModel)) {
             releaseTourPointerLock();
             clearProductTarget();

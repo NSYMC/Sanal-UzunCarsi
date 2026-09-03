@@ -1,10 +1,11 @@
-const CACHE_NAME = 'uzuncarsi-scenes-v12';
+const CACHE_NAME = 'uzuncarsi-scenes-v16';
 const SCENE_PATHS = [
     '/models/world/always.glb',
     '/models/world/outside.glb',
-    '/models/materials-optimized/guzel-optik/store-environment.glb',
+    '/models/guzel-optik/store-environment.glb',
     '/models/sude-home/store-raw.glb',
-    '/models/mawus/store-raw.glb'
+    '/models/nisantasi/store-raw.glb',
+    '/models/telefon/store-raw.glb'
 ];
 
 const isSceneRequest = (request) => {

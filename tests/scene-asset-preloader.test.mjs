@@ -112,10 +112,8 @@ test('mağaza girişi dış mekân indirmesini beklemez', async () => {
             ]
         });
         await preloader.prepareEntry('test');
-        assert.deepEqual(requested.sort(), [
-            'https://example.test/always.glb',
-            'https://example.test/store.glb'
-        ]);
+        assert.deepEqual(requested, ['https://example.test/store.glb']);
+        assert.equal(preloader.state('world:always')?.state, 'idle');
         assert.equal(preloader.state('world:outside')?.state, 'idle');
     } finally {
         restoreGlobal('window', previousWindow);

@@ -12,10 +12,11 @@ COPY src ./src
 COPY scripts ./scripts
 COPY public ./public
 
-# The active scene is a single validated Blender GLB. Do not split or rebuild
-# it in the image, which could break embedded material and texture references.
+# Runtime assets are assembled and validated by the Vite prebuild pipeline.
 RUN npm run build \
-    && test -f dist/models/tour-v2/uzuncarsi-ktx2.glb
+    && test -f dist/models/selection/selection-world.glb \
+    && test -f dist/models/world/outside.glb \
+    && test -f dist/models/nisantasi/store-raw.glb
 
 FROM nginx:1.30-alpine
 

@@ -8,72 +8,72 @@ const bindingsPath = path.join(workspace, 'src', 'data', 'scene-product-bindings
 
 const profiles = {
     1: {
-        name: 'Kırmızı Camlı Metal Güneş Gözlüğü', price: 2290, model: 'kirmizi-camli-gozluk',
+        name: 'Marin 2140 Metal Güneş Gözlüğü · Kırmızı Cam', price: 2290, model: 'kirmizi-camli-gozluk',
         description: 'Kırmızı camlı metal güneş gözlüğü.',
         tags: ['kırmızı cam', 'metal çerçeve', 'güneş gözlüğü']
     },
     2: {
-        name: 'Yeşil Metal Çerçeveli Gözlük', price: 1790, model: 'yesil-gozluk',
+        name: 'Kordon 3080 Metal Optik Çerçeve · Yeşil', price: 1790, model: 'yesil-gozluk',
         description: 'Yeşil camlı metal gözlük.',
         tags: ['yeşil', 'metal çerçeve']
     },
     3: {
-        name: 'Sarı Plastik Çerçeveli Gözlük', price: 790, model: 'plastik-sari-gozluk',
+        name: 'Vega 5510 Plastik Optik Çerçeve · Sarı', price: 790, model: 'plastik-sari-gozluk',
         description: 'Sarı plastik çerçeveli gözlük.',
         tags: ['sarı', 'plastik çerçeve']
     },
     4: {
-        name: 'Turuncu Camlı Gözlük', price: 1690, model: 'turuncu-gozluk-turuncu-cam',
+        name: 'Ege 4020 Güneş Gözlüğü · Turuncu Cam', price: 1690, model: 'turuncu-gozluk-turuncu-cam',
         description: 'Turuncu camlı güneş gözlüğü.',
         tags: ['turuncu cam', 'güneş gözlüğü']
     },
     5: {
-        name: 'Yeşil Camlı Plastik Gözlük', price: 990, model: 'plastik-yesil-cam-gozluk',
+        name: 'Vega 5525 Plastik Güneş Gözlüğü · Yeşil Cam', price: 990, model: 'plastik-yesil-cam-gozluk',
         description: 'Yeşil camlı plastik gözlük.',
         tags: ['yeşil cam', 'plastik çerçeve']
     },
     6: {
-        name: 'Mavi Camlı Gözlük', price: 1890, model: 'mavi-camli-gozluk',
+        name: 'Deniz 1750 Güneş Gözlüğü · Mavi Cam', price: 1890, model: 'mavi-camli-gozluk',
         description: 'Mavi camlı gözlük.',
         tags: ['mavi cam', 'güneş gözlüğü']
     },
     7: {
-        name: 'Siyah Çerçevesiz Gözlük', price: 1490, model: 'siyah-cercevesiz-gozluk',
+        name: 'Nazar 6100 Çerçevesiz Optik · Siyah', price: 1490, model: 'siyah-cercevesiz-gozluk',
         description: 'Siyah çerçevesiz gözlük.',
         tags: ['siyah', 'çerçevesiz']
     },
     8: {
-        name: 'Turuncu Metal Gözlük', price: 1990, model: 'turuncu-gozluk',
+        name: 'Ege 4035 Metal Optik Çerçeve · Turuncu', price: 1990, model: 'turuncu-gozluk',
         description: 'Turuncu metal çerçeveli gözlük.',
         tags: ['turuncu', 'metal çerçeve']
     },
     9: {
-        name: 'Mavi Camlı Gözlük', price: 1890, model: 'mavi-camli-gozluk',
+        name: 'Deniz 1790 Güneş Gözlüğü · Mavi Cam', price: 1890, model: 'mavi-camli-gozluk',
         description: 'Mavi camlı gözlük.',
         tags: ['mavi cam', 'güneş gözlüğü']
     },
     10: {
-        name: 'Yeşil Camlı Metal Güneş Gözlüğü', price: 2290, model: 'yesil-camli-gozluk',
+        name: 'Marin 2165 Metal Güneş Gözlüğü · Yeşil Cam', price: 2290, model: 'yesil-camli-gozluk',
         description: 'Yeşil camlı metal güneş gözlüğü.',
         tags: ['yeşil cam', 'metal çerçeve', 'güneş gözlüğü']
     },
     11: {
-        name: 'Siyah Çerçevesiz Gözlük', price: 1490, model: 'siyah-cercevesiz-gozluk',
+        name: 'Nazar 6140 Çerçevesiz Optik · Siyah', price: 1490, model: 'siyah-cercevesiz-gozluk',
         description: 'Siyah çerçevesiz gözlük.',
         tags: ['siyah', 'çerçevesiz']
     },
     12: {
-        name: 'Yeşil Plastik Gözlük', price: 890, model: 'yesil-plastik-gozluk',
+        name: 'Kordon 3115 Plastik Optik Çerçeve · Yeşil', price: 890, model: 'yesil-plastik-gozluk',
         description: 'Yeşil plastik çerçeveli gözlük.',
         tags: ['yeşil', 'plastik çerçeve']
     },
     13: {
-        name: 'Çerçevesiz Güneş Gözlüğü', price: 1590, model: 'cercevesiz-gozluk',
+        name: 'Nazar 6220 Çerçevesiz Güneş Gözlüğü', price: 1590, model: 'cercevesiz-gozluk',
         description: 'Çerçevesiz güneş gözlüğü.',
         tags: ['çerçevesiz', 'güneş gözlüğü']
     },
     14: {
-        name: 'Turuncu Metal Gözlük', price: 1990, model: 'turuncu-gozluk',
+        name: 'Ege 4060 Metal Optik Çerçeve · Turuncu', price: 1990, model: 'turuncu-gozluk',
         description: 'Turuncu metal çerçeveli gözlük.',
         tags: ['turuncu', 'metal çerçeve']
     }
@@ -104,7 +104,7 @@ const opticalProducts = manifest.products.map((entry) => {
     if (!profile) return product;
     const code = product.id.split('_').at(-1);
     Object.assign(product, {
-        name: `${profile.name} · ${code}`,
+        name: `${profile.name} · Ref. ${code}`,
         brand: 'Güzel Optik',
         category: 'Gözlük',
         price: profile.price,
@@ -120,13 +120,27 @@ const opticalProducts = manifest.products.map((entry) => {
     return product;
 });
 
+// Manifestte karşılığı olmayan Güzel Optik kayıtları (kaidedeki animasyonlu
+// gözlük gibi elle tanımlanmış ürünler) olduğu gibi korunur.
+const manifestIds = new Set(manifest.products.map(({ id }) => id));
+const korunanOptik = productData.products.filter(
+    ({ storeId, id }) => storeId === 'guzel-optik' && !manifestIds.has(id)
+);
+
 productData.products = [
     ...productData.products.filter(({ storeId }) => storeId !== 'guzel-optik'),
-    ...opticalProducts
+    ...opticalProducts,
+    ...korunanOptik
 ];
+
+// Bağlantılarda da manifest dışı kayıtlar korunur.
+const korunanBaglanti = bindingData.bindings.filter(
+    ({ storeId, productId }) => storeId === 'guzel-optik' && !manifestIds.has(productId)
+);
 
 bindingData.bindings = [
     ...bindingData.bindings.filter(({ storeId }) => storeId !== 'guzel-optik'),
+    ...korunanBaglanti,
     ...manifest.products.map((entry) => ({
         id: `binding:guzel-optik:${entry.id}`,
         storeId: 'guzel-optik',
