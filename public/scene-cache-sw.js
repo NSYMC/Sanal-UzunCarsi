@@ -1,4 +1,4 @@
-const CACHE_NAME = 'uzuncarsi-scenes-v16';
+const CACHE_NAME = 'uzuncarsi-scenes-v18';
 const SCENE_PATHS = [
     '/models/world/always.glb',
     '/models/world/outside.glb',

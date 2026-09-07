@@ -144,6 +144,13 @@ export const createSceneAssetPreloader = ({
         const record = records.get(id);
         if (!record) return Promise.reject(new Error(`Bilinmeyen sahne varlığı: ${id}`));
         record.priority = Math.max(record.priority, priority);
+        if (record.state === 'error') {
+            record.deferred = createDeferred();
+            record.loaded = 0;
+            record.total = 0;
+            record.error = null;
+            record.state = 'idle';
+        }
         if (record.state === 'idle') {
             record.state = 'queued';
             emit(record);
@@ -157,9 +164,9 @@ export const createSceneAssetPreloader = ({
     const preloadAll = () => {
         const pending = [];
         for (const record of records.values()) {
-            if (record.state === 'idle') {
-                record.state = 'queued';
-                emit(record);
+            if (record.state === 'idle' || record.state === 'error') {
+                pending.push(prioritize(record.id, record.priority));
+                continue;
             }
             if (record.state === 'queued' || record.state === 'loading') {
                 pending.push(record.deferred.promise);

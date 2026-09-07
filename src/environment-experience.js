@@ -1,5 +1,7 @@
-const OUTSIDE_EXPOSURE = 0.58;
-const INSIDE_EXPOSURE = 0.54;
+import { TOUR_EXPOSURE } from './color-management.js';
+
+const OUTSIDE_EXPOSURE = TOUR_EXPOSURE.outside;
+const INSIDE_EXPOSURE = TOUR_EXPOSURE.inside;
 const OUTSIDE_GAIN = 0.018;
 const INSIDE_GAIN = 0.01;
 

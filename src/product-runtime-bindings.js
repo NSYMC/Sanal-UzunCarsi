@@ -43,6 +43,18 @@ const registryBindings = (registry, storeId) => {
 };
 
 const asArray = (value) => Array.isArray(value) ? value : value == null ? [] : [value];
+
+export const filterExistingManifestProducts = (manifest, meshes) => {
+    const ids = new Set();
+    for (const mesh of meshes) {
+        let node = mesh;
+        for (let depth = 0; node && depth < 16; depth++, node = node.parent) {
+            const id = String(node.name || '').match(/^(OPTIK_PRODUCT_\d{3})(?=_|$)/)?.[1];
+            if (id) ids.add(id);
+        }
+    }
+    return { ...manifest, products: (manifest.products || []).filter(product => ids.has(product.id)) };
+};
 const bindingNames = (binding) => asArray(binding.meshNames
     || binding.target?.meshNames
     || binding.selectors?.meshNames);

@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#080c14" />
+    <meta name="theme-color" content="#17120d" />
     <meta
       name="description"
       content="Kahramanmaraş Uzun Çarşı'daki mağaza ve ürünlerin 3B görünümü."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&display=swap" rel="stylesheet">
     <title>Sanal Uzun Çarşı | Mağazalar ve Ürünler</title>
   </head>
   <body>
@@ -33,7 +33,7 @@
             <h1 id="loadingStoreName" class="loading-title">Güzel Optik Lens</h1>
             <p id="loadingStoreCategory" class="loading-store-category">Optik &amp; Gözlük</p>
           </div>
-          <div id="loadingStoreIcon" class="loading-store-icon" aria-hidden="true">👓</div>
+          <div id="loadingStoreIcon" class="loading-store-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.6" cy="13.4" r="3.6"/><circle cx="17.4" cy="13.4" r="3.6"/><path d="M10.2 13.4a2.4 2.4 0 0 1 3.6 0"/><path d="M3 11 5.2 6.6h2.6"/><path d="M21 11 18.8 6.6h-2.6"/></svg></div>
         </header>
 
         <div class="loading-card__body">
@@ -57,9 +57,9 @@
           </div>
 
           <div class="loading-journey" aria-label="Yükleme aşamaları">
-            <span><b>01</b> Çarşı</span>
-            <span><b>02</b> Mağaza</span>
-            <span><b>03</b> Hazırlık</span>
+            <span>Çarşı</span>
+            <span>Mağaza</span>
+            <span>Hazırlık</span>
           </div>
         </div>
 
@@ -71,11 +71,11 @@
     </div>
 
     <!-- Interactive In-Tour Hover Tooltip -->
-    <div id="productHoverPrompt" class="product-hover-prompt hidden" aria-live="polite">
-      <div class="product-hover-prompt__icon">👓</div>
-      <div class="product-hover-prompt__text">
-        <strong id="hoverPromptName">Optik Gözlük</strong>
-        <span id="hoverPromptDesc">Detayları açmak için tıklayın veya E tuşuna basın</span>
+    <div id="productHoverHint" class="product-hover-hint hidden" aria-live="polite">
+      <div class="product-hover-hint__icon"><svg class="ui-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.4 15.4 4.2 4.2"/></svg></div>
+      <div class="product-hover-hint__text">
+        <strong id="hoverHintName">Optik Gözlük</strong>
+        <span id="hoverHintDesc">Detayları açmak için tıklayın veya E tuşuna basın</span>
       </div>
     </div>
 
@@ -92,13 +92,10 @@
       <header class="store-map-header">
         <p class="eyebrow">SANAL UZUN ÇARŞI</p>
         <h1 id="selectionMapTitle">Bir mağaza seçin</h1>
-        <p>Mağazanızı seçin; sahneyi gezerken raflardaki her ürünü 3B olarak inceleyin.</p>
+        <p>Ürünleri katalogda keşfedin veya bir mağaza seçerek rafları 3B gezin.</p>
         <div class="store-map-count"><strong id="selectionStoreCount">3</strong> mağaza <i></i><span id="selectionMapStatus">Harita yükleniyor</span></div>
-        <div class="store-map-guide" aria-label="Kullanım rehberi">
-          <span><b>1</b> Mağazayı seç</span><span><b>2</b> İçeri gir</span><span><b>3</b> Ürünlere bak</span>
-        </div>
       </header>
-      <div class="store-map-angle" aria-hidden="true"><span>↗</span> Harita</div>
+      <div class="store-map-angle" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.8 6.4 9 4.2v13.4l-6.2 2.2Z"/><path d="M9 4.2 15 6.6v13.2L9 17.6Z"/><path d="M15 6.6 21.2 4.4v13.4L15 19.8Z"/></svg> Harita</div>
       <form id="selectionSearchForm" class="store-map-search" role="search">
         <div class="store-map-search__heading">
           <div><span>ÜRÜN BUL</span><strong id="selectionResultSummary">Tüm mağazalar</strong></div>
@@ -116,31 +113,31 @@
         </div>
         <div class="store-map-search__footer">
           <span id="selectionActiveFilterText">Tüm ürünler</span>
-          <button id="openCatalogBtn" type="button">Kart görünümü</button>
+          <button id="openCatalogBtn" class="store-map-catalog-primary" type="button">Ürün kataloğunu aç</button>
         </div>
       </form>
       <div id="selectionMarkerLayer" class="store-marker-layer" aria-label="Haritadaki mağazalar">
         <button class="store-marker store-marker--optik" type="button" data-selection-store="guzel-optik" aria-label="Güzel Optik mağazasını seç">
-          <span class="store-marker__pin"><i>👓</i></span><strong>Güzel Optik</strong><small>Optik &amp; Gözlük</small>
+          <span class="store-marker__pin"><i><svg class="ui-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.6" cy="13.4" r="3.6"/><circle cx="17.4" cy="13.4" r="3.6"/><path d="M10.2 13.4a2.4 2.4 0 0 1 3.6 0"/><path d="M3 11 5.2 6.6h2.6"/><path d="M21 11 18.8 6.6h-2.6"/></svg></i></span><strong>Güzel Optik</strong><small>Optik &amp; Gözlük</small>
         </button>
         <button class="store-marker store-marker--sude" type="button" data-selection-store="sude-home" aria-label="Sude Home mağazasını seç">
-          <span class="store-marker__pin"><i>🍽️</i></span><strong>Sude Home</strong><small>Ev &amp; Yaşam</small>
+          <span class="store-marker__pin"><i><svg class="ui-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 10.8h17.6a8.8 8.8 0 0 1-17.6 0Z"/><path d="M8.6 7.4c0-1.6 1.5-1.9 1.5-3.2"/><path d="M13.4 7.4c0-1.6 1.5-1.9 1.5-3.2"/></svg></i></span><strong>Sude Home</strong><small>Ev &amp; Yaşam</small>
         </button>
         <button class="store-marker store-marker--nisantasi" type="button" data-selection-store="nisantasi" aria-label="Nişantaşı mağazasını seç">
-          <span class="store-marker__pin"><i>💍</i></span><strong>Nişantaşı</strong><small>Kuyumculuk</small>
+          <span class="store-marker__pin"><i><svg class="ui-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14.6" r="5.8"/><path d="m9.4 8.4 2.6-4.6 2.6 4.6"/><path d="M9.4 8.4h5.2"/></svg></i></span><strong>Nişantaşı</strong><small>Kuyumculuk</small>
         </button>
         <button class="store-marker store-marker--telefon" type="button" data-selection-store="telefon" aria-label="Zeka Teknoloji mağazasını seç">
-          <span class="store-marker__pin"><i>📱</i></span><strong>Zeka Teknoloji</strong><small>Telefon &amp; Aksesuar</small>
+          <span class="store-marker__pin"><i><svg class="ui-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.6" y="2.8" width="10.8" height="18.4" rx="2"/><path d="M10.6 18.4h2.8"/></svg></i></span><strong>Zeka Teknoloji</strong><small>Telefon &amp; Aksesuar</small>
         </button>
       </div>
       <div class="store-map-list" aria-label="Mağaza seçim listesi">
-        <button type="button" data-selection-list="guzel-optik" style="--store-color:#dc8fa3"><span></span><strong>Güzel Optik</strong><small data-selection-match>Optik &amp; Gözlük</small></button>
-        <button type="button" data-selection-list="sude-home" style="--store-color:#79b9a4"><span></span><strong>Sude Home</strong><small data-selection-match>Ev &amp; Yaşam</small></button>
-        <button type="button" data-selection-list="nisantasi" style="--store-color:#e7ae78"><span></span><strong>Nişantaşı</strong><small data-selection-match>Kuyumculuk</small></button>
-        <button type="button" data-selection-list="telefon" style="--store-color:#7fa7d8"><span></span><strong>Zeka Teknoloji</strong><small data-selection-match>Telefon &amp; Aksesuar</small></button>
+        <button type="button" data-selection-list="guzel-optik" style="--store-color:#47786d"><span></span><strong>Güzel Optik</strong><small data-selection-match>Optik &amp; Gözlük</small></button>
+        <button type="button" data-selection-list="sude-home" style="--store-color:#6e7a41"><span></span><strong>Sude Home</strong><small data-selection-match>Ev &amp; Yaşam</small></button>
+        <button type="button" data-selection-list="nisantasi" style="--store-color:#a97a2e"><span></span><strong>Nişantaşı</strong><small data-selection-match>Kuyumculuk</small></button>
+        <button type="button" data-selection-list="telefon" style="--store-color:#8a4a3a"><span></span><strong>Zeka Teknoloji</strong><small data-selection-match>Telefon &amp; Aksesuar</small></button>
       </div>
       <div id="selectionEmptyState" class="store-map-empty" hidden>Bu filtrelerle eşleşen mağaza bulunamadı.</div>
-      <p class="store-map-hint"><span>⌁</span> Haritayı sürükleyin, yakınlaşmak için tekerleği kullanın</p>
+      <p class="store-map-hint"><svg class="ui-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4v17.2"/><path d="M3.4 12h17.2"/><path d="m8.6 7.4 3.4-3.4 3.4 3.4"/><path d="m8.6 16.6 3.4 3.4 3.4-3.4"/></svg> Haritayı sürükleyin, yakınlaşmak için tekerleği kullanın</p>
     </section>
 
     <div id="storeSelectPortal" class="store-portal hidden" role="dialog" aria-modal="true" aria-labelledby="portalTitle" hidden>
@@ -154,6 +151,7 @@
           </div>
           <div class="portal-entry-actions">
             <span id="portalPreloadStatus" class="portal-preload-status" aria-live="polite">Yükleniyor</span>
+            <button id="portalBackBtn" class="portal-back-button" type="button">Haritaya dön</button>
             <button id="portalExploreAllBtn" class="portal-btn portal-btn--outline" type="button">Seçili mağazaya gir</button>
           </div>
         </header>
@@ -204,7 +202,6 @@
           <section class="portal-results" aria-live="polite">
             <div class="portal-results__head">
               <div>
-                <span>MAĞAZALAR</span>
                 <strong id="portalResultSummary">3 mağaza listeleniyor</strong>
               </div>
               <p id="portalActiveFilterText">Tüm ürünler</p>
@@ -256,8 +253,8 @@
             </article>
 
             <article class="store-card" role="listitem" tabindex="0" data-store-id="telefon" aria-selected="false">
-              <div class="store-card__banner">
-                <img src="/assets/optik_store.svg" alt="Zeka Teknoloji" loading="eager" />
+              <div class="store-card__banner store-card__banner--telefon" role="img" aria-label="Zeka Teknoloji telefon ve aksesuar mağazası">
+                <span class="store-card__banner-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"><rect x="6.6" y="2.8" width="10.8" height="18.4" rx="2"/><path d="M10.6 18.4h2.8"/></svg></span>
                 <span class="store-card__badge">Telefon</span>
               </div>
               <div class="store-card__body">
@@ -288,15 +285,15 @@
     <div id="tourHud" class="tour-hud hidden" hidden>
       <div class="tour-hud__left">
         <button id="worldMapReturnBtn" class="hud-pill-button hud-map-return" type="button" title="Mağaza haritasına dön">
-          <span class="hud-btn-icon" aria-hidden="true">←</span>
+          <span class="hud-btn-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span>
           <span>Haritaya dön</span>
         </button>
 
         <div class="store-switcher-wrapper">
           <button id="storeSwitcherBtn" class="hud-pill-button" type="button" aria-haspopup="true" aria-expanded="false">
-            <span class="hud-btn-icon" aria-hidden="true">📍</span>
+            <span class="hud-btn-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s6.6-6 6.6-11a6.6 6.6 0 1 0-13.2 0c0 5 6.6 11 6.6 11Z"/><circle cx="12" cy="10.4" r="2.4"/></svg></span>
             <span id="activeStoreName">Mağaza Seç</span>
-            <span class="hud-btn-arrow" aria-hidden="true">▾</span>
+            <span class="hud-btn-arrow" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg></span>
           </button>
 
           <div id="storeSwitcherMenu" class="store-switcher-menu hidden" role="menu" hidden>
@@ -323,6 +320,22 @@
           <span class="ambient-toggle__icon" aria-hidden="true"></span>
           <span data-ambient-label>Ortam sesi açık</span>
         </button>
+      </div>
+
+      <div id="mobileTourControls" class="mobile-tour-controls" aria-label="Dokunmatik tur kontrolleri" hidden>
+        <div class="mobile-tour-pad" aria-label="Hareket">
+          <button class="is-up" type="button" data-tour-move="KeyW" aria-label="İleri git"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>
+          <button class="is-left" type="button" data-tour-move="KeyA" aria-label="Sola git"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+          <button class="is-right" type="button" data-tour-move="KeyD" aria-label="Sağa git"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+          <button class="is-down" type="button" data-tour-move="KeyS" aria-label="Geri git"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        </div>
+        <p>Ortadaki ürüne dokunarak inceleyin</p>
+        <div class="mobile-tour-pad" aria-label="Bakış yönü">
+          <button class="is-up" type="button" data-tour-look="up" aria-label="Yukarı bak"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>
+          <button class="is-left" type="button" data-tour-look="left" aria-label="Sola dön"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+          <button class="is-right" type="button" data-tour-look="right" aria-label="Sağa dön"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+          <button class="is-down" type="button" data-tour-look="down" aria-label="Aşağı bak"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        </div>
       </div>
 
       <label class="quality-control" for="qualitySelect">
@@ -369,7 +382,7 @@
             <small>Tişört ölçülerinde beş ürünle başlar</small>
           </button>
           <button type="button" data-add-trigger="light">
-            <span class="trigger-type-icon" aria-hidden="true" style="font-size: 24px;">💡</span>
+            <span class="trigger-type-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.4 18.2h5.2"/><path d="M10.2 21h3.6"/><path d="M12 3a5.8 5.8 0 0 1 3.4 10.5c-.6.5-.9 1.1-.9 1.8H9.5c0-.7-.3-1.3-.9-1.8A5.8 5.8 0 0 1 12 3Z"/></svg></span>
             <strong>Işık Kaynağı</strong>
             <small>Özel renk ve güçte aydınlatma sağlar</small>
           </button>
@@ -413,9 +426,9 @@
         </div>
 
         <div class="transform-tabs" aria-label="3B düzenleme aracı">
-          <button class="is-active" type="button" data-transform-mode="move">↔ Taşı</button>
+          <button class="is-active" type="button" data-transform-mode="move"> Taşı</button>
           <button type="button" data-transform-mode="rotate">⟳ Döndür</button>
-          <button type="button" data-transform-mode="resize">↗ Ürün ölçüsü</button>
+          <button type="button" data-transform-mode="resize"> Ürün ölçüsü</button>
         </div>
 
         <p id="transformHelp" class="transform-help">Kırmızı, yeşil ve mavi oklarla ilk ürünü raftaki yerine taşıyın.</p>
@@ -456,10 +469,10 @@
             <label>
               <span>Sıralama yönü</span>
               <select id="triggerDirection">
-                <option value="x+">Sağa doğru →</option>
-                <option value="x-">Sola doğru ←</option>
-                <option value="y+">Yukarı doğru ↑</option>
-                <option value="y-">Aşağı doğru ↓</option>
+                <option value="x+">Sağa doğru </option>
+                <option value="x-">Sola doğru </option>
+                <option value="y+">Yukarı doğru </option>
+                <option value="y-">Aşağı doğru </option>
                 <option value="z+">Öne doğru</option>
                 <option value="z-">Arkaya doğru</option>
               </select>
@@ -509,7 +522,7 @@
           </div>
         </details>
 
-        <button id="removeTriggerBtn" class="editor-danger-button editor-wide-button" type="button">🗑 Bu diziyi sil</button>
+        <button id="removeTriggerBtn" class="editor-danger-button editor-wide-button" type="button"><svg class="ui-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 6.4h14.8"/><path d="M9.4 6.4V4.2h5.2v2.2"/><path d="M6.8 6.4 7.7 20h8.6l.9-13.6"/></svg> Bu diziyi sil</button>
       </form>
 
       <div id="productFormEmpty" class="editor-product-empty hidden">
@@ -596,12 +609,12 @@
             <p id="productPreviewStatus" class="product-stage__status" aria-live="polite"></p>
             <div id="productStageHotspots" class="product-stage__hotspots" aria-label="Ürün ayrıntıları"></div>
             <div class="product-stage__hint">
-              <span><b aria-hidden="true">↔</b> Sürükle ve döndür</span>
+              <span><b aria-hidden="true"></b> Sürükle ve döndür</span>
               <span><b aria-hidden="true">＋</b> Tekerlekle yakınlaş</span>
             </div>
             <div id="productStageTools" class="product-stage__tools hidden">
               <button id="productExplodeBtn" class="stage-tool stage-tool--explode hidden" type="button" aria-pressed="false">
-                <span class="stage-tool__icon" aria-hidden="true">◈</span>
+                <span class="stage-tool__icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6 20 7l-8 4.4L4 7Z"/><path d="m4 12 8 4.4L20 12"/><path d="m4 17 8 4.4L20 17"/></svg></span>
                 <span class="stage-tool__label">Parçalarına ayır</span>
               </button>
               <div id="productCaseTray" class="stage-cases hidden" role="group" aria-label="Kılıf seçenekleri">
@@ -617,22 +630,25 @@
             <div class="product-detail__divider"></div>
             <p id="inspectorDescription" class="product-detail__description"></p>
             <dl id="inspectorProperties" class="product-properties"></dl>
-            <section id="goldPricingPanel" class="gold-pricing hidden" aria-live="polite">
-              <div class="gold-pricing__head">
-                <div><span>ALTIN FİYATI</span><strong data-gold-spot>Güncel fiyat alınıyor…</strong></div>
-                <small data-gold-updated></small>
-              </div>
-              <div class="gold-pricing__chart-wrap">
-                <canvas data-gold-chart aria-label="Gram altının son 30 günlük fiyat grafiği"></canvas>
-                <span data-gold-range></span>
-              </div>
-              <div class="gold-pricing__tariff"><span>Mağaza tarifesi</span><strong data-gold-tariff></strong></div>
-              <div class="gold-pricing__calculation" data-gold-calculation></div>
-              <div class="gold-pricing__total"><span>Ürün fiyatı</span><strong data-gold-total>—</strong></div>
-              <p data-gold-note></p>
-            </section>
+            <details id="goldPricingDisclosure" class="gold-pricing-disclosure hidden">
+              <summary>Fiyat nasıl hesaplandı?</summary>
+              <section id="goldPricingPanel" class="gold-pricing hidden" aria-live="polite">
+                <div class="gold-pricing__head">
+                  <div><span>ALTIN FİYATI</span><strong data-gold-spot>Güncel fiyat alınıyor…</strong></div>
+                  <small data-gold-updated></small>
+                </div>
+                <div class="gold-pricing__chart-wrap">
+                  <canvas data-gold-chart aria-label="Gram altının son 30 günlük fiyat grafiği"></canvas>
+                  <span data-gold-range></span>
+                </div>
+                <div class="gold-pricing__tariff"><span>Mağaza tarifesi</span><strong data-gold-tariff></strong></div>
+                <div class="gold-pricing__calculation" data-gold-calculation></div>
+                <div class="gold-pricing__total"><span>Ürün fiyatı</span><strong data-gold-total>—</strong></div>
+                <p data-gold-note></p>
+              </section>
+            </details>
             <button id="productInspectorDone" class="product-detail__action" type="button">
-              <span>Mağazaya geri dön</span><b aria-hidden="true">→</b>
+              <span>Mağazaya geri dön</span><b aria-hidden="true"></b>
             </button>
             <p class="product-detail__footnote">Kapatınca mağazaya dönersiniz.</p>
           </aside>

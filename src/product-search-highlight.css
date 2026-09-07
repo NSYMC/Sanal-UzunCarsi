@@ -14,10 +14,14 @@
     color: #f8fafc;
     background: rgb(15 23 42 / 92%);
     box-shadow: 0 12px 30px rgb(0 0 0 / 24%);
-    backdrop-filter: blur(12px);
+    backdrop-filter: none;
 }
 
 .scene-filter-status.hidden { display: none; }
+
+/* Ürün inceleme ekranı ve sepet paneli açıkken şerit onların üstüne binmemeli. */
+body.product-inspector-open .scene-filter-status,
+body.commerce-panel-open .scene-filter-status { display: none; }
 .scene-filter-status__mark { width: 9px; height: 9px; background: #e0a02b; box-shadow: 0 0 0 4px rgb(224 160 43 / 15%); }
 .scene-filter-status div { display: grid; gap: 2px; }
 .scene-filter-status strong { font: 700 12px/1.2 system-ui, sans-serif; }

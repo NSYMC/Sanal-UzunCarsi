@@ -2,8 +2,20 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const packageDir = path.resolve(process.argv[2] || 'public/models/guzel-optik');
-const profileName = (process.argv[3] || 'optik').toLowerCase();
+const profileName = (process.argv[3] || 'optik-raw').toLowerCase();
 const profiles = {
+    // Güncel Blender exportu doğrudan çizilir; eski split/instanced profil
+    // `optik` adıyla korunur. Bu profil geometri ve materyal bütçesini de denetler.
+    'optik-raw': {
+        productPattern: /^OPTIK_PRODUCT_\d{3}/i,
+        drawBudget: 350,
+        proxyDrawBudget: 3,
+        proxyTriangleBudget: 250_000,
+        requireInstancing: false,
+        rawScene: true,
+        triangleBudget: 250_000,
+        materialBudget: 75
+    },
     optik: {
         productPattern: /^OPTIK_PRODUCT_\d{3}/i,
         drawBudget: 80,
@@ -46,6 +58,13 @@ const proxies = await readGlbJson('product-proxies.glb');
 const library = await readGlbJson('product-library.glb');
 const manifest = JSON.parse(await readFile(path.join(packageDir, 'products.json'), 'utf8'));
 const problems = [];
+if (profile.rawScene) {
+    if (!environment.gltf.nodes?.some((node) => node.name === 'Glasses.002' && node.mesh != null)) {
+        problems.push('Güncel ham optik sahnesinin gözlük geometrisi bulunamadı.');
+    }
+    if (triangleCount(environment.gltf) > profile.triangleBudget) problems.push('Ham optik üçgen bütçesi aşıldı.');
+    if (environment.gltf.materials.length > profile.materialBudget) problems.push('Ham optik materyal bütçesi aşıldı.');
+}
 const manifestProducts = Array.isArray(manifest.products) ? manifest.products : [];
 const manifestIds = new Set(manifestProducts.map((product) => product?.id).filter(Boolean));
 const libraryProductCount = countProducts(library.gltf);
@@ -80,7 +99,7 @@ if (problems.length) throw new Error(`Dükkân paketi doğrulanamadı:\n${proble
 
 console.log(JSON.stringify({
     environment: {
-        mode: integratedRawStore ? 'raw-integrated-products' : 'split-optimized',
+        mode: profile.rawScene ? 'raw-static' : integratedRawStore ? 'raw-integrated-products' : 'split-optimized',
         sizeMB: Number((environment.bytes.length / 1_000_000).toFixed(2)),
         nodes: environment.gltf.nodes?.length || 0,
         meshes: environment.gltf.meshes?.length || 0,

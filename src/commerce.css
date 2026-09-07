@@ -1,0 +1,650 @@
+/* Sepet, favoriler ve sipariş arayüzü. Uzun Çarşı'nın mürekkep/pirinç
+   paletini kullanır; ölçüler style.css'teki HUD bileşenleriyle hizalıdır. */
+
+.commerce-hud-button {
+  gap: 7px;
+}
+
+.product-buy {
+  display: grid;
+  gap: 14px;
+  padding: 18px 0;
+  border-top: 1px solid var(--uc-paper-line, #d9d1c4);
+}
+
+.product-buy.hidden { display: none; }
+.product-buy__meta { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 12px; }
+.product-buy__stock { font-weight: 700; }
+.product-buy__stock[data-tone="out"] { color: var(--uc-kilim, #8b443b); }
+.product-buy__delivery, .product-buy__installments, .product-buy__note { font-size: 12px; color: #625b50; }
+.product-buy__installments, .product-buy__note { margin: 0; }
+.product-buy__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.product-quantity { display: inline-flex; align-items: center; border: 1px solid #c8bfaf; border-radius: 4px; }
+.product-quantity__step { width: 32px; height: 38px; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.product-quantity__value { min-width: 24px; text-align: center; font-size: 13px; }
+.product-buy__add, .product-buy__wish { min-height: 40px; padding: 8px 14px; border: 1px solid #c8bfaf; border-radius: 4px; font: inherit; font-size: 12px; cursor: pointer; }
+.product-buy__add { flex: 1; background: var(--uc-ink, #211c16); color: var(--uc-paper, #f5f0e8); }
+.product-buy__wish { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: inherit; }
+.product-buy__wish[data-active="true"] { color: var(--uc-kilim, #8b443b); }
+.product-buy button:disabled { opacity: .5; cursor: not-allowed; }
+.product-buy button:focus-visible { outline: 2px solid var(--uc-brass, #a48143); outline-offset: 2px; }
+
+.commerce-hud-button[data-filled="true"] {
+  border-color: var(--uc-brass);
+  color: var(--uc-brass-lit);
+}
+
+.commerce-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .14);
+  color: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.commerce-hud-button[data-filled="true"] .commerce-badge {
+  background: var(--carsi-brass);
+  color: #1b140c;
+}
+
+.commerce-backdrop {
+  position: fixed;
+  inset: 0;
+  /* Ürün inceleyicisi 70'te duruyor; sepet onun da üzerinde açılmalı. */
+  z-index: 95;
+  background: rgba(15, 11, 7, .58);
+  backdrop-filter: none;
+}
+
+.commerce-backdrop.hidden {
+  display: none;
+}
+
+.commerce-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 96;
+  display: flex;
+  flex-direction: column;
+  width: min(420px, 100vw);
+  border-left: 1px solid rgba(255, 255, 255, .12);
+  background: var(--uc-paper);
+  color: var(--carsi-ink);
+  box-shadow: -24px 0 60px rgba(0, 0, 0, .34);
+  font-family: var(--font-brand);
+}
+
+.commerce-panel.hidden,
+.commerce-panel[hidden] {
+  display: none;
+}
+
+.commerce-panel__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 14px 12px;
+  background: var(--carsi-ink);
+}
+
+.commerce-tabs {
+  display: flex;
+  flex: 1;
+  gap: 5px;
+  min-width: 0;
+}
+
+.commerce-tab {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 9px 8px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: var(--uc-r-surface);
+  background: transparent;
+  color: var(--uc-text-invert-dim);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.commerce-tab:hover {
+  color: var(--uc-text-invert);
+  border-color: var(--uc-brass);
+}
+
+.commerce-tab.is-active {
+  border-color: var(--carsi-brass);
+  background: rgba(169, 122, 46, .2);
+  color: var(--uc-brass-lit);
+}
+
+.commerce-tab__count {
+  min-width: 18px;
+  padding: 1px 5px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, .12);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.commerce-panel__close {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: var(--uc-r-surface);
+  background: transparent;
+  color: var(--uc-text-invert);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.commerce-panel__close:hover {
+  border-color: var(--uc-brass);
+  color: var(--uc-brass-lit);
+}
+
+.commerce-panel__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.commerce-panel__foot {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--uc-paper-line);
+  background: #ece5d8;
+}
+
+.commerce-panel__foot:empty {
+  display: none;
+}
+
+.commerce-primary-button,
+.commerce-ghost-button,
+.commerce-empty__action {
+  padding: 11px 14px;
+  border-radius: var(--uc-r-control);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.commerce-primary-button {
+  border: 0;
+  background: var(--carsi-ink);
+  color: var(--uc-paper-raised);
+}
+
+.commerce-primary-button:hover {
+  background: var(--uc-ink-raised);
+}
+
+.commerce-ghost-button,
+.commerce-empty__action {
+  border: 1px solid var(--uc-paper-line);
+  background: transparent;
+  color: var(--carsi-ink);
+}
+
+.commerce-ghost-button:hover,
+.commerce-empty__action:hover {
+  border-color: var(--carsi-brass);
+  color: var(--carsi-brass-dark);
+}
+
+.commerce-list {
+  display: grid;
+  gap: 9px;
+}
+
+.commerce-line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 10px;
+  padding: 11px 12px;
+  border: 1px solid var(--uc-paper-line);
+  border-radius: var(--uc-r-surface);
+  background: var(--uc-paper-raised);
+}
+
+.commerce-line__info {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.commerce-line__name {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--carsi-ink);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.commerce-line__name:hover {
+  color: var(--carsi-brass-dark);
+  text-decoration: underline;
+}
+
+.commerce-line__meta {
+  color: var(--uc-text-dim);
+  font-size: 10px;
+}
+
+.commerce-line__price {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+  font-size: 13px;
+}
+
+.commerce-line__price small {
+  color: var(--uc-text-dim);
+  font-size: 10px;
+}
+
+.commerce-line__controls {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.commerce-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--uc-paper-line);
+  border-radius: var(--uc-r-control);
+  overflow: hidden;
+}
+
+.commerce-stepper__btn {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: #f0e9dc;
+  color: var(--carsi-ink);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.commerce-stepper__btn:hover:not(:disabled) {
+  background: #e5dccb;
+}
+
+.commerce-stepper__btn:disabled {
+  color: #aaa091;
+  cursor: not-allowed;
+}
+
+.commerce-stepper__value {
+  min-width: 30px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.commerce-line__remove,
+.commerce-line__add {
+  padding: 6px 10px;
+  border: 1px solid var(--uc-paper-line);
+  border-radius: var(--uc-r-control);
+  background: transparent;
+  color: var(--uc-text-dim);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.commerce-line__add {
+  border-color: var(--carsi-ink);
+  color: var(--carsi-ink);
+}
+
+.commerce-line__add:disabled {
+  border-color: var(--uc-paper-line);
+  color: #aaa091;
+  cursor: not-allowed;
+}
+
+.commerce-line__remove:hover {
+  border-color: var(--uc-kilim);
+  color: var(--uc-kilim);
+}
+
+.commerce-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--uc-paper-line);
+  border-radius: var(--uc-r-surface);
+  background: var(--uc-paper-raised);
+  color: var(--uc-text-dim);
+  font-size: 12px;
+}
+
+.commerce-total strong {
+  color: var(--carsi-ink);
+  font-size: 18px;
+}
+
+.commerce-empty {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  padding: 22px 16px;
+  border: 1px dashed var(--uc-paper-line);
+  border-radius: var(--uc-r-surface);
+  background: var(--uc-paper-raised);
+}
+
+.commerce-empty strong {
+  font-size: 15px;
+}
+
+.commerce-empty p {
+  margin: 0;
+  color: var(--uc-text-dim);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.commerce-toast {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  z-index: 98;
+  padding: 11px 18px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: var(--uc-r-surface);
+  background: rgba(23, 18, 13, .97);
+  color: var(--uc-text-invert);
+  font-family: var(--font-brand);
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .34);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.commerce-toast[data-tone="warn"] {
+  border-color: var(--uc-brass);
+  color: var(--uc-brass-lit);
+}
+
+.commerce-toast.hidden {
+  display: none;
+}
+
+/* Panel açıkken bildirim alt aksiyon şeridinin üzerine binmemeli. */
+body.commerce-panel-open .commerce-toast {
+  bottom: 88px;
+}
+
+/* ------------------------------------------------ katalogdaki ürün listesi */
+
+.portal-product-results {
+  display: grid;
+  gap: 10px;
+}
+
+.portal-product-results.hidden {
+  display: none;
+}
+
+.portal-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  column-gap: 34px;
+  border-top: 1px solid var(--uc-paper-line);
+}
+
+.catalog-row {
+  display: grid;
+  gap: 7px;
+  padding: 13px 2px 15px;
+  border-bottom: 1px solid var(--uc-paper-line);
+}
+
+.catalog-row:hover .catalog-row__name { color: var(--uc-kilim); }
+
+.catalog-row__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.catalog-row__store {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--carsi-brass-dark);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.catalog-row__name {
+  margin: 0;
+  color: var(--uc-text);
+  font-family: var(--uc-display);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -.008em;
+}
+
+.catalog-row__price {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+  text-align: right;
+}
+
+.catalog-row__price strong {
+  color: var(--uc-kilim);
+  font-family: var(--uc-display);
+  font-size: 17px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.catalog-row__price small { color: var(--uc-text-dim); font-size: 10px; }
+.catalog-row__price[data-stock="out"] strong { color: var(--uc-text-dim); }
+.catalog-row__price[data-stock="low"] small { color: var(--carsi-brass-dark); font-weight: 700; }
+
+.catalog-row__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.catalog-row__meta {
+  margin: 0;
+  color: var(--uc-text-dim);
+  font-size: 10px;
+}
+
+.catalog-row__actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.catalog-row__add,
+.catalog-row__visit,
+.catalog-row__wish {
+  padding: 7px 11px;
+  border: 1px solid var(--uc-paper-line);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--uc-text);
+  font-family: var(--uc-sans);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+}
+
+.catalog-row__add {
+  border-color: var(--uc-ink);
+  background: var(--uc-ink);
+  color: var(--uc-text-invert);
+}
+
+.catalog-row__add:hover:not(:disabled) { background: var(--uc-ink-raised); }
+
+.catalog-row__add:disabled {
+  border-color: var(--uc-paper-line);
+  background: transparent;
+  color: #aaa091;
+  cursor: not-allowed;
+}
+
+.catalog-row__visit:hover { border-color: var(--uc-brass); color: var(--carsi-brass-dark); }
+
+.catalog-row__wish {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  padding: 0;
+  height: 28px;
+  color: var(--uc-text-dim);
+}
+
+.catalog-row__wish[data-active="true"] { border-color: var(--uc-kilim); color: var(--uc-kilim); }
+
+.portal-view-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid var(--uc-paper-line);
+  border-radius: var(--uc-r-surface);
+  background: #fff;
+}
+
+.portal-view-switch button {
+  padding: 7px 13px;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--uc-text-dim);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.portal-view-switch button.is-active {
+  background: var(--carsi-ink);
+  color: var(--uc-paper-raised);
+}
+
+.portal-product-more {
+  justify-self: start;
+  padding: 9px 14px;
+  border: 1px solid var(--uc-paper-line);
+  border-radius: var(--uc-r-control);
+  background: #fff;
+  color: var(--carsi-ink);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 620px) {
+  .commerce-panel {
+    width: 100vw;
+  }
+
+  .product-buy__wish {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+/* Tur dışındaki (harita ve katalog) sepet giriş düğmeleri. */
+.commerce-entry-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border: 1px solid var(--uc-paper-line);
+  border-radius: var(--uc-r-control);
+  background: var(--uc-paper-raised);
+  color: var(--carsi-ink);
+  font-family: var(--font-brand);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.commerce-entry-button:hover {
+  border-color: var(--carsi-brass);
+  color: var(--carsi-brass-dark);
+}
+
+.commerce-entry-button .commerce-badge {
+  background: #e6ded0;
+  color: var(--carsi-ink);
+}
+
+.commerce-entry-button[data-filled="true"] {
+  border-color: var(--carsi-brass);
+}
+
+.commerce-entry-button[data-filled="true"] .commerce-badge {
+  background: var(--carsi-brass);
+  color: #1b140c;
+}
+
+/* Katalog kartındaki favori düğmesi ikonla çalışır. */
+.catalog-row__wish .ui-icon,
+.product-buy__wish .ui-icon,
+.commerce-panel__close .ui-icon {
+  margin: 0 auto;
+}
+
+.commerce-panel__close {
+  display: grid;
+  place-items: center;
+}
+
+.commerce-line__name,
+.commerce-total strong,
+.commerce-empty strong {
+  font-family: var(--uc-display);
+  letter-spacing: -.008em;
+}

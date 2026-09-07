@@ -1,3 +1,4 @@
+import { assetUrl } from './asset-url.js';
 import './style.css';
 import './store-entry-cinematic.css';
 
@@ -19,7 +20,7 @@ import { HDRCubeTexture } from '@babylonjs/core/Materials/Textures/hdrCubeTextur
 import { Texture } from '@babylonjs/core/Materials/Textures/texture';
 import { DefaultRenderingPipeline } from '@babylonjs/core/PostProcesses/RenderPipeline/Pipelines/defaultRenderingPipeline';
 import { SSAO2RenderingPipeline } from '@babylonjs/core/PostProcesses/RenderPipeline/Pipelines/ssao2RenderingPipeline';
-import { SceneLoader } from '@babylonjs/core/Loading/sceneLoader';
+import { loadBoundedSceneAsset } from './scene-light-budget.js';
 import { MeshoptCompression } from '@babylonjs/core/Meshes/Compression/meshoptCompression';
 import { ReflectionProbe } from '@babylonjs/core/Probes/reflectionProbe';
 import { RenderTargetTexture } from '@babylonjs/core/Materials/Textures/renderTargetTexture';
@@ -32,14 +33,21 @@ import { createHighQualityProductViewer } from './high-quality-product-viewer.js
 import { hardwareScalingForDpr } from './render-resolution.js';
 import { createProductSearchHighlight } from './product-search-highlight.js';
 import { createEnvironmentExperience } from './environment-experience.js';
+import { configureColorManagement, TOUR_EXPOSURE } from './color-management.js';
 import { createSceneAssetPreloader } from './scene-asset-preloader.js';
 import { createStoreEntryCinematic } from './store-entry-cinematic.js';
 import { createSelectionWorld } from './selection-world.js';
+import { createCommerceStore } from './commerce.js';
+import { createCommerceUi } from './commerce-ui.js';
+import { createFocusTrap } from './focus-trap.js';
 import {
     combineProductData,
     createProductRegistry
 } from './product-registry.js';
-import { applyProductBindings, registerRuntimeProducts } from './product-runtime-bindings.js';
+import { applyProductBindings, registerRuntimeProducts, filterExistingManifestProducts } from './product-runtime-bindings.js';
+import { STORE_ICONS, iconMarkup } from './icons.js';
+// Kimlik katmanı en sona yüklenir; önceki katmanların jenerik değerlerini örter.
+import './theme.css';
 import productData from './data/products.json';
 import bindingData from './data/scene-product-bindings.json';
 import nisantasiProductMatches from './data/mawus-product-matches.js';
@@ -85,24 +93,27 @@ const GUZEL_SCENE_ROOT = SCENE_ASSET_VARIANT === 'etc1s'
 const SUDE_SCENE_ROOT = SUDE_MODEL_ROOT;
 const NISANTASI_SCENE_ROOT = NISANTASI_MODEL_ROOT;
 const TELEFON_SCENE_ROOT = TELEFON_MODEL_ROOT;
-const SCENE_CACHE_NAME = 'uzuncarsi-scenes-v16';
-const versionedAsset = (filename, revision) => `${filename}?asset=${revision}`;
-const ENVIRONMENT_FILE = versionedAsset('store-environment.glb', '17759e7e');
-const PRODUCT_PROXY_FILE = 'product-proxies.glb';
-const PRODUCT_LIBRARY_FILE = 'product-library.glb';
-const PRODUCT_MANIFEST_FILE = 'products.json';
-const WORLD_ENVIRONMENT_FILE = `${PUBLIC_ROOT}environments/store-ocean-sky.hdr`;
-const SUDE_RAW_FILE = versionedAsset('store-raw.glb', '64aea422');
-const NISANTASI_RAW_FILE = versionedAsset('store-raw.glb', '8993ca9d');
-const TELEFON_RAW_FILE = versionedAsset('store-raw.glb', 'f33d73f5');
-const ALWAYS_WORLD_FILE = versionedAsset('always.glb', 'dcf64790');
-const OUTSIDE_WORLD_FILE = versionedAsset('outside.glb', 'b1f71887');
-const SELECTION_WORLD_FILE = versionedAsset('selection-world.glb', 'd68008ad');
+const SCENE_CACHE_NAME = 'uzuncarsi-scenes-v18';
+const versionedAsset = (filename, revision) => assetUrl(`${filename}?asset=${revision}`);
+const ENVIRONMENT_FILE = versionedAsset('store-environment.glb', 'b13f7582');
+const PRODUCT_PROXY_FILE = assetUrl('product-proxies.glb');
+const PRODUCT_LIBRARY_FILE = assetUrl('product-library.glb');
+const PRODUCT_MANIFEST_FILE = assetUrl('products.json');
+const WORLD_ENVIRONMENT_FILE = assetUrl(`${PUBLIC_ROOT}environments/store-ocean-sky.hdr`);
+const SUDE_RAW_FILE = versionedAsset('store-raw.glb', '9c147816');
+const NISANTASI_RAW_FILE = versionedAsset('store-raw.glb', 'b4529d0d');
+const TELEFON_RAW_FILE = versionedAsset('store-raw.glb', 'afb369dc');
+const ALWAYS_WORLD_FILE = versionedAsset('always.glb', '98d199b6');
+const OUTSIDE_WORLD_FILE = versionedAsset('outside.glb', '032f1d9a');
+const SELECTION_WORLD_FILE = versionedAsset('selection-world.glb', 'f86ba19a');
 const QUALITY_STORAGE_KEY = 'uzunCarsi:storeQuality:v3';
 const SHADOWS_DISABLED = new URLSearchParams(window.location.search).get('shadows') === 'off';
 const OUTSIDE_ONLY_TEST = new URLSearchParams(window.location.search).get('outsideOnly') === '1';
-const STORE_RENDER_ENTER_PADDING = 42;
-const STORE_RENDER_EXIT_PADDING = 48;
+// Mağaza GLB'leri yüksek çözünürlüklü dokularını korur. Yalnızca kullanıcı
+// gerçekten yaklaştığında hazırlanarak açılışta gereksiz GPU/ana iş parçacığı
+// rekabeti oluşturması engellenir.
+const STORE_RENDER_ENTER_PADDING = 18;
+const STORE_RENDER_EXIT_PADDING = 24;
 const STORE_INSIDE_ENTER_DEPTH = 1.25;
 const STORE_INSIDE_EXIT_DEPTH = 0.35;
 const PLAYER_EYE_HEIGHT = 1.92;
@@ -141,7 +152,7 @@ const STORES = Object.freeze({
         category: 'Optik & Gözlük',
         description: 'Optik çerçeve ve güneş gözlüğü kataloğu.',
         image: `${PUBLIC_ROOT}assets/guzel_optik_cover.png`,
-        icon: '👓',
+        icon: 'glasses',
         bounds: worldBoundsForStore('guzel-optik')
     },
     'sude-home': {
@@ -152,11 +163,11 @@ const STORES = Object.freeze({
         modelRoot: SUDE_MODEL_ROOT,
         sceneRoot: SUDE_SCENE_ROOT,
         sceneFile: SUDE_RAW_FILE,
-        itemCount: '28 Ürün',
+        itemCount: '23 Ürün',
         category: 'Züccaciye & Ev Yaşam',
         description: 'Mutfak, sofra ve ev ürünleri kataloğu.',
         image: `${PUBLIC_ROOT}assets/sude_store.svg`,
-        icon: '🍽️',
+        icon: 'bowl',
         bounds: worldBoundsForStore('sude-home')
     },
     'nisantasi': {
@@ -171,7 +182,7 @@ const STORES = Object.freeze({
         category: 'Kuyumculuk & Mücevher',
         description: 'Altın ve mücevher ürünleri kataloğu.',
         image: `${PUBLIC_ROOT}assets/mawus_store.svg`,
-        icon: '💍',
+        icon: 'ring',
         bounds: worldBoundsForStore('nisantasi')
     },
     'telefon': {
@@ -186,7 +197,7 @@ const STORES = Object.freeze({
         category: 'Telefon & Aksesuar',
         description: 'Cep telefonu, kılıf ve aksesuar kataloğu.',
         image: `${PUBLIC_ROOT}assets/optik_store.svg`,
-        icon: '📱',
+        icon: 'phone',
         bounds: worldBoundsForStore('telefon')
     }
 });
@@ -241,6 +252,7 @@ const selectionResultSummary = document.getElementById('selectionResultSummary')
 const selectionActiveFilterText = document.getElementById('selectionActiveFilterText');
 const selectionEmptyState = document.getElementById('selectionEmptyState');
 const portalExploreAllBtn = document.getElementById('portalExploreAllBtn');
+const portalBackBtn = document.getElementById('portalBackBtn');
 const activeStoreName = document.getElementById('activeStoreName');
 const storeSwitcherBtn = document.getElementById('storeSwitcherBtn');
 const worldMapReturnBtn = document.getElementById('worldMapReturnBtn');
@@ -248,6 +260,7 @@ const storeSwitcherMenu = document.getElementById('storeSwitcherMenu');
 const storeSwitcherList = document.getElementById('storeSwitcherList');
 const recentProductBtn = document.getElementById('recentProductBtn');
 const recentProductName = document.getElementById('recentProductName');
+const mobileTourControls = document.getElementById('mobileTourControls');
 let storeSwitcherOpenGuard = false;
 const storeCards = [...document.querySelectorAll('[data-store-id]')];
 const portalProductQuery = document.getElementById('portalProductQuery');
@@ -284,10 +297,39 @@ const productDataset = combineProductData(
         ]
     }
 );
+for (const product of productDataset.products) product.highQualityModel = assetUrl(product.highQualityModel);
 const productRegistry = createProductRegistry(productDataset, { autoPersist: false });
+// Sepet/favori/sipariş durumu; arayüzü aşağıda, mağaza seçimi hazır olunca kurulur.
+const commerceStore = createCommerceStore({
+    resolveProduct: (id) => productRegistry.getProduct(id)
+});
+let commerceUi = null;
 
 MeshoptCompression.Configuration = { decoder: { url: meshoptDecoderUrl } };
 GLTFLoaderDefaultOptions.dontUseTransmissionHelper = true;
+
+// Sahne açılışındaki hangi adımın kaç ms sürdüğünü ölçer. Yalnız geliştirme
+// derlemesinde çalışır; ölçümler window.__UZUNCARSI_DEBUG__.phaseTimings'te.
+const phaseTimings = [];
+const glbMeasurementEnabled = new URLSearchParams(window.location.search).get('measureGlb') === '1';
+if (glbMeasurementEnabled) {
+    // Yerel performans testinde ağ + GLB çözme adımlarını okunabilir kılar.
+    window.__UZUNCARSI_GLB_TIMINGS__ = phaseTimings;
+}
+const timePhase = (label, run) => {
+    if (!import.meta.env.DEV) return run();
+    const startedAt = performance.now();
+    const finish = () => {
+        phaseTimings.push({ label, ms: Math.round(performance.now() - startedAt) });
+        if (glbMeasurementEnabled) {
+            document.documentElement.dataset.glbTimings = JSON.stringify(phaseTimings);
+        }
+    };
+    const result = run();
+    if (result && typeof result.then === 'function') return result.finally(finish);
+    finish();
+    return result;
+};
 
 const setLoadingProgress = (percent, status, detail) => {
     const value = Math.max(4, Math.min(100, Math.round(percent)));
@@ -319,6 +361,18 @@ const detectQuality = (engine) => {
     return 'balanced';
 };
 
+// GLB dokuları JPEG/PNG olduğu için Babylon varsayılan olarak HTMLImageElement
+// kullanır; bu durumda çözme işi texImage2D çağrısının içinde ana iş parçacığında
+// yapılır ve sahne açılışında saniyelerce donmaya yol açar. ImageBitmap yolunda
+// çözme tarayıcının kendi iş parçacıklarına iner.
+export const enableOffThreadTextureDecode = (engine) => {
+    if (!engine?._features || typeof createImageBitmap !== 'function') return false;
+    // ?imageBitmap=off ile kapatılabilir; iki yolun süresi karşılaştırılabilsin.
+    if (new URLSearchParams(window.location.search).get('imageBitmap') === 'off') return false;
+    engine._features.forceBitmapOverHTMLImageElement = true;
+    return true;
+};
+
 const createEngine = () => {
     const options = {
         antialias: true,
@@ -335,11 +389,13 @@ const createEngine = () => {
         const engine = new Engine(canvas, true, options, true);
         engine.enableOfflineSupport = false;
         engine.useReverseDepthBuffer = true;
+        enableOffThreadTextureDecode(engine);
         return engine;
     } catch (webgl2Error) {
         console.warn('WebGL2 başlatılamadı; WebGL1 deneniyor.', webgl2Error);
         const engine = new Engine(canvas, true, { ...options, disableWebGL2Support: true }, true);
         engine.enableOfflineSupport = false;
+        enableOffThreadTextureDecode(engine);
         return engine;
     }
 };
@@ -442,13 +498,16 @@ const createStoreObstacleColliders = (scene, store, meshes) => {
     });
 };
 
-const createComfortMovement = (scene, camera) => {
+const createComfortMovement = (scene, camera, { touchControls = null } = {}) => {
     let sprinting = false;
     let smoothedSpeed = PLAYER_WALK_SPEED;
     let stepHoldFrames = 0;
     let cachedSceneMeshCount = -1;
     let navigationColliders = [];
     const movementKeys = new Set();
+    const touchMovement = new Map();
+    const touchLook = new Map();
+    const touchEvents = new AbortController();
     const movementCodes = new Set(['KeyW', 'KeyA', 'KeyS', 'KeyD']);
     const handleKey = (event) => {
         if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') sprinting = event.type === 'keydown';
@@ -465,12 +524,42 @@ const createComfortMovement = (scene, camera) => {
     window.addEventListener('keyup', handleKey);
     window.addEventListener('blur', handleBlur);
 
+    const compactLayout = window.matchMedia('(max-width: 900px)').matches;
+    const coarsePointer = window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
+    if (touchControls && (compactLayout || coarsePointer)) {
+        touchControls.hidden = false;
+        document.body.classList.add('touch-tour-active');
+        const releasePointer = (event) => {
+            touchMovement.delete(event.pointerId);
+            touchLook.delete(event.pointerId);
+        };
+        for (const button of touchControls.querySelectorAll('[data-tour-move], [data-tour-look]')) {
+            button.addEventListener('pointerdown', (event) => {
+                event.preventDefault();
+                button.setPointerCapture?.(event.pointerId);
+                if (button.dataset.tourMove) touchMovement.set(event.pointerId, button.dataset.tourMove);
+                if (button.dataset.tourLook) touchLook.set(event.pointerId, button.dataset.tourLook);
+            }, { signal: touchEvents.signal });
+        }
+        window.addEventListener('pointerup', releasePointer, { signal: touchEvents.signal });
+        window.addEventListener('pointercancel', releasePointer, { signal: touchEvents.signal });
+    }
+
     const observer = scene.onBeforeRenderObservable.add(() => {
         const frameRatio = Math.min(2, scene.getEngine().getDeltaTime() / 16.6667);
         if (camera.metadata?.cinematicInputLocked) {
             camera.cameraDirection.setAll(0);
             camera.cameraRotation.setAll(0);
             return;
+        }
+        const activeMoves = new Set([...movementKeys, ...touchMovement.values()]);
+        for (const direction of touchLook.values()) {
+            const lookStep = 0.024 * frameRatio;
+            if (direction === 'left') camera.rotation.y -= lookStep;
+            if (direction === 'right') camera.rotation.y += lookStep;
+            if (direction === 'up') camera.rotation.x = Math.max(-1.18, camera.rotation.x - lookStep * 0.7);
+            if (direction === 'down') camera.rotation.x = Math.min(1.18, camera.rotation.x + lookStep * 0.7);
+            camera.cameraRotation.setAll(0);
         }
         const targetSpeed = sprinting ? PLAYER_SPRINT_SPEED : PLAYER_WALK_SPEED;
         smoothedSpeed += (targetSpeed - smoothedSpeed) * Math.min(1, 0.16 * frameRatio);
@@ -493,7 +582,7 @@ const createComfortMovement = (scene, camera) => {
         const standingY = floorY + PLAYER_EYE_HEIGHT;
 
         let requestedStepHeight = 0;
-        if (store && movementKeys.size) {
+        if (store && activeMoves.size) {
             if (cachedSceneMeshCount !== scene.meshes.length) {
                 cachedSceneMeshCount = scene.meshes.length;
                 navigationColliders = scene.meshes.filter((mesh) => mesh.metadata?.isNavigationCollider);
@@ -503,10 +592,10 @@ const createComfortMovement = (scene, camera) => {
             if (forward.lengthSquared() > 0.0001) forward.normalize();
             const right = Vector3.Cross(forward, Vector3.Up()).normalize();
             const moveDirection = Vector3.Zero();
-            if (movementKeys.has('KeyW')) moveDirection.addInPlace(forward);
-            if (movementKeys.has('KeyS')) moveDirection.subtractInPlace(forward);
-            if (movementKeys.has('KeyD')) moveDirection.addInPlace(right);
-            if (movementKeys.has('KeyA')) moveDirection.subtractInPlace(right);
+            if (activeMoves.has('KeyW')) moveDirection.addInPlace(forward);
+            if (activeMoves.has('KeyS')) moveDirection.subtractInPlace(forward);
+            if (activeMoves.has('KeyD')) moveDirection.addInPlace(right);
+            if (activeMoves.has('KeyA')) moveDirection.subtractInPlace(right);
 
             if (moveDirection.lengthSquared() > 0.0001) {
                 moveDirection.normalize();
@@ -558,6 +647,9 @@ const createComfortMovement = (scene, camera) => {
         window.removeEventListener('keydown', handleKey);
         window.removeEventListener('keyup', handleKey);
         window.removeEventListener('blur', handleBlur);
+        touchEvents.abort();
+        touchControls?.setAttribute('hidden', '');
+        document.body.classList.remove('touch-tour-active');
     };
 };
 
@@ -681,11 +773,7 @@ const configureScene = (engine, quality, store) => {
     createWorldNavigationFloor(scene);
     const streamingVolumes = createStoreStreamingVolumes(scene);
 
-    const image = scene.imageProcessingConfiguration;
-    image.toneMappingEnabled = true;
-    image.toneMappingType = 1;
-    image.exposure = 0.56;
-    image.contrast = 1.01;
+    const image = configureColorManagement(scene, { exposure: TOUR_EXPOSURE.outside });
     image.vignetteEnabled = true;
     image.vignetteWeight = 0.16;
     image.vignetteStretch = 0.2;
@@ -985,7 +1073,7 @@ const createLazyProductLibrary = (scene, sceneProducts, store) => {
     let libraryPromise = null;
     const load = async (productId) => {
         if (!libraryPromise) {
-            libraryPromise = SceneLoader.LoadAssetContainerAsync(store.modelRoot, store.libraryFile, scene)
+            libraryPromise = loadBoundedSceneAsset(store.modelRoot, store.libraryFile, scene)
                 .then((container) => {
                     libraryContainer = container;
                     return bindLibrary(container);
@@ -1356,12 +1444,17 @@ const disableLoadedStoreForBackgroundPreparation = ({
         .forEach((light) => light.setEnabled(false));
 };
 
-const refreshSceneMaterialsForLighting = (scene) => {
-    for (const material of scene?.materials || []) {
+// Malzemeyi yeniden derlenmeye zorlar. Sahnedeki her malzeme için çağırmak
+// yüzlerce gölgelendirici tanımını yeniden hesaplattığı için pahalıdır; bu
+// yüzden kapsam mümkün olduğunca dar tutulur.
+const refreshMaterialsForLighting = (materials) => {
+    for (const material of materials || []) {
         if (material.isFrozen) material.unfreeze();
         material.markAsDirty?.(Material.AllDirtyFlag);
     }
 };
+
+const refreshSceneMaterialsForLighting = (scene) => refreshMaterialsForLighting(scene?.materials);
 
 const completeStoreRenderingSetup = async ({
     scene,
@@ -1371,13 +1464,13 @@ const completeStoreRenderingSetup = async ({
     progressDetail = ''
 }) => {
     if (!background) {
-        await scene.whenReadyAsync();
+        await timePhase('whenReady (doku/gölgelendirici bekleme)', () => scene.whenReadyAsync());
         setLoadingProgress(92, 'Son ayarlar yapılıyor…', progressDetail);
-        scene.render();
+        timePhase('ilk render', () => scene.render());
     }
-    applyLocalReflections(materials, reflectionProbe);
-    refreshSceneMaterialsForLighting(scene);
-    scene.cleanCachedTextureBuffer();
+    timePhase('yerel yansımalar', () => applyLocalReflections(materials, reflectionProbe));
+    timePhase('malzeme tazeleme', () => refreshSceneMaterialsForLighting(scene));
+    timePhase('doku önbelleği temizliği', () => scene.cleanCachedTextureBuffer());
 };
 
 const loadPackagedStore = async (scene, quality, store, { background = false } = {}) => {
@@ -1389,36 +1482,42 @@ const loadPackagedStore = async (scene, quality, store, { background = false } =
         const ratio = transfer.environment * 0.9 + transfer.proxies * 0.1;
         if (!background) setLoadingProgress(10 + ratio * 66, 'Mağaza yükleniyor…', `%${Math.round(ratio * 100)}`);
     };
-    const [environmentContainer, proxyContainer, manifest] = await Promise.all([
-        SceneLoader.LoadAssetContainerAsync(store.sceneRoot, store.sceneFile, scene, (event) => updateTransfer('environment', event)),
-        store.proxyFile
-            ? SceneLoader.LoadAssetContainerAsync(store.modelRoot, store.proxyFile, scene, (event) => updateTransfer('proxies', event))
-            : Promise.resolve(null),
-        loadProductManifest(store)
-    ]);
+    const [environmentContainer, proxyContainer, manifest] = await timePhase(
+        `${store.id}: GLB indir + çöz`,
+        () => Promise.all([
+            loadBoundedSceneAsset(store.sceneRoot, store.sceneFile, scene, (event) => updateTransfer('environment', event)),
+            store.proxyFile
+                ? loadBoundedSceneAsset(store.modelRoot, store.proxyFile, scene, (event) => updateTransfer('proxies', event))
+                : Promise.resolve(null),
+            loadProductManifest(store)
+        ])
+    );
 
     if (!background) setLoadingProgress(79, 'Mağaza açılıyor…', 'Sahne ve etkileşimler hazırlanıyor.');
-    environmentContainer.addAllToScene();
-    proxyContainer?.addAllToScene();
+    timePhase(`${store.id}: sahneye ekle`, () => {
+        environmentContainer.addAllToScene();
+        proxyContainer?.addAllToScene();
+    });
     const environmentMeshes = [...environmentContainer.meshes];
     const renderMeshes = [
         ...environmentMeshes,
         ...(proxyContainer?.meshes || [])
     ];
-    const selectionBoxes = createProductSelectionBoxes(scene, manifest);
+    // Old manifests must not leave invisible selectable products after a GLB replacement.
+    const selectionBoxes = createProductSelectionBoxes(scene, filterExistingManifestProducts(manifest, renderMeshes));
     const sceneProducts = createModeledProductCatalog(selectionBoxes);
     const productLibrary = createLazyProductLibrary(scene, sceneProducts, store);
-    const materials = configureMaterials({
+    const materials = timePhase(`${store.id}: malzeme ayarı`, () => configureMaterials({
         meshes: renderMeshes,
         textures: [
             ...environmentContainer.textures,
             ...(proxyContainer?.textures || [])
         ]
-    }, quality);
-    prepareMeshes(renderMeshes);
-    const collisionMeshes = createStoreObstacleColliders(scene, store, renderMeshes);
-    const lighting = createLightingRig(scene, renderMeshes, quality, store);
-    const reflectionProbe = createLocalReflection(scene, renderMeshes, quality, store);
+    }, quality));
+    timePhase(`${store.id}: mesh hazırlığı`, () => prepareMeshes(renderMeshes));
+    const collisionMeshes = timePhase(`${store.id}: çarpışma kutuları`, () => createStoreObstacleColliders(scene, store, renderMeshes));
+    const lighting = timePhase(`${store.id}: ışık rigi`, () => createLightingRig(scene, renderMeshes, quality, store));
+    const reflectionProbe = timePhase(`${store.id}: yansıma probu`, () => createLocalReflection(scene, renderMeshes, quality, store));
     if (background) {
         disableLoadedStoreForBackgroundPreparation({
             renderMeshes,
@@ -1448,7 +1547,7 @@ const loadPackagedStore = async (scene, quality, store, { background = false } =
 
 const loadRawSudeStore = async (scene, quality, store, { background = false } = {}) => {
     if (!background) setLoadingProgress(8, 'Sude Home yükleniyor…', 'Mağaza dosyaları yükleniyor.');
-    const container = await SceneLoader.LoadAssetContainerAsync(
+    const container = await timePhase(`${store.id}: GLB indir + çöz`, () => loadBoundedSceneAsset(
         store.sceneRoot,
         store.sceneFile,
         scene,
@@ -1457,7 +1556,7 @@ const loadRawSudeStore = async (scene, quality, store, { background = false } = 
             const ratio = event.loaded / event.total;
             if (!background) setLoadingProgress(8 + ratio * 68, 'Sude Home yükleniyor…', `%${Math.round(ratio * 100)}`);
         }
-    );
+    ));
 
     if (!background) setLoadingProgress(79, 'Sude Home açılıyor…', 'Sahne ve etkileşimler hazırlanıyor.');
     container.addAllToScene();
@@ -1510,7 +1609,7 @@ const loadRawSudeStore = async (scene, quality, store, { background = false } = 
 
 const loadRawNisantasiStore = async (scene, quality, store, { background = false } = {}) => {
     if (!background) setLoadingProgress(8, 'Nişantaşı Kuyumculuk yükleniyor…', 'Mağaza dosyaları yükleniyor.');
-    const container = await SceneLoader.LoadAssetContainerAsync(
+    const container = await timePhase(`${store.id}: GLB indir + çöz`, () => loadBoundedSceneAsset(
         store.sceneRoot,
         store.sceneFile,
         scene,
@@ -1519,7 +1618,7 @@ const loadRawNisantasiStore = async (scene, quality, store, { background = false
             const ratio = event.loaded / event.total;
             if (!background) setLoadingProgress(8 + ratio * 68, 'Nişantaşı Kuyumculuk yükleniyor…', `%${Math.round(ratio * 100)}`);
         }
-    );
+    ));
 
     if (!background) setLoadingProgress(79, 'Nişantaşı açılıyor…', 'Sahne ve etkileşimler hazırlanıyor.');
     container.addAllToScene();
@@ -1694,7 +1793,7 @@ const createRawTelefonProductCatalog = (scene, renderMeshes) => {
 
 const loadRawTelefonStore = async (scene, quality, store, { background = false } = {}) => {
     if (!background) setLoadingProgress(8, 'Zeka Teknoloji yükleniyor…', 'Mağaza dosyaları yükleniyor.');
-    const container = await SceneLoader.LoadAssetContainerAsync(
+    const container = await timePhase(`${store.id}: GLB indir + çöz`, () => loadBoundedSceneAsset(
         store.sceneRoot,
         store.sceneFile,
         scene,
@@ -1703,7 +1802,7 @@ const loadRawTelefonStore = async (scene, quality, store, { background = false }
             const ratio = event.loaded / event.total;
             if (!background) setLoadingProgress(8 + ratio * 68, 'Zeka Teknoloji yükleniyor…', `%${Math.round(ratio * 100)}`);
         }
-    );
+    ));
 
     if (!background) setLoadingProgress(79, 'Zeka Teknoloji açılıyor…', 'Sahne ve etkileşimler hazırlanıyor.');
     container.addAllToScene();
@@ -1767,18 +1866,18 @@ const loadAlwaysWorld = async (scene, quality, { reportProgress = true } = {}) =
     if (reportProgress) {
         setLoadingProgress(6, 'Uzun Çarşı yükleniyor…', 'Ortak çevre dosyası yükleniyor.');
     }
-    const container = await SceneLoader.LoadAssetContainerAsync(
+    const container = await timePhase('always: GLB indir + çöz', () => loadBoundedSceneAsset(
         ALWAYS_WORLD_ROOT,
         ALWAYS_WORLD_FILE,
         scene
-    );
-    container.addAllToScene();
+    ));
+    timePhase('always: sahneye ekle', () => container.addAllToScene());
     const renderMeshes = [...container.meshes];
     renderMeshes.forEach((mesh) => {
         mesh.metadata = { ...(mesh.metadata || {}), isAlwaysWorld: true };
     });
-    const materials = configureMaterials({ meshes: renderMeshes, textures: container.textures }, quality);
-    prepareMeshes(renderMeshes, AbstractMesh.CULLINGSTRATEGY_STANDARD);
+    const materials = timePhase('always: malzeme ayarı', () => configureMaterials({ meshes: renderMeshes, textures: container.textures }, quality));
+    timePhase('always: mesh hazırlığı', () => prepareMeshes(renderMeshes, AbstractMesh.CULLINGSTRATEGY_STANDARD));
     return { container, renderMeshes, materials, rendered: true, desiredRendered: true };
 };
 
@@ -1786,21 +1885,21 @@ const loadOutsideWorld = async (scene, quality, { reportProgress = true } = {}) 
     if (reportProgress) {
         setLoadingProgress(7, 'Dış alan yükleniyor…', 'Dış mekân dosyası yükleniyor.');
     }
-    const container = await SceneLoader.LoadAssetContainerAsync(
+    const container = await timePhase('outside: GLB indir + çöz', () => loadBoundedSceneAsset(
         OUTSIDE_WORLD_ROOT,
         OUTSIDE_WORLD_FILE,
         scene
-    );
-    container.addAllToScene();
+    ));
+    timePhase('outside: sahneye ekle', () => container.addAllToScene());
     const renderMeshes = [...container.meshes];
     renderMeshes.forEach((mesh) => {
         mesh.metadata = { ...(mesh.metadata || {}), isOutsideWorld: true };
     });
-    const materials = configureMaterials(
+    const materials = timePhase('outside: malzeme ayarı', () => configureMaterials(
         { meshes: renderMeshes, textures: container.textures },
         { ...quality, textureAnisotropy: Math.max(8, quality.textureAnisotropy) }
-    );
-    prepareMeshes(renderMeshes, AbstractMesh.CULLINGSTRATEGY_STANDARD);
+    ));
+    timePhase('outside: mesh hazırlığı', () => prepareMeshes(renderMeshes, AbstractMesh.CULLINGSTRATEGY_STANDARD));
     return { container, renderMeshes, materials, rendered: true };
 };
 
@@ -1831,7 +1930,10 @@ const setRuntimeLightsEnabled = (runtime, enabled) => {
     [lighting.ambient, lighting.doorway, ...(lighting.interiorFills || [])]
         .filter(Boolean)
         .forEach((light) => light.setEnabled(enabled));
-    refreshSceneMaterialsForLighting(lighting.ambient?.getScene?.());
+    // Bu ışıklar yalnızca kendi mağazasının meshlerini aydınlattığı için
+    // yalnız o mağazanın malzemeleri yenilenir; sahnenin tamamını taramak
+    // her yaklaşma/uzaklaşmada yüz milisaniyelik donmaya yol açıyordu.
+    refreshMaterialsForLighting(runtime?.materials);
 };
 
 const setMeshesEnabledWithFrameBudget = async (
@@ -1920,6 +2022,11 @@ const createStoreStreamingManager = ({
     let updateRunning = false;
     let updateQueued = false;
     let stopped = false;
+    let proximityLoadingEnabled = false;
+    let scheduledProximityStoreId = null;
+    let scheduledProximityHandle = null;
+    let scheduledProximityHandleType = null;
+    let proximityLoadInFlightStoreId = null;
 
     initialRuntime.rendered = true;
     initialRuntime.desiredRendered = true;
@@ -1938,6 +2045,56 @@ const createStoreStreamingManager = ({
         })().finally(() => loading.delete(storeId));
         loading.set(storeId, promise);
         return promise;
+    };
+
+    const cancelScheduledProximityLoad = () => {
+        if (scheduledProximityHandle !== null) {
+            if (scheduledProximityHandleType === 'idle') {
+                window.cancelIdleCallback?.(scheduledProximityHandle);
+            } else {
+                window.clearTimeout(scheduledProximityHandle);
+            }
+        }
+        scheduledProximityHandle = null;
+        scheduledProximityHandleType = null;
+        scheduledProximityStoreId = null;
+    };
+
+    const scheduleProximityRuntimeLoad = (storeId) => {
+        if (
+            stopped
+            || !proximityLoadingEnabled
+            || runtimes.has(storeId)
+            || loading.has(storeId)
+            || scheduledProximityStoreId
+            || proximityLoadInFlightStoreId
+        ) return;
+
+        scheduledProximityStoreId = storeId;
+        const loadIfStillNearby = () => {
+            scheduledProximityHandle = null;
+            scheduledProximityHandleType = null;
+            const scheduledStoreId = scheduledProximityStoreId;
+            scheduledProximityStoreId = null;
+            if (stopped || !proximityLoadingEnabled || !scheduledStoreId) return;
+            const volume = volumes.get(scheduledStoreId);
+            if (!volume?.proximityEnter.contains(camera.position)) return;
+            proximityLoadInFlightStoreId = scheduledStoreId;
+            void ensureRuntime(scheduledStoreId)
+                .catch((error) => console.warn(`${STORES[scheduledStoreId].shortName} arka planda hazırlanamadı.`, error))
+                .finally(() => {
+                    proximityLoadInFlightStoreId = null;
+                    void requestUpdate();
+                });
+        };
+
+        if (typeof window.requestIdleCallback === 'function') {
+            scheduledProximityHandleType = 'idle';
+            scheduledProximityHandle = window.requestIdleCallback(loadIfStillNearby, { timeout: 4000 });
+        } else {
+            scheduledProximityHandleType = 'timeout';
+            scheduledProximityHandle = window.setTimeout(loadIfStillNearby, 600);
+        }
     };
 
     const update = async () => {
@@ -1962,19 +2119,32 @@ const createStoreStreamingManager = ({
         } else {
             for (const [storeId, volume] of volumes) {
                 const runtime = runtimes.get(storeId);
-            const proximity = (runtime?.desiredRendered ?? runtime?.rendered)
-                ? volume.proximityExit
-                : volume.proximityEnter;
+                if (!proximityLoadingEnabled && !runtime) continue;
+                const proximity = (runtime?.desiredRendered ?? runtime?.rendered)
+                    ? volume.proximityExit
+                    : volume.proximityEnter;
                 if (proximity.contains(position)) wanted.add(storeId);
             }
+            // İlk mağaza, giriş sinematiği tamamlanana kadar tek görünür mağazadır.
+            if (!proximityLoadingEnabled) wanted.add(initialStore.id);
         }
+
+        if (
+            scheduledProximityStoreId
+            && !wanted.has(scheduledProximityStoreId)
+            && !loading.has(scheduledProximityStoreId)
+        ) cancelScheduledProximityLoad();
 
         for (const [storeId, runtime] of runtimes) {
             await setStoreRuntimeRendered(runtime, wanted.has(storeId));
         }
 
         for (const storeId of wanted) {
-            const runtime = await ensureRuntime(storeId);
+            const runtime = runtimes.get(storeId);
+            if (!runtime) {
+                scheduleProximityRuntimeLoad(storeId);
+                continue;
+            }
             if (stopped) return;
             const volume = volumes.get(storeId);
             const stillWanted = storeId === insideStoreId
@@ -1995,7 +2165,9 @@ const createStoreStreamingManager = ({
             .filter(([, runtime]) => runtime.rendered)
             .map(([storeId]) => storeId)
             .join(',');
-        const nearbyStoreId = wanted.size === 1 ? [...wanted][0] : null;
+        const nearbyStoreId = wanted.size === 1 && runtimes.has([...wanted][0])
+            ? [...wanted][0]
+            : null;
         const nextStoreContextId = insideStoreId || nearbyStoreId || currentStoreContextId;
         if (nextStoreContextId !== currentStoreContextId) {
             currentStoreContextId = nextStoreContextId;
@@ -2031,8 +2203,14 @@ const createStoreStreamingManager = ({
         runtimes,
         ensureRuntime,
         requestUpdate,
+        enableProximityLoading() {
+            if (proximityLoadingEnabled || stopped) return;
+            proximityLoadingEnabled = true;
+            void requestUpdate();
+        },
         dispose() {
             stopped = true;
+            cancelScheduledProximityLoad();
             window.clearInterval(timer);
         }
     };
@@ -2140,6 +2318,10 @@ const showError = (error) => {
 let tourStarted = false;
 let activeTourTravel = null;
 let activeTourPrepare = null;
+// Sepet/favori listesinden bir ürün açıldığında tur içindeki inceleyiciye bağlar.
+let activeTourOpenProduct = null;
+let activeTourCloseProduct = null;
+let pendingProductId = null;
 const startTour = async (storeId) => {
     if (tourStarted) return;
     const store = STORES[storeId] || STORES['guzel-optik'];
@@ -2147,7 +2329,7 @@ const startTour = async (storeId) => {
     let engine = null;
     loadingStoreName.textContent = store.name;
     loadingStoreCategory.textContent = store.category;
-    loadingStoreIcon.textContent = store.icon;
+    loadingStoreIcon.innerHTML = iconMarkup(store.icon || STORE_ICONS[store.id] || 'pin', { size: 26 });
     loadingScreen.hidden = false;
     loadingScreen.classList.remove('hidden', 'is-complete');
 
@@ -2171,7 +2353,7 @@ const startTour = async (storeId) => {
         const rendering = configureScene(engine, quality, store);
         const { scene, camera } = rendering;
         const environmentExperience = createEnvironmentExperience({ scene, toggleButton: ambientToggle });
-        const stopComfortMovement = createComfortMovement(scene, camera);
+        const stopComfortMovement = createComfortMovement(scene, camera, { touchControls: mobileTourControls });
         if (OUTSIDE_ONLY_TEST) camera.position.z = store.bounds.maxZ + 1;
         if (import.meta.env.DEV) {
             const streamTest = new URLSearchParams(window.location.search).get('streamTest');
@@ -2326,9 +2508,11 @@ const startTour = async (storeId) => {
                 button.append(swatch, text);
                 button.addEventListener('click', async () => {
                     try {
-                        await highQualityViewer?.setCase(modelUrl || null);
-                        setActiveCaseButton(modelUrl || '');
-                        if (modelUrl) renderExplodeState(highQualityViewer.explodeState());
+                        const viewer = highQualityViewer;
+                        await viewer?.setCase(modelUrl || null);
+                        if (!viewer || viewer !== highQualityViewer) return;
+                        setActiveCaseButton(viewer.getCase() || '');
+                        renderExplodeState(viewer.explodeState());
                     } catch (error) {
                         console.error('Kılıf yüklenemedi:', error);
                     }
@@ -2388,8 +2572,9 @@ const startTour = async (storeId) => {
             }
             requestAnimationFrame(() => highQualityViewer?.resize());
             hideStageTools();
-            const durum = await highQualityViewer.open(product);
-            setupStageTools(product);
+            const viewer = highQualityViewer;
+            const durum = await timePhase(`${product.id}: ürün GLB indir + çöz`, () => viewer.open(product));
+            if (viewer === highQualityViewer && durum?.phase === 'ready') setupStageTools(product);
             return durum;
         };
         const closeHighQualityProduct = ({ dispose = false } = {}) => {
@@ -2410,16 +2595,25 @@ const startTour = async (storeId) => {
             sceneProducts: targetRuntime.sceneProducts,
             loadModeledProduct: targetRuntime.productLibrary.load || null,
             productRegistry,
+            onGoldPricesLoaded: hydrateNisantasiPrices,
             openHighQualityProduct,
             closeHighQualityProduct,
             onProductOpened: (product) => {
                 lastViewedProduct = productRegistry.getProduct(product.id) || product;
+                commerceUi?.setInspectedProduct(lastViewedProduct);
+                if (!handlingRoutePop) updateRoute({ view: null, store: lastViewedProduct.storeId || targetStoreId, product: lastViewedProduct.id });
                 if (recentProductName) recentProductName.textContent = product.name || product.details?.name || 'Ürün';
                 if (recentProductBtn) {
                     recentProductBtn.hidden = false;
                     recentProductBtn.classList.remove('hidden');
                 }
                 try { localStorage.setItem('uzunCarsi:lastViewedProduct:v1', product.id); } catch {}
+            },
+            onProductClosed: () => {
+                commerceUi?.setInspectedProduct(null);
+                if (!handlingRoutePop && new URLSearchParams(window.location.search).has('product')) {
+                    updateRoute({ view: null, store: editorStoreId, product: null }, { replace: true });
+                }
             },
             storeId: targetStoreId
         });
@@ -2438,13 +2632,6 @@ const startTour = async (storeId) => {
         recentProductBtn?.addEventListener('click', () => {
             if (lastViewedProduct) editor.openProduct(lastViewedProduct);
         });
-        // ?product=<ID> doğrudan ürün inceleme ekranını açar. Ürün seçimi imleç
-        // kilidine ve nişangâha bağlı olduğundan tıklama gerektirmeyen bu yol
-        // otomatik denetimlerde kullanılır.
-        const derinBaglantiUrun = new URLSearchParams(window.location.search).get('product');
-        if (derinBaglantiUrun) {
-            requestAnimationFrame(() => editor.openProduct(derinBaglantiUrun));
-        }
         const productSearch = createProductSearchHighlight({
             scene,
             registry: productRegistry
@@ -2515,6 +2702,8 @@ const startTour = async (storeId) => {
         };
         activeTourTravel = travelToStore;
         activeTourPrepare = (storeId) => streaming.ensureRuntime(storeId);
+        activeTourOpenProduct = (productId) => editor.openProduct(productId);
+        activeTourCloseProduct = () => editor.closeProduct();
         const stopBackgroundStoreDownloads = () => {};
 
         const stopAdaptiveQuality = startAdaptiveQuality(
@@ -2543,6 +2732,11 @@ const startTour = async (storeId) => {
                 scene,
                 products: runtime.sceneProducts.productCount,
                 productMatchStats: runtime.productMatchStats || null,
+                phaseTimings,
+                // Otomatik denetimlerde imleç kilidi verilmediği için ürün
+                // inceleme ekranı buradan açılabilir.
+                openProduct: (productId) => editor.openProduct(productId),
+                closeProduct: () => document.getElementById('productInspectorClose')?.click(),
                 getStats: () => ({
                     fps: Math.round(engine.getFps()),
                     activeMeshes: scene.getActiveMeshes().length,
@@ -2569,7 +2763,13 @@ const startTour = async (storeId) => {
                 void entranceCinematic.play({ store, lighting: runtime.lighting }).finally(() => {
                     productSearch.setSuspended(false);
                     productSearch.applyFilters({ ...activePortalFilters, storeId: editorStoreId });
+                    streaming.enableProximityLoading();
                     void streaming.requestUpdate();
+                    if (pendingProductId) {
+                        const productId = pendingProductId;
+                        pendingProductId = null;
+                        editor.openProduct(productId);
+                    }
                 });
             }, 520);
         }
@@ -2587,6 +2787,9 @@ const startTour = async (storeId) => {
             environmentExperience.dispose();
             activeTourTravel = null;
             activeTourPrepare = null;
+            activeTourOpenProduct = null;
+            activeTourCloseProduct = null;
+            commerceUi?.dispose();
             streaming.dispose();
             instrumentation.dispose();
             editor.dispose();
@@ -2678,16 +2881,57 @@ const scenePreloader = createSceneAssetPreloader({
 
 const refreshBackgroundDownloadStatus = () => {
     if (!selectionMapStatus || selectionMapScreen.hidden) return;
-    const states = backgroundPreloadAssets.map((asset) => scenePreloader.state(asset.id));
+    const states = [
+        scenePreloader.state(`store:${selectedStoreId}`),
+        scenePreloader.state('world:always'),
+        scenePreloader.state('world:outside')
+    ].filter(Boolean);
     const ready = states.filter((state) => state?.state === 'ready').length;
     const errors = states.filter((state) => state?.state === 'error').length;
     const started = states.some((state) => state?.state !== 'idle');
     if (!started) return;
     selectionMapStatus.textContent = errors > 0
-        ? `${errors} dosya yüklenemedi`
+        ? 'Bağlantı bekleniyor'
         : ready === states.length
-            ? 'Tüm dosyalar indirildi'
-            : `Arka planda yükleniyor · ${ready}/${states.length}`;
+            ? 'Seçili mağaza hazır'
+            : 'Seçili mağaza hazırlanıyor';
+};
+
+const prepareSelectedExperience = () => Promise.allSettled([
+    scenePreloader.prioritize(`store:${selectedStoreId}`, 200),
+    scenePreloader.prioritize('world:always', 190),
+    scenePreloader.prioritize('world:outside', 180)
+]);
+window.addEventListener('online', () => { void prepareSelectedExperience(); });
+
+let handlingRoutePop = false;
+const updateRoute = ({ view = null, store = null, product = null }, { replace = false } = {}) => {
+    const url = new URL(window.location.href);
+    for (const key of ['view', 'store', 'product']) url.searchParams.delete(key);
+    if (view) url.searchParams.set('view', view);
+    if (store) url.searchParams.set('store', store);
+    if (product) url.searchParams.set('product', product);
+    const next = `${url.pathname}${url.search}${url.hash}`;
+    window.history[replace ? 'replaceState' : 'pushState']({ view, store, product }, '', next);
+};
+
+const portalFocusTrap = createFocusTrap(storeSelectPortal, { initialFocus: () => portalProductQuery });
+const showCatalog = ({ updateHistory = true } = {}) => {
+    storeSelectPortal.hidden = false;
+    storeSelectPortal.classList.remove('hidden');
+    selectionMapScreen?.setAttribute('inert', '');
+    document.body.classList.add('catalog-open');
+    portalFocusTrap.activate();
+    if (updateHistory && !handlingRoutePop) updateRoute({ view: 'catalog' });
+};
+
+const hideCatalog = ({ updateHistory = true, restoreFocus = true } = {}) => {
+    storeSelectPortal.hidden = true;
+    storeSelectPortal.classList.add('hidden');
+    selectionMapScreen?.removeAttribute('inert');
+    document.body.classList.remove('catalog-open');
+    portalFocusTrap.deactivate({ restoreFocus });
+    if (updateHistory && !handlingRoutePop) updateRoute({}, { replace: true });
 };
 
 const refreshPortalPreloadSummary = () => {
@@ -2811,6 +3055,10 @@ const applyPortalFilters = () => {
     portalExploreAllBtn.disabled = visibleStores === 0;
     syncSelectionInputs(activePortalFilters);
     updateSelectionMapFilters({ hasProductFilter, visibleStores, totalMatches });
+    commerceUi?.renderCatalog(
+        productRegistry.filterProducts(activePortalFilters),
+        { hasFilter: hasProductFilter || Boolean(activePortalFilters.storeId) }
+    );
 };
 
 const applySelectionFilters = () => {
@@ -2832,10 +3080,10 @@ const clearPortalFilters = () => {
     applyPortalFilters();
 };
 
-const hydrateNisantasiPrices = async () => {
+const hydrateNisantasiPrices = async (loadedMarket = null) => {
     portalPriceStatus.textContent = 'Optik katalog fiyatları hazır. Altın ürünlerinin canlı fiyatı alınıyor…';
     try {
-        const market = await loadMawusProductPrices();
+        const market = loadedMarket || await loadMawusProductPrices();
         const updates = productRegistry.productsForStore('nisantasi').map((product) => {
             const pricing = market.prices[product.id];
             return pricing ? {
@@ -2855,8 +3103,32 @@ const hydrateNisantasiPrices = async () => {
             ? 'Optik katalog fiyatları ve son bilinen altın piyasa hesabı kullanılıyor.'
             : 'Optik katalog fiyatları ve canlı altın piyasa hesabı kullanılıyor.';
         applyPortalFilters();
+        // Altın fiyatları sepet açıkken gelebiliyor; satır ve toplamlar tazelenir.
+        commerceUi?.refresh();
     } catch {
         portalPriceStatus.textContent = 'Optik katalog fiyatları hazır. Altın fiyatı bağlantı geldiğinde hesaplanır.';
+    }
+};
+
+// Kartlardaki ürün sayısı elle yazıldığında güncelliğini yitiriyordu; kayıttan üretilir.
+const syncStoreCardCounts = () => {
+    let total = 0;
+    for (const card of storeCards) {
+        const store = STORES[card.dataset.storeId];
+        if (!store) continue;
+        const count = productRegistry.filterProducts({ storeId: store.id }).length;
+        total += count;
+        const items = card.querySelector('.store-card__items');
+        if (items) items.textContent = `${count} ürün`;
+    }
+    const quickInfo = document.querySelector('.portal-quick-info');
+    if (quickInfo) {
+        quickInfo.replaceChildren();
+        for (const text of [`${storeCards.length} mağaza`, `${total} ürün`, '3B modeller']) {
+            const node = document.createElement('span');
+            node.textContent = text;
+            quickInfo.append(node);
+        }
     }
 };
 
@@ -2879,8 +3151,9 @@ let selectionEntryRunning = false;
 const enterStore = async (storeId = selectedStoreId) => {
     if (selectionEntryRunning) return;
     const targetStoreId = STORES[storeId] ? storeId : selectedStoreId;
-    storeSelectPortal.hidden = true;
-    storeSelectPortal.classList.add('hidden');
+    selectStore(targetStoreId, { preload: false });
+    hideCatalog({ updateHistory: false, restoreFocus: false });
+    if (!handlingRoutePop) updateRoute({ store: targetStoreId });
     if (tourStarted) {
         activeTourTravel?.(targetStoreId);
         return;
@@ -2918,7 +3191,7 @@ const populateStoreSwitcher = () => {
         item.className = 'store-switcher-item';
         item.setAttribute('role', 'menuitem');
         item.dataset.storeId = store.id;
-        item.innerHTML = `<span class="store-switcher-item__left"><span class="store-switcher-item__icon" aria-hidden="true">${store.icon}</span><span class="store-switcher-item__name">${store.shortName}</span></span><span class="store-switcher-item__tag">Git</span>`;
+        item.innerHTML = `<span class="store-switcher-item__left"><span class="store-switcher-item__icon" aria-hidden="true">${iconMarkup(store.icon, { size: 17 })}</span><span class="store-switcher-item__name">${store.shortName}</span></span><span class="store-switcher-item__tag">Git</span>`;
         const selectStoreFromMenu = () => {
             setStoreSwitcherOpen(false);
             activeTourTravel?.(store.id);
@@ -2960,6 +3233,29 @@ for (const card of storeCards) {
 }
 
 selectStore(selectedStoreId, { preload: false });
+commerceUi = createCommerceUi({
+    store: commerceStore,
+    registry: productRegistry,
+    stores: STORES,
+    onOpenProduct: (productId) => {
+        const product = productRegistry.getProduct(productId);
+        if (!product) return;
+        if (activeTourOpenProduct) activeTourOpenProduct(productId);
+        else {
+            pendingProductId = productId;
+            void enterStore(product.storeId);
+        }
+    },
+    onGoToStore: (storeId) => {
+        if (!STORES[storeId]) return;
+        selectStore(storeId);
+        void enterStore(storeId);
+    },
+    onBeforeOpen: () => {
+        if (document.pointerLockElement) document.exitPointerLock?.();
+    }
+});
+syncStoreCardCounts();
 const portalCategories = [...new Set(productRegistry.filterProducts({ activeOnly: false })
     .map((product) => product.category)
     .filter(Boolean))]
@@ -2970,6 +3266,7 @@ for (const category of portalCategories) {
 }
 applyPortalFilters();
 void hydrateNisantasiPrices();
+window.addEventListener('online', () => { void hydrateNisantasiPrices(); });
 populateStoreSwitcher();
 selectionWorld = createSelectionWorld({
     canvas,
@@ -2981,12 +3278,12 @@ selectionWorld = createSelectionWorld({
 });
 void selectionWorld.whenReady
     .then(() => {
-        qualityStatus.dataset.backgroundDownloadState = 'downloading-all';
-        return scenePreloader.preloadAll();
+        qualityStatus.dataset.backgroundDownloadState = 'preparing-selected';
+        return prepareSelectedExperience();
     })
     .then((results) => {
         const failed = results.filter((result) => result.status === 'rejected').length;
-        qualityStatus.dataset.backgroundDownloadState = failed ? `complete-with-${failed}-errors` : 'complete';
+        qualityStatus.dataset.backgroundDownloadState = failed ? `selected-with-${failed}-errors` : 'selected-ready';
     });
 const chooseFromSelectionMap = (storeId) => {
     if (!STORES[storeId]) return;
@@ -2999,9 +3296,11 @@ for (const button of document.querySelectorAll('[data-selection-store], [data-se
     button.addEventListener('pointerenter', () => selectStore(storeId, { preload: false }), { passive: true });
     button.addEventListener('focus', () => selectStore(storeId, { preload: false }));
 }
-openCatalogBtn.addEventListener('click', () => {
-    storeSelectPortal.hidden = false;
-    storeSelectPortal.classList.remove('hidden');
+openCatalogBtn.addEventListener('click', () => showCatalog());
+portalBackBtn.addEventListener('click', () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('view') === 'catalog' && window.history.length > 1) window.history.back();
+    else hideCatalog();
 });
 selectionSearchForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -3040,9 +3339,11 @@ document.addEventListener('pointerdown', (event) => {
     }
 });
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') setStoreSwitcherOpen(false);
+    if (event.key !== 'Escape') return;
+    setStoreSwitcherOpen(false);
+    if (!storeSelectPortal.hidden) hideCatalog();
 });
-portalExploreAllBtn.addEventListener('click', enterStore);
+portalExploreAllBtn.addEventListener('click', () => { void enterStore(); });
 portalSearchBtn.addEventListener('click', applyPortalFilters);
 portalFilterApply.addEventListener('click', applyPortalFilters);
 portalFilterClear.addEventListener('click', clearPortalFilters);
@@ -3057,4 +3358,45 @@ qualitySelect.addEventListener('change', () => {
         localStorage.setItem(QUALITY_STORAGE_KEY, qualitySelect.value);
     } catch {}
     window.location.reload();
+});
+
+window.addEventListener('popstate', () => {
+    handlingRoutePop = true;
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const routeStore = params.get('store');
+        const routeProduct = params.get('product');
+        if (!tourStarted) {
+            if (params.get('view') === 'catalog') showCatalog({ updateHistory: false });
+            else hideCatalog({ updateHistory: false });
+            return;
+        }
+        if (!routeStore) {
+            window.location.reload();
+            return;
+        }
+        if (STORES[routeStore] && routeStore !== selectedStoreId) {
+            selectStore(routeStore, { preload: false });
+            activeTourTravel?.(routeStore);
+        }
+        if (routeProduct) activeTourOpenProduct?.(routeProduct);
+        else activeTourCloseProduct?.();
+    } finally {
+        handlingRoutePop = false;
+    }
+});
+
+void selectionWorld.whenReady.then(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('view') === 'catalog') {
+        showCatalog({ updateHistory: false });
+        return;
+    }
+    const routeProduct = params.get('product');
+    const product = routeProduct ? productRegistry.getProduct(routeProduct) : null;
+    const routeStore = product?.storeId || params.get('store');
+    if (!STORES[routeStore]) return;
+    pendingProductId = product?.id || null;
+    handlingRoutePop = true;
+    void enterStore(routeStore).finally(() => { handlingRoutePop = false; });
 });

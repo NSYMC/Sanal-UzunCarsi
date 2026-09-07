@@ -53,7 +53,7 @@ test('uygulama ve service worker aynı sahne önbelleğini kullanır', async () 
     assert.equal(workerCache, appCache);
 });
 
-test('harita hazır olduğunda mağaza ve ürün modellerinin tamamı arka planda indirilir', async () => {
+test('harita hazır olduğunda yalnız seçili deneyim hazırlanır; ürünler talep üzerine iner', async () => {
     const [mainSource, workerSource] = await Promise.all([
         readProjectFile('src/main.js'),
         readProjectFile('public/scene-cache-sw.js')
@@ -64,7 +64,9 @@ test('harita hazır olduğunda mağaza ve ürün modellerinin tamamı arka pland
     assert.match(mainSource, /const targetStoreId = STORES\[storeId\] \? storeId : selectedStoreId/);
     assert.match(mainSource, /enterStore\(storeId\)/);
     assert.match(mainSource, /selectionWorld\.whenReady/);
-    assert.match(mainSource, /scenePreloader\.preloadAll\(\)/);
+    assert.match(mainSource, /const prepareSelectedExperience = \(\) => Promise\.allSettled/);
+    assert.match(mainSource, /scenePreloader\.prioritize\(`store:\$\{selectedStoreId\}`/);
+    assert.doesNotMatch(mainSource, /scenePreloader\.preloadAll\(\)/);
     assert.match(mainSource, /\[worldRuntime, runtime, outsideRuntime\] = await Promise\.all/);
     assert.match(mainSource, /loadAlwaysWorld\(scene, quality\)/);
     assert.match(mainSource, /loadOutsideWorld\(scene, quality, \{ reportProgress: false \}\)/);
@@ -79,6 +81,28 @@ test('harita hazır olduğunda mağaza ve ürün modellerinin tamamı arka pland
 test('streaming ışıkları değiştiğinde mağaza malzemeleri yeniden hazırlanır', async () => {
     const source = await readProjectFile('src/main.js');
     assert.doesNotMatch(source, /materials\.forEach\(\(material\) => material\.freeze\(\)\)/);
-    assert.match(source, /const refreshSceneMaterialsForLighting[\s\S]*material\.markAsDirty\?\.\(Material\.AllDirtyFlag\)/);
-    assert.match(source, /const setRuntimeLightsEnabled[\s\S]*refreshSceneMaterialsForLighting/);
+    assert.match(source, /const refreshMaterialsForLighting[\s\S]*material\.markAsDirty\?\.\(Material\.AllDirtyFlag\)/);
+    // Işık açılıp kapandığında yalnız o mağazanın malzemeleri yenilenmeli;
+    // sahnenin tamamını taramak her geçişte gölgelendirici derlemesi doğuruyor.
+    assert.match(source, /const setRuntimeLightsEnabled[\s\S]*refreshMaterialsForLighting\(runtime\?\.materials\)/);
+    const lightToggle = source.slice(
+        source.indexOf('const setRuntimeLightsEnabled'),
+        source.indexOf('const setMeshesEnabledWithFrameBudget')
+    );
+    assert.doesNotMatch(lightToggle, /refreshSceneMaterialsForLighting/);
+});
+
+test('dokular ana iş parçacığı yerine ImageBitmap ile çözülür', async () => {
+    const source = await readProjectFile('src/main.js');
+    // HTMLImageElement yolunda JPEG/PNG çözme işi texImage2D çağrısının içinde
+    // yapılıyor ve sahne açılışında saniyelerce donmaya yol açıyor.
+    assert.match(source, /forceBitmapOverHTMLImageElement = true/);
+    assert.match(source, /enableOffThreadTextureDecode\(engine\)/);
+});
+
+test('sahne açılış adımları geliştirme derlemesinde ölçülür', async () => {
+    const source = await readProjectFile('src/main.js');
+    assert.match(source, /const timePhase = \(label, run\) => \{\s*if \(!import\.meta\.env\.DEV\) return run\(\);/);
+    assert.match(source, /whenReady \(doku\/gölgelendirici bekleme\)/);
+    assert.match(source, /phaseTimings,/);
 });

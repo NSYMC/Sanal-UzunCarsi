@@ -10,13 +10,20 @@ RUN npm ci --ignore-scripts
 COPY index.html vite.config.js ./
 COPY src ./src
 COPY scripts ./scripts
+COPY tests ./tests
 COPY public ./public
+# Büyük sahne GLB'leri depoda parçalar hâlinde durur; prebuild bu parçalardan
+# birleştirir, dolayısıyla parçalar build context'te bulunmak zorunda.
+COPY runtime-assets ./runtime-assets
 
 # Runtime assets are assembled and validated by the Vite prebuild pipeline.
 RUN npm run build \
+    && npm run check \
     && test -f dist/models/selection/selection-world.glb \
     && test -f dist/models/world/outside.glb \
-    && test -f dist/models/nisantasi/store-raw.glb
+    && test -f dist/models/nisantasi/store-raw.glb \
+    && test -f dist/models/telefon/store-raw.glb \
+    && test -f dist/models/products/guzel-optik/yesil-camli-gozluk.glb
 
 FROM nginx:1.30-alpine
 

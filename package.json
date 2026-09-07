@@ -19,7 +19,8 @@
     "products:analyze": "node scripts/analyze-product-models.mjs",
     "products:enrich": "node scripts/enrich-product-data.mjs",
     "products:enrich-sude": "node scripts/enrich-sude-product-data.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm test && node scripts/validate-product-data.mjs && node scripts/validate-runtime-assets.mjs && node scripts/validate-store-package.mjs public/models/guzel-optik && node scripts/validate-telefon-store.mjs"
   },
   "devDependencies": {
     "@gltf-transform/cli": "^4.4.2",

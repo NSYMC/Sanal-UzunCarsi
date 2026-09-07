@@ -9,7 +9,7 @@ import bindingData from '../src/data/scene-product-bindings.json' with { type: '
 import { resolveSudeProduct, sudeProducts } from '../src/data/sude-product-matches.js';
 import nisantasiProductMatches from '../src/data/mawus-product-matches.js';
 import { createProductRegistry } from '../src/product-registry.js';
-import { applyProductBindings } from '../src/product-runtime-bindings.js';
+import { applyProductBindings, filterExistingManifestProducts } from '../src/product-runtime-bindings.js';
 
 const readGlbJson = async (filename) => {
     const buffer = await readFile(filename);
@@ -25,18 +25,41 @@ test('yeni Güzel Optik sahnesi doğrudan kullanılır ve raflara kodla gözlük
         readFile('src/main.js', 'utf8')
     ]);
     const sceneNames = new Set((scene.nodes || []).map(({ name }) => name));
-    assert.equal(manifest.products.length, 90);
+    assert.ok(Array.isArray(manifest.products));
     assert.ok(sceneNames.has('Glasses.002'), 'Yeni Güzel Optik exportu etkin değil.');
-    assert.match(applicationSource, /store-environment\.glb', '17759e7e'/);
+    assert.match(applicationSource, /store-environment\.glb', 'b13f7582'/);
     assert.doesNotMatch(applicationSource, /loadOptikDisplayProducts|displaySourceFile|__shelf_/);
 });
 
-test('Güzel Optik kayıtlarının tamamı sahnede ve bağımsız GLB eşleşmeleri erişilebilir', async () => {
+test('Güzel Optik katalog kayıtlarının bağımsız GLB eşleşmeleri erişilebilir', async () => {
     const products = productData.products.filter(({ storeId }) => storeId === 'guzel-optik');
-    assert.equal(products.length, 91);
+    assert.ok(products.length > 0);
     const withStandaloneModel = products.filter(({ highQualityModel }) => highQualityModel);
-    assert.equal(withStandaloneModel.length, 91);
+    assert.equal(withStandaloneModel.length, products.length);
     await Promise.all(withStandaloneModel.map(({ highQualityModel }) => access(path.join('public', highQualityModel.replace(/^\/models\//, 'models/')))));
+});
+
+test('aktif optik ürünleri güncel GLB raf düğümleriyle birebir eşleşir', async () => {
+    const gltf = await readGlbJson('public/models/guzel-optik/store-environment.glb');
+    const registry = createProductRegistry({ schemaVersion: 1, products: productData.products, bindings: bindingData.bindings });
+    const sceneNames = (gltf.nodes || []).map(node => node.name || '');
+    const products = productData.products.filter(product => product.active !== false && /^OPTIK_PRODUCT_\d{3}$/.test(product.id));
+    const sceneIds = [...new Set(sceneNames.map(name => name.match(/^(OPTIK_PRODUCT_\d{3})(?=_|$)/)?.[1]).filter(Boolean))];
+    assert.deepEqual(products.map(p => p.id).sort(), sceneIds.sort());
+    for (const product of products) {
+        const names = sceneNames.filter(name => name.match(/^OPTIK_PRODUCT_\d{3}(?=_|$)/)?.[0] === product.id);
+        assert.ok(names.length, `${product.id} için gerçek sahne düğümü yok`);
+        for (const name of names) {
+            const result = registry.resolvePick({ name, parent: null }, 'guzel-optik');
+            assert.equal(result?.product.id, product.id, `${name} yanlış ürüne bağlı`);
+        }
+    }
+});
+
+test('GLB dosyasından kaldırılmış ürünlere eski manifestten hayalet seçim kutusu üretilmez', () => {
+    const manifest = { products: [{ id: 'OPTIK_PRODUCT_021' }, { id: 'OPTIK_PRODUCT_200' }] };
+    const meshes = [{ name: 'lens primitive', parent: { name: 'OPTIK_PRODUCT_200_V1' } }];
+    assert.deepEqual(filterExistingManifestProducts(manifest, meshes).products, [{ id: 'OPTIK_PRODUCT_200' }]);
 });
 
 test('kaide üzerindeki özel gözlük parçalanma animasyonlu modele bağlıdır', async () => {
@@ -136,9 +159,20 @@ test('Güzel Optik gözlük araması 100–1000 TL aralığında sonuç döndür
     assert.ok(matches.length > 0);
 });
 
-test('28 Sude Home ürününün yüksek kaliteli GLB dosyaları erişilebilir', async () => {
-    assert.equal(sudeProducts.length, 28);
+test('23 Sude Home ürününün yüksek kaliteli GLB dosyaları erişilebilir', async () => {
+    assert.equal(sudeProducts.length, 23);
     await Promise.all(sudeProducts.map(({ highQualityModel }) => access(path.join('public', highQualityModel.replace(/^\/models\//, 'models/')))));
+});
+
+test('Sude Home kataloğu ile sahne eşleşme listesi aynı ürünleri içerir', () => {
+    // Sahnede karşılığı olmayan bir katalog kaydı aramada çıkar ama mağazada
+    // bulunamaz; iki liste her zaman birebir aynı kalmalı.
+    const catalogIds = productData.products
+        .filter(({ storeId }) => storeId === 'sude-home')
+        .map(({ id }) => id)
+        .sort();
+    const sceneIds = sudeProducts.map(({ id }) => id).sort();
+    assert.deepEqual(catalogIds, sceneIds);
 });
 
 test('Sude Home sahne kökleri doğru bağımsız ürünlere çözülür', () => {

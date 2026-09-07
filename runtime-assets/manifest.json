@@ -3,49 +3,43 @@
   "assets": [
     {
       "path": "public/models/sude-home/store-raw.glb",
-      "size": 50754204,
-      "sha256": "64aea422dee32780a590e26d85815eac8764060edd23c1b6e16e6da1b92f3d35",
+      "size": 20009576,
+      "sha256": "d8a9df7b0ac25aebbcd97b1df0878b8c97121decd81ef6dae8465d97c3216a29",
       "parts": [
-        "public__models__sude-home__store-raw.glb.part01",
-        "public__models__sude-home__store-raw.glb.part02"
+        "public__models__sude-home__store-raw.glb.part01"
       ]
     },
     {
       "path": "public/models/nisantasi/store-raw.glb",
-      "size": 87629056,
-      "sha256": "8993ca9d563a1bdabcf62b4266fd9d5bd4a7cc60ff141674f0c78dc6737425de",
+      "size": 22203648,
+      "sha256": "f47fe83913d742199a36f36b4ed3945427fe78a1f254c5ad3f32f439b3252483",
       "parts": [
-        "public__models__nisantasi__store-raw.glb.part01",
-        "public__models__nisantasi__store-raw.glb.part02"
+        "public__models__nisantasi__store-raw.glb.part01"
       ]
     },
     {
       "path": "public/models/guzel-optik/store-environment.glb",
-      "size": 52587308,
-      "sha256": "17759e7e64bff56c50c3e17e5e50094b31f9da46ab67d0b8bf7e1e85fe25baa1",
+      "size": 21484776,
+      "sha256": "bd9535e4d186a6c5d2d4239b5b92a8a695f3f8d22cc1b37c99dd12b6c0bd6fc5",
       "parts": [
-        "public__models__guzel-optik__store-environment.glb.part01",
-        "public__models__guzel-optik__store-environment.glb.part02"
+        "public__models__guzel-optik__store-environment.glb.part01"
       ]
     },
     {
       "path": "public/models/world/always.glb",
-      "size": 78319548,
-      "sha256": "dcf647908726ec9b732b083b3a471cae7958a1d38b162bbf1520baccae47468e",
+      "size": 20575876,
+      "sha256": "67c50d0da28f1f8d701f64c02951080d31cdc28baa4939efcbf22b78aa4afd17",
       "parts": [
-        "public__models__world__always.glb.part01",
-        "public__models__world__always.glb.part02"
+        "public__models__world__always.glb.part01"
       ]
     },
     {
       "path": "public/models/world/outside.glb",
-      "size": 156114296,
-      "sha256": "b1f718878b4c9afd3752fd0413a8a98610933f7086e8847b995a71c0c431c251",
+      "size": 53569132,
+      "sha256": "5427777e1fc3b26e05e4c867e824a24bce43fa85557aa0595ee6eef248874f55",
       "parts": [
         "public__models__world__outside.glb.part01",
-        "public__models__world__outside.glb.part02",
-        "public__models__world__outside.glb.part03",
-        "public__models__world__outside.glb.part04"
+        "public__models__world__outside.glb.part02"
       ]
     }
   ]

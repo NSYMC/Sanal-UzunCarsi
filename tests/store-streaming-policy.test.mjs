@@ -26,9 +26,9 @@ test('outside sahnesi kapı eşiğinde açık kalır ve kullanıcı tamamen içe
 
 test('mağaza uzaktan görünür ve çıkış eşiği titreşimi önler', () => {
     const limits = createStoreSpatialLimits(bounds);
-    assert.equal(containsXZ(limits.proximityEnter, { x: 27.445, z: 58 }), true);
-    assert.equal(containsXZ(limits.proximityEnter, { x: 27.445, z: 61 }), false);
-    assert.equal(containsXZ(limits.proximityExit, { x: 27.445, z: 61 }), true);
+    assert.equal(containsXZ(limits.proximityEnter, { x: 27.445, z: 36 }), true);
+    assert.equal(containsXZ(limits.proximityEnter, { x: 27.445, z: 37 }), false);
+    assert.equal(containsXZ(limits.proximityExit, { x: 27.445, z: 41 }), true);
 });
 
 test('arka plan indirme sırası seçilen mağazaya yakınlığa göre belirlenir', () => {

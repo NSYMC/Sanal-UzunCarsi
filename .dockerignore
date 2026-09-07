@@ -4,10 +4,38 @@
 dist
 node_modules
 screenshots
+scratch
+outputs
 *.log
 *.assembling
 
-# Docker derlemesi kaynak parçalardan tek GLB üretir. Yerelde oluşturulmuş
-# 617 MB'lık kopyayı build context'e ikinci kez göndermeyiz.
-**/*.glb
+# Depo kökündeki kaynak sahneler ve Blender'dan çıkan ham modeller yalnızca
+# yerel üretim içindir; imaja girmez.
+/*.glb
+/*.exr
+/Products/
 
+# Bu dosyalar derleme sırasında runtime-assets parçalarından yeniden
+# üretiliyor; build context'e ikinci kez gönderilmez.
+/public/models/sude-home/store-raw.glb
+/public/models/nisantasi/store-raw.glb
+/public/models/guzel-optik/store-environment.glb
+/public/models/world/always.glb
+/public/models/world/outside.glb
+/public/models/selection/selection-world.glb
+/public/models/etc1s/
+/public/models/materials-optimized/
+
+# Yerel çalışma dosyaları.
+/PROJE-INCELEME.md
+/blender_build/
+/renders_cycles/
+/scripts/audit-project-assets.mjs
+/scripts/diagnose-telefon-loading.mjs
+/scripts/full-project-*.mjs
+/scripts/kapi-ankraj-guncelle.mjs
+/scripts/kapi-konumlari.mjs
+/scripts/on-cephe-tara.mjs
+/scripts/optik-katalog-ekle.mjs
+/docs/
+.*/

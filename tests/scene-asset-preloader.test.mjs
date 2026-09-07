@@ -170,3 +170,24 @@ test('harita açıldıktan sonra bütün dosyalar arka plan kuyruğuna alınır'
         restoreGlobal('fetch', previousFetch);
     }
 });
+
+
+test('geçici indirme hatası aynı oturumda yeniden denenir', async () => {
+    const names = ['window', 'navigator', 'fetch'];
+    const previous = names.map(saveGlobal);
+    let attempts = 0;
+    Object.defineProperty(globalThis, 'window', { configurable: true, value: { setTimeout, clearTimeout } });
+    Object.defineProperty(globalThis, 'navigator', { configurable: true, value: {} });
+    Object.defineProperty(globalThis, 'fetch', { configurable: true, value: async () => {
+        if (++attempts === 1) throw new Error('temporary failure');
+        return new Response('asset', { headers: { 'content-length': '5' } });
+    } });
+    try {
+        const preloader = createSceneAssetPreloader({ assets: [{ id: 'store:test', url: '/model.glb' }] });
+        await assert.rejects(preloader.prioritize('store:test'));
+        await preloader.prioritize('store:test');
+        assert.equal(attempts, 2);
+        assert.deepEqual(preloader.state('store:test'), { state: 'ready', loaded: 5, total: 5, progress: 1 });
+        preloader.dispose();
+    } finally { names.forEach((name, index) => restoreGlobal(name, previous[index])); }
+});

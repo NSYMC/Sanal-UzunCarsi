@@ -65,3 +65,15 @@ __pycache__/
 # Geçici/yerel model dönüşüm kalıntıları.
 *.assembling
 .cache/
+
+# Yerel çalışma dosyaları.
+/PROJE-INCELEME.md
+/blender_build/
+/renders_cycles/
+/scripts/audit-project-assets.mjs
+/scripts/diagnose-telefon-loading.mjs
+/scripts/full-project-*.mjs
+/scripts/kapi-ankraj-guncelle.mjs
+/scripts/kapi-konumlari.mjs
+/scripts/on-cephe-tara.mjs
+/scripts/optik-katalog-ekle.mjs

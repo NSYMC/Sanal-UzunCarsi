@@ -7,6 +7,7 @@ import { Matrix, Vector3 } from '@babylonjs/core/Maths/math.vector';
 import { SceneLoader } from '@babylonjs/core/Loading/sceneLoader';
 
 import { applyDeviceResolution } from './render-resolution.js';
+import { configureColorManagement } from './color-management.js';
 
 import '@babylonjs/loaders/glTF';
 
@@ -52,6 +53,7 @@ export const createSelectionWorld = ({
 
     const engine = createEngine(canvas);
     const scene = new Scene(engine);
+    configureColorManagement(scene);
     scene.useRightHandedSystem = true;
     scene.performancePriority = ScenePerformancePriority.Aggressive;
     scene.clearColor = new Color4(0.86, 0.82, 0.75, 1);
@@ -124,12 +126,17 @@ export const createSelectionWorld = ({
             const url = new URL(assetUrl, window.location.href);
             const filename = `${url.pathname.split('/').pop()}${url.search}`;
             const rootUrl = url.href.slice(0, url.href.length - filename.length);
+            const measureGlb = new URLSearchParams(window.location.search).get('measureGlb') === '1';
+            const glbStartedAt = performance.now();
             const container = await SceneLoader.LoadAssetContainerAsync(rootUrl, filename, scene, (event) => {
                 const progress = event.lengthComputable && event.total
                     ? clamp01(event.loaded / event.total) * 100
                     : null;
                 setStatus(progress === null ? 'Harita yükleniyor' : `Harita yükleniyor · %${Math.round(progress)}`, progress);
             });
+            if (measureGlb) {
+                document.documentElement.dataset.selectionGlbMs = String(Math.round(performance.now() - glbStartedAt));
+            }
             if (disposed) {
                 container.dispose();
                 return;

@@ -25,7 +25,7 @@ test('seçim dünyası bütün kaynak üçgenlerini eksiksiz korur', async () =>
     const sourceTriangles = manifest.sources.reduce((total, source) => total + source.triangles, 0);
 
     assert.equal(manifest.triangles, sourceTriangles);
-    assert.equal(manifest.sources.length, 5);
+    assert.equal(manifest.sources.length, 6);
     assert.ok(manifest.sources.every((source) => source.triangles > 0));
     assert.equal(manifest.sources.find((source) => source.id === 'outside')?.preservedWorldTextures, true);
     assert.equal(manifest.sources.find((source) => source.id === 'outside')?.texturesAfter, 2);

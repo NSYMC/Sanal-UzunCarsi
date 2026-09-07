@@ -29,9 +29,17 @@ test('seçilecek mağaza menü etkileşiminde görünmeden önce hazırlanmaya b
     assert.match(mainSource, /activeTourPrepare = \(storeId\) => streaming\.ensureRuntime\(storeId\)/);
     assert.match(mainSource, /item\.addEventListener\('pointerenter'/);
     assert.match(mainSource, /loadStore\(scene, quality, STORES\[storeId\], \{ background: true \}\)/);
-    assert.match(mainSource, /if \(!background\) \{\s*await scene\.whenReadyAsync\(\)/);
+    assert.match(mainSource, /if \(!background\) \{\s*await [\s\S]{0,80}?scene\.whenReadyAsync\(\)/);
     assert.match(mainSource, /if \(!background\) setLoadingProgress/);
     assert.doesNotMatch(mainSource, /streaming\.prewarmAll\(\)/);
+});
+
+test('komşu mağazalar açılış sırasında değil, sinematikten sonra boş zamanda hazırlanır', () => {
+    assert.match(mainSource, /let proximityLoadingEnabled = false/);
+    assert.match(mainSource, /scheduleProximityRuntimeLoad/);
+    assert.match(mainSource, /window\.requestIdleCallback\(loadIfStillNearby, \{ timeout: 4000 \}\)/);
+    assert.match(mainSource, /proximityLoadInFlightStoreId/);
+    assert.match(mainSource, /streaming\.enableProximityLoading\(\)/);
 });
 
 test('bütün şehir için pahalı seçim octree yapısı kurulmaz', () => {

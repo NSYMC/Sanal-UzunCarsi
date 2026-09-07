@@ -78,7 +78,7 @@
     pointer-events: auto;
     cursor: pointer;
     font: 600 11px/1 system-ui, sans-serif;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
     transition: opacity 350ms ease 900ms, color 180ms ease, border-color 180ms ease;
 }
 

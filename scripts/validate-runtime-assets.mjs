@@ -67,6 +67,8 @@ const requiredFiles = [
     'public/models/guzel-optik/product-library.glb',
     'public/models/sude-home/store-raw.glb',
     'public/models/nisantasi/store-raw.glb',
+    'public/models/telefon/store-raw.glb',
+    'public/models/selection/selection-world.glb',
     'public/environments/store-ocean-sky.hdr'
 ];
 

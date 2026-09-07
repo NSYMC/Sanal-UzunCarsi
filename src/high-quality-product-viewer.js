@@ -12,6 +12,8 @@ import { TransformNode } from '@babylonjs/core/Meshes/transformNode';
 import { LoadAssetContainerAsync } from '@babylonjs/core/Loading/sceneLoader';
 
 import { applyDeviceResolution } from './render-resolution.js';
+import { configureColorManagement } from './color-management.js';
+import { createLatestRequest } from './latest-request.js';
 
 import '@babylonjs/loaders/glTF';
 
@@ -251,6 +253,7 @@ export const createHighQualityProductViewer = ({
     applyDeviceResolution(engine, { maxDpr: 2 });
 
     const scene = new Scene(engine);
+    configureColorManagement(scene);
     // Açık ürün sahnesi CSS arka planını gösterir; koyu ve ince parçalar siluetini kaybetmez.
     scene.clearColor = new Color4(0, 0, 0, 0);
     scene.environmentTexture = null;
@@ -309,6 +312,7 @@ export const createHighQualityProductViewer = ({
     let caseRoot = null;
     let caseTransientContainer = null;
     let activeCaseUrl = null;
+    const caseRequests = createLatestRequest();
     let heroMotion = null;
     let requestVersion = 0;
     let disposed = false;
@@ -367,6 +371,7 @@ export const createHighQualityProductViewer = ({
     };
 
     const releaseCase = () => {
+        caseRequests.invalidate();
         caseEntries?.dispose();
         caseEntries = null;
         caseRoot?.dispose();
@@ -447,13 +452,10 @@ export const createHighQualityProductViewer = ({
 
     const trimCache = (protectedUrl = null) => {
         while (sourceCache.size > maxCacheSize) {
-            const oldest = sourceCache.entries().next().value;
+            const protectedUrls = new Set([protectedUrl, state.modelUrl, activeCaseUrl]);
+            const oldest = [...sourceCache.entries()].find(([url]) => !protectedUrls.has(url));
             if (!oldest) break;
             const [modelUrl, container] = oldest;
-            if (modelUrl === protectedUrl && sourceCache.size > 1) {
-                touchCache(modelUrl, container);
-                continue;
-            }
             sourceCache.delete(modelUrl);
             container.dispose();
         }
@@ -477,6 +479,10 @@ export const createHighQualityProductViewer = ({
             }
         });
         simplifyGlassMaterials(container);
+        if (disposed) {
+            container.dispose();
+            throw new Error('Ürün inceleyici kapatıldı.');
+        }
         if (maxCacheSize > 0) {
             touchCache(modelUrl, container);
             trimCache(modelUrl);
@@ -689,8 +695,13 @@ export const createHighQualityProductViewer = ({
         // Kılıf yalnızca birleşik telefona giydirilir; parçalar ayrıksa toplanır.
         if (explodePhase === 'acik' || explodePhase === 'aciliyor') runExplode(false);
         releaseCase();
+        const isCurrent = caseRequests.begin();
+        const targetRoot = activeModelRoot;
         const { container } = await getContainer(url);
-        if (disposed || !activeModelRoot) return null;
+        if (disposed || !isCurrent() || activeModelRoot !== targetRoot) {
+            if (!sourceCache.has(url)) container.dispose();
+            return null;
+        }
         if (!sourceCache.has(url)) caseTransientContainer = container;
         caseRoot = new TransformNode(`hqCaseRoot_${Date.now()}`, scene);
         // Kılıf ve telefon aynı orijinde üretildiği için ek dönüşüm gerekmez.

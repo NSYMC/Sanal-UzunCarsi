@@ -1,3 +1,5 @@
+import { createEventScope } from './event-scope.js';
+import { createFocusTrap } from './focus-trap.js';
 import { Engine } from '@babylonjs/core/Engines/engine';
 import { Scene } from '@babylonjs/core/scene';
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
@@ -267,9 +269,11 @@ export const createTourEditor = ({
     sceneProducts = null,
     loadModeledProduct = null,
     productRegistry = null,
+    onGoldPricesLoaded = null,
     openHighQualityProduct = null,
     closeHighQualityProduct = null,
     onProductOpened = null,
+    onProductClosed = null,
     storeId = null
 }) => {
     const dom = {
@@ -347,18 +351,23 @@ export const createTourEditor = ({
         inspectorDescription: document.getElementById('inspectorDescription'),
         inspectorProperties: document.getElementById('inspectorProperties'),
         inspectorHotspots: document.getElementById('productStageHotspots'),
-        hoverPrompt: document.getElementById('productHoverPrompt'),
-        hoverPromptName: document.getElementById('hoverPromptName'),
-        hoverPromptDesc: document.getElementById('hoverPromptDesc'),
+        hoverHint: document.getElementById('productHoverHint'),
+        hoverHintName: document.getElementById('hoverHintName'),
+        hoverHintDesc: document.getElementById('hoverHintDesc'),
         aimReticle: document.getElementById('aimReticle')
     };
 
-    const goldPricing = createGoldPricingPanel(document.getElementById('goldPricingPanel'));
+    const events = createEventScope();
+    const listen = events.listen;
+    const goldPricing = createGoldPricingPanel(document.getElementById('goldPricingPanel'), { onPricesLoaded: onGoldPricesLoaded });
 
     if (Object.entries(dom).some(([key, element]) => key !== 'toggle' && !element)) {
         console.warn('Editör arayüzü eksik olduğu için başlatılamadı.');
+        events.dispose();
+        goldPricing.dispose();
         return { dispose() {} };
     }
+    const inspectorFocusTrap = createFocusTrap(dom.inspector, { initialFocus: () => dom.inspectorClose });
 
     const tourMeshSet = new Set(tourMeshes.filter((mesh) => mesh?.geometry));
     const originalPickable = new Map([...tourMeshSet].map((mesh) => [mesh, mesh.isPickable]));
@@ -383,10 +392,12 @@ export const createTourEditor = ({
     let previewScene = null;
     let previewRoot = null;
     let ignoreMouseLookUntil = 0;
+    let ignoreTourPickUntil = 0;
     let pendingLookX = 0;
     let pendingLookY = 0;
     const isTourPointerLocked = () => document.pointerLockElement === canvas;
-    const isTourControlActive = () => isTourPointerLocked();
+    const isTouchTour = () => document.body.classList.contains('touch-tour-active');
+    const isTourControlActive = () => isTourPointerLocked() || isTouchTour();
     const isBindingEditorOpen = () => document.body.classList.contains('product-binding-editor-open');
     const requestTourPointerLock = () => {
         if (isTourPointerLocked()) return;
@@ -403,9 +414,9 @@ export const createTourEditor = ({
             const request = canvas.requestPointerLock();
             request?.catch?.((error) => {
                 document.body.dataset.pointerLockError = `${error?.name || 'Error'}: ${error?.message || 'Pointer lock reddedildi'}`;
-                if (dom.hoverPromptName) dom.hoverPromptName.textContent = 'Fare kontrolü etkinleştirilemedi';
-                if (dom.hoverPromptDesc) dom.hoverPromptDesc.textContent = 'Tarayıcı imleç kilidine izin vermedi';
-                dom.hoverPrompt?.classList.remove('hidden');
+                if (dom.hoverHintName) dom.hoverHintName.textContent = 'Fare kontrolü etkinleştirilemedi';
+                if (dom.hoverHintDesc) dom.hoverHintDesc.textContent = 'Tarayıcı imleç kilidine izin vermedi';
+                dom.hoverHint?.classList.remove('hidden');
             });
         } catch (error) {
             document.body.dataset.pointerLockError = `${error?.name || 'Error'}: ${error?.message || 'Pointer lock başlatılamadı'}`;
@@ -448,7 +459,7 @@ export const createTourEditor = ({
         clearProductHighlight();
         hoveredProductId = null;
         dom.aimReticle.classList.remove('is-targeting');
-        if (dom.hoverPrompt) dom.hoverPrompt.classList.add('hidden');
+        if (dom.hoverHint) dom.hoverHint.classList.add('hidden');
     };
 
     const persist = () => writeSavedTriggers(triggers);
@@ -780,7 +791,7 @@ export const createTourEditor = ({
             badge.className = 'trigger-list-badge';
             badge.textContent = String(trigger.products.length);
             button.append(copy, badge);
-            button.addEventListener('click', () => selectTrigger(trigger.id));
+            listen(button, 'click', () => selectTrigger(trigger.id));
             dom.triggerList.append(button);
         });
     };
@@ -1185,7 +1196,10 @@ export const createTourEditor = ({
     };
 
     const closeInspector = () => {
+        ignoreTourPickUntil = performance.now() + 420;
         dom.inspector.classList.add('hidden');
+        onProductClosed?.();
+        inspectorFocusTrap.deactivate();
         clearProductTarget();
         canvas.style.cursor = 'default';
         document.body.classList.remove('product-inspector-open');
@@ -1225,7 +1239,7 @@ export const createTourEditor = ({
                 text.append(description);
             }
             button.append(dot, text);
-            button.addEventListener('click', () => {
+            listen(button, 'click', () => {
                 const willOpen = !button.classList.contains('is-open');
                 dom.inspectorHotspots.querySelectorAll('.is-open').forEach((item) => item.classList.remove('is-open'));
                 button.classList.toggle('is-open', willOpen);
@@ -1285,7 +1299,7 @@ export const createTourEditor = ({
     };
 
     const fillRegisteredProductDetails = (product) => {
-        const price = Number.isFinite(Number(product.price))
+        const price = typeof product.price === 'number' && Number.isFinite(product.price)
             ? new Intl.NumberFormat('tr-TR', {
                 style: 'currency',
                 currency: product.currency || 'TRY',
@@ -1343,6 +1357,7 @@ export const createTourEditor = ({
         camera.detachControl();
         dom.inspector.classList.remove('hidden');
         document.body.classList.add('product-inspector-open');
+        inspectorFocusTrap.activate();
 
         previewEngine = new Engine(dom.inspectorCanvas, true, {
             alpha: true,
@@ -1489,6 +1504,7 @@ export const createTourEditor = ({
         camera.detachControl();
         dom.inspector.classList.remove('hidden');
         document.body.classList.add('product-inspector-open');
+        inspectorFocusTrap.activate();
 
         previewEngine = new Engine(dom.inspectorCanvas, true, {
             alpha: true,
@@ -1699,6 +1715,7 @@ export const createTourEditor = ({
             fillRegisteredProductDetails(registeredProduct);
             dom.inspector.classList.remove('hidden');
             document.body.classList.add('product-inspector-open');
+            inspectorFocusTrap.activate();
             canvas.style.cursor = 'progress';
             try {
                 await openHighQualityProduct?.(registeredProduct, targetMesh);
@@ -1721,21 +1738,21 @@ export const createTourEditor = ({
 
         if (!modeledProduct.highQualityMeshes && loadModeledProduct) {
             canvas.style.cursor = 'progress';
-            if (dom.hoverPromptName) dom.hoverPromptName.textContent = 'Ürün yükleniyor…';
-            if (dom.hoverPromptDesc) dom.hoverPromptDesc.textContent = 'İlk açılış birkaç saniye sürebilir.';
-            if (dom.hoverPrompt) dom.hoverPrompt.classList.remove('hidden');
+            if (dom.hoverHintName) dom.hoverHintName.textContent = 'Ürün yükleniyor…';
+            if (dom.hoverHintDesc) dom.hoverHintDesc.textContent = 'İlk açılış birkaç saniye sürebilir.';
+            if (dom.hoverHint) dom.hoverHint.classList.remove('hidden');
             try {
                 await loadModeledProduct(productId);
             } catch (error) {
                 console.error('Yüksek kaliteli ürün yüklenemedi:', error);
-                if (dom.hoverPromptName) dom.hoverPromptName.textContent = 'Ürün yüklenemedi';
-                if (dom.hoverPromptDesc) dom.hoverPromptDesc.textContent = 'Bağlantıyı kontrol edip yeniden deneyin.';
+                if (dom.hoverHintName) dom.hoverHintName.textContent = 'Ürün yüklenemedi';
+                if (dom.hoverHintDesc) dom.hoverHintDesc.textContent = 'Bağlantıyı kontrol edip yeniden deneyin.';
                 canvas.style.cursor = 'pointer';
                 return;
             }
         }
 
-        if (dom.hoverPrompt) dom.hoverPrompt.classList.add('hidden');
+        if (dom.hoverHint) dom.hoverHint.classList.add('hidden');
         canvas.style.cursor = 'default';
         openModeledProductInspector(productId, targetMesh);
     };
@@ -1782,59 +1799,59 @@ export const createTourEditor = ({
     };
 
     document.querySelectorAll('[data-add-trigger]').forEach((button) => {
-        button.addEventListener('click', () => {
+        listen(button, 'click', () => {
             const productType = button.dataset.addTrigger;
             setStatus(`${PRODUCT_TYPES[productType]?.label || 'Ürün'} dizisi yükleniyor…`, 'active');
             createTriggerInFront(productType);
         });
     });
     document.querySelectorAll('[data-transform-mode]').forEach((button) => {
-        button.addEventListener('click', () => setTransformMode(button.dataset.transformMode));
+        listen(button, 'click', () => setTransformMode(button.dataset.transformMode));
     });
 
-    dom.close.addEventListener('click', () => setEditorMode(false));
-    dom.cancelPlacement.addEventListener('click', cancelPlacement);
-    dom.placeInFront.addEventListener('click', placeTriggerInFront);
-    dom.undoButton.addEventListener('click', undoRemoveTrigger);
-    dom.removeTrigger.addEventListener('click', removeSelectedTrigger);
-    dom.clearProducts.addEventListener('click', clearSelectedProducts);
-    dom.focusTrigger.addEventListener('click', focusSelectedTrigger);
-    dom.quickFillProducts.addEventListener('click', fillSelectedTrigger);
-    dom.applyTrigger.addEventListener('click', () => {
+    listen(dom.close, 'click', () => setEditorMode(false));
+    listen(dom.cancelPlacement, 'click', cancelPlacement);
+    listen(dom.placeInFront, 'click', placeTriggerInFront);
+    listen(dom.undoButton, 'click', undoRemoveTrigger);
+    listen(dom.removeTrigger, 'click', removeSelectedTrigger);
+    listen(dom.clearProducts, 'click', clearSelectedProducts);
+    listen(dom.focusTrigger, 'click', focusSelectedTrigger);
+    listen(dom.quickFillProducts, 'click', fillSelectedTrigger);
+    listen(dom.applyTrigger, 'click', () => {
         const trigger = findTrigger();
         if (!trigger) return;
         updateSelectedTriggerFromForm(true);
         setStatus(`Tek ürün ölçüsü uygulandı; dizideki ${trigger.products.length} ürün aynı ölçüye güncellendi.`, 'success');
     });
-    dom.repositionTrigger.addEventListener('click', () => {
+    listen(dom.repositionTrigger, 'click', () => {
         const trigger = findTrigger();
         if (trigger) beginPlacement(trigger.productType, trigger.id);
     });
-    dom.regenerate.addEventListener('click', fillSelectedTrigger);
-    dom.triggerQuantity.addEventListener('input', updateLayoutDraft);
-    dom.triggerDirection.addEventListener('change', updateLayoutDraft);
+    listen(dom.regenerate, 'click', fillSelectedTrigger);
+    listen(dom.triggerQuantity, 'input', updateLayoutDraft);
+    listen(dom.triggerDirection, 'change', updateLayoutDraft);
 
-    dom.triggerName.addEventListener('change', () => updateSelectedTriggerFromForm(false));
+    listen(dom.triggerName, 'change', () => updateSelectedTriggerFromForm(false));
     [dom.triggerPosX, dom.triggerPosY, dom.triggerPosZ, dom.triggerRotY].forEach((input) => {
-        input.addEventListener('input', () => scheduleTriggerFormUpdate(false));
-        input.addEventListener('change', () => updateSelectedTriggerFromForm(false));
+        listen(input, 'input', () => scheduleTriggerFormUpdate(false));
+        listen(input, 'change', () => updateSelectedTriggerFromForm(false));
     });
-    dom.triggerType.addEventListener('change', () => updateSelectedTriggerFromForm(true));
+    listen(dom.triggerType, 'change', () => updateSelectedTriggerFromForm(true));
     [dom.triggerWidth, dom.triggerHeight, dom.triggerDepth].forEach((input) => {
-        input.addEventListener('input', () => scheduleTriggerFormUpdate(true));
-        input.addEventListener('change', () => updateSelectedTriggerFromForm(true));
+        listen(input, 'input', () => scheduleTriggerFormUpdate(true));
+        listen(input, 'change', () => updateSelectedTriggerFromForm(true));
     });
     [dom.triggerLightIntensity, dom.triggerLightRange, dom.triggerLightColor].forEach((input) => {
-        input.addEventListener('input', () => scheduleTriggerFormUpdate(true));
-        input.addEventListener('change', () => updateSelectedTriggerFromForm(true));
+        listen(input, 'input', () => scheduleTriggerFormUpdate(true));
+        listen(input, 'change', () => updateSelectedTriggerFromForm(true));
     });
-    dom.triggerGap.addEventListener('input', () => {
+    listen(dom.triggerGap, 'input', () => {
         dom.triggerGapValue.textContent = `${Math.round(Number(dom.triggerGap.value) * 100)} cm`;
         scheduleTriggerFormUpdate(true);
     });
-    dom.triggerGap.addEventListener('change', () => updateSelectedTriggerFromForm(true));
+    listen(dom.triggerGap, 'change', () => updateSelectedTriggerFromForm(true));
 
-    dom.productForm.addEventListener('submit', (event) => {
+    listen(dom.productForm, 'submit', (event) => {
         event.preventDefault();
         const match = findProduct();
         if (!match) return;
@@ -1850,11 +1867,11 @@ export const createTourEditor = ({
         renderEditor();
         setStatus('Ürün bilgileri kaydedildi.', 'success');
     });
-    dom.previewProduct.addEventListener('click', () => {
+    listen(dom.previewProduct, 'click', () => {
         if (selectedProductId) openInspector(selectedProductId);
     });
-    dom.inspectorClose.addEventListener('click', closeInspector);
-    dom.inspectorDone.addEventListener('click', closeInspector);
+    listen(dom.inspectorClose, 'click', closeInspector);
+    listen(dom.inspectorDone, 'click', closeInspector);
 
     const pickInspectableProduct = (screenX, screenY, fastOnly = false) => {
         let pick = scene.pick(screenX, screenY, isInspectableProductMesh, fastOnly, camera);
@@ -1891,15 +1908,15 @@ export const createTourEditor = ({
         hoveredProductId = productId;
         dom.aimReticle.classList.add('is-targeting');
         const product = findRegisteredProduct(productId) || findModeledProduct(productId) || findProduct(productId)?.product;
-        if (product && dom.hoverPrompt) {
+        if (product && dom.hoverHint) {
             const name = product.details?.name || product.name || 'Optik Gözlük';
             const rawPrice = product.details?.price ?? product.price ?? '';
             const price = Number.isFinite(Number(rawPrice))
                 ? `${Number(rawPrice).toLocaleString('tr-TR')} ${product.currency || 'TRY'}`
                 : rawPrice;
-            if (dom.hoverPromptName) dom.hoverPromptName.textContent = price ? `${name} · ${price}` : name;
-            if (dom.hoverPromptDesc) dom.hoverPromptDesc.textContent = 'Sol tıkla ürünü incele';
-            dom.hoverPrompt.classList.remove('hidden');
+            if (dom.hoverHintName) dom.hoverHintName.textContent = price ? `${name} · ${price}` : name;
+            if (dom.hoverHintDesc) dom.hoverHintDesc.textContent = 'Sol tıkla ürünü incele';
+            dom.hoverHint.classList.remove('hidden');
         }
     };
 
@@ -1940,7 +1957,7 @@ export const createTourEditor = ({
         document.body.classList.toggle('pointer-locked', locked);
         if (locked) {
             delete document.body.dataset.pointerLockError;
-            dom.hoverPrompt?.classList.add('hidden');
+            dom.hoverHint?.classList.add('hidden');
             ignoreMouseLookUntil = performance.now() + 140;
         }
         else {
@@ -1949,16 +1966,16 @@ export const createTourEditor = ({
             clearProductTarget();
         }
     };
-    document.addEventListener('pointerlockchange', handlePointerLockChange);
+    listen(document, 'pointerlockchange', handlePointerLockChange);
 
     const handleTourPointerLeave = () => {
         if (!isTourPointerLocked()) {
             clearProductTarget();
         }
     };
-    canvas.addEventListener('pointerleave', handleTourPointerLeave);
+    listen(canvas, 'pointerleave', handleTourPointerLeave);
 
-    canvas.addEventListener('pointermove', (event) => {
+    listen(canvas, 'pointermove', (event) => {
         if (isBindingEditorOpen()) return;
         if (!isEditorMode) {
             if (isTourControlActive() && dom.inspector.classList.contains('hidden')) {
@@ -1993,18 +2010,21 @@ export const createTourEditor = ({
         updateTriggerTransform(target);
     }, true);
 
-    canvas.addEventListener('pointerdown', (event) => {
+    listen(canvas, 'pointerdown', (event) => {
         if (isBindingEditorOpen()) return;
         if (event.button !== 0 || dom.inspector.classList.contains('hidden') === false) return;
         if (!isEditorMode) {
             event.preventDefault();
+            if (performance.now() < ignoreTourPickUntil) return;
             if (!isTourControlActive()) {
                 clearProductTarget();
                 requestTourPointerLock();
                 return;
             }
             const rect = canvas.getBoundingClientRect();
-            const pickedMesh = pickInspectableProduct(rect.width * 0.5, rect.height * 0.5);
+            const pickX = isTouchTour() ? event.clientX - rect.left : rect.width * 0.5;
+            const pickY = isTouchTour() ? event.clientY - rect.top : rect.height * 0.5;
+            const pickedMesh = pickInspectableProduct(pickX, pickY);
             if (pickedMesh) {
                 const productId = pickedMesh.metadata?.productId
                     || pickedMesh.metadata?.modeledProductId;
@@ -2058,10 +2078,10 @@ export const createTourEditor = ({
         cameraSuspendedForGizmo = false;
         if (dom.inspector.classList.contains('hidden')) camera.attachControl(canvas, true);
     };
-    window.addEventListener('pointerup', restoreCameraAfterGizmo, true);
-    window.addEventListener('pointercancel', restoreCameraAfterGizmo, true);
+    listen(window, 'pointerup', restoreCameraAfterGizmo, true);
+    listen(window, 'pointercancel', restoreCameraAfterGizmo, true);
 
-    window.addEventListener('keydown', (event) => {
+    listen(window, 'keydown', (event) => {
         if (isBindingEditorOpen()) return;
         if (event.key === 'Escape') {
             if (!dom.inspector.classList.contains('hidden')) closeInspector();
@@ -2078,13 +2098,13 @@ export const createTourEditor = ({
                     || pickedMesh.metadata?.modeledProductId;
                 if (productId) {
                     openInspector(productId, pickedMesh);
-                    if (dom.hoverPrompt) dom.hoverPrompt.classList.add('hidden');
+                    if (dom.hoverHint) dom.hoverHint.classList.add('hidden');
                     return;
                 }
             }
         }
     });
-    window.addEventListener('resize', () => previewEngine?.resize(), { passive: true });
+    listen(window, 'resize', () => previewEngine?.resize(), { passive: true });
 
     setTransformMode('move');
     renderEditor();
@@ -2094,7 +2114,13 @@ export const createTourEditor = ({
             const productId = typeof productOrId === 'string' ? productOrId : productOrId?.id;
             if (productId) void openInspector(productId);
         },
+        closeProduct() {
+            if (!dom.inspector.classList.contains('hidden')) closeInspector();
+        },
         dispose({ preserveSceneProducts = false } = {}) {
+            events.dispose();
+            inspectorFocusTrap.dispose();
+            goldPricing.dispose();
             closeInspector();
             releaseTourPointerLock();
             window.clearTimeout(formUpdateTimer);

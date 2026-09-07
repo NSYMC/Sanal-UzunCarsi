@@ -1,7 +1,6 @@
+import { createGoldMarketLoader } from './gold-market.js';
 const SPOT_URL = 'https://xaus.com/api/v1/spot?currency=TRY&unit=gram&compact=1';
 const HISTORY_URL = 'https://xaus.com/api/v1/history';
-const CACHE_KEY = 'uzunCarsi:goldMarket:v1';
-const CACHE_TTL = 5 * 60 * 1000;
 
 export const MAWUS_TARIFF = Object.freeze({
     name: 'Sistemde tanımlı Nişantaşı fiyat tarifesi',
@@ -45,7 +44,7 @@ export const loadMawusProductPrices = async () => {
             kind: profile.kind
         }];
     }));
-    return { prices, cached: Boolean(market.cached), stale: Boolean(market.stale) };
+    return { prices, market, cached: Boolean(market.cached), stale: Boolean(market.stale) };
 };
 
 const money = new Intl.NumberFormat('tr-TR', {
@@ -54,15 +53,6 @@ const money = new Intl.NumberFormat('tr-TR', {
 const gramMoney = new Intl.NumberFormat('tr-TR', {
     style: 'currency', currency: 'TRY', minimumFractionDigits: 2, maximumFractionDigits: 2
 });
-
-const readCache = () => {
-    try {
-        const value = JSON.parse(localStorage.getItem(CACHE_KEY));
-        return value?.spot?.price > 0 ? value : null;
-    } catch {
-        return null;
-    }
-};
 
 const fetchJson = async (url) => {
     const controller = new AbortController();
@@ -76,20 +66,14 @@ const fetchJson = async (url) => {
     }
 };
 
-const loadMarket = async () => {
-    const cached = readCache();
-    if (cached && Date.now() - cached.savedAt < CACHE_TTL) return { ...cached, cached: true };
-    try {
-        const [spot, history] = await Promise.all([fetchJson(SPOT_URL), fetchJson(HISTORY_URL)]);
-        if (!Number.isFinite(Number(spot?.xau?.price))) throw new Error('Gram altın fiyatı bulunamadı.');
-        const value = { spot, history, savedAt: Date.now() };
-        localStorage.setItem(CACHE_KEY, JSON.stringify(value));
-        return value;
-    } catch (error) {
-        if (cached) return { ...cached, cached: true, stale: true, error };
-        throw error;
+const loadMarket = createGoldMarketLoader({
+    fetchSpot: () => fetchJson(SPOT_URL),
+    fetchHistory: () => fetchJson(HISTORY_URL),
+    storage: {
+        getItem: (key) => globalThis.localStorage?.getItem(key),
+        setItem: (key, value) => globalThis.localStorage?.setItem(key, value)
     }
-};
+});
 
 export const calculateGoldPrice = (spotGram24, profile) => {
     const pureGoldValue = spotGram24 * profile.weightGram * (profile.karat / 24);
@@ -143,7 +127,8 @@ const drawChart = (canvas, points) => {
     ctx.stroke();
 };
 
-export const createGoldPricingPanel = (root) => {
+export const createGoldPricingPanel = (root, { onPricesLoaded } = {}) => {
+    const disclosure = root?.closest('.gold-pricing-disclosure') || null;
     const dom = {
         root,
         spot: root?.querySelector('[data-gold-spot]'),
@@ -157,16 +142,23 @@ export const createGoldPricingPanel = (root) => {
         inspectorPrice: root?.closest('.product-detail')?.querySelector('#inspectorPrice')
     };
     let requestId = 0;
+    let activeProduct = null;
 
     const hide = () => {
+        activeProduct = null;
         requestId += 1;
         dom.root?.classList.add('hidden');
+        disclosure?.classList.add('hidden');
+        if (disclosure) disclosure.open = false;
     };
 
     const show = async (product, storeId) => {
         const profile = PRODUCT_PROFILES[product?.id];
         if (storeId !== 'nisantasi' || !profile || !dom.root) return hide();
+        activeProduct = product;
         const activeRequest = ++requestId;
+        disclosure?.classList.remove('hidden');
+        if (disclosure) disclosure.open = false;
         dom.root.classList.remove('hidden');
         dom.spot.textContent = 'Güncel fiyat alınıyor…';
         dom.updated.textContent = '';
@@ -178,7 +170,9 @@ export const createGoldPricingPanel = (root) => {
             ? `%${(MAWUS_TARIFF.bullionMarginRate * 100).toLocaleString('tr-TR')} mağaza payı`
             : `%${(MAWUS_TARIFF.jewelryMarginRate * 100).toLocaleString('tr-TR')} mağaza payı + ${money.format(MAWUS_TARIFF.workmanshipPerGram)}/gr işçilik${profile.kind === 'gemstone' ? ` + ${money.format(MAWUS_TARIFF.gemstoneServiceFee)} taş montür hizmeti` : ''}`;
         try {
-            const market = await loadMarket();
+            const result = await loadMawusProductPrices();
+            await onPricesLoaded?.(result);
+            const market = result.market;
             if (activeRequest !== requestId) return;
             const spotPrice = Number(market.spot.xau.price);
             const calculation = calculateGoldPrice(spotPrice, profile);
@@ -226,5 +220,7 @@ export const createGoldPricingPanel = (root) => {
         }
     };
 
-    return { show, hide };
+    const onOnline = () => { if (activeProduct) void show(activeProduct, 'nisantasi'); };
+    window.addEventListener('online', onOnline);
+    return { show, hide, dispose() { hide(); window.removeEventListener('online', onOnline); } };
 };

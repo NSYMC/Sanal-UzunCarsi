@@ -11,8 +11,8 @@ export const createStoreSpatialLimits = (bounds, {
     insideExitDepth = 0.35,
     insideSideInset = 0.12,
     insideBackInset = 0.12,
-    renderEnterPadding = 42,
-    renderExitPadding = 48
+    renderEnterPadding = 18,
+    renderExitPadding = 24
 } = {}) => {
     const entranceDirection = Math.sign(bounds.entranceTarget.z - bounds.entrance.z) || -1;
     const entranceLimit = (depth) => bounds.entrance.z + entranceDirection * clampPadding(depth);

@@ -38,16 +38,17 @@
                 "maxZ": -7.78053
             },
             "entrance": [
-                27.445,
+                27.45,
                 -6.72,
-                -9.71693
+                -12.68
             ],
             "entranceTarget": [
                 27.445,
                 -6.72,
-                -15.86693
+                -18.68
             ],
-            "verificationNode": "OPTIK_PRODUCT_021_V10"
+            "verificationNode": "OPTIK_PRODUCT_021_V10",
+            "entranceSource": "on cephe paneli 5.07 m genisliginde"
         },
         "sude-home": {
             "assetTransform": {
@@ -81,16 +82,17 @@
                 "maxZ": -7.85923
             },
             "entrance": [
-                -34.20643,
+                -34.285,
                 -6.72,
-                -9.51693
+                -12.637
             ],
             "entranceTarget": [
-                -34.20643,
+                -34.206,
                 -6.72,
-                -15.66693
+                -18.637
             ],
-            "verificationNode": "SUDE_HOME_GLASS_ENTRANCE_SINGLE"
+            "verificationNode": "SUDE_HOME_GLASS_ENTRANCE_SINGLE",
+            "entranceSource": "SUDE_HOME_GLASS_ENTRANCE_SINGLE"
         },
         "nisantasi": {
             "assetTransform": {
@@ -124,16 +126,17 @@
                 "maxZ": -12.10492
             },
             "entrance": [
-                43.9,
+                43.66,
                 -6.42,
-                -11.7
+                -13.08
             ],
             "entranceTarget": [
-                43.72,
+                44.194,
                 -7.15,
-                -17.5
+                -19.08
             ],
-            "verificationNode": "AKFA_Ceiling_Center_Base"
+            "verificationNode": "AKFA_Ceiling_Center_Base",
+            "entranceSource": "Cube.314, 3.34 m genisliginde acikllik"
         },
         "telefon": {
             "assetTransform": {
@@ -167,16 +170,17 @@
                 "maxZ": -12.1
             },
             "entrance": [
-                -25.9,
+                -25.546,
                 -6.34,
-                -11.6
+                -12.915
             ],
             "entranceTarget": [
-                -27.6,
+                -27.853,
                 -7.1,
-                -17.5
+                -18.915
             ],
-            "verificationNode": "TAVAN_Plaka"
+            "verificationNode": "TAVAN_Plaka",
+            "entranceSource": "GIRIS_Kapi, 0.92 m tek kanat"
         }
     }
 }
