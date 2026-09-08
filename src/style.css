@@ -2160,6 +2160,15 @@ kbd {
   backdrop-filter: none;
   transform: translateY(-38px);
 }
+
+.store-marker--sude strong,
+.store-marker--sude small,
+.store-marker--optik strong,
+.store-marker--optik small {
+  justify-self: end;
+  text-align: right;
+  transform: translate(calc(-100% - 48px), -38px);
+}
 .store-marker strong { align-self: end; font: 800 11px/1 var(--font-brand); }
 .store-marker small { align-self: start; color: rgba(58, 45, 37, .62); font: 650 8px/1 var(--font-brand); }
 .store-marker:hover { z-index: 2; }

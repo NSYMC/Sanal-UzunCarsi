@@ -71,3 +71,24 @@ test('mağaza seçim arayüzü 3B harita canvasını opak katmanla kapatmaz', as
 
     assert.match(finalRule, /background:\s*transparent/);
 });
+
+test('harita kamerası arazi yerine mağaza sırasını kadrajlar', async () => {
+    const anchors = JSON.parse(await readFile(path.join(projectRoot, 'src', 'store-anchors.json'), 'utf8'));
+    const stores = Object.values(anchors.stores);
+    const minX = Math.min(...stores.map((store) => store.bounds.minX));
+    const maxX = Math.max(...stores.map((store) => store.bounds.maxX));
+    const minZ = Math.min(...stores.map((store) => store.bounds.minZ));
+    const maxZ = Math.max(...stores.map((store) => store.bounds.maxZ));
+    const radius = Math.max(220, Math.min(360, Math.max(maxX - minX, maxZ - minZ) * 3));
+    const target = [(minX + maxX) / 2, (minZ + maxZ) / 2];
+
+    assert.ok(radius >= 220 && radius <= 360);
+    assert.ok(target[0] > -5 && target[0] < 10);
+    assert.ok(target[1] > -25 && target[1] < -20);
+
+    const source = await readFile(path.join(projectRoot, 'src', 'selection-world.js'), 'utf8');
+    assert.match(source, /const storeFrame = frameStores\(stores\);/);
+    assert.match(source, /'selectionMapCamera',[\s\S]*?Math\.PI \/ 2,[\s\S]*?0\.72,/);
+    assert.match(source, /const anchor = store\.bounds\.entrance;/);
+    assert.doesNotMatch(source, /entrance\.add\(new Vector3\(0, 3\.6, 0\)\)/);
+});

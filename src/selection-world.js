@@ -17,6 +17,23 @@ const easeInOutCubic = (value) => value < 0.5
     : 1 - Math.pow(-2 * value + 2, 3) / 2;
 const mix = (from, to, amount) => from + (to - from) * amount;
 
+export const frameStores = (stores) => {
+    const entries = Object.values(stores || {}).filter((store) => store?.bounds);
+    if (!entries.length) return { target: [0, 0, 0], radius: 260 };
+
+    const minX = Math.min(...entries.map((store) => store.bounds.minX));
+    const maxX = Math.max(...entries.map((store) => store.bounds.maxX));
+    const minZ = Math.min(...entries.map((store) => store.bounds.minZ));
+    const maxZ = Math.max(...entries.map((store) => store.bounds.maxZ));
+    const floorY = entries.reduce((total, store) => total + store.bounds.floorY, 0) / entries.length;
+    const span = Math.max(maxX - minX, maxZ - minZ);
+
+    return {
+        target: [(minX + maxX) / 2, floorY + 1.8, (minZ + maxZ) / 2],
+        radius: Math.max(220, Math.min(360, span * 3))
+    };
+};
+
 const createEngine = (canvas) => {
     const engine = new Engine(canvas, true, {
         antialias: true,
@@ -61,12 +78,13 @@ export const createSelectionWorld = ({
     scene.skipPointerMovePicking = true;
     scene.blockMaterialDirtyMechanism = true;
 
-    const initialTarget = new Vector3(0, 0, 0);
+    const storeFrame = frameStores(stores);
+    const initialTarget = Vector3.FromArray(storeFrame.target);
     const camera = new ArcRotateCamera(
         'selectionMapCamera',
-        -Math.PI / 2,
-        0.42,
-        5100,
+        Math.PI / 2,
+        0.72,
+        storeFrame.radius,
         initialTarget,
         scene
     );
@@ -111,7 +129,7 @@ export const createSelectionWorld = ({
         for (const button of markerButtons) {
             const store = stores[button.dataset.selectionStore];
             if (!store) continue;
-            const anchor = store.bounds.entrance.add(new Vector3(0, 3.6, 0));
+            const anchor = store.bounds.entrance;
             const projected = Vector3.Project(anchor, Matrix.IdentityReadOnly, scene.getTransformMatrix(), viewport);
             const visible = projected.z > 0 && projected.z < 1 && button.dataset.filterHidden !== 'true';
             button.hidden = !visible;
@@ -142,15 +160,6 @@ export const createSelectionWorld = ({
                 return;
             }
             container.addAllToScene();
-            const terrainMesh = container.meshes.find((mesh) => mesh.name.includes('outside:GIS_Terrain_2km'));
-            if (terrainMesh?.geometry) {
-                const terrainBounds = terrainMesh.getBoundingInfo().boundingBox;
-                const terrainSize = terrainBounds.extendSizeWorld.scale(2);
-                const mapSpan = Math.max(terrainSize.x, terrainSize.z);
-                camera.target.copyFrom(terrainBounds.centerWorld);
-                camera.radius = Math.max(900, mapSpan * 1.28);
-                camera.upperRadiusLimit = Math.max(camera.radius * 1.2, 6200);
-            }
             let hiddenDetailMeshes = 0;
             for (const mesh of container.meshes) {
                 mesh.isPickable = false;
